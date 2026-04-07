@@ -23,6 +23,8 @@
     .courier-logos .courier-card { background: #fff; border-radius: 12px; padding: 30px 40px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); display: flex; align-items: center; justify-content: center; transition: transform 0.3s ease, box-shadow 0.3s ease; min-width: 180px; min-height: 100px; }
     .courier-logos .courier-card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); }
     .courier-logos .courier-card img { height: 55px; width: auto; object-fit: contain; max-width: 150px; }
+    .courier-logos .courier-card.courier-card--full { padding: 0; overflow: hidden; }
+    .courier-logos .courier-card.courier-card--full img { height: 100%; width: 100%; max-width: none; object-fit: cover; border-radius: 12px; }
     .trust-badges { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
     .trust-badge { display: flex; align-items: center; gap: 8px; color: var(--rocard-blue); font-weight: 500; }
     @media (max-width: 768px) {
@@ -166,7 +168,7 @@
     <p style="text-align: center; color: var(--rocard-gray-600); margin-bottom: 40px;">Collaboriamo con i migliori corrieri nazionali per garantirti consegne sempre puntuali e sicure.</p>
     <div class="courier-logos">
       <!-- NOTA: Aggiorna gli URL quando carichi le immagini nella Media Library di WordPress -->
-      <div class="courier-card"><img src="https://customer-assets.emergentagent.com/job_rocard-careers/artifacts/hjsao1eg_images.png" alt="GLS"></div>
+      <div class="courier-card courier-card--full"><img src="https://customer-assets.emergentagent.com/job_rocard-careers/artifacts/hjsao1eg_images.png" alt="GLS"></div>
       <div class="courier-card"><img src="https://services.brt.it/flex/TemplatesUSR/assets/img/BRTServices/logo-brt.svg" alt="BRT"></div>
       <div class="courier-card"><img src="https://www.posteitaliane.it/img/1476525198990/logo-poste-italiane.png" alt="Poste Italiane"></div>
     </div>

@@ -1214,6 +1214,19 @@ a:hover {
   max-width: 150px;
 }
 
+.courier-card.courier-card--full img {
+  height: 100%;
+  width: 100%;
+  max-width: none;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+}
+
+.courier-card.courier-card--full {
+  padding: 0;
+  overflow: hidden;
+}
+
 @media (max-width: 768px) {
   .couriers-grid {
     gap: 20px;
