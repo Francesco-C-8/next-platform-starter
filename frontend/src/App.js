@@ -288,7 +288,7 @@ const ChiSiamoPage = () => (
         <p style={{ textAlign: 'center', color: 'var(--rocard-gray-600)', marginBottom: '40px' }}>Collaboriamo con i migliori corrieri nazionali per garantirti consegne sempre puntuali e sicure.</p>
         <div className="couriers-grid">
           <div className="courier-card">
-            <img src="/images/gls-logo.png" alt="GLS - Corriere partner Rocard" />
+            <img src="https://customer-assets.emergentagent.com/job_rocard-careers/artifacts/hjsao1eg_images.png" alt="GLS - Corriere partner Rocard" />
           </div>
           <div className="courier-card">
             <img src="/images/brt-logo.svg" alt="BRT - Corriere partner Rocard" />
