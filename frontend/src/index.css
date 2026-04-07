@@ -1198,8 +1198,8 @@ a:hover {
   align-items: center;
   justify-content: center;
   transition: transform var(--transition-normal), box-shadow var(--transition-normal);
-  min-width: 180px;
-  min-height: 100px;
+  width: 180px;
+  height: 180px;
 }
 
 .courier-card:hover {
@@ -1233,8 +1233,8 @@ a:hover {
   }
   .courier-card {
     padding: 20px 30px;
-    min-width: 140px;
-    min-height: 80px;
+    width: 140px;
+    height: 140px;
   }
   .courier-card img {
     height: 40px;
