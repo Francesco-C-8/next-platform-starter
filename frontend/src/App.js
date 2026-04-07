@@ -85,12 +85,16 @@ const Footer = () => (
           <ul className="footer-links">
             <li><NavLink to="/contatti-aziendali">Contatti aziendali</NavLink></li>
             <li><a href="mailto:info@rocard.it">info@rocard.it</a></li>
-            <li><a href="tel:+3907731888391">+39 0773 1888391</a></li>
+            <li><a href="mailto:rcm21@pec.it">PEC: rcm21@pec.it</a></li>
+            <li><a href="tel:+3907731888391">Tel: +39 077 31888391</a></li>
+            <li style={{ fontSize: '0.85rem', color: 'var(--rocard-gray-500)', marginTop: '8px' }}>RCM S.r.l. - P.IVA 09736331217</li>
+            <li style={{ fontSize: '0.85rem', color: 'var(--rocard-gray-500)' }}>Località Ponte Riccio, snc</li>
+            <li style={{ fontSize: '0.85rem', color: 'var(--rocard-gray-500)' }}>80014 Giugliano in Campania (NA)</li>
           </ul>
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; 2024 Rocard S.r.l. - P.IVA 00000000000 - Tutti i diritti riservati</p>
+        <p>&copy; 2024 RCM S.r.l. - P.IVA 09736331217 - Località Ponte Riccio, snc – 80014 Giugliano in Campania (NA) - Tutti i diritti riservati</p>
       </div>
     </div>
   </footer>
@@ -283,9 +287,9 @@ const ChiSiamoPage = () => (
         <h2 style={{ textAlign: 'center', marginBottom: '16px' }}>Corrieri Partner</h2>
         <p style={{ textAlign: 'center', color: 'var(--rocard-gray-600)', marginBottom: '40px' }}>Collaboriamo con i migliori corrieri nazionali per garantirti consegne sempre puntuali e sicure.</p>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '60px', flexWrap: 'wrap' }}>
-          <img src="https://www.rocard.it/wp-content/uploads/2026/03/logo-gls-socio-netcomm-2023.png" alt="GLS" style={{ height: '50px', objectFit: 'contain' }} />
-          <img src="https://www.rocard.it/wp-content/uploads/2026/03/brt-logo.jpg" alt="BRT" style={{ height: '50px', objectFit: 'contain' }} />
-          <img src="https://www.rocard.it/wp-content/uploads/2026/03/unnamed-2.png" alt="Poste Italiane" style={{ height: '50px', objectFit: 'contain' }} />
+          <img src="https://static.prod-images.emergentagent.com/jobs/4fce1953-8b8d-45b2-a184-48dad9371ce1/images/430824387a5aa7b1c28807f1afcce7e898a592fed7a39b575ad18cfa392a470b.png" alt="GLS" style={{ height: '50px', objectFit: 'contain' }} />
+          <img src="https://static.prod-images.emergentagent.com/jobs/4fce1953-8b8d-45b2-a184-48dad9371ce1/images/b83d765fa29deb5745cf145e8baa13f33b6051ed5e1b40c6a53f1148309e002a.png" alt="BRT" style={{ height: '50px', objectFit: 'contain' }} />
+          <img src="https://static.prod-images.emergentagent.com/jobs/4fce1953-8b8d-45b2-a184-48dad9371ce1/images/43e248bd3ff4e840e4602796b74b6d1bf54c0d8bb13c2c0a47012703d66995ae.png" alt="Poste Italiane" style={{ height: '50px', objectFit: 'contain' }} />
         </div>
       </div>
     </section>
@@ -1041,9 +1045,13 @@ const ContattiAziendaliPage = () => (
         </div>
         <div className="content-block">
           <div className="content-block-text">
-            <h3>Rocard S.r.l.</h3>
+            <h3>RCM S.r.l.</h3>
             <p><strong>Sede Legale e Operativa:</strong></p>
-            <p>Via [Indirizzo Placeholder], 00<br />80014 Giugliano in Campania (NA)<br />Italia</p>
+            <p>Località Ponte Riccio, snc<br />80014 Giugliano in Campania (NA)<br />Italia</p>
+            <p style={{ marginTop: '15px' }}><strong>P.IVA:</strong> 09736331217</p>
+            <p><strong>Tel:</strong> <a href="tel:+3907731888391">+39 077 31888391</a></p>
+            <p><strong>Email:</strong> <a href="mailto:info@rocard.it">info@rocard.it</a></p>
+            <p><strong>PEC:</strong> <a href="mailto:rcm21@pec.it">rcm21@pec.it</a></p>
             <p style={{ marginTop: '20px' }}><strong>Orari Uffici:</strong></p>
             <p>Lun - Ven: 9:00 - 18:00<br />Sab - Dom: Chiuso</p>
           </div>
