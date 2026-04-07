@@ -33,10 +33,15 @@ Sviluppo sezione "Azienda" (Corporate) per il sito WordPress/WooCommerce rocard.
 - [x] Creazione 7 template HTML standalone per Elementor
 - [x] CSS globale tema Rocard
 - [x] Chi Siamo: replica struttura live rocard.it (hero, numeri, servizi, testimonials, Treedom, corrieri, visione, trust badges)
-- [x] Loghi corrieri: GLS, BRT, Poste Italiane (generati)
+- [x] Loghi corrieri: GLS, BRT, Poste Italiane (ufficiali - da fonti originali)
 - [x] Logo Rocard: monogramma "R" dorato (caricato dall'utente)
 - [x] Dati aziendali RCM SRL in Contatti e Footer (indirizzo, P.IVA, tel, PEC)
 - [x] Posizioni lavorative: solo Addetto Logistica e Customer Care (Giugliano in Campania)
 - [x] Contatti: email unica info@rocard.it con categorizzazione automatica
 - [x] "Non offriamo lavoro da remoto" in Lavora con noi
 - [x] Metriche aggiornate: ~750K spedizioni/anno, 2.000+ prodotti, ~10 collaboratori, 1.000 mq
+
+### Fonti Loghi Corrieri (Aprile 2026)
+- GLS: iconape.com (PNG) + copia locale /public/images/gls-logo.png
+- BRT: services.brt.it (SVG ufficiale) + copia locale /public/images/brt-logo.svg
+- Poste Italiane: posteitaliane.it (PNG ufficiale) + copia locale /public/images/poste-italiane-logo.png

@@ -288,13 +288,13 @@ const ChiSiamoPage = () => (
         <p style={{ textAlign: 'center', color: 'var(--rocard-gray-600)', marginBottom: '40px' }}>Collaboriamo con i migliori corrieri nazionali per garantirti consegne sempre puntuali e sicure.</p>
         <div className="couriers-grid">
           <div className="courier-card">
-            <img src="https://static.prod-images.emergentagent.com/jobs/4fce1953-8b8d-45b2-a184-48dad9371ce1/images/430824387a5aa7b1c28807f1afcce7e898a592fed7a39b575ad18cfa392a470b.png" alt="GLS - Corriere partner Rocard" />
+            <img src="/images/gls-logo.png" alt="GLS - Corriere partner Rocard" />
           </div>
           <div className="courier-card">
-            <img src="https://static.prod-images.emergentagent.com/jobs/4fce1953-8b8d-45b2-a184-48dad9371ce1/images/b83d765fa29deb5745cf145e8baa13f33b6051ed5e1b40c6a53f1148309e002a.png" alt="BRT - Corriere partner Rocard" />
+            <img src="/images/brt-logo.svg" alt="BRT - Corriere partner Rocard" />
           </div>
           <div className="courier-card">
-            <img src="https://static.prod-images.emergentagent.com/jobs/4fce1953-8b8d-45b2-a184-48dad9371ce1/images/43e248bd3ff4e840e4602796b74b6d1bf54c0d8bb13c2c0a47012703d66995ae.png" alt="Poste Italiane - Corriere partner Rocard" />
+            <img src="/images/poste-italiane-logo.png" alt="Poste Italiane - Corriere partner Rocard" />
           </div>
         </div>
       </div>
