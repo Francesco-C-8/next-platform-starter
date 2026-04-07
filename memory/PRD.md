@@ -1,98 +1,62 @@
-# Rocard Corporate Website - PRD
+# Rocard Corporate Pages - PRD
 
-## Original Problem Statement
-Sviluppo area "Azienda" su rocard.it per:
-- Posizionare Rocard come azienda strutturata
-- Migliorare percezione di affidabilità
-- Creare funnel per raccolta candidature
+## Problema Originale
+Sviluppo sezione "Azienda" (Corporate) per il sito WordPress/WooCommerce rocard.it con l'obiettivo di migliorare il brand positioning e creare un recruiting funnel.
 
-Stack richiesto: WordPress/Elementor/WooCommerce
-Output: HTML standalone importabile in Elementor
+## Pagine Richieste
+1. Chi siamo
+2. Vision & Valori
+3. Il nostro modello
+4. Numeri & Crescita
+5. Il team
+6. Lavora con noi
+7. Contatti aziendali
 
-## User Personas
-1. **Candidati** - Cercano lavoro, vogliono conoscere l'azienda e candidarsi
-2. **Clienti** - Vogliono capire chi è Rocard prima di acquistare
-3. **Fornitori/Partner** - Cercano contatti aziendali per collaborazioni
-4. **HR interno** - Gestiscono candidature e posizioni aperte
+## Deliverables
+- Template HTML semantici standalone con CSS inline, pronti per copy-paste in Elementor
+- React preview app per visualizzazione live
+- Tema colori Rocard: blu (#1a3c6e) / arancione (#f57c00)
 
-## Core Requirements (Static)
-- 7 pagine corporate con template riutilizzabile
-- Form candidatura funzionale
-- Stile coerente con brand Rocard (blu #1a3c6e, arancione #f57c00)
-- HTML semantico e commentato per Elementor
-- Mobile-first, layout pulito e professionale
+## Architettura
+```
+/app/frontend/
+├── src/App.js (React preview con tutte le 7 pagine + homepage + routing)
+├── src/App.css, src/index.css (Stili globali)
+├── public/html-templates/ (7 file HTML standalone + CSS)
+│   ├── chi-siamo.html
+│   ├── contatti-aziendali.html
+│   ├── lavora-con-noi.html
+│   ├── nostro-modello.html
+│   ├── numeri-crescita.html
+│   ├── team.html
+│   ├── vision-valori.html
+│   └── rocard-corporate-styles.css
+```
 
-## What's Been Implemented
-**Date: January 2025**
+## Stato Implementazione
 
-### Pages Created (7/7)
-1. ✅ **Chi siamo** - `/chi-siamo` - Hero, chi è Rocard, mission, come lavoriamo
-2. ✅ **Vision & Valori** - `/vision-valori` - Vision, 5 valori fondamentali
-3. ✅ **Il nostro modello** - `/nostro-modello` - E-commerce, logistica, customer care, selezione prodotti
-4. ✅ **Numeri & Crescita** - `/numeri-crescita` - Counter section con 8 metriche
-5. ✅ **Il team** - `/team` - Intro team, 3 divisioni (logistica, customer care, marketing)
-6. ✅ **Lavora con noi** - `/lavora-con-noi` - PRIORITÀ COMPLETATA
-   - Hero section
-   - 6 benefit cards
-   - 4 posizioni aperte
-   - Processo selezione (4 step)
-   - Form candidatura completo
-7. ✅ **Contatti aziendali** - `/contatti-aziendali` - 4 contact cards, info sede
+### Completato
+- [x] Setup React preview environment
+- [x] Creazione 7 template HTML standalone per Elementor
+- [x] CSS globale tema Rocard
+- [x] Aggiornamento metriche reali (7 Apr 2026):
+  - Logistica: 1.000 mq, circa 2.000 ordini/giorno
+  - Numeri: ~750.000 spedizioni/anno, 2.000+ prodotti, ~10 collaboratori
+  - Logo Rocard reale da rocard.it
+  - Immagine magazzino (stock Unsplash)
+  - Immagine selezione prodotti (stock Unsplash)
+  - "Non offriamo lavoro da remoto" in Lavora con noi
+  - Tutte le email impostate su info@rocard.it
+  - Posizioni lavorative: tutte "Sede Latina" (nessun remoto)
 
-### Form Candidatura
-Campi implementati:
-- Nome, Cognome, Email, Telefono
-- Ruolo di interesse (dropdown con 5 opzioni)
-- Upload CV (PDF, DOC, DOCX)
-- Messaggio/Presentazione
-- Privacy checkbox
+### Backlog
+- Nessuna attività pendente
 
-### HTML Templates
-Creati in `/app/frontend/public/html-templates/`:
-- `lavora-con-noi.html`
-- `chi-siamo.html`
-- `vision-valori.html`
-- `numeri-crescita.html`
-- `contatti-aziendali.html`
-- `nostro-modello.html`
-- `team.html`
-- `rocard-corporate-styles.css` (CSS standalone per WordPress)
-
-### Design System
-- Font: Poppins (Google Fonts)
-- Colori: Blu Rocard (#1a3c6e), Arancione (#f57c00)
-- Componenti: Hero, Content Block, Numbers Grid, Values Cards, Form, CTA
-
-## Prioritized Backlog
-
-### P0 - Completato ✅
-- [x] Lavora con noi + form
-- [x] Template riutilizzabile
-- [x] Chi siamo
-- [x] Tutte le altre pagine
-
-### P1 - Da implementare in WordPress
-- [ ] Collegare form a Elementor Form widget
-- [ ] Configurare invio email a info@rocard.it
-- [ ] Creare Custom Post Type "Posizioni" 
-- [ ] Configurare salvataggio candidature in database
-- [ ] Export candidati
-
-### P2 - Miglioramenti futuri
-- [ ] Aggiungere foto reali del team
-- [ ] Integrare mappa Google per sede
-- [ ] Aggiungere filtri posizioni per sede/tipo
-- [ ] Newsletter per nuove posizioni
-
-## Next Tasks
-1. Importare HTML templates in Elementor
-2. Configurare Elementor Form per invio email
-3. Creare CPT "Posizioni" in WordPress
-4. Inserire contenuti definitivi (forniti dal cliente)
-5. SEO: configurare URL puliti e meta tags
-
-## Technical Notes
-- React app demo: https://rocard-careers.preview.emergentagent.com
-- CSS standalone disponibile per copia in WordPress
-- Tutte le sezioni commentate nel codice HTML
-- Mobile responsive testato
+## Dati Reali Rocard
+- Spedizioni/anno: ~750.000
+- Prodotti a catalogo: 2.000+
+- Collaboratori: ~10
+- Magazzino: 1.000 mq
+- Ordini/giorno: ~2.000
+- Email contatto: info@rocard.it
+- Logo: https://www.rocard.it/wp-content/uploads/2025/09/rocard-logo.png

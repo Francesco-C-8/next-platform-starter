@@ -12,7 +12,7 @@ const Navigation = () => {
     <nav className="main-nav" data-testid="main-navigation">
       <div className="rocard-container nav-container">
         <NavLink to="/" className="nav-logo" data-testid="nav-logo">
-          Ro<span>card</span>
+          <img src="https://www.rocard.it/wp-content/uploads/2025/09/rocard-logo.png" alt="Rocard" style={{ height: '40px' }} />
         </NavLink>
         
         <button 
@@ -57,7 +57,7 @@ const Footer = () => (
     <div className="rocard-container">
       <div className="footer-grid">
         <div>
-          <div className="footer-logo">Ro<span>card</span></div>
+          <div className="footer-logo"><img src="https://www.rocard.it/wp-content/uploads/2025/09/rocard-logo.png" alt="Rocard" style={{ height: '36px' }} /></div>
           <p className="footer-desc">
             Da oltre 10 anni, Rocard rappresenta l'eccellenza nell'e-commerce italiano. 
             Qualità, affidabilità e un servizio clienti impareggiabile.
@@ -119,20 +119,20 @@ const HomePage = () => (
       <div className="rocard-container">
         <div className="numbers-grid">
           <div className="number-card">
-            <div className="number-value">10M+</div>
-            <div className="number-label">Fatturato Annuo</div>
+            <div className="number-value">~750K</div>
+            <div className="number-label">Spedizioni/Anno</div>
           </div>
           <div className="number-card">
-            <div className="number-value">150K+</div>
-            <div className="number-label">Ordini Evasi</div>
+            <div className="number-value">2.000+</div>
+            <div className="number-label">Prodotti a Catalogo</div>
           </div>
           <div className="number-card">
-            <div className="number-value">80K+</div>
-            <div className="number-label">Clienti Soddisfatti</div>
+            <div className="number-value">~10</div>
+            <div className="number-label">Collaboratori</div>
           </div>
           <div className="number-card">
-            <div className="number-value">5K+</div>
-            <div className="number-label">Prodotti Disponibili</div>
+            <div className="number-value">1.000</div>
+            <div className="number-label">mq di Magazzino</div>
           </div>
         </div>
       </div>
@@ -170,7 +170,7 @@ const ChiSiamoPage = () => (
           <div className="content-block-text">
             <h3>Chi è Rocard</h3>
             <p>Rocard nasce nel 2013 con una visione chiara: rendere l'e-commerce un'esperienza semplice, affidabile e conveniente per tutti gli italiani.</p>
-            <p>Partiti da un piccolo magazzino, oggi siamo una realtà strutturata con oltre 30 collaboratori, un centro logistico di 3.000 mq e più di 5.000 prodotti a catalogo.</p>
+            <p>Partiti da un piccolo magazzino, oggi siamo una realtà strutturata con circa 10 collaboratori, un centro logistico di 1.000 mq e oltre 2.000 prodotti a catalogo.</p>
           </div>
           <div className="content-block-image">
             <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&h=400&fit=crop" alt="Magazzino Rocard" />
@@ -347,7 +347,7 @@ const NostroModelloPage = () => (
         <div className="content-block reverse">
           <div className="content-block-text">
             <h3>Logistica Integrata</h3>
-            <p>Il nostro centro logistico di 3.000 mq ci permette di gestire oltre 500 spedizioni giornaliere con efficienza e precisione.</p>
+            <p>Il nostro centro logistico di 1.000 mq ci permette di gestire circa 2.000 ordini al giorno con efficienza e precisione.</p>
             <p>Sistemi WMS avanzati, picking ottimizzato e partnership con i migliori corrieri garantiscono consegne rapide in tutta Italia.</p>
           </div>
           <div className="content-block-image">
@@ -383,7 +383,7 @@ const NostroModelloPage = () => (
             <p>Collaboriamo direttamente con i brand più importanti e con produttori selezionati per garantire l'autenticità e la qualità di ogni articolo.</p>
           </div>
           <div className="content-block-image">
-            <img src="https://images.unsplash.com/photo-1556742393-d75f468bfcb0?w=600&h=400&fit=crop" alt="Selezione prodotti" />
+            <img src="https://images.unsplash.com/photo-1770013413878-2530e2c3d82b?w=600&h=400&fit=crop" alt="Selezione prodotti" />
           </div>
         </div>
       </div>
@@ -427,15 +427,11 @@ const NumeriCrescitaPage = () => (
             <div className="number-label">Fatturato Annuo</div>
           </div>
           <div className="number-card">
-            <div className="number-value">150K+</div>
-            <div className="number-label">Ordini Evasi/Anno</div>
+            <div className="number-value">~750K</div>
+            <div className="number-label">Spedizioni/Anno</div>
           </div>
           <div className="number-card">
-            <div className="number-value">80K+</div>
-            <div className="number-label">Clienti Attivi</div>
-          </div>
-          <div className="number-card">
-            <div className="number-value">5K+</div>
+            <div className="number-value">2.000+</div>
             <div className="number-label">Prodotti a Catalogo</div>
           </div>
         </div>
@@ -447,11 +443,11 @@ const NumeriCrescitaPage = () => (
       <div className="rocard-container">
         <div className="numbers-grid">
           <div className="number-card">
-            <div className="number-value">30+</div>
+            <div className="number-value">~10</div>
             <div className="number-label">Collaboratori</div>
           </div>
           <div className="number-card">
-            <div className="number-value">3.000</div>
+            <div className="number-value">1.000</div>
             <div className="number-label">mq di Magazzino</div>
           </div>
           <div className="number-card">
@@ -516,7 +512,7 @@ const TeamPage = () => (
         <div className="content-block">
           <div className="content-block-text">
             <h3>Il Cuore di Rocard</h3>
-            <p>Dietro ogni ordine evaso, ogni problema risolto, ogni cliente soddisfatto c'è un team di oltre 30 professionisti appassionati.</p>
+            <p>Dietro ogni ordine evaso, ogni problema risolto, ogni cliente soddisfatto c'è un team di circa 10 professionisti appassionati.</p>
             <p>Giovani talenti e professionisti esperti lavorano insieme in un ambiente dinamico, stimolante e orientato ai risultati.</p>
           </div>
           <div className="content-block-image">
@@ -608,8 +604,8 @@ const LavoraConNoiPage = () => {
 
   const positions = [
     { title: 'Addetto/a Logistica', location: 'Sede Latina', type: 'Full-time', description: 'Gestione magazzino, preparazione ordini, spedizioni' },
-    { title: 'Customer Care Specialist', location: 'Sede Latina / Remoto', type: 'Full-time', description: 'Assistenza clienti multicanale, gestione reclami' },
-    { title: 'Digital Marketing Specialist', location: 'Remoto', type: 'Full-time', description: 'Gestione campagne ADV, SEO, social media marketing' },
+    { title: 'Customer Care Specialist', location: 'Sede Latina', type: 'Full-time', description: 'Assistenza clienti multicanale, gestione reclami' },
+    { title: 'Digital Marketing Specialist', location: 'Sede Latina', type: 'Full-time', description: 'Gestione campagne ADV, SEO, social media marketing' },
     { title: 'E-commerce Manager', location: 'Sede Latina', type: 'Full-time', description: 'Gestione piattaforma, ottimizzazione conversioni, analisi dati' },
   ];
 
@@ -651,8 +647,8 @@ const LavoraConNoiPage = () => {
             </div>
             <div className="benefit-card">
               <div className="benefit-icon"><Heart /></div>
-              <h4>Work-Life Balance</h4>
-              <p>Flessibilità oraria e possibilità di smart working dove il ruolo lo consente.</p>
+              <h4>Lavoro in Sede</h4>
+              <p>Non offriamo lavoro da remoto. Crediamo nel valore della collaborazione in presenza nella nostra sede.</p>
             </div>
             <div className="benefit-card">
               <div className="benefit-icon"><Shield /></div>
@@ -908,25 +904,25 @@ const ContattiAziendaliPage = () => (
             <div className="contact-icon"><Users /></div>
             <h4>Risorse Umane (HR)</h4>
             <p>Per candidature, informazioni su posizioni aperte e collaborazioni lavorative.</p>
-            <a href="mailto:hr@rocard.it">hr@rocard.it</a>
+            <a href="mailto:info@rocard.it">info@rocard.it</a>
           </div>
           <div className="contact-card" data-testid="contact-partnership">
             <div className="contact-icon"><Handshake /></div>
             <h4>Partnership</h4>
             <p>Per proposte di collaborazione commerciale, co-marketing e affiliazioni.</p>
-            <a href="mailto:partnership@rocard.it">partnership@rocard.it</a>
+            <a href="mailto:info@rocard.it">info@rocard.it</a>
           </div>
           <div className="contact-card" data-testid="contact-fornitori">
             <div className="contact-icon"><Building /></div>
             <h4>Fornitori</h4>
             <p>Per proposte commerciali, listini e richieste di inserimento prodotti.</p>
-            <a href="mailto:fornitori@rocard.it">fornitori@rocard.it</a>
+            <a href="mailto:info@rocard.it">info@rocard.it</a>
           </div>
           <div className="contact-card" data-testid="contact-admin">
             <div className="contact-icon"><FileText /></div>
             <h4>Amministrazione</h4>
             <p>Per fatturazione, pagamenti, documentazione fiscale e contabile.</p>
-            <a href="mailto:amministrazione@rocard.it">amministrazione@rocard.it</a>
+            <a href="mailto:info@rocard.it">info@rocard.it</a>
           </div>
         </div>
       </div>
@@ -1339,3 +1335,4 @@ function App() {
 }
 
 export default App;
+App;
