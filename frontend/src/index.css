@@ -1180,7 +1180,53 @@ a:hover {
   border: 2px solid var(--rocard-orange);
 }
 
-/* Hide Made with Emergent badge */
+/* Courier cards - replica stile live rocard.it/chi-siamo */
+.couriers-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.courier-card {
+  background: var(--rocard-white);
+  border-radius: var(--radius-lg);
+  padding: 30px 40px;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  min-width: 180px;
+  min-height: 100px;
+}
+
+.courier-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.courier-card img {
+  height: 55px;
+  width: auto;
+  object-fit: contain;
+  max-width: 150px;
+}
+
+@media (max-width: 768px) {
+  .couriers-grid {
+    gap: 20px;
+  }
+  .courier-card {
+    padding: 20px 30px;
+    min-width: 140px;
+    min-height: 80px;
+  }
+  .courier-card img {
+    height: 40px;
+  }
+}
 [data-testid="emergent-badge"],
 div[class*="emergent"],
 a[href*="emergentagent"],

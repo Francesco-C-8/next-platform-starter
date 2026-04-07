@@ -19,8 +19,10 @@
     .service-icon { width: 50px; height: 50px; margin: 0 auto 16px; color: var(--rocard-orange); }
     .testimonial-card { text-align: center; padding: 30px; background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
     .stars { color: #D4AF37; font-size: 1.2rem; margin-bottom: 12px; }
-    .courier-logos { display: flex; justify-content: center; align-items: center; gap: 60px; flex-wrap: wrap; }
-    .courier-logos img { height: 50px; object-fit: contain; }
+    .courier-logos { display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap; }
+    .courier-logos .courier-card { background: #fff; border-radius: 12px; padding: 30px 40px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); display: flex; align-items: center; justify-content: center; transition: transform 0.3s ease, box-shadow 0.3s ease; min-width: 180px; min-height: 100px; }
+    .courier-logos .courier-card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); }
+    .courier-logos .courier-card img { height: 55px; width: auto; object-fit: contain; max-width: 150px; }
     .trust-badges { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
     .trust-badge { display: flex; align-items: center; gap: 8px; color: var(--rocard-blue); font-weight: 500; }
     @media (max-width: 768px) {
