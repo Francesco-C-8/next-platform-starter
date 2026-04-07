@@ -12,7 +12,7 @@ const Navigation = () => {
     <nav className="main-nav" data-testid="main-navigation">
       <div className="rocard-container nav-container">
         <NavLink to="/" className="nav-logo" data-testid="nav-logo">
-          <img src="https://www.rocard.it/wp-content/uploads/2025/09/rocard-logo.png" alt="Rocard" style={{ height: '40px' }} />
+          <img src="https://customer-assets.emergentagent.com/job_rocard-careers/artifacts/36kv6bld_images.jpeg" alt="Rocard" style={{ height: '40px' }} />
         </NavLink>
         
         <button 
@@ -57,7 +57,7 @@ const Footer = () => (
     <div className="rocard-container">
       <div className="footer-grid">
         <div>
-          <div className="footer-logo"><img src="https://www.rocard.it/wp-content/uploads/2025/09/rocard-logo.png" alt="Rocard" style={{ height: '36px' }} /></div>
+          <div className="footer-logo"><img src="https://customer-assets.emergentagent.com/job_rocard-careers/artifacts/36kv6bld_images.jpeg" alt="Rocard" style={{ height: '36px' }} /></div>
           <p className="footer-desc">
             Da oltre 10 anni, Rocard rappresenta l'eccellenza nell'e-commerce italiano. 
             Qualità, affidabilità e un servizio clienti impareggiabile.
@@ -149,85 +149,181 @@ const HomePage = () => (
   </div>
 );
 
-// Chi Siamo Page
+// Chi Siamo Page - replica della pagina live rocard.it/chi-siamo/
 const ChiSiamoPage = () => (
   <div data-testid="chi-siamo-page">
-    {/* HERO */}
-    <section className="hero-section">
-      <div className="rocard-container">
-        <div className="hero-content">
-          <h1>Chi Siamo</h1>
-          <p>Da oltre un decennio, siamo il punto di riferimento per l'e-commerce di qualità in Italia.</p>
-        </div>
-        <div className="hero-accent"></div>
+    {/* HERO con immagine sede */}
+    <section className="chi-siamo-hero" data-testid="chi-siamo-hero">
+      <div className="chi-siamo-hero-img-wrap">
+        <img src="https://customer-assets.emergentagent.com/job_authority-design-1/artifacts/lyxjn2y2_ChatGPT-Image-11-mar-2026-14_34_33-1.png" alt="Rocard - Sede aziendale" className="chi-siamo-hero-img" />
+        <div className="chi-siamo-hero-overlay"></div>
       </div>
     </section>
 
-    {/* CHI E' ROCARD */}
+    {/* LA NOSTRA STORIA */}
     <section className="section">
       <div className="rocard-container">
-        <div className="content-block">
-          <div className="content-block-text">
-            <h3>Chi è Rocard</h3>
-            <p>Rocard nasce nel 2013 con una visione chiara: rendere l'e-commerce un'esperienza semplice, affidabile e conveniente per tutti gli italiani.</p>
-            <p>Partiti da un piccolo magazzino, oggi siamo una realtà strutturata con circa 10 collaboratori, un centro logistico di 1.000 mq e oltre 2.000 prodotti a catalogo.</p>
-          </div>
-          <div className="content-block-image">
-            <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&h=400&fit=crop" alt="Magazzino Rocard" />
-          </div>
+        <p className="section-label">La Nostra Storia</p>
+        <h2 className="section-heading-lg">Rocard, il partner affidabile per i tuoi acquisti online</h2>
+        <div style={{ maxWidth: '800px' }}>
+          <p style={{ color: 'var(--rocard-gray-600)', marginBottom: '16px', fontSize: '1.05rem' }}>
+            Rocard nasce con l'obiettivo di offrire ai clienti un e-commerce affidabile, con prodotti selezionati accuratamente, spedizioni rapide e un'esperienza d'acquisto semplice e sicura. Ogni giorno lavoriamo per garantire qualità, convenienza e un servizio clienti impeccabile.
+          </p>
+          <p style={{ color: 'var(--rocard-gray-600)', fontSize: '1.05rem' }}>
+            La nostra missione è rendere lo shopping online un'esperienza piacevole e senza preoccupazioni, offrendo solo il meglio ai nostri clienti.
+          </p>
         </div>
       </div>
     </section>
 
-    {/* MISSION */}
+    {/* I NUMERI DI ROCARD */}
     <section className="section section-light">
       <div className="rocard-container">
-        <div className="content-block reverse">
-          <div className="content-block-text">
-            <h3>La nostra Mission</h3>
-            <p>Offrire ai nostri clienti i migliori prodotti al miglior prezzo, con un servizio impeccabile dalla selezione alla consegna.</p>
-            <p>Crediamo che ogni cliente meriti un'esperienza d'acquisto eccellente: dalla navigazione sul sito, alla ricezione del pacco, fino all'assistenza post-vendita.</p>
+        <p className="section-label center">I Nostri Risultati</p>
+        <h2 style={{ textAlign: 'center', marginBottom: '40px' }}>I Numeri di Rocard</h2>
+        <div className="numbers-grid">
+          <div className="number-card">
+            <div className="number-value">+1.200</div>
+            <div className="number-label">Prodotti Disponibili</div>
+            <div className="number-desc">Catalogo in continua espansione</div>
           </div>
-          <div className="content-block-image">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop" alt="Esperienza cliente" />
+          <div className="number-card">
+            <div className="number-value">2.000+</div>
+            <div className="number-label">Spedizioni al Giorno</div>
+            <div className="number-desc">Consegne puntuali e sicure</div>
+          </div>
+          <div className="number-card">
+            <div className="number-value">730.000+</div>
+            <div className="number-label">Clienti Soddisfatti</div>
+            <div className="number-desc">Ogni anno scegliamo insieme</div>
+          </div>
+          <div className="number-card highlight-card">
+            <div className="number-value">4.8 <span style={{ fontSize: '1.5rem', color: '#D4AF37' }}>&#9733;</span></div>
+            <div className="number-label">Valutazione Media</div>
+            <div className="number-desc">Eccellenza certificata</div>
           </div>
         </div>
       </div>
     </section>
 
-    {/* COME LAVORIAMO */}
+    {/* I SERVIZI ROCARD */}
     <section className="section">
       <div className="rocard-container">
-        <div className="section-title">
-          <h2>Come Lavoriamo</h2>
-          <p>Un processo strutturato per garantire la massima qualità in ogni fase.</p>
-        </div>
-        <div className="values-grid">
-          <div className="value-card">
-            <div className="value-icon"><Search /></div>
-            <h4>Selezione Accurata</h4>
-            <p>Ogni prodotto viene selezionato con cura, privilegiando qualità e rapporto qualità-prezzo.</p>
+        <p className="section-label center">Perché Sceglierci</p>
+        <h2 style={{ textAlign: 'center', marginBottom: '40px' }}>I Servizi Rocard</h2>
+        <div className="values-grid" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
+          <div className="value-card" style={{ borderLeft: 'none', textAlign: 'center' }}>
+            <div className="value-icon" style={{ margin: '0 auto 16px' }}><Package /></div>
+            <h4>Resi Semplici</h4>
+            <p>Procedura di reso chiara, veloce e senza complicazioni. La tua soddisfazione è la nostra priorità.</p>
           </div>
-          <div className="value-card">
-            <div className="value-icon"><Package /></div>
-            <h4>Logistica Efficiente</h4>
-            <p>Il nostro centro logistico garantisce spedizioni rapide e packaging accurato.</p>
+          <div className="value-card" style={{ borderLeft: 'none', textAlign: 'center' }}>
+            <div className="value-icon" style={{ margin: '0 auto 16px' }}><Shield /></div>
+            <h4>Pagamenti Sicuri</h4>
+            <p>Transazioni protette con i più alti standard di sicurezza. I tuoi dati sono sempre al sicuro.</p>
           </div>
-          <div className="value-card">
-            <div className="value-icon"><Headphones /></div>
-            <h4>Assistenza Dedicata</h4>
-            <p>Un team dedicato disponibile per rispondere a ogni esigenza dei clienti.</p>
+          <div className="value-card" style={{ borderLeft: 'none', textAlign: 'center' }}>
+            <div className="value-icon" style={{ margin: '0 auto 16px' }}><Send /></div>
+            <h4>Spedizioni Rapide</h4>
+            <p>Consegne veloci in tutta Italia con tracking in tempo reale. Sempre informato, sempre tranquillo.</p>
+          </div>
+          <div className="value-card" style={{ borderLeft: 'none', textAlign: 'center' }}>
+            <div className="value-icon" style={{ margin: '0 auto 16px' }}><Target /></div>
+            <h4>Trusted Shops</h4>
+            <p>Acquisti protetti e certificati. La garanzia di un e-commerce affidabile e verificato.</p>
           </div>
         </div>
       </div>
     </section>
 
-    {/* CTA */}
-    <section className="cta-section">
+    {/* TESTIMONIALS */}
+    <section className="section section-light">
       <div className="rocard-container">
-        <h2>Vuoi conoscere i nostri valori?</h2>
-        <p>Scopri cosa ci guida ogni giorno nel nostro lavoro.</p>
-        <NavLink to="/vision-valori" className="btn">Vision & Valori</NavLink>
+        <p className="section-label center">Cosa Dicono di Noi</p>
+        <h2 style={{ textAlign: 'center', marginBottom: '40px' }}>La Fiducia dei Nostri Clienti</h2>
+        <div className="values-grid">
+          <div className="value-card" style={{ borderLeft: 'none', textAlign: 'center', padding: '30px' }}>
+            <div style={{ color: '#D4AF37', fontSize: '1.2rem', marginBottom: '12px' }}>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p style={{ fontStyle: 'italic', marginBottom: '16px' }}>"Spedizione velocissima e servizio clienti eccellente. Consiglio vivamente Rocard a tutti."</p>
+            <p style={{ fontWeight: '600', color: 'var(--rocard-blue)' }}>Marco R.</p>
+            <p style={{ fontSize: '0.85rem', color: 'var(--rocard-gray-600)' }}>Cliente Verificato</p>
+          </div>
+          <div className="value-card" style={{ borderLeft: 'none', textAlign: 'center', padding: '30px' }}>
+            <div style={{ color: '#D4AF37', fontSize: '1.2rem', marginBottom: '12px' }}>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p style={{ fontStyle: 'italic', marginBottom: '16px' }}>"Ordine arrivato rapidamente e perfettamente imballato. Prodotti di qualità e prezzi competitivi."</p>
+            <p style={{ fontWeight: '600', color: 'var(--rocard-blue)' }}>Laura G.</p>
+            <p style={{ fontSize: '0.85rem', color: 'var(--rocard-gray-600)' }}>Cliente Verificato</p>
+          </div>
+          <div className="value-card" style={{ borderLeft: 'none', textAlign: 'center', padding: '30px' }}>
+            <div style={{ color: '#D4AF37', fontSize: '1.2rem', marginBottom: '12px' }}>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p style={{ fontStyle: 'italic', marginBottom: '16px' }}>"Sito affidabile con prezzi imbattibili. Sono diventato un cliente abituale dopo il primo ordine."</p>
+            <p style={{ fontWeight: '600', color: 'var(--rocard-blue)' }}>Giuseppe M.</p>
+            <p style={{ fontSize: '0.85rem', color: 'var(--rocard-gray-600)' }}>Cliente Verificato</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* SOSTENIBILITA' - TREEDOM */}
+    <section className="section">
+      <div className="rocard-container">
+        <p className="section-label">Sostenibilità</p>
+        <h2 style={{ marginBottom: '20px' }}>Il Nostro Impegno per l'Ambiente</h2>
+        <p style={{ color: 'var(--rocard-gray-600)', maxWidth: '700px', marginBottom: '24px', fontSize: '1.05rem' }}>
+          Rocard sostiene attivamente progetti di riforestazione attraverso <strong>Treedom</strong>, contribuendo alla tutela dell'ambiente e alla lotta contro il cambiamento climatico. Ogni acquisto è un piccolo passo verso un futuro più verde.
+        </p>
+        <img src="https://www.rocard.it/wp-content/uploads/2026/03/Treedom_Logo_Green-on-White-PayOff.webp" alt="Treedom" style={{ height: '50px' }} />
+      </div>
+    </section>
+
+    {/* CORRIERI PARTNER */}
+    <section className="section section-light">
+      <div className="rocard-container">
+        <p className="section-label center">Logistica Affidabile</p>
+        <h2 style={{ textAlign: 'center', marginBottom: '16px' }}>Corrieri Partner</h2>
+        <p style={{ textAlign: 'center', color: 'var(--rocard-gray-600)', marginBottom: '40px' }}>Collaboriamo con i migliori corrieri nazionali per garantirti consegne sempre puntuali e sicure.</p>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '60px', flexWrap: 'wrap' }}>
+          <img src="https://www.rocard.it/wp-content/uploads/2026/03/logo-gls-socio-netcomm-2023.png" alt="GLS" style={{ height: '50px', objectFit: 'contain' }} />
+          <img src="https://www.rocard.it/wp-content/uploads/2026/03/brt-logo.jpg" alt="BRT" style={{ height: '50px', objectFit: 'contain' }} />
+          <img src="https://www.rocard.it/wp-content/uploads/2026/03/unnamed-2.png" alt="Poste Italiane" style={{ height: '50px', objectFit: 'contain' }} />
+        </div>
+      </div>
+    </section>
+
+    {/* VISIONE FUTURA */}
+    <section className="section">
+      <div className="rocard-container" style={{ textAlign: 'center', maxWidth: '800px' }}>
+        <p className="section-label center">Visione</p>
+        <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Un E-commerce in Continua Evoluzione</h2>
+        <p style={{ color: 'var(--rocard-gray-600)', marginBottom: '16px', fontSize: '1.05rem' }}>
+          Il mondo dell'e-commerce è in continua evoluzione e Rocard continua a investire nel miglioramento del servizio, nell'ampliamento del catalogo e nell'ottimizzazione delle spedizioni.
+        </p>
+        <p style={{ color: 'var(--rocard-gray-600)', marginBottom: '30px', fontSize: '1.05rem' }}>
+          Il nostro obiettivo è crescere insieme ai nostri clienti, offrendo un'esperienza d'acquisto sempre più semplice, veloce e affidabile.
+        </p>
+        <a href="https://www.rocard.it/shop/" className="btn btn-primary" target="_blank" rel="noopener noreferrer">
+          Scopri i Nostri Prodotti
+        </a>
+      </div>
+    </section>
+
+    {/* TRUST BADGES */}
+    <section className="section section-light">
+      <div className="rocard-container">
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '40px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--rocard-blue)', fontWeight: '500' }}>
+            <Shield size={20} /> <span>Acquisti Sicuri</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--rocard-blue)', fontWeight: '500' }}>
+            <Send size={20} /> <span>Spedizione Veloce</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--rocard-blue)', fontWeight: '500' }}>
+            <Package size={20} /> <span>Reso Facile</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--rocard-blue)', fontWeight: '500' }}>
+            <Target size={20} /> <span>Qualità Garantita</span>
+          </div>
+        </div>
       </div>
     </section>
   </div>
@@ -603,10 +699,8 @@ const LavoraConNoiPage = () => {
   };
 
   const positions = [
-    { title: 'Addetto/a Logistica', location: 'Sede Latina', type: 'Full-time', description: 'Gestione magazzino, preparazione ordini, spedizioni' },
-    { title: 'Customer Care Specialist', location: 'Sede Latina', type: 'Full-time', description: 'Assistenza clienti multicanale, gestione reclami' },
-    { title: 'Digital Marketing Specialist', location: 'Sede Latina', type: 'Full-time', description: 'Gestione campagne ADV, SEO, social media marketing' },
-    { title: 'E-commerce Manager', location: 'Sede Latina', type: 'Full-time', description: 'Gestione piattaforma, ottimizzazione conversioni, analisi dati' },
+    { title: 'Addetto/a Logistica', location: 'Giugliano in Campania', type: 'Full-time', description: 'Gestione magazzino, preparazione ordini, spedizioni' },
+    { title: 'Customer Care Specialist', location: 'Giugliano in Campania', type: 'Full-time', description: 'Assistenza clienti multicanale, gestione reclami' },
   ];
 
   return (
@@ -648,7 +742,7 @@ const LavoraConNoiPage = () => {
             <div className="benefit-card">
               <div className="benefit-icon"><Heart /></div>
               <h4>Lavoro in Sede</h4>
-              <p>Non offriamo lavoro da remoto. Crediamo nel valore della collaborazione in presenza nella nostra sede.</p>
+              <p>Non offriamo lavoro da remoto. Crediamo nel valore della collaborazione in presenza nella nostra sede a Giugliano in Campania.</p>
             </div>
             <div className="benefit-card">
               <div className="benefit-icon"><Shield /></div>
@@ -807,8 +901,6 @@ const LavoraConNoiPage = () => {
                     <option value="">Seleziona un ruolo</option>
                     <option value="logistica">Addetto/a Logistica</option>
                     <option value="customer-care">Customer Care Specialist</option>
-                    <option value="marketing">Digital Marketing Specialist</option>
-                    <option value="ecommerce">E-commerce Manager</option>
                     <option value="spontanea">Candidatura Spontanea</option>
                   </select>
                 </div>
@@ -897,32 +989,14 @@ const ContattiAziendaliPage = () => (
       <div className="rocard-container">
         <div className="section-title">
           <h2>Contattaci</h2>
-          <p>Scegli il reparto più adatto alla tua richiesta per una risposta rapida e mirata.</p>
+          <p>Scrivi a un unico indirizzo: il nostro sistema smisterà automaticamente la tua richiesta al reparto competente.</p>
         </div>
-        <div className="contacts-grid">
-          <div className="contact-card" data-testid="contact-hr">
-            <div className="contact-icon"><Users /></div>
-            <h4>Risorse Umane (HR)</h4>
-            <p>Per candidature, informazioni su posizioni aperte e collaborazioni lavorative.</p>
-            <a href="mailto:info@rocard.it">info@rocard.it</a>
-          </div>
-          <div className="contact-card" data-testid="contact-partnership">
-            <div className="contact-icon"><Handshake /></div>
-            <h4>Partnership</h4>
-            <p>Per proposte di collaborazione commerciale, co-marketing e affiliazioni.</p>
-            <a href="mailto:info@rocard.it">info@rocard.it</a>
-          </div>
-          <div className="contact-card" data-testid="contact-fornitori">
-            <div className="contact-icon"><Building /></div>
-            <h4>Fornitori</h4>
-            <p>Per proposte commerciali, listini e richieste di inserimento prodotti.</p>
-            <a href="mailto:info@rocard.it">info@rocard.it</a>
-          </div>
-          <div className="contact-card" data-testid="contact-admin">
-            <div className="contact-icon"><FileText /></div>
-            <h4>Amministrazione</h4>
-            <p>Per fatturazione, pagamenti, documentazione fiscale e contabile.</p>
-            <a href="mailto:info@rocard.it">info@rocard.it</a>
+        <div style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto' }}>
+          <div className="contact-card" data-testid="contact-unico" style={{ padding: '50px 40px' }}>
+            <div className="contact-icon"><Mail /></div>
+            <h4>Scrivici</h4>
+            <p>HR, Partnership, Fornitori, Amministrazione: un unico punto di contatto per tutte le esigenze aziendali. *Il sistema categorizzerà automaticamente la tua richiesta in base al motivo del contatto.</p>
+            <a href="mailto:info@rocard.it" style={{ fontSize: '1.25rem' }}>info@rocard.it</a>
           </div>
         </div>
       </div>
@@ -969,7 +1043,7 @@ const ContattiAziendaliPage = () => (
           <div className="content-block-text">
             <h3>Rocard S.r.l.</h3>
             <p><strong>Sede Legale e Operativa:</strong></p>
-            <p>Via [Indirizzo Placeholder], 00<br />04100 Latina (LT)<br />Italia</p>
+            <p>Via [Indirizzo Placeholder], 00<br />80014 Giugliano in Campania (NA)<br />Italia</p>
             <p style={{ marginTop: '20px' }}><strong>Orari Uffici:</strong></p>
             <p>Lun - Ven: 9:00 - 18:00<br />Sab - Dom: Chiuso</p>
           </div>

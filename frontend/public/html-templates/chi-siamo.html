@@ -3,157 +3,199 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chi Siamo - Rocard</title>
-  <meta name="description" content="Scopri chi è Rocard: la nostra storia, mission e come lavoriamo per offrirti il meglio.">
+  <title>Chi Siamo - Rocard Corporate</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  
+  <link rel="stylesheet" href="rocard-corporate-styles.css">
   <style>
-    :root {
-      --rocard-blue: #1a3c6e;
-      --rocard-blue-dark: #0f2847;
-      --rocard-orange: #f57c00;
-      --rocard-orange-dark: #e65100;
-      --rocard-white: #ffffff;
-      --rocard-gray-50: #f8f9fa;
-      --rocard-gray-200: #e9ecef;
-      --rocard-gray-600: #6c757d;
-      --rocard-gray-800: #343a40;
-      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
-      --radius-md: 8px;
-      --radius-lg: 12px;
+    .chi-siamo-hero { position: relative; width: 100%; height: 500px; overflow: hidden; }
+    .chi-siamo-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .chi-siamo-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3)); }
+    .section-label { display: block; text-transform: uppercase; font-size: 0.85rem; font-weight: 600; letter-spacing: 1.5px; color: var(--rocard-orange); margin-bottom: 12px; }
+    .section-label.center { text-align: center; }
+    .section-heading-lg { font-size: 2rem; color: var(--rocard-blue); font-weight: 700; margin-bottom: 24px; max-width: 700px; }
+    .number-desc { font-size: 0.85rem; color: var(--rocard-gray-500); margin-top: 4px; }
+    .highlight-card { border: 2px solid var(--rocard-orange); }
+    .service-card { text-align: center; padding: 30px 20px; background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
+    .service-icon { width: 50px; height: 50px; margin: 0 auto 16px; color: var(--rocard-orange); }
+    .testimonial-card { text-align: center; padding: 30px; background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
+    .stars { color: #D4AF37; font-size: 1.2rem; margin-bottom: 12px; }
+    .courier-logos { display: flex; justify-content: center; align-items: center; gap: 60px; flex-wrap: wrap; }
+    .courier-logos img { height: 50px; object-fit: contain; }
+    .trust-badges { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+    .trust-badge { display: flex; align-items: center; gap: 8px; color: var(--rocard-blue); font-weight: 500; }
+    @media (max-width: 768px) {
+      .chi-siamo-hero { height: 300px; }
+      .section-heading-lg { font-size: 1.5rem; }
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Poppins', sans-serif; font-size: 16px; line-height: 1.6; color: var(--rocard-gray-800); }
-    .rocard-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-    h1, h2, h3, h4 { font-weight: 600; line-height: 1.3; color: var(--rocard-blue); }
-    h1 { font-size: 3rem; } h2 { font-size: 2.25rem; } h3 { font-size: 1.5rem; }
-    @media (max-width: 768px) { h1 { font-size: 2rem; } h2 { font-size: 1.75rem; } }
-    
-    .btn { display: inline-flex; align-items: center; padding: 14px 32px; font-size: 1rem; font-weight: 600; border-radius: var(--radius-md); border: none; cursor: pointer; transition: all 0.3s ease; text-decoration: none; }
-    .btn-primary { background: var(--rocard-orange); color: var(--rocard-white); }
-    .btn-primary:hover { background: var(--rocard-orange-dark); transform: translateY(-2px); }
-    
-    .hero-section { position: relative; min-height: 500px; display: flex; align-items: center; background: linear-gradient(135deg, var(--rocard-blue) 0%, var(--rocard-blue-dark) 100%); color: var(--rocard-white); overflow: hidden; padding: 80px 0; }
-    .hero-section::before { content: ''; position: absolute; top: 0; right: 0; width: 50%; height: 100%; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); opacity: 0.5; }
-    .hero-content { position: relative; z-index: 1; max-width: 700px; }
-    .hero-section h1 { color: var(--rocard-white); margin-bottom: 20px; font-weight: 700; }
-    .hero-section p { font-size: 1.25rem; opacity: 0.9; }
-    .hero-accent { position: absolute; bottom: 0; right: 0; width: 300px; height: 300px; background: var(--rocard-orange); opacity: 0.1; border-radius: 50%; transform: translate(30%, 30%); }
-    
-    .section { padding: 80px 0; }
-    .section-light { background: var(--rocard-gray-50); }
-    .section-title { text-align: center; margin-bottom: 50px; }
-    .section-title p { font-size: 1.125rem; color: var(--rocard-gray-600); max-width: 600px; margin: 16px auto 0; }
-    
-    .content-block { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-    .content-block.reverse { direction: rtl; }
-    .content-block.reverse > * { direction: ltr; }
-    .content-block-text h3 { margin-bottom: 20px; }
-    .content-block-text p { color: var(--rocard-gray-600); margin-bottom: 20px; }
-    .content-block-image { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-xl); }
-    .content-block-image img { width: 100%; height: 350px; object-fit: cover; display: block; }
-    @media (max-width: 768px) { .content-block { grid-template-columns: 1fr; gap: 30px; } .content-block.reverse { direction: ltr; } }
-    
-    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-    .value-card { padding: 40px 30px; background: var(--rocard-white); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); border-left: 4px solid var(--rocard-orange); transition: all 0.3s ease; }
-    .value-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-xl); }
-    .value-icon { width: 60px; height: 60px; background: linear-gradient(135deg, var(--rocard-orange) 0%, #ff9800 100%); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; color: var(--rocard-white); font-size: 1.5rem; }
-    .value-card h4 { margin-bottom: 12px; color: var(--rocard-blue); }
-    .value-card p { color: var(--rocard-gray-600); font-size: 0.95rem; }
-    @media (max-width: 768px) { .values-grid { grid-template-columns: 1fr; } }
-    
-    .cta-section { background: linear-gradient(135deg, var(--rocard-orange) 0%, var(--rocard-orange-dark) 100%); color: var(--rocard-white); text-align: center; padding: 80px 0; }
-    .cta-section h2 { color: var(--rocard-white); margin-bottom: 16px; }
-    .cta-section p { font-size: 1.125rem; opacity: 0.9; margin-bottom: 30px; }
-    .cta-section .btn { background: var(--rocard-white); color: var(--rocard-orange); }
-    .cta-section .btn:hover { background: #f1f3f5; }
   </style>
 </head>
 <body>
 
-<!-- ============================================
-     PAGINA: CHI SIAMO
-     URL Consigliato: /chi-siamo/
-     ============================================ -->
+<!-- CHI SIAMO - Replica pagina live rocard.it/chi-siamo/ -->
+<!-- Incolla queste sezioni in Elementor come blocchi HTML -->
 
-<!-- HERO SECTION -->
-<section class="hero-section">
-  <div class="rocard-container">
-    <div class="hero-content">
-      <h1>Chi Siamo</h1>
-      <p>Da oltre un decennio, siamo il punto di riferimento per l'e-commerce di qualità in Italia.</p>
-    </div>
-    <div class="hero-accent"></div>
-  </div>
+<!-- HERO CON IMMAGINE SEDE -->
+<section class="chi-siamo-hero">
+  <img src="https://customer-assets.emergentagent.com/job_authority-design-1/artifacts/lyxjn2y2_ChatGPT-Image-11-mar-2026-14_34_33-1.png" alt="Rocard - Sede aziendale">
+  <div class="chi-siamo-hero-overlay"></div>
 </section>
 
-<!-- CHI E' ROCARD -->
+<!-- LA NOSTRA STORIA -->
 <section class="section">
   <div class="rocard-container">
-    <div class="content-block">
-      <div class="content-block-text">
-        <h3>Chi è Rocard</h3>
-        <p>Rocard nasce nel 2013 con una visione chiara: rendere l'e-commerce un'esperienza semplice, affidabile e conveniente per tutti gli italiani.</p>
-        <p>Partiti da un piccolo magazzino, oggi siamo una realtà strutturata con circa 10 collaboratori, un centro logistico di 1.000 mq e oltre 2.000 prodotti a catalogo.</p>
-      </div>
-      <div class="content-block-image">
-        <img src="https://images.unsplash.com/photo-1768796373577-2e6e51351165?w=600&h=400&fit=crop" alt="Magazzino Rocard">
-      </div>
+    <span class="section-label">La Nostra Storia</span>
+    <h2 class="section-heading-lg">Rocard, il partner affidabile per i tuoi acquisti online</h2>
+    <div style="max-width: 800px;">
+      <p style="color: var(--rocard-gray-600); margin-bottom: 16px; font-size: 1.05rem;">
+        Rocard nasce con l'obiettivo di offrire ai clienti un e-commerce affidabile, con prodotti selezionati accuratamente, spedizioni rapide e un'esperienza d'acquisto semplice e sicura. Ogni giorno lavoriamo per garantire qualità, convenienza e un servizio clienti impeccabile.
+      </p>
+      <p style="color: var(--rocard-gray-600); font-size: 1.05rem;">
+        La nostra missione è rendere lo shopping online un'esperienza piacevole e senza preoccupazioni, offrendo solo il meglio ai nostri clienti.
+      </p>
     </div>
   </div>
 </section>
 
-<!-- MISSION -->
+<!-- I NUMERI DI ROCARD -->
 <section class="section section-light">
   <div class="rocard-container">
-    <div class="content-block reverse">
-      <div class="content-block-text">
-        <h3>La nostra Mission</h3>
-        <p>Offrire ai nostri clienti i migliori prodotti al miglior prezzo, con un servizio impeccabile dalla selezione alla consegna.</p>
-        <p>Crediamo che ogni cliente meriti un'esperienza d'acquisto eccellente: dalla navigazione sul sito, alla ricezione del pacco, fino all'assistenza post-vendita.</p>
+    <span class="section-label center">I Nostri Risultati</span>
+    <h2 style="text-align: center; margin-bottom: 40px;">I Numeri di Rocard</h2>
+    <div class="numbers-grid">
+      <div class="number-card">
+        <div class="number-value">+1.200</div>
+        <div class="number-label">Prodotti Disponibili</div>
+        <div class="number-desc">Catalogo in continua espansione</div>
       </div>
-      <div class="content-block-image">
-        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop" alt="Esperienza cliente">
+      <div class="number-card">
+        <div class="number-value">2.000+</div>
+        <div class="number-label">Spedizioni al Giorno</div>
+        <div class="number-desc">Consegne puntuali e sicure</div>
+      </div>
+      <div class="number-card">
+        <div class="number-value">730.000+</div>
+        <div class="number-label">Clienti Soddisfatti</div>
+        <div class="number-desc">Ogni anno scegliamo insieme</div>
+      </div>
+      <div class="number-card highlight-card">
+        <div class="number-value">4.8 <span style="font-size: 1.5rem; color: #D4AF37;">&#9733;</span></div>
+        <div class="number-label">Valutazione Media</div>
+        <div class="number-desc">Eccellenza certificata</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- COME LAVORIAMO -->
+<!-- I SERVIZI ROCARD -->
 <section class="section">
   <div class="rocard-container">
-    <div class="section-title">
-      <h2>Come Lavoriamo</h2>
-      <p>Un processo strutturato per garantire la massima qualità in ogni fase.</p>
-    </div>
-    <div class="values-grid">
-      <div class="value-card">
-        <div class="value-icon">🔍</div>
-        <h4>Selezione Accurata</h4>
-        <p>Ogni prodotto viene selezionato con cura, privilegiando qualità e rapporto qualità-prezzo.</p>
+    <span class="section-label center">Perché Sceglierci</span>
+    <h2 style="text-align: center; margin-bottom: 40px;">I Servizi Rocard</h2>
+    <div class="values-grid" style="grid-template-columns: repeat(4, 1fr);">
+      <div class="service-card">
+        <div class="service-icon">📦</div>
+        <h4>Resi Semplici</h4>
+        <p>Procedura di reso chiara, veloce e senza complicazioni. La tua soddisfazione è la nostra priorità.</p>
       </div>
-      <div class="value-card">
-        <div class="value-icon">📦</div>
-        <h4>Logistica Efficiente</h4>
-        <p>Il nostro centro logistico garantisce spedizioni rapide e packaging accurato.</p>
+      <div class="service-card">
+        <div class="service-icon">🔒</div>
+        <h4>Pagamenti Sicuri</h4>
+        <p>Transazioni protette con i più alti standard di sicurezza. I tuoi dati sono sempre al sicuro.</p>
       </div>
-      <div class="value-card">
-        <div class="value-icon">🎧</div>
-        <h4>Assistenza Dedicata</h4>
-        <p>Un team dedicato disponibile per rispondere a ogni esigenza dei clienti.</p>
+      <div class="service-card">
+        <div class="service-icon">🚚</div>
+        <h4>Spedizioni Rapide</h4>
+        <p>Consegne veloci in tutta Italia con tracking in tempo reale. Sempre informato, sempre tranquillo.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">✅</div>
+        <h4>Trusted Shops</h4>
+        <p>Acquisti protetti e certificati. La garanzia di un e-commerce affidabile e verificato.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section">
+<!-- TESTIMONIALS -->
+<section class="section section-light">
   <div class="rocard-container">
-    <h2>Vuoi conoscere i nostri valori?</h2>
-    <p>Scopri cosa ci guida ogni giorno nel nostro lavoro.</p>
-    <a href="/vision-valori/" class="btn">Vision & Valori</a>
+    <span class="section-label center">Cosa Dicono di Noi</span>
+    <h2 style="text-align: center; margin-bottom: 40px;">La Fiducia dei Nostri Clienti</h2>
+    <div class="values-grid">
+      <div class="testimonial-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p style="font-style: italic; margin-bottom: 16px;">"Spedizione velocissima e servizio clienti eccellente. Consiglio vivamente Rocard a tutti."</p>
+        <p style="font-weight: 600; color: var(--rocard-blue);">Marco R.</p>
+        <p style="font-size: 0.85rem; color: var(--rocard-gray-600);">Cliente Verificato</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p style="font-style: italic; margin-bottom: 16px;">"Ordine arrivato rapidamente e perfettamente imballato. Prodotti di qualità e prezzi competitivi."</p>
+        <p style="font-weight: 600; color: var(--rocard-blue);">Laura G.</p>
+        <p style="font-size: 0.85rem; color: var(--rocard-gray-600);">Cliente Verificato</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p style="font-style: italic; margin-bottom: 16px;">"Sito affidabile con prezzi imbattibili. Sono diventato un cliente abituale dopo il primo ordine."</p>
+        <p style="font-weight: 600; color: var(--rocard-blue);">Giuseppe M.</p>
+        <p style="font-size: 0.85rem; color: var(--rocard-gray-600);">Cliente Verificato</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOSTENIBILITA' - TREEDOM -->
+<section class="section">
+  <div class="rocard-container">
+    <span class="section-label">Sostenibilità</span>
+    <h2 style="margin-bottom: 20px;">Il Nostro Impegno per l'Ambiente</h2>
+    <p style="color: var(--rocard-gray-600); max-width: 700px; margin-bottom: 24px; font-size: 1.05rem;">
+      Rocard sostiene attivamente progetti di riforestazione attraverso <strong>Treedom</strong>, contribuendo alla tutela dell'ambiente e alla lotta contro il cambiamento climatico. Ogni acquisto è un piccolo passo verso un futuro più verde.
+    </p>
+    <img src="https://www.rocard.it/wp-content/uploads/2026/03/Treedom_Logo_Green-on-White-PayOff.webp" alt="Treedom" style="height: 50px;">
+  </div>
+</section>
+
+<!-- CORRIERI PARTNER -->
+<section class="section section-light">
+  <div class="rocard-container">
+    <span class="section-label center">Logistica Affidabile</span>
+    <h2 style="text-align: center; margin-bottom: 16px;">Corrieri Partner</h2>
+    <p style="text-align: center; color: var(--rocard-gray-600); margin-bottom: 40px;">Collaboriamo con i migliori corrieri nazionali per garantirti consegne sempre puntuali e sicure.</p>
+    <div class="courier-logos">
+      <img src="https://www.rocard.it/wp-content/uploads/2026/03/logo-gls-socio-netcomm-2023.png" alt="GLS">
+      <img src="https://www.rocard.it/wp-content/uploads/2026/03/brt-logo.jpg" alt="BRT">
+      <img src="https://www.rocard.it/wp-content/uploads/2026/03/unnamed-2.png" alt="Poste Italiane">
+    </div>
+  </div>
+</section>
+
+<!-- VISIONE FUTURA -->
+<section class="section">
+  <div class="rocard-container" style="text-align: center; max-width: 800px;">
+    <span class="section-label center">Visione</span>
+    <h2 style="text-align: center; margin-bottom: 20px;">Un E-commerce in Continua Evoluzione</h2>
+    <p style="color: var(--rocard-gray-600); margin-bottom: 16px; font-size: 1.05rem;">
+      Il mondo dell'e-commerce è in continua evoluzione e Rocard continua a investire nel miglioramento del servizio, nell'ampliamento del catalogo e nell'ottimizzazione delle spedizioni.
+    </p>
+    <p style="color: var(--rocard-gray-600); margin-bottom: 30px; font-size: 1.05rem;">
+      Il nostro obiettivo è crescere insieme ai nostri clienti, offrendo un'esperienza d'acquisto sempre più semplice, veloce e affidabile.
+    </p>
+    <a href="https://www.rocard.it/shop/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+      Scopri i Nostri Prodotti
+    </a>
+  </div>
+</section>
+
+<!-- TRUST BADGES -->
+<section class="section section-light">
+  <div class="rocard-container">
+    <div class="trust-badges">
+      <div class="trust-badge">🔒 Acquisti Sicuri</div>
+      <div class="trust-badge">🚚 Spedizione Veloce</div>
+      <div class="trust-badge">📦 Reso Facile</div>
+      <div class="trust-badge">✅ Qualità Garantita</div>
+    </div>
   </div>
 </section>
 

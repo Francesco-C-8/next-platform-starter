@@ -39,15 +39,24 @@ Sviluppo sezione "Azienda" (Corporate) per il sito WordPress/WooCommerce rocard.
 - [x] Setup React preview environment
 - [x] Creazione 7 template HTML standalone per Elementor
 - [x] CSS globale tema Rocard
-- [x] Aggiornamento metriche reali (7 Apr 2026):
-  - Logistica: 1.000 mq, circa 2.000 ordini/giorno
-  - Numeri: ~750.000 spedizioni/anno, 2.000+ prodotti, ~10 collaboratori
-  - Logo Rocard reale da rocard.it
-  - Immagine magazzino (stock Unsplash)
-  - Immagine selezione prodotti (stock Unsplash)
-  - "Non offriamo lavoro da remoto" in Lavora con noi
-  - Tutte le email impostate su info@rocard.it
-  - Posizioni lavorative: tutte "Sede Latina" (nessun remoto)
+- [x] Aggiornamento metriche reali (7 Apr 2026)
+- [x] Logo Rocard reale (monogramma "R" dorato) caricato dall'utente
+- [x] Pagina Chi Siamo riscritta per replicare la struttura live rocard.it/chi-siamo/ (7 Apr 2026):
+  - Hero con immagine sede
+  - La Nostra Storia
+  - I Numeri di Rocard (+1.200 prodotti, 2.000+ spedizioni/giorno, 730.000+ clienti, 4.8★)
+  - I Servizi Rocard (Resi, Pagamenti, Spedizioni, Trusted Shops)
+  - Testimonials
+  - Sostenibilità/Treedom
+  - Corrieri Partner (GLS, BRT, Poste Italiane)
+  - Visione Futura
+  - Trust Badges
+- [x] Posizioni lavorative: rimossi Digital Marketing Specialist e E-commerce Manager
+- [x] Sede aggiornata: Giugliano in Campania (NA) in tutte le pagine
+- [x] Contatti: email unica info@rocard.it con nota su categorizzazione automatica
+- [x] "Non offriamo lavoro da remoto" aggiunto in Lavora con noi
+- [x] Logistica: 1.000 mq, circa 2.000 ordini/giorno
+- [x] Numeri altre pagine: ~750K spedizioni/anno, 2.000+ prodotti, ~10 collaboratori
 
 ### Backlog
 - Nessuna attività pendente
@@ -59,4 +68,5 @@ Sviluppo sezione "Azienda" (Corporate) per il sito WordPress/WooCommerce rocard.
 - Magazzino: 1.000 mq
 - Ordini/giorno: ~2.000
 - Email contatto: info@rocard.it
-- Logo: https://www.rocard.it/wp-content/uploads/2025/09/rocard-logo.png
+- Sede: Giugliano in Campania (NA)
+- Logo: https://customer-assets.emergentagent.com/job_rocard-careers/artifacts/36kv6bld_images.jpeg

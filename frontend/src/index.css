@@ -1112,3 +1112,102 @@ a:hover {
 .html-output-code .string {
   color: #ce9178;
 }
+
+
+/* CHI SIAMO PAGE - Hero con immagine sede */
+.chi-siamo-hero {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+}
+
+.chi-siamo-hero-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.chi-siamo-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.chi-siamo-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+}
+
+@media (max-width: 768px) {
+  .chi-siamo-hero {
+    height: 300px;
+  }
+}
+
+/* Section labels */
+.section-label {
+  display: block;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: var(--rocard-orange);
+  margin-bottom: 12px;
+}
+
+.section-label.center {
+  text-align: center;
+}
+
+.section-heading-lg {
+  font-size: 2rem;
+  color: var(--rocard-blue);
+  font-weight: 700;
+  margin-bottom: 24px;
+  max-width: 700px;
+}
+
+.number-desc {
+  font-size: 0.85rem;
+  color: var(--rocard-gray-500);
+  margin-top: 4px;
+}
+
+.highlight-card {
+  border: 2px solid var(--rocard-orange);
+}
+
+/* Hide Made with Emergent badge */
+[data-testid="emergent-badge"],
+div[class*="emergent"],
+a[href*="emergentagent"],
+div:has(> a[href*="emergentagent"]),
+iframe[src*="emergent"],
+#emergent-badge,
+div[id*="emergent"],
+div[style*="position: fixed"][style*="bottom"],
+div[style*="z-index: 999"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+@media (max-width: 768px) {
+  .section-heading-lg {
+    font-size: 1.5rem;
+  }
+  
+  .values-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .values-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
