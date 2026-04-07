@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lavora con Noi - Rocard</title>
+  <meta name="description" content="Unisciti al team Rocard. Scopri le posizioni aperte e invia la tua candidatura.">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ============================================
+       ROCARD CORPORATE STYLES - COPIA IN ELEMENTOR
+       ============================================ */
+    
+    :root {
+      --rocard-blue: #1a3c6e;
+      --rocard-blue-dark: #0f2847;
+      --rocard-blue-light: #2a5294;
+      --rocard-orange: #f57c00;
+      --rocard-orange-light: #ff9800;
+      --rocard-orange-dark: #e65100;
+      --rocard-white: #ffffff;
+      --rocard-gray-50: #f8f9fa;
+      --rocard-gray-100: #f1f3f5;
+      --rocard-gray-200: #e9ecef;
+      --rocard-gray-600: #6c757d;
+      --rocard-gray-700: #495057;
+      --rocard-gray-800: #343a40;
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--rocard-gray-800);
+      background-color: var(--rocard-white);
+    }
+
+    .rocard-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    h1, h2, h3, h4 {
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--rocard-blue);
+    }
+
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.25rem; }
+    h3 { font-size: 1.5rem; }
+    h4 { font-size: 1.25rem; }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.75rem; }
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 32px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--rocard-orange);
+      color: var(--rocard-white);
+    }
+
+    .btn-primary:hover {
+      background: var(--rocard-orange-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* HERO SECTION */
+    .hero-section {
+      position: relative;
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, var(--rocard-blue) 0%, var(--rocard-blue-dark) 100%);
+      color: var(--rocard-white);
+      overflow: hidden;
+      padding: 80px 0;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.5;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+
+    .hero-section h1 {
+      color: var(--rocard-white);
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .hero-section p {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      margin-bottom: 30px;
+    }
+
+    .hero-accent {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 300px;
+      height: 300px;
+      background: var(--rocard-orange);
+      opacity: 0.1;
+      border-radius: 50%;
+      transform: translate(30%, 30%);
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-light {
+      background: var(--rocard-gray-50);
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      margin-bottom: 16px;
+    }
+
+    .section-title p {
+      font-size: 1.125rem;
+      color: var(--rocard-gray-600);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* BENEFITS GRID */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .benefit-card {
+      background: var(--rocard-white);
+      padding: 35px;
+      border-radius: var(--radius-lg);
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .benefit-icon {
+      width: 70px;
+      height: 70px;
+      background: var(--rocard-gray-50);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      color: var(--rocard-orange);
+      font-size: 2rem;
+    }
+
+    .benefit-card h4 {
+      margin-bottom: 12px;
+    }
+
+    .benefit-card p {
+      color: var(--rocard-gray-600);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* POSITIONS LIST */
+    .positions-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .position-card {
+      background: var(--rocard-white);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      transition: all 0.3s ease;
+      border: 1px solid var(--rocard-gray-200);
+    }
+
+    .position-card:hover {
+      border-color: var(--rocard-orange);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .position-info h4 {
+      margin-bottom: 8px;
+      color: var(--rocard-blue);
+    }
+
+    .position-meta {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .position-meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--rocard-gray-600);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .position-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* PROCESS STEPS */
+    .process-steps {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+    }
+
+    .process-step {
+      flex: 1;
+      text-align: center;
+      position: relative;
+    }
+
+    .process-step::after {
+      content: '';
+      position: absolute;
+      top: 40px;
+      right: -10px;
+      width: calc(100% - 80px);
+      height: 2px;
+      background: var(--rocard-gray-200);
+    }
+
+    .process-step:last-child::after {
+      display: none;
+    }
+
+    .step-number {
+      width: 80px;
+      height: 80px;
+      background: var(--rocard-orange);
+      color: var(--rocard-white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0 auto 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .process-step h4 {
+      margin-bottom: 10px;
+    }
+
+    .process-step p {
+      color: var(--rocard-gray-600);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .process-steps {
+        flex-direction: column;
+      }
+      
+      .process-step::after {
+        display: none;
+      }
+    }
+
+    /* FORM STYLES */
+    .form-container {
+      max-width: 700px;
+      margin: 0 auto;
+      background: var(--rocard-white);
+      padding: 50px;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group.full-width {
+      grid-column: span 2;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: var(--rocard-gray-700);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid var(--rocard-gray-200);
+      border-radius: var(--radius-md);
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      background: var(--rocard-white);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--rocard-orange);
+      box-shadow: 0 0 0 3px rgba(245, 124, 0, 0.1);
+    }
+
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .form-group input[type="file"] {
+      padding: 12px;
+      background: var(--rocard-gray-50);
+      cursor: pointer;
+    }
+
+    .form-checkbox {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .form-checkbox input {
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+      accent-color: var(--rocard-orange);
+    }
+
+    .form-checkbox label {
+      font-size: 0.9rem;
+      color: var(--rocard-gray-600);
+      margin-bottom: 0;
+    }
+
+    .form-submit {
+      margin-top: 30px;
+    }
+
+    .form-submit .btn {
+      width: 100%;
+      padding: 16px 32px;
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 768px) {
+      .form-container {
+        padding: 30px 20px;
+      }
+      
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .form-group.full-width {
+        grid-column: span 1;
+      }
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      background: linear-gradient(135deg, var(--rocard-orange) 0%, var(--rocard-orange-dark) 100%);
+      color: var(--rocard-white);
+      text-align: center;
+      padding: 80px 0;
+    }
+
+    .cta-section h2 {
+      color: var(--rocard-white);
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      font-size: 1.125rem;
+      opacity: 0.9;
+      margin-bottom: 30px;
+    }
+
+    .cta-section .btn {
+      background: var(--rocard-white);
+      color: var(--rocard-orange);
+    }
+
+    .cta-section .btn:hover {
+      background: var(--rocard-gray-100);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================
+     PAGINA: LAVORA CON NOI
+     URL Consigliato: /lavora-con-noi/
+     ============================================ -->
+
+<!-- HERO SECTION -->
+<section class="hero-section">
+  <div class="rocard-container">
+    <div class="hero-content">
+      <h1>Lavora con Noi</h1>
+      <p>Unisciti al team Rocard e costruisci con noi il futuro dell'e-commerce italiano.</p>
+    </div>
+    <div class="hero-accent"></div>
+  </div>
+</section>
+
+<!-- PERCHE' LAVORARE IN ROCARD -->
+<section class="section">
+  <div class="rocard-container">
+    <div class="section-title">
+      <h2>Perché Lavorare in Rocard</h2>
+      <p>Un ambiente di lavoro stimolante con opportunità di crescita reali.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">📈</div>
+        <h4>Crescita Professionale</h4>
+        <p>Formazione continua e percorsi di carriera chiari per sviluppare le tue competenze.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">👥</div>
+        <h4>Team Giovane</h4>
+        <p>Lavora in un ambiente dinamico con colleghi motivati e appassionati.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">⚡</div>
+        <h4>Innovazione</h4>
+        <p>Tecnologie all'avanguardia e processi in continua evoluzione.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">❤️</div>
+        <h4>Work-Life Balance</h4>
+        <p>Flessibilità oraria e possibilità di smart working dove il ruolo lo consente.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🛡️</div>
+        <h4>Stabilità</h4>
+        <p>Azienda solida in crescita con contratti regolari e retribuzioni competitive.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">💡</div>
+        <h4>Autonomia</h4>
+        <p>Responsabilità reali e possibilità di proporre e implementare le tue idee.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POSIZIONI APERTE -->
+<section class="section section-light">
+  <div class="rocard-container">
+    <div class="section-title">
+      <h2>Posizioni Aperte</h2>
+      <p>Scopri le opportunità disponibili e candidati subito.</p>
+    </div>
+    <div class="positions-list">
+      
+      <!-- POSIZIONE 1 -->
+      <div class="position-card">
+        <div class="position-info">
+          <h4>Addetto/a Logistica</h4>
+          <p style="color: var(--rocard-gray-600); margin-bottom: 10px;">Gestione magazzino, preparazione ordini, spedizioni</p>
+          <div class="position-meta">
+            <span>📍 Sede Latina</span>
+            <span>💼 Full-time</span>
+          </div>
+        </div>
+        <a href="#candidatura" class="btn btn-primary">Candidati</a>
+      </div>
+      
+      <!-- POSIZIONE 2 -->
+      <div class="position-card">
+        <div class="position-info">
+          <h4>Customer Care Specialist</h4>
+          <p style="color: var(--rocard-gray-600); margin-bottom: 10px;">Assistenza clienti multicanale, gestione reclami</p>
+          <div class="position-meta">
+            <span>📍 Sede Latina / Remoto</span>
+            <span>💼 Full-time</span>
+          </div>
+        </div>
+        <a href="#candidatura" class="btn btn-primary">Candidati</a>
+      </div>
+      
+      <!-- POSIZIONE 3 -->
+      <div class="position-card">
+        <div class="position-info">
+          <h4>Digital Marketing Specialist</h4>
+          <p style="color: var(--rocard-gray-600); margin-bottom: 10px;">Gestione campagne ADV, SEO, social media marketing</p>
+          <div class="position-meta">
+            <span>📍 Remoto</span>
+            <span>💼 Full-time</span>
+          </div>
+        </div>
+        <a href="#candidatura" class="btn btn-primary">Candidati</a>
+      </div>
+      
+      <!-- POSIZIONE 4 -->
+      <div class="position-card">
+        <div class="position-info">
+          <h4>E-commerce Manager</h4>
+          <p style="color: var(--rocard-gray-600); margin-bottom: 10px;">Gestione piattaforma, ottimizzazione conversioni, analisi dati</p>
+          <div class="position-meta">
+            <span>📍 Sede Latina</span>
+            <span>💼 Full-time</span>
+          </div>
+        </div>
+        <a href="#candidatura" class="btn btn-primary">Candidati</a>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSO DI SELEZIONE -->
+<section class="section">
+  <div class="rocard-container">
+    <div class="section-title">
+      <h2>Processo di Selezione</h2>
+      <p>Un percorso trasparente e rispettoso del tuo tempo.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-number">1</div>
+        <h4>Candidatura</h4>
+        <p>Invia il tuo CV e una breve presentazione.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-number">2</div>
+        <h4>Screening</h4>
+        <p>Valutiamo il tuo profilo entro 5 giorni lavorativi.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-number">3</div>
+        <h4>Colloquio</h4>
+        <p>Conosciamoci: parlaci di te e delle tue aspettative.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-number">4</div>
+        <h4>Proposta</h4>
+        <p>Se c'è match, ti presentiamo la nostra offerta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM CANDIDATURA -->
+<section class="section section-light" id="candidatura">
+  <div class="rocard-container">
+    <div class="section-title">
+      <h2>Invia la Tua Candidatura</h2>
+      <p>Compila il modulo sottostante per candidarti a una posizione aperta o inviare una candidatura spontanea.</p>
+    </div>
+    
+    <div class="form-container">
+      <!-- 
+        NOTA PER ELEMENTOR:
+        Sostituire questo form con Elementor Form Widget
+        Configurare l'invio email a: info@rocard.it
+        Abilitare il salvataggio in database
+      -->
+      <form action="mailto:info@rocard.it" method="POST" enctype="multipart/form-data">
+        <div class="form-grid">
+          
+          <div class="form-group">
+            <label for="nome">Nome *</label>
+            <input type="text" id="nome" name="nome" required placeholder="Il tuo nome">
+          </div>
+          
+          <div class="form-group">
+            <label for="cognome">Cognome *</label>
+            <input type="text" id="cognome" name="cognome" required placeholder="Il tuo cognome">
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required placeholder="nome@email.com">
+          </div>
+          
+          <div class="form-group">
+            <label for="telefono">Telefono *</label>
+            <input type="tel" id="telefono" name="telefono" required placeholder="+39 123 456 7890">
+          </div>
+          
+          <div class="form-group full-width">
+            <label for="ruolo">Ruolo di interesse *</label>
+            <select id="ruolo" name="ruolo" required>
+              <option value="">Seleziona un ruolo</option>
+              <option value="logistica">Addetto/a Logistica</option>
+              <option value="customer-care">Customer Care Specialist</option>
+              <option value="marketing">Digital Marketing Specialist</option>
+              <option value="ecommerce">E-commerce Manager</option>
+              <option value="spontanea">Candidatura Spontanea</option>
+            </select>
+          </div>
+          
+          <div class="form-group full-width">
+            <label for="cv">Carica il tuo CV (PDF, DOC, DOCX) *</label>
+            <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required>
+          </div>
+          
+          <div class="form-group full-width">
+            <label for="messaggio">Messaggio / Presentazione</label>
+            <textarea id="messaggio" name="messaggio" placeholder="Raccontaci brevemente di te, delle tue esperienze e perché vorresti lavorare in Rocard..."></textarea>
+          </div>
+          
+          <div class="form-group full-width">
+            <div class="form-checkbox">
+              <input type="checkbox" id="privacy" name="privacy" required>
+              <label for="privacy">
+                Ho preso visione della <a href="https://www.rocard.it/privacy-cookie-policy/" target="_blank">Privacy Policy</a> e acconsento al trattamento dei miei dati personali per le finalità di selezione del personale. *
+              </label>
+            </div>
+          </div>
+          
+        </div>
+        
+        <div class="form-submit">
+          <button type="submit" class="btn btn-primary">✉️ Invia Candidatura</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="rocard-container">
+    <h2>Hai domande?</h2>
+    <p>Contatta il nostro ufficio HR per qualsiasi informazione.</p>
+    <a href="/contatti-aziendali/" class="btn">Contatti Aziendali</a>
+  </div>
+</section>
+
+</body>
+</html>
