@@ -4,56 +4,86 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-/* ═══ ACCORDION ESCLUSIVO ═══ */
-.rocard-accordion {
+/* ═══ NAV CARD ═══ */
+.rc-wrap {
     font-family: 'Outfit', sans-serif;
-    max-width: 100%;
 }
-.rocard-accordion details {
-    margin-bottom: 0;
-    border-bottom: 1px solid rgba(42,122,181,0.1);
-}
-.rocard-accordion summary {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 22px 32px;
+.rc-nav {
     background: #2a7ab5;
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 500;
+    padding: 28px 0;
+}
+.rc-nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 14px;
+    padding: 0 20px;
+}
+.rc-nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px 16px;
+    min-width: 130px;
+    background: #fff;
+    border-radius: 14px;
     cursor: pointer;
-    list-style: none;
-    transition: background 0.2s ease;
-    letter-spacing: 0.3px;
+    border: 2px solid transparent;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: all 0.25s ease;
+    text-align: center;
+    color: #555;
+    font-size: 0.82rem;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
 }
-.rocard-accordion summary::-webkit-details-marker { display: none; }
-.rocard-accordion summary::before { display: none; }
-.rocard-accordion summary:hover {
-    background: #1e6a9e;
+.rc-nav a:hover {
+    border-color: #f57c00;
+    box-shadow: 0 4px 16px rgba(245,124,0,0.15);
+    transform: translateY(-3px);
+    color: #2a7ab5;
 }
-.rocard-accordion summary svg {
-    flex-shrink: 0;
-    opacity: 0.7;
+.rc-nav a svg {
+    color: #2a7ab5;
+    opacity: 0.6;
+    transition: opacity 0.2s, color 0.2s;
 }
-.rocard-accordion summary .tab-label {
-    flex: 1;
-}
-.rocard-accordion summary .tab-arrow {
-    margin-left: auto;
-    transition: transform 0.3s ease;
-    opacity: 0.5;
-}
-.rocard-accordion details[open] summary {
-    background: #1e6a9e;
-    box-shadow: inset 0 -3px 0 #f57c00;
-}
-.rocard-accordion details[open] summary svg {
+.rc-nav a:hover svg {
     opacity: 1;
+    color: #f57c00;
 }
-.rocard-accordion details[open] summary .tab-arrow {
-    transform: rotate(180deg);
-    opacity: 1;
+
+/* ═══ SISTEMA TAB :target + :has() ═══ */
+/* Tutte le pagine nascoste di default */
+.rc-pg { display: none !important; }
+
+/* Mostra la pagina targetizzata */
+.rc-pg:target { display: block !important; }
+
+/* Quando NESSUNA pagina e' targetizzata, mostra Chi Siamo (default) */
+.rc-wrap:not(:has(.rc-pg:target)) .rc-default { display: block !important; }
+
+@media (max-width: 900px) {
+    .rc-nav { padding: 16px 0; }
+    .rc-nav-inner {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        justify-content: flex-start;
+        gap: 10px;
+        padding: 0 16px;
+    }
+    .rc-nav a {
+        min-width: 100px;
+        padding: 14px 12px;
+        font-size: 0.72rem;
+        gap: 6px;
+    }
+    .rc-nav a svg { width: 20px; height: 20px; }
 }
 
 /* ═══ CHI-SIAMO ═══ */
@@ -148,13 +178,15 @@
     background: #fff;
 }
 .rocard-chi-siamo .about-content {
-    max-width: 800px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
 }
 .rocard-chi-siamo .about-text {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     color: #555;
-    margin-bottom: 16px;
-    line-height: 1.7;
+    margin-bottom: 20px;
+    line-height: 1.8;
 }
 
 /* Numbers Section */
@@ -2002,9 +2034,22 @@
 
 </style>
 
-<div class="rocard-accordion">
-<details name="rocard-tab" open>
-<summary><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg><span class="tab-label">Chi Siamo</span><svg class="tab-arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg></summary>
+<div class="rc-wrap">
+
+<!-- Card di navigazione -->
+<div class="rc-nav">
+    <div class="rc-nav-inner">
+        <a href="#rc-cs"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>Chi Siamo</a>
+        <a href="#rc-vv"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m16 10-5.12 5.12-2.12-2.12"></path></svg>Vision &amp; Valori</a>
+        <a href="#rc-nm"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"></path><path d="m2 17 10 5 10-5"></path><path d="m2 12 10 5 10-5"></path></svg>Il Nostro Modello</a>
+        <a href="#rc-nc"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="m19 9-5 5-4-4-3 3"></path></svg>Numeri &amp; Crescita</a>
+        <a href="#rc-tm"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>Il Team</a>
+        <a href="#rc-lv"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>Lavora con Noi</a>
+        <a href="#rc-ct"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>Contatti</a>
+    </div>
+</div>
+
+<div id="rc-cs" class="rc-pg rc-default">
 <div class="rocard-chi-siamo">
     <!-- Hero Section with Image -->
     <section class="hero-section">
@@ -2018,8 +2063,8 @@
     <section class="about-section">
         <div class="container">
             <div class="about-content">
-                <span class="section-label">La Nostra Storia</span>
-                <h2 class="section-title">Rocard, il partner affidabile per i tuoi acquisti online</h2>
+                <span class="section-label center">La Nostra Storia</span>
+                <h2 class="section-title center">Rocard, il partner affidabile per i tuoi acquisti online</h2>
                 <p class="about-text">
                     Rocard nasce con l'obiettivo di offrire ai clienti un e-commerce affidabile, 
                     con prodotti selezionati accuratamente, spedizioni rapide e un'esperienza d'acquisto 
@@ -2330,9 +2375,8 @@
         </div>
     </section>
 </div>
-</details>
-<details name="rocard-tab">
-<summary><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><path d="m16 10-5.12 5.12-2.12-2.12"></path></svg><span class="tab-label">Vision &amp; Valori</span><svg class="tab-arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg></summary>
+</div>
+<div id="rc-vv" class="rc-pg">
 <div class="rocard-vision-valori">
     <!-- Hero -->
     <section class="hero-section">
@@ -2413,9 +2457,8 @@
         </div>
     </section>
 </div>
-</details>
-<details name="rocard-tab">
-<summary><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2 2 7l10 5 10-5-10-5Z"></path><path d="m2 17 10 5 10-5"></path><path d="m2 12 10 5 10-5"></path></svg><span class="tab-label">Il Nostro Modello</span><svg class="tab-arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg></summary>
+</div>
+<div id="rc-nm" class="rc-pg">
 <div class="rocard-nostro-modello">
     <!-- Hero -->
     <section class="hero-section">
@@ -2499,9 +2542,8 @@
         </div>
     </section>
 </div>
-</details>
-<details name="rocard-tab">
-<summary><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18"></path><path d="m19 9-5 5-4-4-3 3"></path></svg><span class="tab-label">Numeri &amp; Crescita</span><svg class="tab-arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg></summary>
+</div>
+<div id="rc-nc" class="rc-pg">
 <div class="rocard-numeri-crescita">
     <!-- Hero -->
     <section class="hero-section">
@@ -2584,9 +2626,8 @@
     </section>
 </div>
 /div>
-</details>
-<details name="rocard-tab">
-<summary><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg><span class="tab-label">Il Team</span><svg class="tab-arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg></summary>
+</div>
+<div id="rc-tm" class="rc-pg">
 <div class="rocard-team">
     <!-- Hero -->
     <section class="hero-section">
@@ -2659,9 +2700,8 @@
         </div>
     </section>
 </div>
-</details>
-<details name="rocard-tab">
-<summary><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg><span class="tab-label">Lavora con Noi</span><svg class="tab-arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg></summary>
+</div>
+<div id="rc-lv" class="rc-pg">
 <div class="rocard-lavora">
     <!-- Hero -->
     <section class="hero-section">
@@ -2871,9 +2911,8 @@
         </div>
     </section>
 </div>
-</details>
-<details name="rocard-tab">
-<summary><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg><span class="tab-label">Contatti Aziendali</span><svg class="tab-arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg></summary>
+</div>
+<div id="rc-ct" class="rc-pg">
 <div class="rocard-contatti">
     <!-- Hero -->
     <section class="hero-section">
@@ -2962,5 +3001,5 @@
         </div>
     </section>
 </div>
-</details>
+</div>
 </div>
