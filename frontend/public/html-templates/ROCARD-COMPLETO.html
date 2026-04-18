@@ -9,10 +9,6 @@
     font-family: 'Outfit', sans-serif;
     background: #2a7ab5;
     padding: 28px 0;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
 }
 .rocard-nav-cards-inner {
     max-width: 1200px;
@@ -23,7 +19,7 @@
     gap: 14px;
     padding: 0 20px;
 }
-.rocard-nav-cards a {
+.rocard-nav-cards a.rc-tab-btn {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,35 +40,41 @@
     text-decoration: none;
     white-space: nowrap;
 }
-.rocard-nav-cards a:hover {
+.rocard-nav-cards a.rc-tab-btn:hover {
     border-color: #f57c00;
     box-shadow: 0 4px 16px rgba(245,124,0,0.15);
     transform: translateY(-3px);
     color: #2a7ab5;
 }
-.rocard-nav-cards a svg {
+.rocard-nav-cards a.rc-tab-btn svg {
     color: #2a7ab5;
     opacity: 0.6;
     transition: opacity 0.2s, color 0.2s;
 }
-.rocard-nav-cards a:hover svg {
+.rocard-nav-cards a.rc-tab-btn:hover svg {
     opacity: 1;
     color: #f57c00;
 }
-.rocard-scroll-anchor {
+/* Card attiva */
+.rocard-nav-cards a.rc-tab-btn.active {
+    border-color: #f57c00;
+    box-shadow: 0 4px 20px rgba(245,124,0,0.2);
+    color: #2a7ab5;
+    font-weight: 600;
+}
+.rocard-nav-cards a.rc-tab-btn.active svg {
+    opacity: 1;
+    color: #f57c00;
+}
+
+/* ═══ PANNELLI TAB ═══ */
+.rocard-tab-panel {
+    display: none;
+}
+.rocard-tab-panel.active {
     display: block;
-    position: relative;
-    top: -120px;
-    visibility: hidden;
-    height: 0;
 }
-.rocard-section-divider {
-    height: 2px;
-    background: linear-gradient(to right, transparent, #2a7ab5, transparent);
-    max-width: 600px;
-    margin: 0 auto;
-    opacity: 0.3;
-}
+
 @media (max-width: 900px) {
     .rocard-nav-cards { padding: 16px 0; }
     .rocard-nav-cards-inner {
@@ -82,13 +84,13 @@
         gap: 10px;
         padding: 0 16px;
     }
-    .rocard-nav-cards a {
+    .rocard-nav-cards a.rc-tab-btn {
         min-width: 100px;
         padding: 14px 12px;
         font-size: 0.72rem;
         gap: 6px;
     }
-    .rocard-nav-cards a svg { width: 20px; height: 20px; }
+    .rocard-nav-cards a.rc-tab-btn svg { width: 20px; height: 20px; }
 }
 
 /* ═══ CHI-SIAMO ═══ */
@@ -2041,17 +2043,17 @@
 
 <div class="rocard-nav-cards">
     <div class="rocard-nav-cards-inner">
-        <a href="#rc-chi-siamo"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>Chi Siamo</a>
-        <a href="#rc-vision"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m16 10-5.12 5.12-2.12-2.12"></path></svg>Vision &amp; Valori</a>
-        <a href="#rc-modello"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"></path><path d="m2 17 10 5 10-5"></path><path d="m2 12 10 5 10-5"></path></svg>Il Nostro Modello</a>
-        <a href="#rc-numeri"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="m19 9-5 5-4-4-3 3"></path></svg>Numeri &amp; Crescita</a>
-        <a href="#rc-team"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>Il Team</a>
-        <a href="#rc-lavora"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>Lavora con Noi</a>
-        <a href="#rc-contatti"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>Contatti</a>
+        <a class="rc-tab-btn active" data-tab="rc-chi-siamo" href="#rc-chi-siamo"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>Chi Siamo</a>
+        <a class="rc-tab-btn" data-tab="rc-vision" href="#rc-vision"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m16 10-5.12 5.12-2.12-2.12"></path></svg>Vision &amp; Valori</a>
+        <a class="rc-tab-btn" data-tab="rc-modello" href="#rc-modello"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"></path><path d="m2 17 10 5 10-5"></path><path d="m2 12 10 5 10-5"></path></svg>Il Nostro Modello</a>
+        <a class="rc-tab-btn" data-tab="rc-numeri" href="#rc-numeri"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="m19 9-5 5-4-4-3 3"></path></svg>Numeri &amp; Crescita</a>
+        <a class="rc-tab-btn" data-tab="rc-team" href="#rc-team"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>Il Team</a>
+        <a class="rc-tab-btn" data-tab="rc-lavora" href="#rc-lavora"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>Lavora con Noi</a>
+        <a class="rc-tab-btn" data-tab="rc-contatti" href="#rc-contatti"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>Contatti</a>
     </div>
 </div>
 
-<span id="rc-chi-siamo" class="rocard-scroll-anchor"></span>
+<div id="rc-chi-siamo" class="rocard-tab-panel active">
 <div class="rocard-chi-siamo">
     <!-- Hero Section with Image -->
     <section class="hero-section">
@@ -2377,8 +2379,8 @@
         </div>
     </section>
 </div>
-<div class="rocard-section-divider"></div>
-<span id="rc-vision" class="rocard-scroll-anchor"></span>
+</div>
+<div id="rc-vision" class="rocard-tab-panel">
 <div class="rocard-vision-valori">
     <!-- Hero -->
     <section class="hero-section">
@@ -2459,8 +2461,8 @@
         </div>
     </section>
 </div>
-<div class="rocard-section-divider"></div>
-<span id="rc-modello" class="rocard-scroll-anchor"></span>
+</div>
+<div id="rc-modello" class="rocard-tab-panel">
 <div class="rocard-nostro-modello">
     <!-- Hero -->
     <section class="hero-section">
@@ -2544,8 +2546,8 @@
         </div>
     </section>
 </div>
-<div class="rocard-section-divider"></div>
-<span id="rc-numeri" class="rocard-scroll-anchor"></span>
+</div>
+<div id="rc-numeri" class="rocard-tab-panel">
 <div class="rocard-numeri-crescita">
     <!-- Hero -->
     <section class="hero-section">
@@ -2627,9 +2629,8 @@
         </div>
     </section>
 </div>
-/div>
-<div class="rocard-section-divider"></div>
-<span id="rc-team" class="rocard-scroll-anchor"></span>
+</div>
+<div id="rc-team" class="rocard-tab-panel">
 <div class="rocard-team">
     <!-- Hero -->
     <section class="hero-section">
@@ -2702,8 +2703,8 @@
         </div>
     </section>
 </div>
-<div class="rocard-section-divider"></div>
-<span id="rc-lavora" class="rocard-scroll-anchor"></span>
+</div>
+<div id="rc-lavora" class="rocard-tab-panel">
 <div class="rocard-lavora">
     <!-- Hero -->
     <section class="hero-section">
@@ -2913,8 +2914,8 @@
         </div>
     </section>
 </div>
-<div class="rocard-section-divider"></div>
-<span id="rc-contatti" class="rocard-scroll-anchor"></span>
+</div>
+<div id="rc-contatti" class="rocard-tab-panel">
 <div class="rocard-contatti">
     <!-- Hero -->
     <section class="hero-section">
@@ -3003,3 +3004,27 @@
         </div>
     </section>
 </div>
+</div>
+
+<script>
+(function(){
+    var btns = document.querySelectorAll('.rc-tab-btn');
+    var panels = document.querySelectorAll('.rocard-tab-panel');
+    function show(id) {
+        panels.forEach(function(p){ p.classList.remove('active'); });
+        btns.forEach(function(b){ b.classList.remove('active'); });
+        var panel = document.getElementById(id);
+        if(panel) panel.classList.add('active');
+        btns.forEach(function(b){ if(b.getAttribute('data-tab')===id) b.classList.add('active'); });
+    }
+    btns.forEach(function(b){
+        b.addEventListener('click', function(e){
+            e.preventDefault();
+            show(this.getAttribute('data-tab'));
+            window.scrollTo({top:0,behavior:'smooth'});
+        });
+    });
+    var hash = window.location.hash.replace('#','');
+    if(hash && document.getElementById(hash)) show(hash);
+})();
+</script>
