@@ -1,208 +1,737 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chi Siamo - Rocard Corporate</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="rocard-corporate-styles.css">
-  <style>
-    .chi-siamo-hero { position: relative; width: 100%; height: 500px; overflow: hidden; }
-    .chi-siamo-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .chi-siamo-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3)); }
-    .section-label { display: block; text-transform: uppercase; font-size: 0.85rem; font-weight: 600; letter-spacing: 1.5px; color: var(--rocard-orange); margin-bottom: 12px; }
-    .section-label.center { text-align: center; }
-    .section-heading-lg { font-size: 2rem; color: var(--rocard-blue); font-weight: 700; margin-bottom: 24px; max-width: 700px; }
-    .number-desc { font-size: 0.85rem; color: var(--rocard-gray-500); margin-top: 4px; }
-    .highlight-card { border: 2px solid var(--rocard-orange); }
-    .service-card { text-align: center; padding: 30px 20px; background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
-    .service-icon { width: 50px; height: 50px; margin: 0 auto 16px; color: var(--rocard-orange); }
-    .testimonial-card { text-align: center; padding: 30px; background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
-    .stars { color: #D4AF37; font-size: 1.2rem; margin-bottom: 12px; }
-    .courier-logos { display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap; }
-    .courier-logos .courier-card { background: #fff; border-radius: 12px; padding: 30px 40px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); display: flex; align-items: center; justify-content: center; transition: transform 0.3s ease, box-shadow 0.3s ease; width: 180px; height: 180px; }
-    .courier-logos .courier-card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); }
-    .courier-logos .courier-card img { height: 55px; width: auto; object-fit: contain; max-width: 150px; }
-    .courier-logos .courier-card.courier-card--full { padding: 0; overflow: hidden; }
-    .courier-logos .courier-card.courier-card--full img { height: 100%; width: 100%; max-width: none; object-fit: cover; border-radius: 12px; }
-    .trust-badges { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
-    .trust-badge { display: flex; align-items: center; gap: 8px; color: var(--rocard-blue); font-weight: 500; }
-    @media (max-width: 768px) {
-      .chi-siamo-hero { height: 300px; }
-      .section-heading-lg { font-size: 1.5rem; }
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+.rocard-chi-siamo {
+    font-family: 'Outfit', sans-serif;
+    color: #1a1a2e;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+.rocard-chi-siamo *, .rocard-chi-siamo *::before, .rocard-chi-siamo *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.rocard-chi-siamo .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+.rocard-chi-siamo .section-label {
+    display: block;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #f57c00;
+    margin-bottom: 12px;
+}
+.rocard-chi-siamo .section-label.center {
+    text-align: center;
+}
+.rocard-chi-siamo .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #1a3c6e;
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
+.rocard-chi-siamo .section-title.center {
+    text-align: center;
+}
+.rocard-chi-siamo .section-desc {
+    font-size: 1.05rem;
+    color: #555;
+    max-width: 600px;
+    margin-bottom: 40px;
+}
+.rocard-chi-siamo .section-desc.center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Hero Section */
+.rocard-chi-siamo .hero-section {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+.rocard-chi-siamo .hero-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.rocard-chi-siamo .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.rocard-chi-siamo .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.25));
+}
+.rocard-chi-siamo .hero-content {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    padding: 0 24px;
+}
+
+/* About Section */
+.rocard-chi-siamo .about-section {
+    padding: 80px 0;
+    background: #fff;
+}
+.rocard-chi-siamo .about-content {
+    max-width: 800px;
+}
+.rocard-chi-siamo .about-text {
+    font-size: 1.05rem;
+    color: #555;
+    margin-bottom: 16px;
+    line-height: 1.7;
+}
+
+/* Numbers Section */
+.rocard-chi-siamo .numbers-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+.rocard-chi-siamo .numbers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+}
+.rocard-chi-siamo .number-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.rocard-chi-siamo .number-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+}
+.rocard-chi-siamo .number-card.highlight {
+    border: 2px solid #f57c00;
+}
+.rocard-chi-siamo .number {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a3c6e;
+    margin-bottom: 8px;
+}
+.rocard-chi-siamo .number .star-icon {
+    color: #D4AF37;
+    font-size: 1.8rem;
+}
+.rocard-chi-siamo .number-label {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #1a3c6e;
+    margin-bottom: 4px;
+}
+.rocard-chi-siamo .number-desc {
+    display: block;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* Services Section */
+.rocard-chi-siamo .services-section {
+    padding: 80px 0;
+    background: #fff;
+}
+.rocard-chi-siamo .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+}
+.rocard-chi-siamo .service-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 36px 24px;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.rocard-chi-siamo .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+}
+.rocard-chi-siamo .service-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 20px;
+    color: #f57c00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.rocard-chi-siamo .service-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1a3c6e;
+    margin-bottom: 12px;
+}
+.rocard-chi-siamo .service-desc {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Testimonials Section */
+.rocard-chi-siamo .testimonials-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+.rocard-chi-siamo .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+}
+.rocard-chi-siamo .testimonial-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 36px 28px;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+.rocard-chi-siamo .testimonial-card:hover {
+    transform: translateY(-4px);
+}
+.rocard-chi-siamo .quote-icon {
+    color: #e8e8e8;
+    margin-bottom: 16px;
+}
+.rocard-chi-siamo .stars-row {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 16px;
+}
+.rocard-chi-siamo .testimonial-text {
+    font-style: italic;
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+.rocard-chi-siamo .testimonial-author {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.rocard-chi-siamo .author-name {
+    font-weight: 600;
+    color: #1a3c6e;
+    font-size: 0.95rem;
+}
+.rocard-chi-siamo .author-badge {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* Environment Section */
+.rocard-chi-siamo .environment-section {
+    padding: 80px 0;
+    background: #fff;
+}
+.rocard-chi-siamo .environment-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+}
+.rocard-chi-siamo .environment-icon {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    background: #e8f5e9;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2e7d32;
+}
+.rocard-chi-siamo .environment-text {
+    flex: 1;
+}
+.rocard-chi-siamo .environment-desc {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+.rocard-chi-siamo .treedom-logo img {
+    height: 50px;
+    width: auto;
+}
+
+/* Couriers Section */
+.rocard-chi-siamo .couriers-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+.rocard-chi-siamo .couriers-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+.rocard-chi-siamo .courier-logo {
+    background: #fff;
+    border-radius: 12px;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.rocard-chi-siamo .courier-logo:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+}
+.rocard-chi-siamo .courier-logo img {
+    max-width: 130px;
+    max-height: 80px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Future Section */
+.rocard-chi-siamo .future-section {
+    padding: 80px 0;
+    background: #fff;
+}
+.rocard-chi-siamo .future-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+.rocard-chi-siamo .future-text {
+    font-size: 1.05rem;
+    color: #555;
+    margin-bottom: 16px;
+    line-height: 1.7;
+}
+.rocard-chi-siamo .cta-button {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 14px 36px;
+    background: #1a3c6e;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+.rocard-chi-siamo .cta-button:hover {
+    background: #15325c;
+    transform: translateY(-2px);
+}
+
+/* Trust Section */
+.rocard-chi-siamo .trust-section {
+    padding: 40px 0;
+    background: #f8f9fa;
+    border-top: 1px solid #eee;
+}
+.rocard-chi-siamo .trust-badges {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+.rocard-chi-siamo .trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #1a3c6e;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+.rocard-chi-siamo .trust-badge svg {
+    flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .rocard-chi-siamo .numbers-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
-  </style>
-</head>
-<body>
+    .rocard-chi-siamo .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .rocard-chi-siamo .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 768px) {
+    .rocard-chi-siamo .hero-section {
+        height: 300px;
+    }
+    .rocard-chi-siamo .section-title {
+        font-size: 1.7rem;
+    }
+    .rocard-chi-siamo .about-section,
+    .rocard-chi-siamo .numbers-section,
+    .rocard-chi-siamo .services-section,
+    .rocard-chi-siamo .testimonials-section,
+    .rocard-chi-siamo .environment-section,
+    .rocard-chi-siamo .couriers-section,
+    .rocard-chi-siamo .future-section {
+        padding: 50px 0;
+    }
+    .rocard-chi-siamo .numbers-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    .rocard-chi-siamo .services-grid {
+        grid-template-columns: 1fr;
+    }
+    .rocard-chi-siamo .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    .rocard-chi-siamo .environment-content {
+        flex-direction: column;
+    }
+    .rocard-chi-siamo .couriers-grid {
+        gap: 20px;
+    }
+    .rocard-chi-siamo .courier-logo {
+        width: 140px;
+        height: 140px;
+    }
+    .rocard-chi-siamo .trust-badges {
+        gap: 20px;
+    }
+}
+@media (max-width: 480px) {
+    .rocard-chi-siamo .numbers-grid {
+        grid-template-columns: 1fr;
+    }
+    .rocard-chi-siamo .number {
+        font-size: 2rem;
+    }
+}
+</style>
 
-<!-- CHI SIAMO - Replica pagina live rocard.it/chi-siamo/ -->
-<!-- Incolla queste sezioni in Elementor come blocchi HTML -->
+<div class="rocard-chi-siamo">
+    <!-- Hero Section with Image -->
+    <section class="hero-section">
+        <div class="hero-image-container">
+            <img src="https://customer-assets.emergentagent.com/job_authority-design-1/artifacts/lyxjn2y2_ChatGPT-Image-11-mar-2026-14_34_33-1.png" alt="Rocard - Il tuo standard d'eccellenza - Sede aziendale con logo illuminato" class="hero-image" loading="eager">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content"></div>
+    </section>
 
-<!-- HERO CON IMMAGINE SEDE -->
-<section class="chi-siamo-hero">
-  <img src="https://customer-assets.emergentagent.com/job_authority-design-1/artifacts/lyxjn2y2_ChatGPT-Image-11-mar-2026-14_34_33-1.png" alt="Rocard - Sede aziendale">
-  <div class="chi-siamo-hero-overlay"></div>
-</section>
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <span class="section-label">La Nostra Storia</span>
+                <h2 class="section-title">Rocard, il partner affidabile per i tuoi acquisti online</h2>
+                <p class="about-text">
+                    Rocard nasce con l'obiettivo di offrire ai clienti un e-commerce affidabile, 
+                    con prodotti selezionati accuratamente, spedizioni rapide e un'esperienza d'acquisto 
+                    semplice e sicura. Ogni giorno lavoriamo per garantire qualit&agrave;, convenienza e 
+                    un servizio clienti impeccabile.
+                </p>
+                <p class="about-text">
+                    La nostra missione &egrave; rendere lo shopping online un'esperienza piacevole e senza 
+                    preoccupazioni, offrendo solo il meglio ai nostri clienti.
+                </p>
+            </div>
+        </div>
+    </section>
 
-<!-- LA NOSTRA STORIA -->
-<section class="section">
-  <div class="rocard-container">
-    <span class="section-label">La Nostra Storia</span>
-    <h2 class="section-heading-lg">Rocard, il partner affidabile per i tuoi acquisti online</h2>
-    <div style="max-width: 800px;">
-      <p style="color: var(--rocard-gray-600); margin-bottom: 16px; font-size: 1.05rem;">
-        Rocard nasce con l'obiettivo di offrire ai clienti un e-commerce affidabile, con prodotti selezionati accuratamente, spedizioni rapide e un'esperienza d'acquisto semplice e sicura. Ogni giorno lavoriamo per garantire qualità, convenienza e un servizio clienti impeccabile.
-      </p>
-      <p style="color: var(--rocard-gray-600); font-size: 1.05rem;">
-        La nostra missione è rendere lo shopping online un'esperienza piacevole e senza preoccupazioni, offrendo solo il meglio ai nostri clienti.
-      </p>
-    </div>
-  </div>
-</section>
+    <!-- Numbers Section -->
+    <section class="numbers-section">
+        <div class="container">
+            <span class="section-label center">I Nostri Risultati</span>
+            <h2 class="section-title center">I Numeri di Rocard</h2>
+            <div class="numbers-grid">
+                <div class="number-card">
+                    <span class="number">+1.200</span>
+                    <span class="number-label">Prodotti Disponibili</span>
+                    <span class="number-desc">Catalogo in continua espansione</span>
+                </div>
+                <div class="number-card">
+                    <span class="number">2.000+</span>
+                    <span class="number-label">Spedizioni al Giorno</span>
+                    <span class="number-desc">Consegne puntuali e sicure</span>
+                </div>
+                <div class="number-card">
+                    <span class="number">730.000+</span>
+                    <span class="number-label">Clienti Soddisfatti</span>
+                    <span class="number-desc">Ogni anno scegliamo insieme</span>
+                </div>
+                <div class="number-card highlight">
+                    <span class="number">4.8 <span class="star-icon">&#9733;</span></span>
+                    <span class="number-label">Valutazione Media</span>
+                    <span class="number-desc">Eccellenza certificata</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- I NUMERI DI ROCARD -->
-<section class="section section-light">
-  <div class="rocard-container">
-    <span class="section-label center">I Nostri Risultati</span>
-    <h2 style="text-align: center; margin-bottom: 40px;">I Numeri di Rocard</h2>
-    <div class="numbers-grid">
-      <div class="number-card">
-        <div class="number-value">+1.200</div>
-        <div class="number-label">Prodotti Disponibili</div>
-        <div class="number-desc">Catalogo in continua espansione</div>
-      </div>
-      <div class="number-card">
-        <div class="number-value">2.000+</div>
-        <div class="number-label">Spedizioni al Giorno</div>
-        <div class="number-desc">Consegne puntuali e sicure</div>
-      </div>
-      <div class="number-card">
-        <div class="number-value">730.000+</div>
-        <div class="number-label">Clienti Soddisfatti</div>
-        <div class="number-desc">Ogni anno scegliamo insieme</div>
-      </div>
-      <div class="number-card highlight-card">
-        <div class="number-value">4.8 <span style="font-size: 1.5rem; color: #D4AF37;">&#9733;</span></div>
-        <div class="number-label">Valutazione Media</div>
-        <div class="number-desc">Eccellenza certificata</div>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <span class="section-label center">Perch&eacute; Sceglierci</span>
+            <h2 class="section-title center">I Servizi Rocard</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
+                            <path d="M21 3v5h-5"></path>
+                            <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
+                            <path d="M8 16H3v5"></path>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Resi Semplici</h3>
+                    <p class="service-desc">Procedura di reso chiara, veloce e senza complicazioni. La tua soddisfazione &egrave; la nostra priorit&agrave;.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            <path d="m9 12 2 2 4-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Pagamenti Sicuri</h3>
+                    <p class="service-desc">Transazioni protette con i pi&ugrave; alti standard di sicurezza. I tuoi dati sono sempre al sicuro.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path>
+                            <path d="M15 18H9"></path>
+                            <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path>
+                            <circle cx="17" cy="18" r="2"></circle>
+                            <circle cx="7" cy="18" r="2"></circle>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Spedizioni Rapide</h3>
+                    <p class="service-desc">Consegne veloci in tutta Italia con tracking in tempo reale. Sempre informato, sempre tranquillo.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="8" r="6"></circle>
+                            <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Trusted Shops</h3>
+                    <p class="service-desc">Acquisti protetti e certificati. La garanzia di un e-commerce affidabile e verificato.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- I SERVIZI ROCARD -->
-<section class="section">
-  <div class="rocard-container">
-    <span class="section-label center">Perché Sceglierci</span>
-    <h2 style="text-align: center; margin-bottom: 40px;">I Servizi Rocard</h2>
-    <div class="values-grid" style="grid-template-columns: repeat(4, 1fr);">
-      <div class="service-card">
-        <div class="service-icon">📦</div>
-        <h4>Resi Semplici</h4>
-        <p>Procedura di reso chiara, veloce e senza complicazioni. La tua soddisfazione è la nostra priorità.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🔒</div>
-        <h4>Pagamenti Sicuri</h4>
-        <p>Transazioni protette con i più alti standard di sicurezza. I tuoi dati sono sempre al sicuro.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🚚</div>
-        <h4>Spedizioni Rapide</h4>
-        <p>Consegne veloci in tutta Italia con tracking in tempo reale. Sempre informato, sempre tranquillo.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">✅</div>
-        <h4>Trusted Shops</h4>
-        <p>Acquisti protetti e certificati. La garanzia di un e-commerce affidabile e verificato.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <span class="section-label center">Cosa Dicono di Noi</span>
+            <h2 class="section-title center">La Fiducia dei Nostri Clienti</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="quote-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"></path>
+                        </svg>
+                    </div>
+                    <div class="stars-row">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <p class="testimonial-text">"Spedizione velocissima e servizio clienti eccellente. Consiglio vivamente Rocard a tutti."</p>
+                    <div class="testimonial-author">
+                        <span class="author-name">Marco R.</span>
+                        <span class="author-badge">Cliente Verificato</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"></path>
+                        </svg>
+                    </div>
+                    <div class="stars-row">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <p class="testimonial-text">"Ordine arrivato rapidamente e perfettamente imballato. Prodotti di qualit&agrave; e prezzi competitivi."</p>
+                    <div class="testimonial-author">
+                        <span class="author-name">Laura G.</span>
+                        <span class="author-badge">Cliente Verificato</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"></path>
+                        </svg>
+                    </div>
+                    <div class="stars-row">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <p class="testimonial-text">"Sito affidabile con prezzi imbattibili. Sono diventato un cliente abituale dopo il primo ordine."</p>
+                    <div class="testimonial-author">
+                        <span class="author-name">Giuseppe M.</span>
+                        <span class="author-badge">Cliente Verificato</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- TESTIMONIALS -->
-<section class="section section-light">
-  <div class="rocard-container">
-    <span class="section-label center">Cosa Dicono di Noi</span>
-    <h2 style="text-align: center; margin-bottom: 40px;">La Fiducia dei Nostri Clienti</h2>
-    <div class="values-grid">
-      <div class="testimonial-card">
-        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p style="font-style: italic; margin-bottom: 16px;">"Spedizione velocissima e servizio clienti eccellente. Consiglio vivamente Rocard a tutti."</p>
-        <p style="font-weight: 600; color: var(--rocard-blue);">Marco R.</p>
-        <p style="font-size: 0.85rem; color: var(--rocard-gray-600);">Cliente Verificato</p>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p style="font-style: italic; margin-bottom: 16px;">"Ordine arrivato rapidamente e perfettamente imballato. Prodotti di qualità e prezzi competitivi."</p>
-        <p style="font-weight: 600; color: var(--rocard-blue);">Laura G.</p>
-        <p style="font-size: 0.85rem; color: var(--rocard-gray-600);">Cliente Verificato</p>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p style="font-style: italic; margin-bottom: 16px;">"Sito affidabile con prezzi imbattibili. Sono diventato un cliente abituale dopo il primo ordine."</p>
-        <p style="font-weight: 600; color: var(--rocard-blue);">Giuseppe M.</p>
-        <p style="font-size: 0.85rem; color: var(--rocard-gray-600);">Cliente Verificato</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- Environment Section -->
+    <section class="environment-section">
+        <div class="container">
+            <div class="environment-content">
+                <div class="environment-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+                        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+                    </svg>
+                </div>
+                <div class="environment-text">
+                    <span class="section-label">Sostenibilit&agrave;</span>
+                    <h2 class="section-title">Il Nostro Impegno per l'Ambiente</h2>
+                    <p class="environment-desc">
+                        Rocard sostiene attivamente progetti di riforestazione attraverso <strong>Treedom</strong>, 
+                        contribuendo alla tutela dell'ambiente e alla lotta contro il cambiamento climatico. 
+                        Ogni acquisto &egrave; un piccolo passo verso un futuro pi&ugrave; verde.
+                    </p>
+                    <div class="treedom-logo">
+                        <img src="https://www.rocard.it/wp-content/uploads/2026/03/Treedom_Logo_Green-on-White-PayOff.webp" alt="Treedom - Partner ambientale di Rocard" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- SOSTENIBILITA' - TREEDOM -->
-<section class="section">
-  <div class="rocard-container">
-    <span class="section-label">Sostenibilità</span>
-    <h2 style="margin-bottom: 20px;">Il Nostro Impegno per l'Ambiente</h2>
-    <p style="color: var(--rocard-gray-600); max-width: 700px; margin-bottom: 24px; font-size: 1.05rem;">
-      Rocard sostiene attivamente progetti di riforestazione attraverso <strong>Treedom</strong>, contribuendo alla tutela dell'ambiente e alla lotta contro il cambiamento climatico. Ogni acquisto è un piccolo passo verso un futuro più verde.
-    </p>
-    <img src="https://www.rocard.it/wp-content/uploads/2026/03/Treedom_Logo_Green-on-White-PayOff.webp" alt="Treedom" style="height: 50px;">
-  </div>
-</section>
+    <!-- Couriers Section -->
+    <section class="couriers-section">
+        <div class="container">
+            <span class="section-label center">Logistica Affidabile</span>
+            <h2 class="section-title center">Corrieri Partner</h2>
+            <p class="section-desc center">Collaboriamo con i migliori corrieri nazionali per garantirti consegne sempre puntuali e sicure.</p>
+            <div class="couriers-grid">
+                <div class="courier-logo">
+                    <img src="https://www.rocard.it/wp-content/uploads/2026/03/logo-gls-socio-netcomm-2023.png" alt="GLS - Corriere partner Rocard" loading="lazy">
+                </div>
+                <div class="courier-logo">
+                    <img src="https://www.rocard.it/wp-content/uploads/2026/03/brt-logo.jpg" alt="BRT - Corriere partner Rocard" loading="lazy">
+                </div>
+                <div class="courier-logo">
+                    <img src="https://www.rocard.it/wp-content/uploads/2026/03/unnamed-2.png" alt="Poste Italiane - Corriere partner Rocard" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- CORRIERI PARTNER -->
-<section class="section section-light">
-  <div class="rocard-container">
-    <span class="section-label center">Logistica Affidabile</span>
-    <h2 style="text-align: center; margin-bottom: 16px;">Corrieri Partner</h2>
-    <p style="text-align: center; color: var(--rocard-gray-600); margin-bottom: 40px;">Collaboriamo con i migliori corrieri nazionali per garantirti consegne sempre puntuali e sicure.</p>
-    <div class="courier-logos">
-      <!-- NOTA: Aggiorna gli URL quando carichi le immagini nella Media Library di WordPress -->
-      <div class="courier-card courier-card--full"><img src="https://customer-assets.emergentagent.com/job_rocard-careers/artifacts/hjsao1eg_images.png" alt="GLS"></div>
-      <div class="courier-card"><img src="https://services.brt.it/flex/TemplatesUSR/assets/img/BRTServices/logo-brt.svg" alt="BRT"></div>
-      <div class="courier-card"><img src="https://www.posteitaliane.it/img/1476525198990/logo-poste-italiane.png" alt="Poste Italiane"></div>
-    </div>
-  </div>
-</section>
+    <!-- Future Section -->
+    <section class="future-section">
+        <div class="container">
+            <div class="future-content">
+                <span class="section-label center">Visione</span>
+                <h2 class="section-title center">Un E-commerce in Continua Evoluzione</h2>
+                <p class="future-text">
+                    Il mondo dell'e-commerce &egrave; in continua evoluzione e Rocard continua a investire nel 
+                    miglioramento del servizio, nell'ampliamento del catalogo e nell'ottimizzazione delle spedizioni.
+                </p>
+                <p class="future-text">
+                    Il nostro obiettivo &egrave; crescere insieme ai nostri clienti, offrendo un'esperienza 
+                    d'acquisto sempre pi&ugrave; semplice, veloce e affidabile.
+                </p>
+                <a href="https://www.rocard.it/shop/" class="cta-button">
+                    Scopri i Nostri Prodotti
+                </a>
+            </div>
+        </div>
+    </section>
 
-<!-- VISIONE FUTURA -->
-<section class="section">
-  <div class="rocard-container" style="text-align: center; max-width: 800px;">
-    <span class="section-label center">Visione</span>
-    <h2 style="text-align: center; margin-bottom: 20px;">Un E-commerce in Continua Evoluzione</h2>
-    <p style="color: var(--rocard-gray-600); margin-bottom: 16px; font-size: 1.05rem;">
-      Il mondo dell'e-commerce è in continua evoluzione e Rocard continua a investire nel miglioramento del servizio, nell'ampliamento del catalogo e nell'ottimizzazione delle spedizioni.
-    </p>
-    <p style="color: var(--rocard-gray-600); margin-bottom: 30px; font-size: 1.05rem;">
-      Il nostro obiettivo è crescere insieme ai nostri clienti, offrendo un'esperienza d'acquisto sempre più semplice, veloce e affidabile.
-    </p>
-    <a href="https://www.rocard.it/shop/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-      Scopri i Nostri Prodotti
-    </a>
-  </div>
-</section>
-
-<!-- TRUST BADGES -->
-<section class="section section-light">
-  <div class="rocard-container">
-    <div class="trust-badges">
-      <div class="trust-badge">🔒 Acquisti Sicuri</div>
-      <div class="trust-badge">🚚 Spedizione Veloce</div>
-      <div class="trust-badge">📦 Reso Facile</div>
-      <div class="trust-badge">✅ Qualità Garantita</div>
-    </div>
-  </div>
-</section>
-
-</body>
-</html>
+    <!-- Trust Section -->
+    <section class="trust-section">
+        <div class="container">
+            <div class="trust-badges">
+                <div class="trust-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        <path d="m9 12 2 2 4-4"></path>
+                    </svg>
+                    <span>Acquisti Sicuri</span>
+                </div>
+                <div class="trust-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path>
+                        <path d="M15 18H9"></path>
+                        <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path>
+                        <circle cx="17" cy="18" r="2"></circle>
+                        <circle cx="7" cy="18" r="2"></circle>
+                    </svg>
+                    <span>Spedizione Veloce</span>
+                </div>
+                <div class="trust-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
+                        <path d="M21 3v5h-5"></path>
+                        <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
+                        <path d="M8 16H3v5"></path>
+                    </svg>
+                    <span>Reso Facile</span>
+                </div>
+                <div class="trust-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="8" r="6"></circle>
+                        <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+                    </svg>
+                    <span>Qualit&agrave; Garantita</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

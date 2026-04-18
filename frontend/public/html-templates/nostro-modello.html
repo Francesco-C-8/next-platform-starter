@@ -1,129 +1,246 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Il Nostro Modello - Rocard</title>
-  <meta name="description" content="Scopri il modello di business Rocard: e-commerce, logistica integrata, customer care e selezione prodotti.">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root { --rocard-blue: #1a3c6e; --rocard-blue-dark: #0f2847; --rocard-orange: #f57c00; --rocard-orange-dark: #e65100; --rocard-white: #ffffff; --rocard-gray-50: #f8f9fa; --rocard-gray-600: #6c757d; --rocard-gray-800: #343a40; --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1); --radius-lg: 12px; --radius-md: 8px; }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Poppins', sans-serif; font-size: 16px; line-height: 1.6; color: var(--rocard-gray-800); }
-    .rocard-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-    h1, h2, h3 { font-weight: 600; line-height: 1.3; color: var(--rocard-blue); }
-    h1 { font-size: 3rem; } h2 { font-size: 2.25rem; } h3 { font-size: 1.5rem; }
-    @media (max-width: 768px) { h1 { font-size: 2rem; } h2 { font-size: 1.75rem; } }
-    .btn { display: inline-flex; padding: 14px 32px; font-size: 1rem; font-weight: 600; border-radius: var(--radius-md); border: none; cursor: pointer; transition: all 0.3s ease; text-decoration: none; }
-    .hero-section { position: relative; min-height: 500px; display: flex; align-items: center; background: linear-gradient(135deg, var(--rocard-blue) 0%, var(--rocard-blue-dark) 100%); color: var(--rocard-white); overflow: hidden; padding: 80px 0; }
-    .hero-section::before { content: ''; position: absolute; top: 0; right: 0; width: 50%; height: 100%; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); opacity: 0.5; }
-    .hero-content { position: relative; z-index: 1; max-width: 700px; }
-    .hero-section h1 { color: var(--rocard-white); margin-bottom: 20px; font-weight: 700; }
-    .hero-section p { font-size: 1.25rem; opacity: 0.9; }
-    .hero-accent { position: absolute; bottom: 0; right: 0; width: 300px; height: 300px; background: var(--rocard-orange); opacity: 0.1; border-radius: 50%; transform: translate(30%, 30%); }
-    .section { padding: 80px 0; }
-    .section-light { background: var(--rocard-gray-50); }
-    .content-block { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-    .content-block.reverse { direction: rtl; }
-    .content-block.reverse > * { direction: ltr; }
-    .content-block-text h3 { margin-bottom: 20px; }
-    .content-block-text p { color: var(--rocard-gray-600); margin-bottom: 20px; }
-    .content-block-image { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-xl); }
-    .content-block-image img { width: 100%; height: 350px; object-fit: cover; display: block; }
-    @media (max-width: 768px) { .content-block { grid-template-columns: 1fr; gap: 30px; } .content-block.reverse { direction: ltr; } }
-    .cta-section { background: linear-gradient(135deg, var(--rocard-orange) 0%, var(--rocard-orange-dark) 100%); color: var(--rocard-white); text-align: center; padding: 80px 0; }
-    .cta-section h2 { color: var(--rocard-white); margin-bottom: 16px; }
-    .cta-section p { font-size: 1.125rem; opacity: 0.9; margin-bottom: 30px; }
-    .cta-section .btn { background: var(--rocard-white); color: var(--rocard-orange); }
-  </style>
-</head>
-<body>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<!-- PAGINA: IL NOSTRO MODELLO - URL: /nostro-modello/ -->
+<style>
+.rocard-nostro-modello {
+    font-family: 'Outfit', sans-serif;
+    color: #1a1a2e;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+.rocard-nostro-modello *, .rocard-nostro-modello *::before, .rocard-nostro-modello *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.rocard-nostro-modello .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+.rocard-nostro-modello .section-label {
+    display: block;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #f57c00;
+    margin-bottom: 12px;
+}
+.rocard-nostro-modello .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #1a3c6e;
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
 
-<!-- HERO -->
-<section class="hero-section">
-  <div class="rocard-container">
-    <div class="hero-content">
-      <h1>Il Nostro Modello</h1>
-      <p>Un ecosistema integrato per garantire la massima efficienza e qualità del servizio.</p>
-    </div>
-    <div class="hero-accent"></div>
-  </div>
-</section>
+/* Hero */
+.rocard-nostro-modello .hero-section {
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #1a3c6e 0%, #0f2847 100%);
+    color: #fff;
+    overflow: hidden;
+    padding: 80px 0;
+}
+.rocard-nostro-modello .hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: radial-gradient(circle at 70% 50%, rgba(245,124,0,0.08) 0%, transparent 70%);
+}
+.rocard-nostro-modello .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+}
+.rocard-nostro-modello .hero-content h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 16px;
+}
+.rocard-nostro-modello .hero-content p {
+    font-size: 1.15rem;
+    opacity: 0.9;
+}
 
-<!-- ECOMMERCE -->
-<section class="section">
-  <div class="rocard-container">
-    <div class="content-block">
-      <div class="content-block-text">
-        <h3>E-commerce di Nuova Generazione</h3>
-        <p>La nostra piattaforma e-commerce è progettata per offrire un'esperienza d'acquisto fluida e intuitiva su ogni dispositivo.</p>
-        <p>Investiamo costantemente in UX/UI, performance e funzionalità per rendere ogni acquisto semplice e piacevole.</p>
-      </div>
-      <div class="content-block-image">
-        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="Piattaforma ecommerce">
-      </div>
-    </div>
-  </div>
-</section>
+/* Content Sections */
+.rocard-nostro-modello .content-section {
+    padding: 80px 0;
+    background: #fff;
+}
+.rocard-nostro-modello .content-section.alt {
+    background: #f8f9fa;
+}
+.rocard-nostro-modello .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+.rocard-nostro-modello .content-grid.reverse {
+    direction: rtl;
+}
+.rocard-nostro-modello .content-grid.reverse > * {
+    direction: ltr;
+}
+.rocard-nostro-modello .content-text p {
+    font-size: 1.05rem;
+    color: #555;
+    margin-bottom: 16px;
+    line-height: 1.7;
+}
+.rocard-nostro-modello .content-image {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+}
+.rocard-nostro-modello .content-image img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+}
 
-<!-- LOGISTICA -->
-<section class="section section-light">
-  <div class="rocard-container">
-    <div class="content-block reverse">
-      <div class="content-block-text">
-        <h3>Logistica Integrata</h3>
-        <p>Il nostro centro logistico di 1.000 mq ci permette di gestire circa 2.000 ordini al giorno con efficienza e precisione.</p>
-        <p>Sistemi WMS avanzati, picking ottimizzato e partnership con i migliori corrieri garantiscono consegne rapide in tutta Italia.</p>
-      </div>
-      <div class="content-block-image">
-        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=400&fit=crop" alt="Centro logistico">
-      </div>
-    </div>
-  </div>
-</section>
+/* CTA */
+.rocard-nostro-modello .cta-section {
+    background: linear-gradient(135deg, #f57c00, #e65100);
+    color: #fff;
+    text-align: center;
+    padding: 80px 0;
+}
+.rocard-nostro-modello .cta-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    color: #fff;
+    margin-bottom: 16px;
+}
+.rocard-nostro-modello .cta-section p {
+    font-size: 1.05rem;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+.rocard-nostro-modello .cta-button {
+    display: inline-block;
+    padding: 14px 36px;
+    background: #fff;
+    color: #f57c00;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+.rocard-nostro-modello .cta-button:hover {
+    background: #f1f3f5;
+    transform: translateY(-2px);
+}
 
-<!-- CUSTOMER CARE -->
-<section class="section">
-  <div class="rocard-container">
-    <div class="content-block">
-      <div class="content-block-text">
-        <h3>Customer Care Excellence</h3>
-        <p>Il nostro team di assistenza clienti è formato per risolvere ogni problematica con competenza e cortesia.</p>
-        <p>Disponibili via chat, email e telefono, garantiamo risposte rapide e soluzioni concrete.</p>
-      </div>
-      <div class="content-block-image">
-        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop" alt="Customer care">
-      </div>
-    </div>
-  </div>
-</section>
+/* Responsive */
+@media (max-width: 768px) {
+    .rocard-nostro-modello .hero-content h1 { font-size: 2rem; }
+    .rocard-nostro-modello .section-title { font-size: 1.7rem; }
+    .rocard-nostro-modello .content-grid { grid-template-columns: 1fr; gap: 30px; }
+    .rocard-nostro-modello .content-grid.reverse { direction: ltr; }
+    .rocard-nostro-modello .content-section { padding: 50px 0; }
+}
+</style>
 
-<!-- SELEZIONE PRODOTTI -->
-<section class="section section-light">
-  <div class="rocard-container">
-    <div class="content-block reverse">
-      <div class="content-block-text">
-        <h3>Selezione Prodotti Accurata</h3>
-        <p>Ogni prodotto nel nostro catalogo viene selezionato con cura da buyer esperti che valutano qualità, prezzo e affidabilità del fornitore.</p>
-        <p>Collaboriamo direttamente con i brand più importanti e con produttori selezionati per garantire l'autenticità e la qualità di ogni articolo.</p>
-      </div>
-      <div class="content-block-image">
-        <img src="https://images.unsplash.com/photo-1770013413878-2530e2c3d82b?w=600&h=400&fit=crop" alt="Selezione prodotti">
-      </div>
-    </div>
-  </div>
-</section>
+<div class="rocard-nostro-modello">
+    <!-- Hero -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Il Nostro Modello</h1>
+                <p>Un ecosistema integrato per garantire la massima efficienza e qualit&agrave; del servizio.</p>
+            </div>
+        </div>
+    </section>
 
-<!-- CTA -->
-<section class="cta-section">
-  <div class="rocard-container">
-    <h2>Scopri i nostri numeri</h2>
-    <p>I risultati parlano da soli. Scopri la crescita di Rocard.</p>
-    <a href="/numeri-crescita/" class="btn">Numeri & Crescita</a>
-  </div>
-</section>
+    <!-- E-commerce -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-text">
+                    <span class="section-label">Piattaforma</span>
+                    <h2 class="section-title">E-commerce di Nuova Generazione</h2>
+                    <p>La nostra piattaforma e-commerce &egrave; progettata per offrire un'esperienza d'acquisto fluida e intuitiva su ogni dispositivo.</p>
+                    <p>Investiamo costantemente in UX/UI, performance e funzionalit&agrave; per rendere ogni acquisto semplice e piacevole.</p>
+                </div>
+                <div class="content-image">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="Piattaforma ecommerce">
+                </div>
+            </div>
+        </div>
+    </section>
 
-</body>
-</html>
+    <!-- Logistica -->
+    <section class="content-section alt">
+        <div class="container">
+            <div class="content-grid reverse">
+                <div class="content-text">
+                    <span class="section-label">Logistica</span>
+                    <h2 class="section-title">Logistica Integrata</h2>
+                    <p>Il nostro centro logistico di 1.000 mq ci permette di gestire circa 2.000 ordini al giorno con efficienza e precisione.</p>
+                    <p>Sistemi WMS avanzati, picking ottimizzato e partnership con i migliori corrieri garantiscono consegne rapide in tutta Italia.</p>
+                </div>
+                <div class="content-image">
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=400&fit=crop" alt="Centro logistico">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Care -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-text">
+                    <span class="section-label">Assistenza</span>
+                    <h2 class="section-title">Customer Care Excellence</h2>
+                    <p>Il nostro team di assistenza clienti &egrave; formato per risolvere ogni problematica con competenza e cortesia.</p>
+                    <p>Disponibili via chat, email e telefono, garantiamo risposte rapide e soluzioni concrete.</p>
+                </div>
+                <div class="content-image">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop" alt="Customer care">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Selezione Prodotti -->
+    <section class="content-section alt">
+        <div class="container">
+            <div class="content-grid reverse">
+                <div class="content-text">
+                    <span class="section-label">Qualit&agrave;</span>
+                    <h2 class="section-title">Selezione Prodotti Accurata</h2>
+                    <p>Ogni prodotto nel nostro catalogo viene selezionato con cura da buyer esperti che valutano qualit&agrave;, prezzo e affidabilit&agrave; del fornitore.</p>
+                    <p>Collaboriamo direttamente con i brand pi&ugrave; importanti e con produttori selezionati per garantire l'autenticit&agrave; e la qualit&agrave; di ogni articolo.</p>
+                </div>
+                <div class="content-image">
+                    <img src="https://images.unsplash.com/photo-1770013413878-2530e2c3d82b?w=600&h=400&fit=crop" alt="Selezione prodotti">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Scopri i nostri numeri</h2>
+            <p>I risultati parlano da soli. Scopri la crescita di Rocard.</p>
+            <a href="https://www.rocard.it/numeri-crescita/" class="cta-button">Numeri &amp; Crescita</a>
+        </div>
+    </section>
+</div>
