@@ -25,45 +25,20 @@ Sviluppo sezione "Azienda" (Corporate) per il sito WordPress/WooCommerce rocard.
 - Telefono: +39 077 31888391
 - PEC: rcm21@pec.it
 - Email: info@rocard.it
-- Logo: monogramma "R" dorato
+- Anno fondazione: 2014
 
-## Stato Implementazione
+## Stato Implementazione - TUTTO COMPLETATO
 
 ### Completato (Aprile 2026)
-- [x] Setup React preview environment
-- [x] Creazione 7 template HTML standalone per Elementor
-- [x] CSS globale tema Rocard
+- [x] 7 template HTML autocontenuti per Elementor (copia-incolla diretto nel Widget HTML)
 - [x] Chi Siamo: struttura identica alla versione live rocard.it/chi-siamo/
-- [x] Loghi corrieri: GLS, BRT, Poste Italiane (ufficiali)
-- [x] Logo Rocard: monogramma "R" dorato
-- [x] Dati aziendali RCM SRL in Contatti e Footer
-- [x] Posizioni lavorative: solo Addetto Logistica e Customer Care (Giugliano in Campania)
-- [x] Contatti: email unica info@rocard.it con categorizzazione automatica
+- [x] Sezione "I Nostri Brand Partner" (Borbone, Caputo, Lavazza, Frontline) con loghi trasparenti
+- [x] Loghi corrieri: GLS, BRT, Poste Italiane
+- [x] Form candidatura con FormSubmit.co (invio a info@rocard.it senza configurazione)
+- [x] Posizioni lavorative: Addetto Logistica, Customer Care Specialist, Magazziniere
 - [x] "Non offriamo lavoro da remoto" in Lavora con noi
-- [x] Metriche aggiornate: ~750K spedizioni/anno, 2.000+ prodotti, ~10 collaboratori, 1.000 mq
-- [x] Conversione tutti i 7 template in formato Elementor drop-in (autocontenuti con style+html)
-- [x] Sostituzione emoji con icone SVG inline
-- [x] Aggiornamento font da Poppins a Outfit + Cormorant Garamond (come sito live)
-- [x] README aggiornato con istruzioni semplificate copia-incolla
-- [x] **Sezione "I Nostri Brand Partner"** in Chi Siamo (Borbone, Caputo, Lavazza, Frontline) con effetto grayscale->colore al hover
-- [x] **Form candidatura con FormSubmit.co** - invio diretto a info@rocard.it senza configurazione
-- [x] Immagini Unsplash mantenute come CDN permanente (nessun upload necessario)
-
-### Formato Template Elementor
-Ogni file HTML contiene:
-1. Link Google Fonts
-2. Tag `<style>` con tutto il CSS (scoped al wrapper)
-3. `<div class="rocard-[pagina]">` wrapper con tutto l'HTML
-
-### FormSubmit.co (Lavora con Noi)
-- Il form invia automaticamente a info@rocard.it
-- Soggetto email: "Nuova Candidatura - Rocard Lavora con Noi"
-- Formato email: tabella HTML leggibile
-- Redirect dopo invio: rocard.it/chi-siamo/
-- Protezione spam: reCAPTCHA + honeypot integrati
-- NOTA: Al primo invio, riceverete un'email di conferma da FormSubmit.co - basta cliccare "Activate"
-
-### Brand Partner
-- Caffe Borbone, Mulino Caputo, Lavazza, Frontline
-- Loghi generati come immagini PNG con sfondo trasparente
-- Effetto grayscale di default, colore al hover
+- [x] Numeri orientativi: Fascia fatturato 5-10M, Collaboratori 10-15, ~750K spedizioni
+- [x] Anno fondazione corretto a 2014, crescita descritta senza percentuali fisse
+- [x] Immagine corporate per sezione Team (centro logistico aereo)
+- [x] Loghi brand con sfondo trasparente (no riquadro bianco)
+- [x] Icone SVG inline (no emoji), font Outfit + Cormorant Garamond
