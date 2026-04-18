@@ -4,73 +4,93 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-/* ═══ ACCORDION ELEGANTE ═══ */
-.rc-acc {
+/* ═══ NAV CARD ═══ */
+.rocard-nav-cards {
     font-family: 'Outfit', sans-serif;
-}
-.rc-acc details {
-    border-bottom: 1px solid rgba(255,255,255,0.15);
-}
-.rc-acc summary {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 20px 32px;
     background: #2a7ab5;
-    color: rgba(255,255,255,0.9);
-    font-size: 1.05rem;
-    font-weight: 500;
+    padding: 28px 0;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.rocard-nav-cards-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 14px;
+    padding: 0 20px;
+}
+.rocard-nav-cards a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px 16px;
+    min-width: 130px;
+    background: #fff;
+    border-radius: 14px;
     cursor: pointer;
-    list-style: none;
-    transition: background 0.2s ease;
-    letter-spacing: 0.3px;
+    border: 2px solid transparent;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: all 0.25s ease;
+    text-align: center;
+    color: #555;
+    font-size: 0.82rem;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
 }
-.rc-acc summary::-webkit-details-marker { display: none; }
-.rc-acc summary::marker { display: none; content: ''; }
-.rc-acc summary:hover {
-    background: #1e6a9e;
+.rocard-nav-cards a:hover {
+    border-color: #f57c00;
+    box-shadow: 0 4px 16px rgba(245,124,0,0.15);
+    transform: translateY(-3px);
+    color: #2a7ab5;
 }
-.rc-acc summary svg.tab-ico {
-    flex-shrink: 0;
-    opacity: 0.7;
+.rocard-nav-cards a svg {
+    color: #2a7ab5;
+    opacity: 0.6;
+    transition: opacity 0.2s, color 0.2s;
 }
-.rc-acc summary .tab-txt {
-    flex: 1;
-}
-.rc-acc summary .tab-arr {
-    margin-left: auto;
-    transition: transform 0.3s ease;
-    opacity: 0.4;
-}
-
-/* Tab aperta */
-.rc-acc details[open] > summary {
-    background: #1e6a9e;
-    color: #fff;
-    font-weight: 600;
-    border-left: 4px solid #f57c00;
-}
-.rc-acc details[open] > summary svg.tab-ico {
+.rocard-nav-cards a:hover svg {
     opacity: 1;
     color: #f57c00;
 }
-.rc-acc details[open] > summary .tab-arr {
-    transform: rotate(180deg);
-    opacity: 0.8;
+.rocard-scroll-anchor {
+    display: block;
+    position: relative;
+    top: -120px;
+    visibility: hidden;
+    height: 0;
 }
-
-/* Contenuto */
-.rc-acc .rc-content {
-    background: #fff;
+.rocard-section-divider {
+    height: 2px;
+    background: linear-gradient(to right, transparent, #2a7ab5, transparent);
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.3;
 }
-
-@media (max-width: 768px) {
-    .rc-acc summary {
-        padding: 16px 20px;
-        font-size: 0.9rem;
-        gap: 12px;
+@media (max-width: 900px) {
+    .rocard-nav-cards { padding: 16px 0; }
+    .rocard-nav-cards-inner {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        justify-content: flex-start;
+        gap: 10px;
+        padding: 0 16px;
     }
+    .rocard-nav-cards a {
+        min-width: 100px;
+        padding: 14px 12px;
+        font-size: 0.72rem;
+        gap: 6px;
+    }
+    .rocard-nav-cards a svg { width: 20px; height: 20px; }
 }
+
 /* ═══ CHI-SIAMO ═══ */
 .rocard-chi-siamo {
     font-family: 'Outfit', sans-serif;
@@ -2019,10 +2039,19 @@
 
 </style>
 
-<div class="rc-acc">
-<details name="rc" open>
-<summary><svg class="tab-ico" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg><span class="tab-txt">Chi Siamo</span><svg class="tab-arr" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg></summary>
-<div class="rc-content">
+<div class="rocard-nav-cards">
+    <div class="rocard-nav-cards-inner">
+        <a href="#rc-chi-siamo"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>Chi Siamo</a>
+        <a href="#rc-vision"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m16 10-5.12 5.12-2.12-2.12"></path></svg>Vision &amp; Valori</a>
+        <a href="#rc-modello"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"></path><path d="m2 17 10 5 10-5"></path><path d="m2 12 10 5 10-5"></path></svg>Il Nostro Modello</a>
+        <a href="#rc-numeri"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="m19 9-5 5-4-4-3 3"></path></svg>Numeri &amp; Crescita</a>
+        <a href="#rc-team"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>Il Team</a>
+        <a href="#rc-lavora"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>Lavora con Noi</a>
+        <a href="#rc-contatti"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>Contatti</a>
+    </div>
+</div>
+
+<span id="rc-chi-siamo" class="rocard-scroll-anchor"></span>
 <div class="rocard-chi-siamo">
     <!-- Hero Section with Image -->
     <section class="hero-section">
@@ -2348,11 +2377,8 @@
         </div>
     </section>
 </div>
-</div>
-</details>
-<details name="rc">
-<summary><svg class="tab-ico" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><path d="m16 10-5.12 5.12-2.12-2.12"></path></svg><span class="tab-txt">Vision &amp; Valori</span><svg class="tab-arr" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg></summary>
-<div class="rc-content">
+<div class="rocard-section-divider"></div>
+<span id="rc-vision" class="rocard-scroll-anchor"></span>
 <div class="rocard-vision-valori">
     <!-- Hero -->
     <section class="hero-section">
@@ -2433,11 +2459,8 @@
         </div>
     </section>
 </div>
-</div>
-</details>
-<details name="rc">
-<summary><svg class="tab-ico" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2 2 7l10 5 10-5-10-5Z"></path><path d="m2 17 10 5 10-5"></path><path d="m2 12 10 5 10-5"></path></svg><span class="tab-txt">Il Nostro Modello</span><svg class="tab-arr" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg></summary>
-<div class="rc-content">
+<div class="rocard-section-divider"></div>
+<span id="rc-modello" class="rocard-scroll-anchor"></span>
 <div class="rocard-nostro-modello">
     <!-- Hero -->
     <section class="hero-section">
@@ -2521,11 +2544,8 @@
         </div>
     </section>
 </div>
-</div>
-</details>
-<details name="rc">
-<summary><svg class="tab-ico" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18"></path><path d="m19 9-5 5-4-4-3 3"></path></svg><span class="tab-txt">Numeri &amp; Crescita</span><svg class="tab-arr" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg></summary>
-<div class="rc-content">
+<div class="rocard-section-divider"></div>
+<span id="rc-numeri" class="rocard-scroll-anchor"></span>
 <div class="rocard-numeri-crescita">
     <!-- Hero -->
     <section class="hero-section">
@@ -2608,11 +2628,8 @@
     </section>
 </div>
 /div>
-</div>
-</details>
-<details name="rc">
-<summary><svg class="tab-ico" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg><span class="tab-txt">Il Team</span><svg class="tab-arr" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg></summary>
-<div class="rc-content">
+<div class="rocard-section-divider"></div>
+<span id="rc-team" class="rocard-scroll-anchor"></span>
 <div class="rocard-team">
     <!-- Hero -->
     <section class="hero-section">
@@ -2685,11 +2702,8 @@
         </div>
     </section>
 </div>
-</div>
-</details>
-<details name="rc">
-<summary><svg class="tab-ico" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg><span class="tab-txt">Lavora con Noi</span><svg class="tab-arr" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg></summary>
-<div class="rc-content">
+<div class="rocard-section-divider"></div>
+<span id="rc-lavora" class="rocard-scroll-anchor"></span>
 <div class="rocard-lavora">
     <!-- Hero -->
     <section class="hero-section">
@@ -2899,11 +2913,8 @@
         </div>
     </section>
 </div>
-</div>
-</details>
-<details name="rc">
-<summary><svg class="tab-ico" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg><span class="tab-txt">Contatti Aziendali</span><svg class="tab-arr" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg></summary>
-<div class="rc-content">
+<div class="rocard-section-divider"></div>
+<span id="rc-contatti" class="rocard-scroll-anchor"></span>
 <div class="rocard-contatti">
     <!-- Hero -->
     <section class="hero-section">
@@ -2991,7 +3002,4 @@
             </div>
         </div>
     </section>
-</div>
-</div>
-</details>
 </div>
