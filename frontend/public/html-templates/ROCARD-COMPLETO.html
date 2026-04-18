@@ -23,13 +23,12 @@
     padding: 0 24px;
 }
 .rocard-corporate-nav .nav-brand {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #D4AF37;
-    padding: 16px 0;
-    letter-spacing: 1px;
-    white-space: nowrap;
+    padding: 10px 0;
+}
+.rocard-corporate-nav .nav-brand img {
+    height: 38px;
+    width: auto;
+    display: block;
 }
 .rocard-corporate-nav .nav-links {
     display: flex;
@@ -59,8 +58,6 @@
     border-bottom-color: #f57c00;
     font-weight: 500;
 }
-
-/* Mobile dropdown */
 .rocard-corporate-nav .nav-mobile-toggle {
     display: none;
     background: none;
@@ -76,15 +73,12 @@
 .rocard-corporate-nav .nav-mobile-toggle:hover {
     border-color: #f57c00;
 }
-
-/* Page sections */
 .rocard-page-section {
     display: none;
 }
 .rocard-page-section.active {
     display: block;
 }
-
 @media (max-width: 900px) {
     .rocard-corporate-nav .nav-links {
         display: none;
@@ -113,7 +107,7 @@
     }
 }
 
-/* ═══ STILI CHI SIAMO ═══ */
+/* ═══ STILI CHI-SIAMO ═══ */
 .rocard-chi-siamo {
     font-family: 'Outfit', sans-serif;
     color: #1a1a2e;
@@ -589,7 +583,7 @@
     }
 }
 
-/* ═══ STILI VISION & VALORI ═══ */
+/* ═══ STILI VISION-VALORI ═══ */
 .rocard-vision-valori {
     font-family: 'Outfit', sans-serif;
     color: #1a1a2e;
@@ -787,7 +781,7 @@
     .rocard-vision-valori .content-section { padding: 50px 0; }
 }
 
-/* ═══ STILI IL NOSTRO MODELLO ═══ */
+/* ═══ STILI NOSTRO-MODELLO ═══ */
 .rocard-nostro-modello {
     font-family: 'Outfit', sans-serif;
     color: #1a1a2e;
@@ -939,7 +933,7 @@
     .rocard-nostro-modello .content-section { padding: 50px 0; }
 }
 
-/* ═══ STILI NUMERI & CRESCITA ═══ */
+/* ═══ STILI NUMERI-CRESCITA ═══ */
 .rocard-numeri-crescita {
     font-family: 'Outfit', sans-serif;
     color: #1a1a2e;
@@ -1152,7 +1146,7 @@
     .rocard-numeri-crescita .numbers-grid { grid-template-columns: 1fr; }
 }
 
-/* ═══ STILI IL TEAM ═══ */
+/* ═══ STILI TEAM ═══ */
 .rocard-team {
     font-family: 'Outfit', sans-serif;
     color: #1a1a2e;
@@ -1350,7 +1344,7 @@
     .rocard-team .content-section { padding: 50px 0; }
 }
 
-/* ═══ STILI LAVORA CON NOI ═══ */
+/* ═══ STILI LAVORA-CON-NOI ═══ */
 .rocard-lavora {
     font-family: 'Outfit', sans-serif;
     color: #1a1a2e;
@@ -1731,7 +1725,7 @@
     .rocard-lavora .section-block { padding: 50px 0; }
 }
 
-/* ═══ STILI CONTATTI AZIENDALI ═══ */
+/* ═══ STILI CONTATTI-AZIENDALI ═══ */
 .rocard-contatti {
     font-family: 'Outfit', sans-serif;
     color: #1a1a2e;
@@ -1949,11 +1943,9 @@
 
 </style>
 
-
-<!-- NAVIGAZIONE -->
 <nav class="rocard-corporate-nav">
     <div class="nav-inner">
-        <div class="nav-brand"><img src="https://customer-assets.emergentagent.com/job_rocard-careers/artifacts/3lph6y6w_images%20%283%29.png" alt="Rocard" style="height:38px;width:auto;display:block;"></div>
+        <div class="nav-brand"><img src="https://customer-assets.emergentagent.com/job_rocard-careers/artifacts/3lph6y6w_images%20%283%29.png" alt="Rocard"></div>
         <button class="nav-mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">Menu &#9662;</button>
         <ul class="nav-links">
             <li><a href="#" class="active" onclick="showPage('chi-siamo', this); return false;">Chi Siamo</a></li>
@@ -1966,8 +1958,6 @@
         </ul>
     </div>
 </nav>
-
-<!-- 1. CHI SIAMO -->
 <div id="page-chi-siamo" class="rocard-page-section active">
 <div class="rocard-chi-siamo">
     <!-- Hero Section with Image -->
@@ -2198,16 +2188,28 @@
             <p class="section-desc center">Collaboriamo con i marchi pi&ugrave; prestigiosi per offrirti solo prodotti di qualit&agrave; garantita.</p>
             <div class="brands-grid">
                 <div class="brand-item">
-                    <img src="https://static.prod-images.emergentagent.com/jobs/4fce1953-8b8d-45b2-a184-48dad9371ce1/images/0057d95d31731c46e2384a1cb49d10ec7bb4e5e71f9d9f600faa55b4f0a6c4fd.png" alt="Caff&egrave; Borbone" loading="lazy">
+                    <img src="https://customer-assets.emergentagent.com/job_rocard-careers/artifacts/1syee0b0_borbone.jpeg" alt="Caff&egrave; Borbone" loading="lazy">
                 </div>
                 <div class="brand-item">
-                    <img src="https://static.prod-images.emergentagent.com/jobs/4fce1953-8b8d-45b2-a184-48dad9371ce1/images/d2636d07e92c7064c3a1d3e67f04ee449a485a0d1528ac6fb49e911771d5d9e1.png" alt="Mulino Caputo" loading="lazy">
+                    <img src="https://customer-assets.emergentagent.com/job_rocard-careers/artifacts/aheard78_logo-caputo-2024-dark.png" alt="Mulino Caputo" loading="lazy">
                 </div>
                 <div class="brand-item">
-                    <img src="https://static.prod-images.emergentagent.com/jobs/4fce1953-8b8d-45b2-a184-48dad9371ce1/images/3ec96cfecef62ad1e24ad919302bb31ef1049b2e8d1986d0ffc9b8db9799dd6a.png" alt="Lavazza" loading="lazy">
+                    <img src="https://customer-assets.emergentagent.com/job_rocard-careers/artifacts/6sxnovhk_lavazza-250x250.png" alt="Lavazza" loading="lazy">
                 </div>
                 <div class="brand-item">
-                    <img src="https://static.prod-images.emergentagent.com/jobs/4fce1953-8b8d-45b2-a184-48dad9371ce1/images/c3f3373ddd1d5004c3b5b507ef150c4e0f85dfc352cc00e66aa980ca8fd3ecdb.png" alt="Frontline" loading="lazy">
+                    <img src="https://customer-assets.emergentagent.com/job_rocard-careers/artifacts/cqubxc6r_Frontline-Logo-1024x1024.jpg" alt="Frontline" loading="lazy">
+                </div>
+                <div class="brand-item">
+                    <img src="https://www.garofalofirenze.it/wp-content/uploads/2025/10/Garofalo_logopayoffR.png" alt="Garofalo" loading="lazy">
+                </div>
+                <div class="brand-item">
+                    <img src="https://speedstore.store/9913-large_default/bardahl-logo-toppe-ricamate-e-adesivi.jpg" alt="Bardahl" loading="lazy">
+                </div>
+                <div class="brand-item">
+                    <img src="https://www.evoluzione-brico.it/images/loghi-fornitori/idraulica/Mongardi%20Logo%20Rosso.jpg" alt="Mongardi" loading="lazy">
+                </div>
+                <div class="brand-item">
+                    <img src="https://customer-assets.emergentagent.com/job_rocard-careers/artifacts/re6ohv8p_004447.jpeg" alt="Bama" loading="lazy">
                 </div>
             </div>
         </div>
@@ -2275,7 +2277,6 @@
 </div>
 </div>
 
-<!-- 2. VISION & VALORI -->
 <div id="page-vision-valori" class="rocard-page-section">
 <div class="rocard-vision-valori">
     <!-- Hero -->
@@ -2359,7 +2360,6 @@
 </div>
 </div>
 
-<!-- 3. IL NOSTRO MODELLO -->
 <div id="page-nostro-modello" class="rocard-page-section">
 <div class="rocard-nostro-modello">
     <!-- Hero -->
@@ -2446,7 +2446,6 @@
 </div>
 </div>
 
-<!-- 4. NUMERI & CRESCITA -->
 <div id="page-numeri-crescita" class="rocard-page-section">
 <div class="rocard-numeri-crescita">
     <!-- Hero -->
@@ -2532,7 +2531,6 @@
 /div>
 </div>
 
-<!-- 5. IL TEAM -->
 <div id="page-team" class="rocard-page-section">
 <div class="rocard-team">
     <!-- Hero -->
@@ -2608,7 +2606,6 @@
 </div>
 </div>
 
-<!-- 6. LAVORA CON NOI -->
 <div id="page-lavora-con-noi" class="rocard-page-section">
 <div class="rocard-lavora">
     <!-- Hero -->
@@ -2821,7 +2818,6 @@
 </div>
 </div>
 
-<!-- 7. CONTATTI AZIENDALI -->
 <div id="page-contatti" class="rocard-page-section">
 <div class="rocard-contatti">
     <!-- Hero -->
@@ -2913,8 +2909,6 @@
 </div>
 </div>
 
-
-<!-- Script navigazione -->
 <script>
 function showPage(pageId, link) {
     document.querySelectorAll('.rocard-page-section').forEach(function(s) { s.classList.remove('active'); });
@@ -2925,4 +2919,3 @@ function showPage(pageId, link) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
-
