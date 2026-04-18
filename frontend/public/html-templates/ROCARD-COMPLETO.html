@@ -1,0 +1,2928 @@
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ═══ NAVIGAZIONE PRINCIPALE ═══ */
+.rocard-corporate-nav {
+    font-family: 'Outfit', sans-serif;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: #1a3c6e;
+    padding: 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+.rocard-corporate-nav .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+}
+.rocard-corporate-nav .nav-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #D4AF37;
+    padding: 16px 0;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+.rocard-corporate-nav .nav-links {
+    display: flex;
+    gap: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.rocard-corporate-nav .nav-links li a {
+    display: block;
+    padding: 18px 16px;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    transition: color 0.2s ease, background 0.2s ease;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+}
+.rocard-corporate-nav .nav-links li a:hover {
+    color: #fff;
+    background: rgba(255,255,255,0.05);
+}
+.rocard-corporate-nav .nav-links li a.active {
+    color: #fff;
+    border-bottom-color: #f57c00;
+    font-weight: 500;
+}
+
+/* Mobile dropdown */
+.rocard-corporate-nav .nav-mobile-toggle {
+    display: none;
+    background: none;
+    border: 2px solid rgba(255,255,255,0.3);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+.rocard-corporate-nav .nav-mobile-toggle:hover {
+    border-color: #f57c00;
+}
+
+/* Page sections */
+.rocard-page-section {
+    display: none;
+}
+.rocard-page-section.active {
+    display: block;
+}
+
+@media (max-width: 900px) {
+    .rocard-corporate-nav .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #1a3c6e;
+        flex-direction: column;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    .rocard-corporate-nav .nav-links.open {
+        display: flex;
+    }
+    .rocard-corporate-nav .nav-links li a {
+        padding: 14px 24px;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        border-left: 3px solid transparent;
+    }
+    .rocard-corporate-nav .nav-links li a.active {
+        border-bottom-color: rgba(255,255,255,0.06);
+        border-left-color: #f57c00;
+    }
+    .rocard-corporate-nav .nav-mobile-toggle {
+        display: block;
+    }
+}
+
+/* ═══ STILI CHI SIAMO ═══ */
+.rocard-chi-siamo {
+    font-family: 'Outfit', sans-serif;
+    color: #1a1a2e;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+.rocard-chi-siamo *, .rocard-chi-siamo *::before, .rocard-chi-siamo *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.rocard-chi-siamo .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+.rocard-chi-siamo .section-label {
+    display: block;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #f57c00;
+    margin-bottom: 12px;
+}
+.rocard-chi-siamo .section-label.center {
+    text-align: center;
+}
+.rocard-chi-siamo .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #1a3c6e;
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
+.rocard-chi-siamo .section-title.center {
+    text-align: center;
+}
+.rocard-chi-siamo .section-desc {
+    font-size: 1.05rem;
+    color: #555;
+    max-width: 600px;
+    margin-bottom: 40px;
+}
+.rocard-chi-siamo .section-desc.center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Hero Section */
+.rocard-chi-siamo .hero-section {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+.rocard-chi-siamo .hero-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.rocard-chi-siamo .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.rocard-chi-siamo .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.25));
+}
+.rocard-chi-siamo .hero-content {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    padding: 0 24px;
+}
+
+/* About Section */
+.rocard-chi-siamo .about-section {
+    padding: 80px 0;
+    background: #fff;
+}
+.rocard-chi-siamo .about-content {
+    max-width: 800px;
+}
+.rocard-chi-siamo .about-text {
+    font-size: 1.05rem;
+    color: #555;
+    margin-bottom: 16px;
+    line-height: 1.7;
+}
+
+/* Numbers Section */
+.rocard-chi-siamo .numbers-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+.rocard-chi-siamo .numbers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+}
+.rocard-chi-siamo .number-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.rocard-chi-siamo .number-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+}
+.rocard-chi-siamo .number-card.highlight {
+    border: 2px solid #f57c00;
+}
+.rocard-chi-siamo .number {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a3c6e;
+    margin-bottom: 8px;
+}
+.rocard-chi-siamo .number .star-icon {
+    color: #D4AF37;
+    font-size: 1.8rem;
+}
+.rocard-chi-siamo .number-label {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #1a3c6e;
+    margin-bottom: 4px;
+}
+.rocard-chi-siamo .number-desc {
+    display: block;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* Services Section */
+.rocard-chi-siamo .services-section {
+    padding: 80px 0;
+    background: #fff;
+}
+.rocard-chi-siamo .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+}
+.rocard-chi-siamo .service-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 36px 24px;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.rocard-chi-siamo .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+}
+.rocard-chi-siamo .service-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 20px;
+    color: #f57c00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.rocard-chi-siamo .service-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1a3c6e;
+    margin-bottom: 12px;
+}
+.rocard-chi-siamo .service-desc {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Testimonials Section */
+.rocard-chi-siamo .testimonials-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+.rocard-chi-siamo .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+}
+.rocard-chi-siamo .testimonial-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 36px 28px;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+.rocard-chi-siamo .testimonial-card:hover {
+    transform: translateY(-4px);
+}
+.rocard-chi-siamo .quote-icon {
+    color: #e8e8e8;
+    margin-bottom: 16px;
+}
+.rocard-chi-siamo .stars-row {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 16px;
+}
+.rocard-chi-siamo .testimonial-text {
+    font-style: italic;
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+.rocard-chi-siamo .testimonial-author {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.rocard-chi-siamo .author-name {
+    font-weight: 600;
+    color: #1a3c6e;
+    font-size: 0.95rem;
+}
+.rocard-chi-siamo .author-badge {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* Environment Section */
+.rocard-chi-siamo .environment-section {
+    padding: 80px 0;
+    background: #fff;
+}
+.rocard-chi-siamo .environment-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+}
+.rocard-chi-siamo .environment-icon {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    background: #e8f5e9;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2e7d32;
+}
+.rocard-chi-siamo .environment-text {
+    flex: 1;
+}
+.rocard-chi-siamo .environment-desc {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+.rocard-chi-siamo .treedom-logo img {
+    height: 50px;
+    width: auto;
+}
+
+/* Couriers Section */
+.rocard-chi-siamo .couriers-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+.rocard-chi-siamo .couriers-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+.rocard-chi-siamo .courier-logo {
+    background: #fff;
+    border-radius: 12px;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.rocard-chi-siamo .courier-logo:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+}
+.rocard-chi-siamo .courier-logo img {
+    max-width: 130px;
+    max-height: 80px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Future Section */
+.rocard-chi-siamo .future-section {
+    padding: 80px 0;
+    background: #fff;
+}
+.rocard-chi-siamo .future-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+.rocard-chi-siamo .future-text {
+    font-size: 1.05rem;
+    color: #555;
+    margin-bottom: 16px;
+    line-height: 1.7;
+}
+.rocard-chi-siamo .cta-button {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 14px 36px;
+    background: #1a3c6e;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+.rocard-chi-siamo .cta-button:hover {
+    background: #15325c;
+    transform: translateY(-2px);
+}
+
+/* Trust Section */
+/* Brand Partners Section */
+.rocard-chi-siamo .brands-section {
+    padding: 80px 0;
+    background: #fff;
+}
+.rocard-chi-siamo .brands-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+.rocard-chi-siamo .brand-item {
+    width: 160px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+.rocard-chi-siamo .brand-item:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.05);
+}
+.rocard-chi-siamo .brand-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.rocard-chi-siamo .trust-section {
+    padding: 40px 0;
+    background: #f8f9fa;
+    border-top: 1px solid #eee;
+}
+.rocard-chi-siamo .trust-badges {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+.rocard-chi-siamo .trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #1a3c6e;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+.rocard-chi-siamo .trust-badge svg {
+    flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .rocard-chi-siamo .numbers-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .rocard-chi-siamo .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .rocard-chi-siamo .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 768px) {
+    .rocard-chi-siamo .hero-section {
+        height: 300px;
+    }
+    .rocard-chi-siamo .section-title {
+        font-size: 1.7rem;
+    }
+    .rocard-chi-siamo .about-section,
+    .rocard-chi-siamo .numbers-section,
+    .rocard-chi-siamo .services-section,
+    .rocard-chi-siamo .testimonials-section,
+    .rocard-chi-siamo .environment-section,
+    .rocard-chi-siamo .couriers-section,
+    .rocard-chi-siamo .future-section {
+        padding: 50px 0;
+    }
+    .rocard-chi-siamo .numbers-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    .rocard-chi-siamo .services-grid {
+        grid-template-columns: 1fr;
+    }
+    .rocard-chi-siamo .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    .rocard-chi-siamo .environment-content {
+        flex-direction: column;
+    }
+    .rocard-chi-siamo .couriers-grid {
+        gap: 20px;
+    }
+    .rocard-chi-siamo .courier-logo {
+        width: 140px;
+        height: 140px;
+    }
+    .rocard-chi-siamo .trust-badges {
+        gap: 20px;
+    }
+}
+@media (max-width: 480px) {
+    .rocard-chi-siamo .numbers-grid {
+        grid-template-columns: 1fr;
+    }
+    .rocard-chi-siamo .number {
+        font-size: 2rem;
+    }
+}
+
+/* ═══ STILI VISION & VALORI ═══ */
+.rocard-vision-valori {
+    font-family: 'Outfit', sans-serif;
+    color: #1a1a2e;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+.rocard-vision-valori *, .rocard-vision-valori *::before, .rocard-vision-valori *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.rocard-vision-valori .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+.rocard-vision-valori .section-label {
+    display: block;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #f57c00;
+    margin-bottom: 12px;
+}
+.rocard-vision-valori .section-label.center { text-align: center; }
+.rocard-vision-valori .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #1a3c6e;
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
+.rocard-vision-valori .section-title.center { text-align: center; }
+.rocard-vision-valori .section-subtitle {
+    font-size: 1.05rem;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+/* Hero */
+.rocard-vision-valori .hero-section {
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #1a3c6e 0%, #0f2847 100%);
+    color: #fff;
+    overflow: hidden;
+    padding: 80px 0;
+}
+.rocard-vision-valori .hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: radial-gradient(circle at 70% 50%, rgba(245,124,0,0.08) 0%, transparent 70%);
+}
+.rocard-vision-valori .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+}
+.rocard-vision-valori .hero-content h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 16px;
+}
+.rocard-vision-valori .hero-content p {
+    font-size: 1.15rem;
+    opacity: 0.9;
+}
+
+/* Sections */
+.rocard-vision-valori .content-section {
+    padding: 80px 0;
+    background: #fff;
+}
+.rocard-vision-valori .content-section.alt {
+    background: #f8f9fa;
+}
+.rocard-vision-valori .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+.rocard-vision-valori .content-text p {
+    font-size: 1.05rem;
+    color: #555;
+    margin-bottom: 16px;
+    line-height: 1.7;
+}
+.rocard-vision-valori .content-image {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+}
+.rocard-vision-valori .content-image img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Values Grid */
+.rocard-vision-valori .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+}
+.rocard-vision-valori .value-card {
+    padding: 36px 28px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.07);
+    border-left: 4px solid #f57c00;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.rocard-vision-valori .value-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+}
+.rocard-vision-valori .value-icon {
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(135deg, #f57c00, #ff9800);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: #fff;
+}
+.rocard-vision-valori .value-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1a3c6e;
+    margin-bottom: 12px;
+}
+.rocard-vision-valori .value-card p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* CTA */
+.rocard-vision-valori .cta-section {
+    background: linear-gradient(135deg, #f57c00, #e65100);
+    color: #fff;
+    text-align: center;
+    padding: 80px 0;
+}
+.rocard-vision-valori .cta-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    color: #fff;
+    margin-bottom: 16px;
+}
+.rocard-vision-valori .cta-section p {
+    font-size: 1.05rem;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+.rocard-vision-valori .cta-button {
+    display: inline-block;
+    padding: 14px 36px;
+    background: #fff;
+    color: #f57c00;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+.rocard-vision-valori .cta-button:hover {
+    background: #f1f3f5;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .rocard-vision-valori .hero-content h1 { font-size: 2rem; }
+    .rocard-vision-valori .section-title { font-size: 1.7rem; }
+    .rocard-vision-valori .content-grid { grid-template-columns: 1fr; gap: 30px; }
+    .rocard-vision-valori .values-grid { grid-template-columns: 1fr; }
+    .rocard-vision-valori .content-section { padding: 50px 0; }
+}
+
+/* ═══ STILI IL NOSTRO MODELLO ═══ */
+.rocard-nostro-modello {
+    font-family: 'Outfit', sans-serif;
+    color: #1a1a2e;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+.rocard-nostro-modello *, .rocard-nostro-modello *::before, .rocard-nostro-modello *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.rocard-nostro-modello .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+.rocard-nostro-modello .section-label {
+    display: block;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #f57c00;
+    margin-bottom: 12px;
+}
+.rocard-nostro-modello .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #1a3c6e;
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
+
+/* Hero */
+.rocard-nostro-modello .hero-section {
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #1a3c6e 0%, #0f2847 100%);
+    color: #fff;
+    overflow: hidden;
+    padding: 80px 0;
+}
+.rocard-nostro-modello .hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: radial-gradient(circle at 70% 50%, rgba(245,124,0,0.08) 0%, transparent 70%);
+}
+.rocard-nostro-modello .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+}
+.rocard-nostro-modello .hero-content h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 16px;
+}
+.rocard-nostro-modello .hero-content p {
+    font-size: 1.15rem;
+    opacity: 0.9;
+}
+
+/* Content Sections */
+.rocard-nostro-modello .content-section {
+    padding: 80px 0;
+    background: #fff;
+}
+.rocard-nostro-modello .content-section.alt {
+    background: #f8f9fa;
+}
+.rocard-nostro-modello .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+.rocard-nostro-modello .content-grid.reverse {
+    direction: rtl;
+}
+.rocard-nostro-modello .content-grid.reverse > * {
+    direction: ltr;
+}
+.rocard-nostro-modello .content-text p {
+    font-size: 1.05rem;
+    color: #555;
+    margin-bottom: 16px;
+    line-height: 1.7;
+}
+.rocard-nostro-modello .content-image {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+}
+.rocard-nostro-modello .content-image img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+}
+
+/* CTA */
+.rocard-nostro-modello .cta-section {
+    background: linear-gradient(135deg, #f57c00, #e65100);
+    color: #fff;
+    text-align: center;
+    padding: 80px 0;
+}
+.rocard-nostro-modello .cta-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    color: #fff;
+    margin-bottom: 16px;
+}
+.rocard-nostro-modello .cta-section p {
+    font-size: 1.05rem;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+.rocard-nostro-modello .cta-button {
+    display: inline-block;
+    padding: 14px 36px;
+    background: #fff;
+    color: #f57c00;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+.rocard-nostro-modello .cta-button:hover {
+    background: #f1f3f5;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .rocard-nostro-modello .hero-content h1 { font-size: 2rem; }
+    .rocard-nostro-modello .section-title { font-size: 1.7rem; }
+    .rocard-nostro-modello .content-grid { grid-template-columns: 1fr; gap: 30px; }
+    .rocard-nostro-modello .content-grid.reverse { direction: ltr; }
+    .rocard-nostro-modello .content-section { padding: 50px 0; }
+}
+
+/* ═══ STILI NUMERI & CRESCITA ═══ */
+.rocard-numeri-crescita {
+    font-family: 'Outfit', sans-serif;
+    color: #1a1a2e;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+.rocard-numeri-crescita *, .rocard-numeri-crescita *::before, .rocard-numeri-crescita *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.rocard-numeri-crescita .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+.rocard-numeri-crescita .section-label {
+    display: block;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #f57c00;
+    margin-bottom: 12px;
+}
+.rocard-numeri-crescita .section-label.center { text-align: center; }
+.rocard-numeri-crescita .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #1a3c6e;
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
+.rocard-numeri-crescita .section-title.center { text-align: center; }
+.rocard-numeri-crescita .section-subtitle {
+    font-size: 1.05rem;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+/* Hero */
+.rocard-numeri-crescita .hero-section {
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #1a3c6e 0%, #0f2847 100%);
+    color: #fff;
+    overflow: hidden;
+    padding: 80px 0;
+}
+.rocard-numeri-crescita .hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: radial-gradient(circle at 70% 50%, rgba(245,124,0,0.08) 0%, transparent 70%);
+}
+.rocard-numeri-crescita .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+}
+.rocard-numeri-crescita .hero-content h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 16px;
+}
+.rocard-numeri-crescita .hero-content p {
+    font-size: 1.15rem;
+    opacity: 0.9;
+}
+
+/* Numbers */
+.rocard-numeri-crescita .numbers-section {
+    padding: 80px 0;
+    background: #fff;
+}
+.rocard-numeri-crescita .numbers-section.alt {
+    background: #f8f9fa;
+}
+.rocard-numeri-crescita .numbers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+}
+.rocard-numeri-crescita .number-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 36px 24px;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.07);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.rocard-numeri-crescita .number-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+}
+.rocard-numeri-crescita .number-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #f57c00;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+.rocard-numeri-crescita .number-label {
+    font-size: 0.95rem;
+    color: #555;
+    font-weight: 500;
+}
+
+/* Content */
+.rocard-numeri-crescita .content-section {
+    padding: 80px 0;
+    background: #fff;
+}
+.rocard-numeri-crescita .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+.rocard-numeri-crescita .content-text p {
+    font-size: 1.05rem;
+    color: #555;
+    margin-bottom: 16px;
+    line-height: 1.7;
+}
+.rocard-numeri-crescita .content-image {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+}
+.rocard-numeri-crescita .content-image img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+}
+.rocard-numeri-crescita .cta-inline {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 14px 36px;
+    background: #f57c00;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+.rocard-numeri-crescita .cta-inline:hover {
+    background: #e65100;
+    transform: translateY(-2px);
+}
+
+/* CTA */
+.rocard-numeri-crescita .cta-section {
+    background: linear-gradient(135deg, #f57c00, #e65100);
+    color: #fff;
+    text-align: center;
+    padding: 80px 0;
+}
+.rocard-numeri-crescita .cta-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    color: #fff;
+    margin-bottom: 16px;
+}
+.rocard-numeri-crescita .cta-section p {
+    font-size: 1.05rem;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+.rocard-numeri-crescita .cta-button {
+    display: inline-block;
+    padding: 14px 36px;
+    background: #fff;
+    color: #f57c00;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+.rocard-numeri-crescita .cta-button:hover {
+    background: #f1f3f5;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .rocard-numeri-crescita .numbers-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .rocard-numeri-crescita .hero-content h1 { font-size: 2rem; }
+    .rocard-numeri-crescita .section-title { font-size: 1.7rem; }
+    .rocard-numeri-crescita .content-grid { grid-template-columns: 1fr; gap: 30px; }
+    .rocard-numeri-crescita .numbers-section { padding: 50px 0; }
+    .rocard-numeri-crescita .content-section { padding: 50px 0; }
+}
+@media (max-width: 480px) {
+    .rocard-numeri-crescita .numbers-grid { grid-template-columns: 1fr; }
+}
+
+/* ═══ STILI IL TEAM ═══ */
+.rocard-team {
+    font-family: 'Outfit', sans-serif;
+    color: #1a1a2e;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+.rocard-team *, .rocard-team *::before, .rocard-team *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.rocard-team .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+.rocard-team .section-label {
+    display: block;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #f57c00;
+    margin-bottom: 12px;
+}
+.rocard-team .section-label.center { text-align: center; }
+.rocard-team .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #1a3c6e;
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
+.rocard-team .section-title.center { text-align: center; }
+.rocard-team .section-subtitle {
+    font-size: 1.05rem;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+/* Hero */
+.rocard-team .hero-section {
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #1a3c6e 0%, #0f2847 100%);
+    color: #fff;
+    overflow: hidden;
+    padding: 80px 0;
+}
+.rocard-team .hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: radial-gradient(circle at 70% 50%, rgba(245,124,0,0.08) 0%, transparent 70%);
+}
+.rocard-team .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+}
+.rocard-team .hero-content h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 16px;
+}
+.rocard-team .hero-content p {
+    font-size: 1.15rem;
+    opacity: 0.9;
+}
+
+/* Content Section */
+.rocard-team .content-section {
+    padding: 80px 0;
+    background: #fff;
+}
+.rocard-team .content-section.alt {
+    background: #f8f9fa;
+}
+.rocard-team .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+.rocard-team .content-text p {
+    font-size: 1.05rem;
+    color: #555;
+    margin-bottom: 16px;
+    line-height: 1.7;
+}
+.rocard-team .content-image {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+}
+.rocard-team .content-image img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Team Grid */
+.rocard-team .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+}
+.rocard-team .team-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.07);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.rocard-team .team-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+}
+.rocard-team .team-card-icon {
+    height: 200px;
+    background: linear-gradient(135deg, #1a3c6e, #2a5294);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+.rocard-team .team-card-body {
+    padding: 28px;
+    text-align: center;
+}
+.rocard-team .team-card-body h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1a3c6e;
+    margin-bottom: 10px;
+}
+.rocard-team .team-card-body p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* CTA */
+.rocard-team .cta-section {
+    background: linear-gradient(135deg, #f57c00, #e65100);
+    color: #fff;
+    text-align: center;
+    padding: 80px 0;
+}
+.rocard-team .cta-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    color: #fff;
+    margin-bottom: 16px;
+}
+.rocard-team .cta-section p {
+    font-size: 1.05rem;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+.rocard-team .cta-button {
+    display: inline-block;
+    padding: 14px 36px;
+    background: #fff;
+    color: #f57c00;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+.rocard-team .cta-button:hover {
+    background: #f1f3f5;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .rocard-team .hero-content h1 { font-size: 2rem; }
+    .rocard-team .section-title { font-size: 1.7rem; }
+    .rocard-team .content-grid { grid-template-columns: 1fr; gap: 30px; }
+    .rocard-team .team-grid { grid-template-columns: 1fr; }
+    .rocard-team .content-section { padding: 50px 0; }
+}
+
+/* ═══ STILI LAVORA CON NOI ═══ */
+.rocard-lavora {
+    font-family: 'Outfit', sans-serif;
+    color: #1a1a2e;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+.rocard-lavora *, .rocard-lavora *::before, .rocard-lavora *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.rocard-lavora .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+.rocard-lavora .section-label {
+    display: block;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #f57c00;
+    margin-bottom: 12px;
+}
+.rocard-lavora .section-label.center { text-align: center; }
+.rocard-lavora .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #1a3c6e;
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
+.rocard-lavora .section-title.center { text-align: center; }
+.rocard-lavora .section-subtitle {
+    font-size: 1.05rem;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+/* Hero */
+.rocard-lavora .hero-section {
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #1a3c6e 0%, #0f2847 100%);
+    color: #fff;
+    overflow: hidden;
+    padding: 80px 0;
+}
+.rocard-lavora .hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: radial-gradient(circle at 70% 50%, rgba(245,124,0,0.08) 0%, transparent 70%);
+}
+.rocard-lavora .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+}
+.rocard-lavora .hero-content h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 16px;
+}
+.rocard-lavora .hero-content p {
+    font-size: 1.15rem;
+    opacity: 0.9;
+}
+
+/* Sections */
+.rocard-lavora .section-block {
+    padding: 80px 0;
+    background: #fff;
+}
+.rocard-lavora .section-block.alt {
+    background: #f8f9fa;
+}
+
+/* Benefits */
+.rocard-lavora .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+}
+.rocard-lavora .benefit-card {
+    background: #fff;
+    padding: 32px 24px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.07);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.rocard-lavora .benefit-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+}
+.rocard-lavora .benefit-icon {
+    width: 60px;
+    height: 60px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+    color: #f57c00;
+}
+.rocard-lavora .benefit-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1a3c6e;
+    margin-bottom: 10px;
+}
+.rocard-lavora .benefit-card p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Positions */
+.rocard-lavora .positions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 40px;
+}
+.rocard-lavora .position-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.07);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid #e9ecef;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.rocard-lavora .position-card:hover {
+    border-color: #f57c00;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+}
+.rocard-lavora .position-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1a3c6e;
+    margin-bottom: 8px;
+}
+.rocard-lavora .position-info p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+.rocard-lavora .position-meta {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.rocard-lavora .position-meta span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #555;
+    font-size: 0.85rem;
+}
+.rocard-lavora .position-meta svg {
+    color: #f57c00;
+    flex-shrink: 0;
+}
+.rocard-lavora .btn-apply {
+    display: inline-block;
+    padding: 12px 28px;
+    background: #f57c00;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+.rocard-lavora .btn-apply:hover {
+    background: #e65100;
+    transform: translateY(-2px);
+}
+
+/* Process Steps */
+.rocard-lavora .process-steps {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+.rocard-lavora .process-step {
+    flex: 1;
+    text-align: center;
+}
+.rocard-lavora .step-number {
+    width: 72px;
+    height: 72px;
+    background: #f57c00;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 auto 18px;
+}
+.rocard-lavora .process-step h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1a3c6e;
+    margin-bottom: 8px;
+}
+.rocard-lavora .process-step p {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* Form */
+.rocard-lavora .form-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 48px;
+    border-radius: 16px;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+}
+.rocard-lavora .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.rocard-lavora .form-group {
+    margin-bottom: 0;
+}
+.rocard-lavora .form-group.full-width {
+    grid-column: span 2;
+}
+.rocard-lavora .form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #495057;
+    font-size: 0.9rem;
+}
+.rocard-lavora .form-group input,
+.rocard-lavora .form-group select,
+.rocard-lavora .form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: 'Outfit', sans-serif;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    background: #fff;
+}
+.rocard-lavora .form-group input:focus,
+.rocard-lavora .form-group select:focus,
+.rocard-lavora .form-group textarea:focus {
+    outline: none;
+    border-color: #f57c00;
+    box-shadow: 0 0 0 3px rgba(245,124,0,0.1);
+}
+.rocard-lavora .form-group textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+.rocard-lavora .form-group input[type="file"] {
+    padding: 10px;
+    background: #f8f9fa;
+    cursor: pointer;
+}
+.rocard-lavora .form-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+.rocard-lavora .form-checkbox input {
+    width: 18px;
+    height: 18px;
+    margin-top: 3px;
+    accent-color: #f57c00;
+}
+.rocard-lavora .form-checkbox label {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 0;
+}
+.rocard-lavora .form-checkbox a {
+    color: #1a3c6e;
+    text-decoration: underline;
+}
+.rocard-lavora .form-submit {
+    margin-top: 28px;
+}
+.rocard-lavora .btn-submit {
+    display: block;
+    width: 100%;
+    padding: 16px 32px;
+    background: #f57c00;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+.rocard-lavora .btn-submit:hover {
+    background: #e65100;
+    transform: translateY(-2px);
+}
+
+/* CTA */
+.rocard-lavora .cta-section {
+    background: linear-gradient(135deg, #f57c00, #e65100);
+    color: #fff;
+    text-align: center;
+    padding: 80px 0;
+}
+.rocard-lavora .cta-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    color: #fff;
+    margin-bottom: 16px;
+}
+.rocard-lavora .cta-section p {
+    font-size: 1.05rem;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+.rocard-lavora .cta-button {
+    display: inline-block;
+    padding: 14px 36px;
+    background: #fff;
+    color: #f57c00;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+.rocard-lavora .cta-button:hover {
+    background: #f1f3f5;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .rocard-lavora .hero-content h1 { font-size: 2rem; }
+    .rocard-lavora .section-title { font-size: 1.7rem; }
+    .rocard-lavora .benefits-grid { grid-template-columns: 1fr; }
+    .rocard-lavora .position-card { flex-direction: column; align-items: flex-start; }
+    .rocard-lavora .process-steps { flex-direction: column; }
+    .rocard-lavora .form-container { padding: 28px 20px; }
+    .rocard-lavora .form-grid { grid-template-columns: 1fr; }
+    .rocard-lavora .form-group.full-width { grid-column: span 1; }
+    .rocard-lavora .section-block { padding: 50px 0; }
+}
+
+/* ═══ STILI CONTATTI AZIENDALI ═══ */
+.rocard-contatti {
+    font-family: 'Outfit', sans-serif;
+    color: #1a1a2e;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+.rocard-contatti *, .rocard-contatti *::before, .rocard-contatti *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.rocard-contatti .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+.rocard-contatti a {
+    color: #1a3c6e;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+.rocard-contatti a:hover { color: #f57c00; }
+.rocard-contatti .section-label {
+    display: block;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #f57c00;
+    margin-bottom: 12px;
+}
+.rocard-contatti .section-label.center { text-align: center; }
+.rocard-contatti .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #1a3c6e;
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
+.rocard-contatti .section-title.center { text-align: center; }
+.rocard-contatti .section-subtitle {
+    font-size: 1.05rem;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+/* Hero */
+.rocard-contatti .hero-section {
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #1a3c6e 0%, #0f2847 100%);
+    color: #fff;
+    overflow: hidden;
+    padding: 80px 0;
+}
+.rocard-contatti .hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: radial-gradient(circle at 70% 50%, rgba(245,124,0,0.08) 0%, transparent 70%);
+}
+.rocard-contatti .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+}
+.rocard-contatti .hero-content h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 16px;
+}
+.rocard-contatti .hero-content p {
+    font-size: 1.15rem;
+    opacity: 0.9;
+}
+
+/* Sections */
+.rocard-contatti .section-block {
+    padding: 80px 0;
+    background: #fff;
+}
+.rocard-contatti .section-block.alt {
+    background: #f8f9fa;
+}
+
+/* Contact Card */
+.rocard-contatti .contact-main {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.rocard-contatti .contact-card {
+    background: #fff;
+    padding: 48px 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.07);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.rocard-contatti .contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+}
+.rocard-contatti .contact-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #1a3c6e, #2a5294);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: #fff;
+}
+.rocard-contatti .contact-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #1a3c6e;
+    margin-bottom: 12px;
+}
+.rocard-contatti .contact-card p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 16px;
+    line-height: 1.6;
+}
+.rocard-contatti .contact-card .email-link {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #f57c00;
+}
+
+/* Content Grid */
+.rocard-contatti .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+.rocard-contatti .content-text p {
+    font-size: 1.05rem;
+    color: #555;
+    margin-bottom: 16px;
+    line-height: 1.7;
+}
+.rocard-contatti .content-image {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+}
+.rocard-contatti .content-image img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+}
+.rocard-contatti .contact-line {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+.rocard-contatti .contact-line svg {
+    color: #f57c00;
+    flex-shrink: 0;
+}
+.rocard-contatti .contact-line a {
+    font-weight: 500;
+}
+.rocard-contatti .btn-primary {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 14px 36px;
+    background: #f57c00;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+.rocard-contatti .btn-primary:hover {
+    background: #e65100;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Sede Info */
+.rocard-contatti .sede-info p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 8px;
+}
+.rocard-contatti .sede-info strong {
+    color: #1a3c6e;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .rocard-contatti .hero-content h1 { font-size: 2rem; }
+    .rocard-contatti .section-title { font-size: 1.7rem; }
+    .rocard-contatti .content-grid { grid-template-columns: 1fr; gap: 30px; }
+    .rocard-contatti .section-block { padding: 50px 0; }
+}
+
+</style>
+
+
+<!-- NAVIGAZIONE -->
+<nav class="rocard-corporate-nav">
+    <div class="nav-inner">
+        <div class="nav-brand">ROCARD</div>
+        <button class="nav-mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">Menu &#9662;</button>
+        <ul class="nav-links">
+            <li><a href="#" class="active" onclick="showPage('chi-siamo', this); return false;">Chi Siamo</a></li>
+            <li><a href="#" onclick="showPage('vision-valori', this); return false;">Vision &amp; Valori</a></li>
+            <li><a href="#" onclick="showPage('nostro-modello', this); return false;">Il Nostro Modello</a></li>
+            <li><a href="#" onclick="showPage('numeri-crescita', this); return false;">Numeri &amp; Crescita</a></li>
+            <li><a href="#" onclick="showPage('team', this); return false;">Il Team</a></li>
+            <li><a href="#" onclick="showPage('lavora-con-noi', this); return false;">Lavora con Noi</a></li>
+            <li><a href="#" onclick="showPage('contatti', this); return false;">Contatti</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- 1. CHI SIAMO -->
+<div id="page-chi-siamo" class="rocard-page-section active">
+<div class="rocard-chi-siamo">
+    <!-- Hero Section with Image -->
+    <section class="hero-section">
+        <div class="hero-image-container">
+            <img src="https://customer-assets.emergentagent.com/job_authority-design-1/artifacts/lyxjn2y2_ChatGPT-Image-11-mar-2026-14_34_33-1.png" alt="Rocard - Il tuo standard d'eccellenza - Sede aziendale con logo illuminato" class="hero-image" loading="eager">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content"></div>
+    </section>
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <span class="section-label">La Nostra Storia</span>
+                <h2 class="section-title">Rocard, il partner affidabile per i tuoi acquisti online</h2>
+                <p class="about-text">
+                    Rocard nasce con l'obiettivo di offrire ai clienti un e-commerce affidabile, 
+                    con prodotti selezionati accuratamente, spedizioni rapide e un'esperienza d'acquisto 
+                    semplice e sicura. Ogni giorno lavoriamo per garantire qualit&agrave;, convenienza e 
+                    un servizio clienti impeccabile.
+                </p>
+                <p class="about-text">
+                    La nostra missione &egrave; rendere lo shopping online un'esperienza piacevole e senza 
+                    preoccupazioni, offrendo solo il meglio ai nostri clienti.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Numbers Section -->
+    <section class="numbers-section">
+        <div class="container">
+            <span class="section-label center">I Nostri Risultati</span>
+            <h2 class="section-title center">I Numeri di Rocard</h2>
+            <div class="numbers-grid">
+                <div class="number-card">
+                    <span class="number">+1.200</span>
+                    <span class="number-label">Prodotti Disponibili</span>
+                    <span class="number-desc">Catalogo in continua espansione</span>
+                </div>
+                <div class="number-card">
+                    <span class="number">2.000+</span>
+                    <span class="number-label">Spedizioni al Giorno</span>
+                    <span class="number-desc">Consegne puntuali e sicure</span>
+                </div>
+                <div class="number-card">
+                    <span class="number">730.000+</span>
+                    <span class="number-label">Clienti Soddisfatti</span>
+                    <span class="number-desc">Ogni anno scegliamo insieme</span>
+                </div>
+                <div class="number-card highlight">
+                    <span class="number">4.8 <span class="star-icon">&#9733;</span></span>
+                    <span class="number-label">Valutazione Media</span>
+                    <span class="number-desc">Eccellenza certificata</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <span class="section-label center">Perch&eacute; Sceglierci</span>
+            <h2 class="section-title center">I Servizi Rocard</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
+                            <path d="M21 3v5h-5"></path>
+                            <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
+                            <path d="M8 16H3v5"></path>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Resi Semplici</h3>
+                    <p class="service-desc">Procedura di reso chiara, veloce e senza complicazioni. La tua soddisfazione &egrave; la nostra priorit&agrave;.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            <path d="m9 12 2 2 4-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Pagamenti Sicuri</h3>
+                    <p class="service-desc">Transazioni protette con i pi&ugrave; alti standard di sicurezza. I tuoi dati sono sempre al sicuro.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path>
+                            <path d="M15 18H9"></path>
+                            <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path>
+                            <circle cx="17" cy="18" r="2"></circle>
+                            <circle cx="7" cy="18" r="2"></circle>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Spedizioni Rapide</h3>
+                    <p class="service-desc">Consegne veloci in tutta Italia con tracking in tempo reale. Sempre informato, sempre tranquillo.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="8" r="6"></circle>
+                            <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Trusted Shops</h3>
+                    <p class="service-desc">Acquisti protetti e certificati. La garanzia di un e-commerce affidabile e verificato.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <span class="section-label center">Cosa Dicono di Noi</span>
+            <h2 class="section-title center">La Fiducia dei Nostri Clienti</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="quote-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"></path>
+                        </svg>
+                    </div>
+                    <div class="stars-row">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <p class="testimonial-text">"Spedizione velocissima e servizio clienti eccellente. Consiglio vivamente Rocard a tutti."</p>
+                    <div class="testimonial-author">
+                        <span class="author-name">Marco R.</span>
+                        <span class="author-badge">Cliente Verificato</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"></path>
+                        </svg>
+                    </div>
+                    <div class="stars-row">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <p class="testimonial-text">"Ordine arrivato rapidamente e perfettamente imballato. Prodotti di qualit&agrave; e prezzi competitivi."</p>
+                    <div class="testimonial-author">
+                        <span class="author-name">Laura G.</span>
+                        <span class="author-badge">Cliente Verificato</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"></path>
+                        </svg>
+                    </div>
+                    <div class="stars-row">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <p class="testimonial-text">"Sito affidabile con prezzi imbattibili. Sono diventato un cliente abituale dopo il primo ordine."</p>
+                    <div class="testimonial-author">
+                        <span class="author-name">Giuseppe M.</span>
+                        <span class="author-badge">Cliente Verificato</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Environment Section -->
+    <section class="environment-section">
+        <div class="container">
+            <div class="environment-content">
+                <div class="environment-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+                        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+                    </svg>
+                </div>
+                <div class="environment-text">
+                    <span class="section-label">Sostenibilit&agrave;</span>
+                    <h2 class="section-title">Il Nostro Impegno per l'Ambiente</h2>
+                    <p class="environment-desc">
+                        Rocard sostiene attivamente progetti di riforestazione attraverso <strong>Treedom</strong>, 
+                        contribuendo alla tutela dell'ambiente e alla lotta contro il cambiamento climatico. 
+                        Ogni acquisto &egrave; un piccolo passo verso un futuro pi&ugrave; verde.
+                    </p>
+                    <div class="treedom-logo">
+                        <img src="https://www.rocard.it/wp-content/uploads/2026/03/Treedom_Logo_Green-on-White-PayOff.webp" alt="Treedom - Partner ambientale di Rocard" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Couriers Section -->
+    <section class="couriers-section">
+        <div class="container">
+            <span class="section-label center">Logistica Affidabile</span>
+            <h2 class="section-title center">Corrieri Partner</h2>
+            <p class="section-desc center">Collaboriamo con i migliori corrieri nazionali per garantirti consegne sempre puntuali e sicure.</p>
+            <div class="couriers-grid">
+                <div class="courier-logo">
+                    <img src="https://www.rocard.it/wp-content/uploads/2026/03/logo-gls-socio-netcomm-2023.png" alt="GLS - Corriere partner Rocard" loading="lazy">
+                </div>
+                <div class="courier-logo">
+                    <img src="https://www.rocard.it/wp-content/uploads/2026/03/brt-logo.jpg" alt="BRT - Corriere partner Rocard" loading="lazy">
+                </div>
+                <div class="courier-logo">
+                    <img src="https://www.rocard.it/wp-content/uploads/2026/03/unnamed-2.png" alt="Poste Italiane - Corriere partner Rocard" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Brand Partners Section -->
+    <section class="brands-section">
+        <div class="container">
+            <span class="section-label center">Qualit&agrave; Certificata</span>
+            <h2 class="section-title center">I Nostri Brand Partner</h2>
+            <p class="section-desc center">Collaboriamo con i marchi pi&ugrave; prestigiosi per offrirti solo prodotti di qualit&agrave; garantita.</p>
+            <div class="brands-grid">
+                <div class="brand-item">
+                    <img src="https://static.prod-images.emergentagent.com/jobs/4fce1953-8b8d-45b2-a184-48dad9371ce1/images/0057d95d31731c46e2384a1cb49d10ec7bb4e5e71f9d9f600faa55b4f0a6c4fd.png" alt="Caff&egrave; Borbone" loading="lazy">
+                </div>
+                <div class="brand-item">
+                    <img src="https://static.prod-images.emergentagent.com/jobs/4fce1953-8b8d-45b2-a184-48dad9371ce1/images/d2636d07e92c7064c3a1d3e67f04ee449a485a0d1528ac6fb49e911771d5d9e1.png" alt="Mulino Caputo" loading="lazy">
+                </div>
+                <div class="brand-item">
+                    <img src="https://static.prod-images.emergentagent.com/jobs/4fce1953-8b8d-45b2-a184-48dad9371ce1/images/3ec96cfecef62ad1e24ad919302bb31ef1049b2e8d1986d0ffc9b8db9799dd6a.png" alt="Lavazza" loading="lazy">
+                </div>
+                <div class="brand-item">
+                    <img src="https://static.prod-images.emergentagent.com/jobs/4fce1953-8b8d-45b2-a184-48dad9371ce1/images/c3f3373ddd1d5004c3b5b507ef150c4e0f85dfc352cc00e66aa980ca8fd3ecdb.png" alt="Frontline" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Future Section -->
+    <section class="future-section">
+        <div class="container">
+            <div class="future-content">
+                <span class="section-label center">Visione</span>
+                <h2 class="section-title center">Un E-commerce in Continua Evoluzione</h2>
+                <p class="future-text">
+                    Il mondo dell'e-commerce &egrave; in continua evoluzione e Rocard continua a investire nel 
+                    miglioramento del servizio, nell'ampliamento del catalogo e nell'ottimizzazione delle spedizioni.
+                </p>
+                <p class="future-text">
+                    Il nostro obiettivo &egrave; crescere insieme ai nostri clienti, offrendo un'esperienza 
+                    d'acquisto sempre pi&ugrave; semplice, veloce e affidabile.
+                </p>
+                <a href="https://www.rocard.it/shop/" class="cta-button">
+                    Scopri i Nostri Prodotti
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Trust Section -->
+    <section class="trust-section">
+        <div class="container">
+            <div class="trust-badges">
+                <div class="trust-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        <path d="m9 12 2 2 4-4"></path>
+                    </svg>
+                    <span>Acquisti Sicuri</span>
+                </div>
+                <div class="trust-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path>
+                        <path d="M15 18H9"></path>
+                        <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path>
+                        <circle cx="17" cy="18" r="2"></circle>
+                        <circle cx="7" cy="18" r="2"></circle>
+                    </svg>
+                    <span>Spedizione Veloce</span>
+                </div>
+                <div class="trust-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
+                        <path d="M21 3v5h-5"></path>
+                        <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
+                        <path d="M8 16H3v5"></path>
+                    </svg>
+                    <span>Reso Facile</span>
+                </div>
+                <div class="trust-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="8" r="6"></circle>
+                        <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+                    </svg>
+                    <span>Qualit&agrave; Garantita</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</div>
+
+<!-- 2. VISION & VALORI -->
+<div id="page-vision-valori" class="rocard-page-section">
+<div class="rocard-vision-valori">
+    <!-- Hero -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Vision &amp; Valori</h1>
+                <p>I principi che guidano ogni nostra decisione e azione quotidiana.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Vision -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-text">
+                    <span class="section-label">La Nostra Vision</span>
+                    <h2 class="section-title">Diventare il punto di riferimento dell'e-commerce italiano</h2>
+                    <p>Diventare il punto di riferimento dell'e-commerce italiano per qualit&agrave; del servizio, affidabilit&agrave; e rapporto con il cliente.</p>
+                    <p>Immaginiamo un futuro in cui ogni italiano possa acquistare online con la stessa fiducia di un negozio sotto casa: prodotti garantiti, prezzi onesti, consegne puntuali.</p>
+                </div>
+                <div class="content-image">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop" alt="Vision Rocard">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Valori -->
+    <section class="content-section alt">
+        <div class="container">
+            <span class="section-label center">I Nostri Pilastri</span>
+            <h2 class="section-title center">I Nostri Valori</h2>
+            <p class="section-subtitle">Cinque pilastri che definiscono chi siamo e come operiamo.</p>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                    </div>
+                    <h3>Affidabilit&agrave;</h3>
+                    <p>Manteniamo sempre le promesse fatte ai nostri clienti. Se diciamo che il pacco arriva in 48 ore, arriva in 48 ore.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>
+                    </div>
+                    <h3>Passione</h3>
+                    <p>Amiamo quello che facciamo. Ogni ordine, ogni cliente, ogni problema risolto &egrave; una soddisfazione.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg>
+                    </div>
+                    <h3>Innovazione</h3>
+                    <p>Investiamo costantemente in tecnologia e processi per offrire un'esperienza sempre migliore.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h3>Collaborazione</h3>
+                    <p>Il successo di Rocard &egrave; il risultato del lavoro di squadra. Ogni reparto contribuisce al risultato finale.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                    </div>
+                    <h3>Eccellenza</h3>
+                    <p>Non ci accontentiamo mai. Puntiamo sempre al meglio in ogni aspetto del nostro lavoro.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Condividi i nostri valori?</h2>
+            <p>Unisciti al team Rocard e cresci con noi.</p>
+            <a href="https://www.rocard.it/lavora-con-noi/" class="cta-button">Lavora con noi</a>
+        </div>
+    </section>
+</div>
+</div>
+
+<!-- 3. IL NOSTRO MODELLO -->
+<div id="page-nostro-modello" class="rocard-page-section">
+<div class="rocard-nostro-modello">
+    <!-- Hero -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Il Nostro Modello</h1>
+                <p>Un ecosistema integrato per garantire la massima efficienza e qualit&agrave; del servizio.</p>
+            </div>
+        </div>
+    </section>
+    <!-- E-commerce -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-text">
+                    <span class="section-label">Piattaforma</span>
+                    <h2 class="section-title">E-commerce di Nuova Generazione</h2>
+                    <p>La nostra piattaforma e-commerce &egrave; progettata per offrire un'esperienza d'acquisto fluida e intuitiva su ogni dispositivo.</p>
+                    <p>Investiamo costantemente in UX/UI, performance e funzionalit&agrave; per rendere ogni acquisto semplice e piacevole.</p>
+                </div>
+                <div class="content-image">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="Piattaforma ecommerce">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Logistica -->
+    <section class="content-section alt">
+        <div class="container">
+            <div class="content-grid reverse">
+                <div class="content-text">
+                    <span class="section-label">Logistica</span>
+                    <h2 class="section-title">Logistica Integrata</h2>
+                    <p>Il nostro centro logistico di 1.000 mq ci permette di gestire circa 2.000 ordini al giorno con efficienza e precisione.</p>
+                    <p>Sistemi WMS avanzati, picking ottimizzato e partnership con i migliori corrieri garantiscono consegne rapide in tutta Italia.</p>
+                </div>
+                <div class="content-image">
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=400&fit=crop" alt="Centro logistico">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Customer Care -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-text">
+                    <span class="section-label">Assistenza</span>
+                    <h2 class="section-title">Customer Care Excellence</h2>
+                    <p>Il nostro team di assistenza clienti &egrave; formato per risolvere ogni problematica con competenza e cortesia.</p>
+                    <p>Disponibili via chat, email e telefono, garantiamo risposte rapide e soluzioni concrete.</p>
+                </div>
+                <div class="content-image">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop" alt="Customer care">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Selezione Prodotti -->
+    <section class="content-section alt">
+        <div class="container">
+            <div class="content-grid reverse">
+                <div class="content-text">
+                    <span class="section-label">Qualit&agrave;</span>
+                    <h2 class="section-title">Selezione Prodotti Accurata</h2>
+                    <p>Ogni prodotto nel nostro catalogo viene selezionato con cura da buyer esperti che valutano qualit&agrave;, prezzo e affidabilit&agrave; del fornitore.</p>
+                    <p>Collaboriamo direttamente con i brand pi&ugrave; importanti e con produttori selezionati per garantire l'autenticit&agrave; e la qualit&agrave; di ogni articolo.</p>
+                </div>
+                <div class="content-image">
+                    <img src="https://images.unsplash.com/photo-1770013413878-2530e2c3d82b?w=600&h=400&fit=crop" alt="Selezione prodotti">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Scopri i nostri numeri</h2>
+            <p>I risultati parlano da soli. Scopri la crescita di Rocard.</p>
+            <a href="https://www.rocard.it/numeri-crescita/" class="cta-button">Numeri &amp; Crescita</a>
+        </div>
+    </section>
+</div>
+</div>
+
+<!-- 4. NUMERI & CRESCITA -->
+<div id="page-numeri-crescita" class="rocard-page-section">
+<div class="rocard-numeri-crescita">
+    <!-- Hero -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Numeri &amp; Crescita</h1>
+                <p>I risultati di anni di impegno, passione e attenzione al cliente.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Numeri Principali -->
+    <section class="numbers-section">
+        <div class="container">
+            <span class="section-label center">I Nostri Risultati</span>
+            <h2 class="section-title center">I Numeri di Rocard</h2>
+            <p class="section-subtitle">Metriche che testimoniano la solidit&agrave; e l'affidabilit&agrave; della nostra azienda.</p>
+            <div class="numbers-grid">
+                <div class="number-card">
+                    <div class="number-value">5-10M</div>
+                    <div class="number-label">Fascia Fatturato Annuo</div>
+                </div>
+                <div class="number-card">
+                    <div class="number-value">~750K</div>
+                    <div class="number-label">Spedizioni/Anno</div>
+                </div>
+                <div class="number-card">
+                    <div class="number-value">2.000+</div>
+                    <div class="number-label">Prodotti a Catalogo</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Altri Numeri -->
+    <section class="numbers-section alt">
+        <div class="container">
+            <div class="numbers-grid">
+                <div class="number-card">
+                    <div class="number-value">5-10</div>
+                    <div class="number-label">Collaboratori</div>
+                </div>
+                <div class="number-card">
+                    <div class="number-value">1.000</div>
+                    <div class="number-label">mq di Magazzino</div>
+                </div>
+                <div class="number-card">
+                    <div class="number-value">4.9/5</div>
+                    <div class="number-label">Rating Clienti</div>
+                </div>
+                <div class="number-card">
+                    <div class="number-value">48h</div>
+                    <div class="number-label">Tempo Medio Consegna</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Crescita -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-text">
+                    <span class="section-label">Crescita</span>
+                    <h2 class="section-title">Una Crescita Costante</h2>
+                    <p>Dal 2014 ad oggi, Rocard ha registrato una crescita costante anno dopo anno, consolidando la propria posizione nel mercato e-commerce italiano.</p>
+                    <p>Questa crescita non &egrave; solo nei numeri: &egrave; nella qualit&agrave; del servizio, nella soddisfazione dei clienti, nella competenza del team.</p>
+                    <a href="https://www.rocard.it/lavora-con-noi/" class="cta-inline">Unisciti alla crescita</a>
+                </div>
+                <div class="content-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" alt="Crescita aziendale">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Conosci il team dietro questi numeri</h2>
+            <p>Scopri le persone che rendono possibile tutto questo.</p>
+            <a href="https://www.rocard.it/team/" class="cta-button">Il Team</a>
+        </div>
+    </section>
+</div>
+/div>
+</div>
+
+<!-- 5. IL TEAM -->
+<div id="page-team" class="rocard-page-section">
+<div class="rocard-team">
+    <!-- Hero -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Il Team</h1>
+                <p>Le persone che ogni giorno rendono Rocard un'eccellenza.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Intro -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-text">
+                    <span class="section-label">Chi Siamo</span>
+                    <h2 class="section-title">Il Cuore di Rocard</h2>
+                    <p>Dietro ogni ordine evaso, ogni problema risolto, ogni cliente soddisfatto c'&egrave; un team di professionisti appassionati in continua crescita.</p>
+                    <p>Giovani talenti e professionisti esperti lavorano insieme in un ambiente dinamico, stimolante e orientato ai risultati.</p>
+                </div>
+                <div class="content-image">
+                    <img src="https://static.prod-images.emergentagent.com/jobs/4fce1953-8b8d-45b2-a184-48dad9371ce1/images/fbd5aaa29618d047bf2d706d31572b3aacb3100a60a949ebc7a9a6143a2d378f.png" alt="Team Rocard - Centro operativo">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Divisioni -->
+    <section class="content-section alt">
+        <div class="container">
+            <span class="section-label center">Organizzazione</span>
+            <h2 class="section-title center">Le Nostre Divisioni</h2>
+            <p class="section-subtitle">Un'organizzazione strutturata per garantire efficienza e specializzazione.</p>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"></path><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg>
+                    </div>
+                    <div class="team-card-body">
+                        <h3>Logistica</h3>
+                        <p>Il team che gestisce il magazzino, le spedizioni e garantisce che ogni pacco arrivi perfetto a destinazione.</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
+                    </div>
+                    <div class="team-card-body">
+                        <h3>Customer Care</h3>
+                        <p>Professionisti dedicati all'assistenza clienti, sempre pronti a risolvere ogni problematica con cortesia.</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"></line><line x1="18" x2="18" y1="20" y2="4"></line><line x1="6" x2="6" y1="20" y2="16"></line></svg>
+                    </div>
+                    <div class="team-card-body">
+                        <h3>Marketing</h3>
+                        <p>Il team creativo che sviluppa strategie, gestisce i canali digitali e costruisce il brand Rocard.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Vuoi far parte del team?</h2>
+            <p>Scopri le posizioni aperte e inviaci la tua candidatura.</p>
+            <a href="https://www.rocard.it/lavora-con-noi/" class="cta-button">Lavora con noi</a>
+        </div>
+    </section>
+</div>
+</div>
+
+<!-- 6. LAVORA CON NOI -->
+<div id="page-lavora-con-noi" class="rocard-page-section">
+<div class="rocard-lavora">
+    <!-- Hero -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Lavora con Noi</h1>
+                <p>Unisciti al team Rocard e costruisci con noi il futuro dell'e-commerce italiano.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Perch&eacute; Lavorare in Rocard -->
+    <section class="section-block">
+        <div class="container">
+            <span class="section-label center">Opportunit&agrave;</span>
+            <h2 class="section-title center">Perch&eacute; Lavorare in Rocard</h2>
+            <p class="section-subtitle">Un ambiente di lavoro stimolante con opportunit&agrave; di crescita reali.</p>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" x2="12" y1="20" y2="10"></line><line x1="18" x2="18" y1="20" y2="4"></line><line x1="6" x2="6" y1="20" y2="16"></line></svg>
+                    </div>
+                    <h3>Crescita Professionale</h3>
+                    <p>Formazione continua e percorsi di carriera chiari per sviluppare le tue competenze.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h3>Team Giovane</h3>
+                    <p>Lavora in un ambiente dinamico con colleghi motivati e appassionati.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m13 2-2 2.5h3L12 7"></path><path d="M10 14v-3"></path><path d="M14 14v-3"></path><path d="M11 19c-1.7 0-3-1.3-3-3v-2h8v2c0 1.7-1.3 3-3 3Z"></path><path d="M12 22v-3"></path></svg>
+                    </div>
+                    <h3>Innovazione</h3>
+                    <p>Tecnologie all'avanguardia e processi in continua evoluzione.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    </div>
+                    <h3>Lavoro in Sede</h3>
+                    <p>Non offriamo lavoro da remoto. Crediamo nel valore della collaborazione in presenza nella nostra sede a Giugliano in Campania.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                    </div>
+                    <h3>Stabilit&agrave;</h3>
+                    <p>Azienda solida in crescita con contratti regolari e retribuzioni competitive.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg>
+                    </div>
+                    <h3>Autonomia</h3>
+                    <p>Responsabilit&agrave; reali e possibilit&agrave; di proporre e implementare le tue idee.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Posizioni Aperte -->
+    <section class="section-block alt">
+        <div class="container">
+            <span class="section-label center">Carriere</span>
+            <h2 class="section-title center">Posizioni Aperte</h2>
+            <p class="section-subtitle">Scopri le opportunit&agrave; disponibili e candidati subito.</p>
+            <div class="positions-list">
+                <div class="position-card">
+                    <div class="position-info">
+                        <h3>Addetto/a Logistica</h3>
+                        <p>Gestione magazzino, preparazione ordini, spedizioni</p>
+                        <div class="position-meta">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg> Giugliano in Campania</span>
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> Full-time</span>
+                        </div>
+                    </div>
+                    <a href="#candidatura" class="btn-apply">Candidati</a>
+                </div>
+                <div class="position-card">
+                    <div class="position-info">
+                        <h3>Customer Care Specialist</h3>
+                        <p>Assistenza clienti multicanale, gestione reclami</p>
+                        <div class="position-meta">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg> Giugliano in Campania</span>
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> Full-time</span>
+                        </div>
+                    </div>
+                    <a href="#candidatura" class="btn-apply">Candidati</a>
+                </div>
+                <div class="position-card">
+                    <div class="position-info">
+                        <h3>Magazziniere</h3>
+                        <p>Carico e scarico merci, movimentazione e sistemazione del magazzino</p>
+                        <div class="position-meta">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg> Giugliano in Campania</span>
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> Full-time</span>
+                        </div>
+                    </div>
+                    <a href="#candidatura" class="btn-apply">Candidati</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Processo di Selezione -->
+    <section class="section-block">
+        <div class="container">
+            <span class="section-label center">Come Funziona</span>
+            <h2 class="section-title center">Processo di Selezione</h2>
+            <p class="section-subtitle">Un percorso trasparente e rispettoso del tuo tempo.</p>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Candidatura</h3>
+                    <p>Invia il tuo CV e una breve presentazione.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Screening</h3>
+                    <p>Valutiamo il tuo profilo entro 5 giorni lavorativi.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Colloquio</h3>
+                    <p>Conosciamoci: parlaci di te e delle tue aspettative.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Proposta</h3>
+                    <p>Se c'&egrave; match, ti presentiamo la nostra offerta.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Form Candidatura -->
+    <section class="section-block alt" id="candidatura">
+        <div class="container">
+            <span class="section-label center">Candidati</span>
+            <h2 class="section-title center">Invia la Tua Candidatura</h2>
+            <p class="section-subtitle">Compila il modulo sottostante per candidarti a una posizione aperta o inviare una candidatura spontanea.</p>
+            <div class="form-container">
+                <!-- Form gestito da FormSubmit.co - invia direttamente a info@rocard.it -->
+                <form action="https://formsubmit.co/info@rocard.it" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="_subject" value="Nuova Candidatura - Rocard Lavora con Noi">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="https://www.rocard.it/chi-siamo/">
+                    <input type="hidden" name="_captcha" value="true">
+                    <input type="text" name="_honey" style="display:none">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="nome">Nome *</label>
+                            <input type="text" id="nome" name="nome" required placeholder="Il tuo nome">
+                        </div>
+                        <div class="form-group">
+                            <label for="cognome">Cognome *</label>
+                            <input type="text" id="cognome" name="cognome" required placeholder="Il tuo cognome">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="nome@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Telefono *</label>
+                            <input type="tel" id="telefono" name="telefono" required placeholder="+39 123 456 7890">
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="ruolo">Ruolo di interesse *</label>
+                            <select id="ruolo" name="ruolo" required>
+                                <option value="">Seleziona un ruolo</option>
+                                <option value="logistica">Addetto/a Logistica</option>
+                                <option value="customer-care">Customer Care Specialist</option>
+                                <option value="magazziniere">Magazziniere</option>
+                                <option value="spontanea">Candidatura Spontanea</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="cv">Carica il tuo CV (PDF, DOC, DOCX) *</label>
+                            <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="messaggio">Messaggio / Presentazione</label>
+                            <textarea id="messaggio" name="messaggio" placeholder="Raccontaci brevemente di te, delle tue esperienze e perch&eacute; vorresti lavorare in Rocard..."></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <div class="form-checkbox">
+                                <input type="checkbox" id="privacy" name="privacy" required>
+                                <label for="privacy">
+                                    Ho preso visione della <a href="https://www.rocard.it/privacy-cookie-policy/" target="_blank">Privacy Policy</a> e acconsento al trattamento dei miei dati personali per le finalit&agrave; di selezione del personale. *
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn-submit">Invia Candidatura</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Hai domande?</h2>
+            <p>Contatta il nostro ufficio HR per qualsiasi informazione.</p>
+            <a href="https://www.rocard.it/contatti-aziendali/" class="cta-button">Contatti Aziendali</a>
+        </div>
+    </section>
+</div>
+</div>
+
+<!-- 7. CONTATTI AZIENDALI -->
+<div id="page-contatti" class="rocard-page-section">
+<div class="rocard-contatti">
+    <!-- Hero -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Contatti Aziendali</h1>
+                <p>Canali dedicati per ogni esigenza. Il team giusto per ogni richiesta.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Contatto Principale -->
+    <section class="section-block">
+        <div class="container">
+            <span class="section-label center">Scrivici</span>
+            <h2 class="section-title center">Contattaci</h2>
+            <p class="section-subtitle">Scrivi a un unico indirizzo: il nostro sistema smister&agrave; automaticamente la tua richiesta al reparto competente.</p>
+            <div class="contact-main">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                    </div>
+                    <h3>Scrivici</h3>
+                    <p>HR, Partnership, Fornitori, Amministrazione: un unico punto di contatto per tutte le esigenze aziendali. Il sistema categorizzer&agrave; automaticamente la tua richiesta in base al motivo del contatto.</p>
+                    <a href="mailto:info@rocard.it" class="email-link">info@rocard.it</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Assistenza Clienti -->
+    <section class="section-block alt">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-text">
+                    <span class="section-label">Assistenza</span>
+                    <h2 class="section-title">Sei un Cliente?</h2>
+                    <p>Per assistenza su ordini, spedizioni, resi e informazioni sui prodotti, il nostro servizio clienti &egrave; a tua disposizione.</p>
+                    <div style="margin-top: 16px;">
+                        <div class="contact-line">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                            <a href="mailto:info@rocard.it">info@rocard.it</a>
+                        </div>
+                        <div class="contact-line">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            <a href="tel:+3907731888391">+39 0773 1888391</a>
+                        </div>
+                    </div>
+                    <a href="https://www.rocard.it/assistenza/" class="btn-primary" target="_blank">Vai all'Assistenza Clienti</a>
+                </div>
+                <div class="content-image">
+                    <img src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=600&h=400&fit=crop" alt="Assistenza clienti">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Sede -->
+    <section class="section-block">
+        <div class="container">
+            <span class="section-label center">Dove Siamo</span>
+            <h2 class="section-title center">La Nostra Sede</h2>
+            <p class="section-subtitle">Dove siamo e come raggiungerci.</p>
+            <div class="content-grid">
+                <div class="content-text sede-info">
+                    <h2 class="section-title">RCM S.r.l.</h2>
+                    <p><strong>Sede Legale e Operativa:</strong></p>
+                    <p>Localit&agrave; Ponte Riccio, snc<br>80014 Giugliano in Campania (NA)<br>Italia</p>
+                    <p style="margin-top: 16px;"><strong>P.IVA:</strong> 09736331217</p>
+                    <div class="contact-line">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        <a href="tel:+3907731888391">+39 077 31888391</a>
+                    </div>
+                    <div class="contact-line">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                        <a href="mailto:info@rocard.it">info@rocard.it</a>
+                    </div>
+                    <div class="contact-line">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                        <a href="mailto:rcm21@pec.it">rcm21@pec.it</a> (PEC)
+                    </div>
+                    <p style="margin-top: 20px;"><strong>Orari Uffici:</strong></p>
+                    <p>Lun - Ven: 9:00 - 18:00<br>Sab - Dom: Chiuso</p>
+                </div>
+                <div class="content-image">
+                    <img src="https://customer-assets.emergentagent.com/job_authority-design-1/artifacts/lyxjn2y2_ChatGPT-Image-11-mar-2026-14_34_33-1.png" alt="Sede Rocard">
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</div>
+
+
+<!-- Script navigazione -->
+<script>
+function showPage(pageId, link) {
+    document.querySelectorAll('.rocard-page-section').forEach(function(s) { s.classList.remove('active'); });
+    document.querySelectorAll('.nav-links a').forEach(function(a) { a.classList.remove('active'); });
+    document.getElementById('page-' + pageId).classList.add('active');
+    if (link) link.classList.add('active');
+    document.querySelector('.nav-links').classList.remove('open');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
