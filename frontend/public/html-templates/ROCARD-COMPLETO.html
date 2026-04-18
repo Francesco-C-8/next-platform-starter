@@ -73,6 +73,13 @@
     margin: 0 auto;
     opacity: 0.3;
 }
+
+/* ═══ MOSTRA SOLO LA SEZIONE SELEZIONATA ═══ */
+.rc-pg { display: none !important; }
+.rc-pg:target { display: block !important; }
+.rc-pg:last-child { display: block !important; }
+.rc-pg:target ~ .rc-pg:last-child { display: none !important; }
+
 @media (max-width: 900px) {
     .rocard-nav-cards { padding: 16px 0; }
     .rocard-nav-cards-inner {
@@ -2051,7 +2058,633 @@
     </div>
 </div>
 
-<span id="rc-chi-siamo" class="rocard-scroll-anchor"></span>
+<div id="rc-vision" class="rc-pg">
+<div class="rocard-vision-valori">
+    <!-- Hero -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Vision &amp; Valori</h1>
+                <p>I principi che guidano ogni nostra decisione e azione quotidiana.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Vision -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-text">
+                    <span class="section-label">La Nostra Vision</span>
+                    <h2 class="section-title">Diventare il punto di riferimento dell'e-commerce italiano</h2>
+                    <p>Diventare il punto di riferimento dell'e-commerce italiano per qualit&agrave; del servizio, affidabilit&agrave; e rapporto con il cliente.</p>
+                    <p>Immaginiamo un futuro in cui ogni italiano possa acquistare online con la stessa fiducia di un negozio sotto casa: prodotti garantiti, prezzi onesti, consegne puntuali.</p>
+                </div>
+                <div class="content-image">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop" alt="Vision Rocard">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Valori -->
+    <section class="content-section alt">
+        <div class="container">
+            <span class="section-label center">I Nostri Pilastri</span>
+            <h2 class="section-title center">I Nostri Valori</h2>
+            <p class="section-subtitle">Cinque pilastri che definiscono chi siamo e come operiamo.</p>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                    </div>
+                    <h3>Affidabilit&agrave;</h3>
+                    <p>Manteniamo sempre le promesse fatte ai nostri clienti. Se diciamo che il pacco arriva in 48 ore, arriva in 48 ore.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>
+                    </div>
+                    <h3>Passione</h3>
+                    <p>Amiamo quello che facciamo. Ogni ordine, ogni cliente, ogni problema risolto &egrave; una soddisfazione.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg>
+                    </div>
+                    <h3>Innovazione</h3>
+                    <p>Investiamo costantemente in tecnologia e processi per offrire un'esperienza sempre migliore.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h3>Collaborazione</h3>
+                    <p>Il successo di Rocard &egrave; il risultato del lavoro di squadra. Ogni reparto contribuisce al risultato finale.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                    </div>
+                    <h3>Eccellenza</h3>
+                    <p>Non ci accontentiamo mai. Puntiamo sempre al meglio in ogni aspetto del nostro lavoro.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Condividi i nostri valori?</h2>
+            <p>Unisciti al team Rocard e cresci con noi.</p>
+            <a href="https://www.rocard.it/shop/" class="cta-button">Scopri i nostri prodotti</a>
+        </div>
+    </section>
+</div>
+</div>
+<div id="rc-modello" class="rc-pg">
+<div class="rocard-nostro-modello">
+    <!-- Hero -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Il Nostro Modello</h1>
+                <p>Un ecosistema integrato per garantire la massima efficienza e qualit&agrave; del servizio.</p>
+            </div>
+        </div>
+    </section>
+    <!-- E-commerce -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-text">
+                    <span class="section-label">Piattaforma</span>
+                    <h2 class="section-title">E-commerce di Nuova Generazione</h2>
+                    <p>La nostra piattaforma e-commerce &egrave; progettata per offrire un'esperienza d'acquisto fluida e intuitiva su ogni dispositivo.</p>
+                    <p>Investiamo costantemente in UX/UI, performance e funzionalit&agrave; per rendere ogni acquisto semplice e piacevole.</p>
+                </div>
+                <div class="content-image">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="Piattaforma ecommerce">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Logistica -->
+    <section class="content-section alt">
+        <div class="container">
+            <div class="content-grid reverse">
+                <div class="content-text">
+                    <span class="section-label">Logistica</span>
+                    <h2 class="section-title">Logistica Integrata</h2>
+                    <p>Il nostro centro logistico di 1.000 mq ci permette di gestire circa 2.000 ordini al giorno con efficienza e precisione.</p>
+                    <p>Sistemi WMS avanzati, picking ottimizzato e partnership con i migliori corrieri garantiscono consegne rapide in tutta Italia.</p>
+                </div>
+                <div class="content-image">
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=400&fit=crop" alt="Centro logistico">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Customer Care -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-text">
+                    <span class="section-label">Assistenza</span>
+                    <h2 class="section-title">Customer Care Excellence</h2>
+                    <p>Il nostro team di assistenza clienti &egrave; formato per risolvere ogni problematica con competenza e cortesia.</p>
+                    <p>Disponibili via chat, email e telefono, garantiamo risposte rapide e soluzioni concrete.</p>
+                </div>
+                <div class="content-image">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop" alt="Customer care">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Selezione Prodotti -->
+    <section class="content-section alt">
+        <div class="container">
+            <div class="content-grid reverse">
+                <div class="content-text">
+                    <span class="section-label">Qualit&agrave;</span>
+                    <h2 class="section-title">Selezione Prodotti Accurata</h2>
+                    <p>Ogni prodotto nel nostro catalogo viene selezionato con cura da buyer esperti che valutano qualit&agrave;, prezzo e affidabilit&agrave; del fornitore.</p>
+                    <p>Collaboriamo direttamente con i brand pi&ugrave; importanti e con produttori selezionati per garantire l'autenticit&agrave; e la qualit&agrave; di ogni articolo.</p>
+                </div>
+                <div class="content-image">
+                    <img src="https://images.unsplash.com/photo-1770013413878-2530e2c3d82b?w=600&h=400&fit=crop" alt="Selezione prodotti">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Scopri i nostri numeri</h2>
+            <p>I risultati parlano da soli. Scopri la crescita di Rocard.</p>
+            <a href="https://www.rocard.it/shop/" class="cta-button">Scopri i nostri prodotti</a>
+        </div>
+    </section>
+</div>
+</div>
+<div id="rc-numeri" class="rc-pg">
+<div class="rocard-numeri-crescita">
+    <!-- Hero -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Numeri &amp; Crescita</h1>
+                <p>I risultati di anni di impegno, passione e attenzione al cliente.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Numeri Principali -->
+    <section class="numbers-section">
+        <div class="container">
+            <span class="section-label center">I Nostri Risultati</span>
+            <h2 class="section-title center">I Numeri di Rocard</h2>
+            <p class="section-subtitle">Metriche che testimoniano la solidit&agrave; e l'affidabilit&agrave; della nostra azienda.</p>
+            <div class="numbers-grid">
+                <div class="number-card">
+                    <div class="number-value">5-10M</div>
+                    <div class="number-label">Fascia Fatturato Annuo</div>
+                </div>
+                <div class="number-card">
+                    <div class="number-value">~750K</div>
+                    <div class="number-label">Spedizioni/Anno</div>
+                </div>
+                <div class="number-card">
+                    <div class="number-value">2.000+</div>
+                    <div class="number-label">Prodotti a Catalogo</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Altri Numeri -->
+    <section class="numbers-section alt">
+        <div class="container">
+            <div class="numbers-grid">
+                <div class="number-card">
+                    <div class="number-value">5-10</div>
+                    <div class="number-label">Collaboratori</div>
+                </div>
+                <div class="number-card">
+                    <div class="number-value">1.000</div>
+                    <div class="number-label">mq di Magazzino</div>
+                </div>
+                <div class="number-card">
+                    <div class="number-value">4.9/5</div>
+                    <div class="number-label">Rating Clienti</div>
+                </div>
+                <div class="number-card">
+                    <div class="number-value">48h</div>
+                    <div class="number-label">Tempo Medio Consegna</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Crescita -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-text">
+                    <span class="section-label">Crescita</span>
+                    <h2 class="section-title">Una Crescita Costante</h2>
+                    <p>Dal 2014 ad oggi, Rocard ha registrato una crescita costante anno dopo anno, consolidando la propria posizione nel mercato e-commerce italiano.</p>
+                    <p>Questa crescita non &egrave; solo nei numeri: &egrave; nella qualit&agrave; del servizio, nella soddisfazione dei clienti, nella competenza del team.</p>
+                    <a href="https://www.rocard.it/shop/" class="cta-inline">Scopri i prodotti</a>
+                </div>
+                <div class="content-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" alt="Crescita aziendale">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Conosci il team dietro questi numeri</h2>
+            <p>Scopri le persone che rendono possibile tutto questo.</p>
+            <a href="https://www.rocard.it/shop/" class="cta-button">Scopri i nostri prodotti</a>
+        </div>
+    </section>
+</div>
+/div>
+</div>
+<div id="rc-team" class="rc-pg">
+<div class="rocard-team">
+    <!-- Hero -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Il Team</h1>
+                <p>Le persone che ogni giorno rendono Rocard un'eccellenza.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Intro -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-text">
+                    <span class="section-label">Chi Siamo</span>
+                    <h2 class="section-title">Il Cuore di Rocard</h2>
+                    <p>Dietro ogni ordine evaso, ogni problema risolto, ogni cliente soddisfatto c'&egrave; un team di professionisti appassionati in continua crescita.</p>
+                    <p>Giovani talenti e professionisti esperti lavorano insieme in un ambiente dinamico, stimolante e orientato ai risultati.</p>
+                </div>
+                <div class="content-image">
+                    <img src="https://customer-assets.emergentagent.com/job_rocard-careers/artifacts/iqqoyi3w_lyxjn2y2_ChatGPT-Image-11-mar-2026-14_34_33-1.png" alt="Team Rocard - Centro operativo">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Divisioni -->
+    <section class="content-section alt">
+        <div class="container">
+            <span class="section-label center">Organizzazione</span>
+            <h2 class="section-title center">Le Nostre Divisioni</h2>
+            <p class="section-subtitle">Un'organizzazione strutturata per garantire efficienza e specializzazione.</p>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"></path><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg>
+                    </div>
+                    <div class="team-card-body">
+                        <h3>Logistica</h3>
+                        <p>Il team che gestisce il magazzino, le spedizioni e garantisce che ogni pacco arrivi perfetto a destinazione.</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
+                    </div>
+                    <div class="team-card-body">
+                        <h3>Customer Care</h3>
+                        <p>Professionisti dedicati all'assistenza clienti, sempre pronti a risolvere ogni problematica con cortesia.</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"></line><line x1="18" x2="18" y1="20" y2="4"></line><line x1="6" x2="6" y1="20" y2="16"></line></svg>
+                    </div>
+                    <div class="team-card-body">
+                        <h3>Marketing</h3>
+                        <p>Il team creativo che sviluppa strategie, gestisce i canali digitali e costruisce il brand Rocard.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Vuoi far parte del team?</h2>
+            <p>Scopri le posizioni aperte e inviaci la tua candidatura.</p>
+            <a href="https://www.rocard.it/shop/" class="cta-button">Scopri i nostri prodotti</a>
+        </div>
+    </section>
+</div>
+</div>
+<div id="rc-lavora" class="rc-pg">
+<div class="rocard-lavora">
+    <!-- Hero -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Lavora con Noi</h1>
+                <p>Unisciti al team Rocard e costruisci con noi il futuro dell'e-commerce italiano.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Perch&eacute; Lavorare in Rocard -->
+    <section class="section-block">
+        <div class="container">
+            <span class="section-label center">Opportunit&agrave;</span>
+            <h2 class="section-title center">Perch&eacute; Lavorare in Rocard</h2>
+            <p class="section-subtitle">Un ambiente di lavoro stimolante con opportunit&agrave; di crescita reali.</p>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" x2="12" y1="20" y2="10"></line><line x1="18" x2="18" y1="20" y2="4"></line><line x1="6" x2="6" y1="20" y2="16"></line></svg>
+                    </div>
+                    <h3>Crescita Professionale</h3>
+                    <p>Formazione continua e percorsi di carriera chiari per sviluppare le tue competenze.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h3>Team Giovane</h3>
+                    <p>Lavora in un ambiente dinamico con colleghi motivati e appassionati.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m13 2-2 2.5h3L12 7"></path><path d="M10 14v-3"></path><path d="M14 14v-3"></path><path d="M11 19c-1.7 0-3-1.3-3-3v-2h8v2c0 1.7-1.3 3-3 3Z"></path><path d="M12 22v-3"></path></svg>
+                    </div>
+                    <h3>Innovazione</h3>
+                    <p>Tecnologie all'avanguardia e processi in continua evoluzione.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    </div>
+                    <h3>Lavoro in Sede</h3>
+                    <p>Non offriamo lavoro da remoto. Crediamo nel valore della collaborazione in presenza nella nostra sede a Giugliano in Campania.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                    </div>
+                    <h3>Stabilit&agrave;</h3>
+                    <p>Azienda solida in crescita con contratti regolari e retribuzioni competitive.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg>
+                    </div>
+                    <h3>Autonomia</h3>
+                    <p>Responsabilit&agrave; reali e possibilit&agrave; di proporre e implementare le tue idee.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Posizioni Aperte -->
+    <section class="section-block alt">
+        <div class="container">
+            <span class="section-label center">Carriere</span>
+            <h2 class="section-title center">Posizioni Aperte</h2>
+            <p class="section-subtitle">Scopri le opportunit&agrave; disponibili e candidati subito.</p>
+            <div class="positions-list">
+                <div class="position-card">
+                    <div class="position-info">
+                        <h3>Addetto/a Logistica</h3>
+                        <p>Gestione magazzino, preparazione ordini, spedizioni</p>
+                        <div class="position-meta">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg> Giugliano in Campania</span>
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> Full-time</span>
+                        </div>
+                    </div>
+                    <a href="#candidatura" class="btn-apply">Candidati</a>
+                </div>
+                <div class="position-card">
+                    <div class="position-info">
+                        <h3>Customer Care Specialist</h3>
+                        <p>Assistenza clienti multicanale, gestione reclami</p>
+                        <div class="position-meta">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg> Giugliano in Campania</span>
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> Full-time</span>
+                        </div>
+                    </div>
+                    <a href="#candidatura" class="btn-apply">Candidati</a>
+                </div>
+                <div class="position-card">
+                    <div class="position-info">
+                        <h3>Magazziniere</h3>
+                        <p>Carico e scarico merci, movimentazione e sistemazione del magazzino</p>
+                        <div class="position-meta">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg> Giugliano in Campania</span>
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> Full-time</span>
+                        </div>
+                    </div>
+                    <a href="#candidatura" class="btn-apply">Candidati</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Processo di Selezione -->
+    <section class="section-block">
+        <div class="container">
+            <span class="section-label center">Come Funziona</span>
+            <h2 class="section-title center">Processo di Selezione</h2>
+            <p class="section-subtitle">Un percorso trasparente e rispettoso del tuo tempo.</p>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Candidatura</h3>
+                    <p>Invia il tuo CV e una breve presentazione.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Screening</h3>
+                    <p>Valutiamo il tuo profilo entro 5 giorni lavorativi.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Colloquio</h3>
+                    <p>Conosciamoci: parlaci di te e delle tue aspettative.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Proposta</h3>
+                    <p>Se c'&egrave; match, ti presentiamo la nostra offerta.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Form Candidatura -->
+    <section class="section-block alt" id="candidatura">
+        <div class="container">
+            <span class="section-label center">Candidati</span>
+            <h2 class="section-title center">Invia la Tua Candidatura</h2>
+            <p class="section-subtitle">Compila il modulo sottostante per candidarti a una posizione aperta o inviare una candidatura spontanea.</p>
+            <div class="form-container">
+                <!-- Form gestito da FormSubmit.co - invia direttamente a info@rocard.it -->
+                <form action="https://formsubmit.co/info@rocard.it" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="_subject" value="Nuova Candidatura - Rocard Lavora con Noi">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="https://www.rocard.it/chi-siamo/">
+                    <input type="hidden" name="_captcha" value="true">
+                    <input type="text" name="_honey" style="display:none">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="nome">Nome *</label>
+                            <input type="text" id="nome" name="nome" required placeholder="Il tuo nome">
+                        </div>
+                        <div class="form-group">
+                            <label for="cognome">Cognome *</label>
+                            <input type="text" id="cognome" name="cognome" required placeholder="Il tuo cognome">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="nome@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Telefono *</label>
+                            <input type="tel" id="telefono" name="telefono" required placeholder="+39 123 456 7890">
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="ruolo">Ruolo di interesse *</label>
+                            <select id="ruolo" name="ruolo" required>
+                                <option value="">Seleziona un ruolo</option>
+                                <option value="logistica">Addetto/a Logistica</option>
+                                <option value="customer-care">Customer Care Specialist</option>
+                                <option value="magazziniere">Magazziniere</option>
+                                <option value="spontanea">Candidatura Spontanea</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="cv">Carica il tuo CV (PDF, DOC, DOCX) *</label>
+                            <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="messaggio">Messaggio / Presentazione</label>
+                            <textarea id="messaggio" name="messaggio" placeholder="Raccontaci brevemente di te, delle tue esperienze e perch&eacute; vorresti lavorare in Rocard..."></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <div class="form-checkbox">
+                                <input type="checkbox" id="privacy" name="privacy" required>
+                                <label for="privacy">
+                                    Ho preso visione della <a href="https://www.rocard.it/privacy-cookie-policy/" target="_blank">Privacy Policy</a> e acconsento al trattamento dei miei dati personali per le finalit&agrave; di selezione del personale. *
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn-submit">Invia Candidatura</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Hai domande?</h2>
+            <p>Contatta il nostro ufficio HR per qualsiasi informazione.</p>
+            <a href="https://www.rocard.it/shop/" class="cta-button">Scopri i nostri prodotti</a>
+        </div>
+    </section>
+</div>
+</div>
+<div id="rc-contatti" class="rc-pg">
+<div class="rocard-contatti">
+    <!-- Hero -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Contatti Aziendali</h1>
+                <p>Canali dedicati per ogni esigenza. Il team giusto per ogni richiesta.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Contatto Principale -->
+    <section class="section-block">
+        <div class="container">
+            <span class="section-label center">Scrivici</span>
+            <h2 class="section-title center">Contattaci</h2>
+            <p class="section-subtitle">Scrivi a un unico indirizzo: il nostro sistema smister&agrave; automaticamente la tua richiesta al reparto competente.</p>
+            <div class="contact-main">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                    </div>
+                    <h3>Scrivici</h3>
+                    <p>HR, Partnership, Fornitori, Amministrazione: un unico punto di contatto per tutte le esigenze aziendali. Il sistema categorizzer&agrave; automaticamente la tua richiesta in base al motivo del contatto.</p>
+                    <a href="mailto:info@rocard.it" class="email-link">info@rocard.it</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Assistenza Clienti -->
+    <section class="section-block alt">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-text">
+                    <span class="section-label">Assistenza</span>
+                    <h2 class="section-title">Sei un Cliente?</h2>
+                    <p>Per assistenza su ordini, spedizioni, resi e informazioni sui prodotti, il nostro servizio clienti &egrave; a tua disposizione.</p>
+                    <div style="margin-top: 16px;">
+                        <div class="contact-line">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                            <a href="mailto:info@rocard.it">info@rocard.it</a>
+                        </div>
+                        <div class="contact-line">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            <a href="tel:+3907731888391">+39 0773 1888391</a>
+                        </div>
+                    </div>
+                    <a href="https://www.rocard.it/assistenza/" class="btn-primary" target="_blank">Vai all'Assistenza Clienti</a>
+                </div>
+                <div class="content-image">
+                    <img src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=600&h=400&fit=crop" alt="Assistenza clienti">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Sede -->
+    <section class="section-block">
+        <div class="container">
+            <span class="section-label center">Dove Siamo</span>
+            <h2 class="section-title center">La Nostra Sede</h2>
+            <p class="section-subtitle">Dove siamo e come raggiungerci.</p>
+            <div class="content-grid">
+                <div class="content-text sede-info">
+                    <h2 class="section-title">RCM S.r.l.</h2>
+                    <p><strong>Sede Legale e Operativa:</strong></p>
+                    <p>Localit&agrave; Ponte Riccio, snc<br>80014 Giugliano in Campania (NA)<br>Italia</p>
+                    <p style="margin-top: 16px;"><strong>P.IVA:</strong> 09736331217</p>
+                    <div class="contact-line">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        <a href="tel:+3907731888391">+39 077 31888391</a>
+                    </div>
+                    <div class="contact-line">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                        <a href="mailto:info@rocard.it">info@rocard.it</a>
+                    </div>
+                    <div class="contact-line">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                        <a href="mailto:rcm21@pec.it">rcm21@pec.it</a> (PEC)
+                    </div>
+                    <p style="margin-top: 20px;"><strong>Orari Uffici:</strong></p>
+                    <p>Lun - Ven: 9:00 - 18:00<br>Sab - Dom: Chiuso</p>
+                </div>
+                <div class="content-image">
+                    <img src="https://customer-assets.emergentagent.com/job_authority-design-1/artifacts/lyxjn2y2_ChatGPT-Image-11-mar-2026-14_34_33-1.png" alt="Sede Rocard">
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</div>
+<div id="rc-chi-siamo" class="rc-pg">
 <div class="rocard-chi-siamo">
     <!-- Hero Section with Image -->
     <section class="hero-section">
@@ -2377,629 +3010,4 @@
         </div>
     </section>
 </div>
-<div class="rocard-section-divider"></div>
-<span id="rc-vision" class="rocard-scroll-anchor"></span>
-<div class="rocard-vision-valori">
-    <!-- Hero -->
-    <section class="hero-section">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Vision &amp; Valori</h1>
-                <p>I principi che guidano ogni nostra decisione e azione quotidiana.</p>
-            </div>
-        </div>
-    </section>
-    <!-- Vision -->
-    <section class="content-section">
-        <div class="container">
-            <div class="content-grid">
-                <div class="content-text">
-                    <span class="section-label">La Nostra Vision</span>
-                    <h2 class="section-title">Diventare il punto di riferimento dell'e-commerce italiano</h2>
-                    <p>Diventare il punto di riferimento dell'e-commerce italiano per qualit&agrave; del servizio, affidabilit&agrave; e rapporto con il cliente.</p>
-                    <p>Immaginiamo un futuro in cui ogni italiano possa acquistare online con la stessa fiducia di un negozio sotto casa: prodotti garantiti, prezzi onesti, consegne puntuali.</p>
-                </div>
-                <div class="content-image">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop" alt="Vision Rocard">
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Valori -->
-    <section class="content-section alt">
-        <div class="container">
-            <span class="section-label center">I Nostri Pilastri</span>
-            <h2 class="section-title center">I Nostri Valori</h2>
-            <p class="section-subtitle">Cinque pilastri che definiscono chi siamo e come operiamo.</p>
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
-                    </div>
-                    <h3>Affidabilit&agrave;</h3>
-                    <p>Manteniamo sempre le promesse fatte ai nostri clienti. Se diciamo che il pacco arriva in 48 ore, arriva in 48 ore.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>
-                    </div>
-                    <h3>Passione</h3>
-                    <p>Amiamo quello che facciamo. Ogni ordine, ogni cliente, ogni problema risolto &egrave; una soddisfazione.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg>
-                    </div>
-                    <h3>Innovazione</h3>
-                    <p>Investiamo costantemente in tecnologia e processi per offrire un'esperienza sempre migliore.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                    </div>
-                    <h3>Collaborazione</h3>
-                    <p>Il successo di Rocard &egrave; il risultato del lavoro di squadra. Ogni reparto contribuisce al risultato finale.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
-                    </div>
-                    <h3>Eccellenza</h3>
-                    <p>Non ci accontentiamo mai. Puntiamo sempre al meglio in ogni aspetto del nostro lavoro.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- CTA -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>Condividi i nostri valori?</h2>
-            <p>Unisciti al team Rocard e cresci con noi.</p>
-            <a href="https://www.rocard.it/shop/" class="cta-button">Scopri i nostri prodotti</a>
-        </div>
-    </section>
-</div>
-<div class="rocard-section-divider"></div>
-<span id="rc-modello" class="rocard-scroll-anchor"></span>
-<div class="rocard-nostro-modello">
-    <!-- Hero -->
-    <section class="hero-section">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Il Nostro Modello</h1>
-                <p>Un ecosistema integrato per garantire la massima efficienza e qualit&agrave; del servizio.</p>
-            </div>
-        </div>
-    </section>
-    <!-- E-commerce -->
-    <section class="content-section">
-        <div class="container">
-            <div class="content-grid">
-                <div class="content-text">
-                    <span class="section-label">Piattaforma</span>
-                    <h2 class="section-title">E-commerce di Nuova Generazione</h2>
-                    <p>La nostra piattaforma e-commerce &egrave; progettata per offrire un'esperienza d'acquisto fluida e intuitiva su ogni dispositivo.</p>
-                    <p>Investiamo costantemente in UX/UI, performance e funzionalit&agrave; per rendere ogni acquisto semplice e piacevole.</p>
-                </div>
-                <div class="content-image">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="Piattaforma ecommerce">
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Logistica -->
-    <section class="content-section alt">
-        <div class="container">
-            <div class="content-grid reverse">
-                <div class="content-text">
-                    <span class="section-label">Logistica</span>
-                    <h2 class="section-title">Logistica Integrata</h2>
-                    <p>Il nostro centro logistico di 1.000 mq ci permette di gestire circa 2.000 ordini al giorno con efficienza e precisione.</p>
-                    <p>Sistemi WMS avanzati, picking ottimizzato e partnership con i migliori corrieri garantiscono consegne rapide in tutta Italia.</p>
-                </div>
-                <div class="content-image">
-                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=400&fit=crop" alt="Centro logistico">
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Customer Care -->
-    <section class="content-section">
-        <div class="container">
-            <div class="content-grid">
-                <div class="content-text">
-                    <span class="section-label">Assistenza</span>
-                    <h2 class="section-title">Customer Care Excellence</h2>
-                    <p>Il nostro team di assistenza clienti &egrave; formato per risolvere ogni problematica con competenza e cortesia.</p>
-                    <p>Disponibili via chat, email e telefono, garantiamo risposte rapide e soluzioni concrete.</p>
-                </div>
-                <div class="content-image">
-                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop" alt="Customer care">
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Selezione Prodotti -->
-    <section class="content-section alt">
-        <div class="container">
-            <div class="content-grid reverse">
-                <div class="content-text">
-                    <span class="section-label">Qualit&agrave;</span>
-                    <h2 class="section-title">Selezione Prodotti Accurata</h2>
-                    <p>Ogni prodotto nel nostro catalogo viene selezionato con cura da buyer esperti che valutano qualit&agrave;, prezzo e affidabilit&agrave; del fornitore.</p>
-                    <p>Collaboriamo direttamente con i brand pi&ugrave; importanti e con produttori selezionati per garantire l'autenticit&agrave; e la qualit&agrave; di ogni articolo.</p>
-                </div>
-                <div class="content-image">
-                    <img src="https://images.unsplash.com/photo-1770013413878-2530e2c3d82b?w=600&h=400&fit=crop" alt="Selezione prodotti">
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- CTA -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>Scopri i nostri numeri</h2>
-            <p>I risultati parlano da soli. Scopri la crescita di Rocard.</p>
-            <a href="https://www.rocard.it/shop/" class="cta-button">Scopri i nostri prodotti</a>
-        </div>
-    </section>
-</div>
-<div class="rocard-section-divider"></div>
-<span id="rc-numeri" class="rocard-scroll-anchor"></span>
-<div class="rocard-numeri-crescita">
-    <!-- Hero -->
-    <section class="hero-section">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Numeri &amp; Crescita</h1>
-                <p>I risultati di anni di impegno, passione e attenzione al cliente.</p>
-            </div>
-        </div>
-    </section>
-    <!-- Numeri Principali -->
-    <section class="numbers-section">
-        <div class="container">
-            <span class="section-label center">I Nostri Risultati</span>
-            <h2 class="section-title center">I Numeri di Rocard</h2>
-            <p class="section-subtitle">Metriche che testimoniano la solidit&agrave; e l'affidabilit&agrave; della nostra azienda.</p>
-            <div class="numbers-grid">
-                <div class="number-card">
-                    <div class="number-value">5-10M</div>
-                    <div class="number-label">Fascia Fatturato Annuo</div>
-                </div>
-                <div class="number-card">
-                    <div class="number-value">~750K</div>
-                    <div class="number-label">Spedizioni/Anno</div>
-                </div>
-                <div class="number-card">
-                    <div class="number-value">2.000+</div>
-                    <div class="number-label">Prodotti a Catalogo</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Altri Numeri -->
-    <section class="numbers-section alt">
-        <div class="container">
-            <div class="numbers-grid">
-                <div class="number-card">
-                    <div class="number-value">5-10</div>
-                    <div class="number-label">Collaboratori</div>
-                </div>
-                <div class="number-card">
-                    <div class="number-value">1.000</div>
-                    <div class="number-label">mq di Magazzino</div>
-                </div>
-                <div class="number-card">
-                    <div class="number-value">4.9/5</div>
-                    <div class="number-label">Rating Clienti</div>
-                </div>
-                <div class="number-card">
-                    <div class="number-value">48h</div>
-                    <div class="number-label">Tempo Medio Consegna</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Crescita -->
-    <section class="content-section">
-        <div class="container">
-            <div class="content-grid">
-                <div class="content-text">
-                    <span class="section-label">Crescita</span>
-                    <h2 class="section-title">Una Crescita Costante</h2>
-                    <p>Dal 2014 ad oggi, Rocard ha registrato una crescita costante anno dopo anno, consolidando la propria posizione nel mercato e-commerce italiano.</p>
-                    <p>Questa crescita non &egrave; solo nei numeri: &egrave; nella qualit&agrave; del servizio, nella soddisfazione dei clienti, nella competenza del team.</p>
-                    <a href="https://www.rocard.it/shop/" class="cta-inline">Scopri i prodotti</a>
-                </div>
-                <div class="content-image">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" alt="Crescita aziendale">
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- CTA -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>Conosci il team dietro questi numeri</h2>
-            <p>Scopri le persone che rendono possibile tutto questo.</p>
-            <a href="https://www.rocard.it/shop/" class="cta-button">Scopri i nostri prodotti</a>
-        </div>
-    </section>
-</div>
-/div>
-<div class="rocard-section-divider"></div>
-<span id="rc-team" class="rocard-scroll-anchor"></span>
-<div class="rocard-team">
-    <!-- Hero -->
-    <section class="hero-section">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Il Team</h1>
-                <p>Le persone che ogni giorno rendono Rocard un'eccellenza.</p>
-            </div>
-        </div>
-    </section>
-    <!-- Intro -->
-    <section class="content-section">
-        <div class="container">
-            <div class="content-grid">
-                <div class="content-text">
-                    <span class="section-label">Chi Siamo</span>
-                    <h2 class="section-title">Il Cuore di Rocard</h2>
-                    <p>Dietro ogni ordine evaso, ogni problema risolto, ogni cliente soddisfatto c'&egrave; un team di professionisti appassionati in continua crescita.</p>
-                    <p>Giovani talenti e professionisti esperti lavorano insieme in un ambiente dinamico, stimolante e orientato ai risultati.</p>
-                </div>
-                <div class="content-image">
-                    <img src="https://customer-assets.emergentagent.com/job_rocard-careers/artifacts/iqqoyi3w_lyxjn2y2_ChatGPT-Image-11-mar-2026-14_34_33-1.png" alt="Team Rocard - Centro operativo">
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Divisioni -->
-    <section class="content-section alt">
-        <div class="container">
-            <span class="section-label center">Organizzazione</span>
-            <h2 class="section-title center">Le Nostre Divisioni</h2>
-            <p class="section-subtitle">Un'organizzazione strutturata per garantire efficienza e specializzazione.</p>
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-card-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"></path><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg>
-                    </div>
-                    <div class="team-card-body">
-                        <h3>Logistica</h3>
-                        <p>Il team che gestisce il magazzino, le spedizioni e garantisce che ogni pacco arrivi perfetto a destinazione.</p>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-card-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
-                    </div>
-                    <div class="team-card-body">
-                        <h3>Customer Care</h3>
-                        <p>Professionisti dedicati all'assistenza clienti, sempre pronti a risolvere ogni problematica con cortesia.</p>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-card-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"></line><line x1="18" x2="18" y1="20" y2="4"></line><line x1="6" x2="6" y1="20" y2="16"></line></svg>
-                    </div>
-                    <div class="team-card-body">
-                        <h3>Marketing</h3>
-                        <p>Il team creativo che sviluppa strategie, gestisce i canali digitali e costruisce il brand Rocard.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- CTA -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>Vuoi far parte del team?</h2>
-            <p>Scopri le posizioni aperte e inviaci la tua candidatura.</p>
-            <a href="https://www.rocard.it/shop/" class="cta-button">Scopri i nostri prodotti</a>
-        </div>
-    </section>
-</div>
-<div class="rocard-section-divider"></div>
-<span id="rc-lavora" class="rocard-scroll-anchor"></span>
-<div class="rocard-lavora">
-    <!-- Hero -->
-    <section class="hero-section">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Lavora con Noi</h1>
-                <p>Unisciti al team Rocard e costruisci con noi il futuro dell'e-commerce italiano.</p>
-            </div>
-        </div>
-    </section>
-    <!-- Perch&eacute; Lavorare in Rocard -->
-    <section class="section-block">
-        <div class="container">
-            <span class="section-label center">Opportunit&agrave;</span>
-            <h2 class="section-title center">Perch&eacute; Lavorare in Rocard</h2>
-            <p class="section-subtitle">Un ambiente di lavoro stimolante con opportunit&agrave; di crescita reali.</p>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" x2="12" y1="20" y2="10"></line><line x1="18" x2="18" y1="20" y2="4"></line><line x1="6" x2="6" y1="20" y2="16"></line></svg>
-                    </div>
-                    <h3>Crescita Professionale</h3>
-                    <p>Formazione continua e percorsi di carriera chiari per sviluppare le tue competenze.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                    </div>
-                    <h3>Team Giovane</h3>
-                    <p>Lavora in un ambiente dinamico con colleghi motivati e appassionati.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m13 2-2 2.5h3L12 7"></path><path d="M10 14v-3"></path><path d="M14 14v-3"></path><path d="M11 19c-1.7 0-3-1.3-3-3v-2h8v2c0 1.7-1.3 3-3 3Z"></path><path d="M12 22v-3"></path></svg>
-                    </div>
-                    <h3>Innovazione</h3>
-                    <p>Tecnologie all'avanguardia e processi in continua evoluzione.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                    </div>
-                    <h3>Lavoro in Sede</h3>
-                    <p>Non offriamo lavoro da remoto. Crediamo nel valore della collaborazione in presenza nella nostra sede a Giugliano in Campania.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
-                    </div>
-                    <h3>Stabilit&agrave;</h3>
-                    <p>Azienda solida in crescita con contratti regolari e retribuzioni competitive.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg>
-                    </div>
-                    <h3>Autonomia</h3>
-                    <p>Responsabilit&agrave; reali e possibilit&agrave; di proporre e implementare le tue idee.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Posizioni Aperte -->
-    <section class="section-block alt">
-        <div class="container">
-            <span class="section-label center">Carriere</span>
-            <h2 class="section-title center">Posizioni Aperte</h2>
-            <p class="section-subtitle">Scopri le opportunit&agrave; disponibili e candidati subito.</p>
-            <div class="positions-list">
-                <div class="position-card">
-                    <div class="position-info">
-                        <h3>Addetto/a Logistica</h3>
-                        <p>Gestione magazzino, preparazione ordini, spedizioni</p>
-                        <div class="position-meta">
-                            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg> Giugliano in Campania</span>
-                            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> Full-time</span>
-                        </div>
-                    </div>
-                    <a href="#candidatura" class="btn-apply">Candidati</a>
-                </div>
-                <div class="position-card">
-                    <div class="position-info">
-                        <h3>Customer Care Specialist</h3>
-                        <p>Assistenza clienti multicanale, gestione reclami</p>
-                        <div class="position-meta">
-                            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg> Giugliano in Campania</span>
-                            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> Full-time</span>
-                        </div>
-                    </div>
-                    <a href="#candidatura" class="btn-apply">Candidati</a>
-                </div>
-                <div class="position-card">
-                    <div class="position-info">
-                        <h3>Magazziniere</h3>
-                        <p>Carico e scarico merci, movimentazione e sistemazione del magazzino</p>
-                        <div class="position-meta">
-                            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg> Giugliano in Campania</span>
-                            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> Full-time</span>
-                        </div>
-                    </div>
-                    <a href="#candidatura" class="btn-apply">Candidati</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Processo di Selezione -->
-    <section class="section-block">
-        <div class="container">
-            <span class="section-label center">Come Funziona</span>
-            <h2 class="section-title center">Processo di Selezione</h2>
-            <p class="section-subtitle">Un percorso trasparente e rispettoso del tuo tempo.</p>
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3>Candidatura</h3>
-                    <p>Invia il tuo CV e una breve presentazione.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3>Screening</h3>
-                    <p>Valutiamo il tuo profilo entro 5 giorni lavorativi.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3>Colloquio</h3>
-                    <p>Conosciamoci: parlaci di te e delle tue aspettative.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3>Proposta</h3>
-                    <p>Se c'&egrave; match, ti presentiamo la nostra offerta.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Form Candidatura -->
-    <section class="section-block alt" id="candidatura">
-        <div class="container">
-            <span class="section-label center">Candidati</span>
-            <h2 class="section-title center">Invia la Tua Candidatura</h2>
-            <p class="section-subtitle">Compila il modulo sottostante per candidarti a una posizione aperta o inviare una candidatura spontanea.</p>
-            <div class="form-container">
-                <!-- Form gestito da FormSubmit.co - invia direttamente a info@rocard.it -->
-                <form action="https://formsubmit.co/info@rocard.it" method="POST" enctype="multipart/form-data">
-                    <input type="hidden" name="_subject" value="Nuova Candidatura - Rocard Lavora con Noi">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_next" value="https://www.rocard.it/chi-siamo/">
-                    <input type="hidden" name="_captcha" value="true">
-                    <input type="text" name="_honey" style="display:none">
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="nome">Nome *</label>
-                            <input type="text" id="nome" name="nome" required placeholder="Il tuo nome">
-                        </div>
-                        <div class="form-group">
-                            <label for="cognome">Cognome *</label>
-                            <input type="text" id="cognome" name="cognome" required placeholder="Il tuo cognome">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" required placeholder="nome@email.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="telefono">Telefono *</label>
-                            <input type="tel" id="telefono" name="telefono" required placeholder="+39 123 456 7890">
-                        </div>
-                        <div class="form-group full-width">
-                            <label for="ruolo">Ruolo di interesse *</label>
-                            <select id="ruolo" name="ruolo" required>
-                                <option value="">Seleziona un ruolo</option>
-                                <option value="logistica">Addetto/a Logistica</option>
-                                <option value="customer-care">Customer Care Specialist</option>
-                                <option value="magazziniere">Magazziniere</option>
-                                <option value="spontanea">Candidatura Spontanea</option>
-                            </select>
-                        </div>
-                        <div class="form-group full-width">
-                            <label for="cv">Carica il tuo CV (PDF, DOC, DOCX) *</label>
-                            <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required>
-                        </div>
-                        <div class="form-group full-width">
-                            <label for="messaggio">Messaggio / Presentazione</label>
-                            <textarea id="messaggio" name="messaggio" placeholder="Raccontaci brevemente di te, delle tue esperienze e perch&eacute; vorresti lavorare in Rocard..."></textarea>
-                        </div>
-                        <div class="form-group full-width">
-                            <div class="form-checkbox">
-                                <input type="checkbox" id="privacy" name="privacy" required>
-                                <label for="privacy">
-                                    Ho preso visione della <a href="https://www.rocard.it/privacy-cookie-policy/" target="_blank">Privacy Policy</a> e acconsento al trattamento dei miei dati personali per le finalit&agrave; di selezione del personale. *
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-submit">
-                        <button type="submit" class="btn-submit">Invia Candidatura</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-    <!-- CTA -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>Hai domande?</h2>
-            <p>Contatta il nostro ufficio HR per qualsiasi informazione.</p>
-            <a href="https://www.rocard.it/shop/" class="cta-button">Scopri i nostri prodotti</a>
-        </div>
-    </section>
-</div>
-<div class="rocard-section-divider"></div>
-<span id="rc-contatti" class="rocard-scroll-anchor"></span>
-<div class="rocard-contatti">
-    <!-- Hero -->
-    <section class="hero-section">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Contatti Aziendali</h1>
-                <p>Canali dedicati per ogni esigenza. Il team giusto per ogni richiesta.</p>
-            </div>
-        </div>
-    </section>
-    <!-- Contatto Principale -->
-    <section class="section-block">
-        <div class="container">
-            <span class="section-label center">Scrivici</span>
-            <h2 class="section-title center">Contattaci</h2>
-            <p class="section-subtitle">Scrivi a un unico indirizzo: il nostro sistema smister&agrave; automaticamente la tua richiesta al reparto competente.</p>
-            <div class="contact-main">
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-                    </div>
-                    <h3>Scrivici</h3>
-                    <p>HR, Partnership, Fornitori, Amministrazione: un unico punto di contatto per tutte le esigenze aziendali. Il sistema categorizzer&agrave; automaticamente la tua richiesta in base al motivo del contatto.</p>
-                    <a href="mailto:info@rocard.it" class="email-link">info@rocard.it</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Assistenza Clienti -->
-    <section class="section-block alt">
-        <div class="container">
-            <div class="content-grid">
-                <div class="content-text">
-                    <span class="section-label">Assistenza</span>
-                    <h2 class="section-title">Sei un Cliente?</h2>
-                    <p>Per assistenza su ordini, spedizioni, resi e informazioni sui prodotti, il nostro servizio clienti &egrave; a tua disposizione.</p>
-                    <div style="margin-top: 16px;">
-                        <div class="contact-line">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-                            <a href="mailto:info@rocard.it">info@rocard.it</a>
-                        </div>
-                        <div class="contact-line">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                            <a href="tel:+3907731888391">+39 0773 1888391</a>
-                        </div>
-                    </div>
-                    <a href="https://www.rocard.it/assistenza/" class="btn-primary" target="_blank">Vai all'Assistenza Clienti</a>
-                </div>
-                <div class="content-image">
-                    <img src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=600&h=400&fit=crop" alt="Assistenza clienti">
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Sede -->
-    <section class="section-block">
-        <div class="container">
-            <span class="section-label center">Dove Siamo</span>
-            <h2 class="section-title center">La Nostra Sede</h2>
-            <p class="section-subtitle">Dove siamo e come raggiungerci.</p>
-            <div class="content-grid">
-                <div class="content-text sede-info">
-                    <h2 class="section-title">RCM S.r.l.</h2>
-                    <p><strong>Sede Legale e Operativa:</strong></p>
-                    <p>Localit&agrave; Ponte Riccio, snc<br>80014 Giugliano in Campania (NA)<br>Italia</p>
-                    <p style="margin-top: 16px;"><strong>P.IVA:</strong> 09736331217</p>
-                    <div class="contact-line">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                        <a href="tel:+3907731888391">+39 077 31888391</a>
-                    </div>
-                    <div class="contact-line">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-                        <a href="mailto:info@rocard.it">info@rocard.it</a>
-                    </div>
-                    <div class="contact-line">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-                        <a href="mailto:rcm21@pec.it">rcm21@pec.it</a> (PEC)
-                    </div>
-                    <p style="margin-top: 20px;"><strong>Orari Uffici:</strong></p>
-                    <p>Lun - Ven: 9:00 - 18:00<br>Sab - Dom: Chiuso</p>
-                </div>
-                <div class="content-image">
-                    <img src="https://customer-assets.emergentagent.com/job_authority-design-1/artifacts/lyxjn2y2_ChatGPT-Image-11-mar-2026-14_34_33-1.png" alt="Sede Rocard">
-                </div>
-            </div>
-        </div>
-    </section>
 </div>
