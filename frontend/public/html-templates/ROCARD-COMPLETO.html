@@ -3,56 +3,17 @@
 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<!-- Schema.org Structured Data - SEO -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Rocard",
-  "legalName": "RCM S.r.l.",
-  "url": "https://www.rocard.it",
-  "logo": "https://customer-assets.emergentagent.com/job_rocard-careers/artifacts/3lph6y6w_images%20%283%29.png",
-  "description": "E-commerce italiano di eccellenza. Prodotti selezionati, spedizioni rapide e servizio clienti impeccabile. Oltre 730.000 clienti soddisfatti.",
-  "foundingDate": "2014",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Localit\u00e0 Ponte Riccio, snc",
-    "addressLocality": "Giugliano in Campania",
-    "addressRegion": "NA",
-    "postalCode": "80014",
-    "addressCountry": "IT"
-  },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+39-077-31888391",
-    "email": "info@rocard.it",
-    "contactType": "customer service",
-    "availableLanguage": "Italian"
-  },
-  "sameAs": [],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "reviewCount": "730000",
-    "bestRating": "5"
-  },
-  "vatID": "09736331217",
-  "numberOfEmployees": {
-    "@type": "QuantitativeValue",
-    "minValue": 5,
-    "maxValue": 10
-  }
-}
-</script>
-
-
 <style>
-/* ═══ SISTEMA TAB SOLO CSS ═══ */
+/* ═══ SISTEMA TAB CSS-ONLY PER ELEMENTOR ═══ */
 .rocard-tabs-wrapper {
     font-family: 'Outfit', sans-serif;
 }
 .rocard-tabs-wrapper input[type="radio"] {
-    display: none !important;
+    position: absolute !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
 }
 .rocard-tabs-nav {
     position: sticky;
@@ -95,28 +56,28 @@
     color: #fff;
     background: rgba(255,255,255,0.05);
 }
-#tab-chi-siamo:checked ~ .rocard-tabs-nav label[for="tab-chi-siamo"],
-#tab-vision:checked ~ .rocard-tabs-nav label[for="tab-vision"],
-#tab-modello:checked ~ .rocard-tabs-nav label[for="tab-modello"],
-#tab-numeri:checked ~ .rocard-tabs-nav label[for="tab-numeri"],
-#tab-team:checked ~ .rocard-tabs-nav label[for="tab-team"],
-#tab-lavora:checked ~ .rocard-tabs-nav label[for="tab-lavora"],
-#tab-contatti:checked ~ .rocard-tabs-nav label[for="tab-contatti"] {
-    color: #fff;
-    font-weight: 500;
-    border-bottom-color: #f57c00;
+#tab-cs:checked ~ .rocard-tabs-nav label[for="tab-cs"],
+#tab-vv:checked ~ .rocard-tabs-nav label[for="tab-vv"],
+#tab-nm:checked ~ .rocard-tabs-nav label[for="tab-nm"],
+#tab-nc:checked ~ .rocard-tabs-nav label[for="tab-nc"],
+#tab-tm:checked ~ .rocard-tabs-nav label[for="tab-tm"],
+#tab-lv:checked ~ .rocard-tabs-nav label[for="tab-lv"],
+#tab-ct:checked ~ .rocard-tabs-nav label[for="tab-ct"] {
+    color: #fff !important;
+    font-weight: 500 !important;
+    border-bottom-color: #f57c00 !important;
 }
-.rocard-tab-content {
-    display: none;
+.rocard-tab-page {
+    display: none !important;
 }
-#tab-chi-siamo:checked ~ .rocard-tabs-body .tab-chi-siamo,
-#tab-vision:checked ~ .rocard-tabs-body .tab-vision,
-#tab-modello:checked ~ .rocard-tabs-body .tab-modello,
-#tab-numeri:checked ~ .rocard-tabs-body .tab-numeri,
-#tab-team:checked ~ .rocard-tabs-body .tab-team,
-#tab-lavora:checked ~ .rocard-tabs-body .tab-lavora,
-#tab-contatti:checked ~ .rocard-tabs-body .tab-contatti {
-    display: block;
+#tab-cs:checked ~ .rocard-tabs-body > .pg-cs,
+#tab-vv:checked ~ .rocard-tabs-body > .pg-vv,
+#tab-nm:checked ~ .rocard-tabs-body > .pg-nm,
+#tab-nc:checked ~ .rocard-tabs-body > .pg-nc,
+#tab-tm:checked ~ .rocard-tabs-body > .pg-tm,
+#tab-lv:checked ~ .rocard-tabs-body > .pg-lv,
+#tab-ct:checked ~ .rocard-tabs-body > .pg-ct {
+    display: block !important;
 }
 @media (max-width: 900px) {
     .rocard-tabs-nav label {
@@ -2078,29 +2039,27 @@
 </style>
 
 <div class="rocard-tabs-wrapper">
-<input type="radio" name="rocard-tab" id="tab-chi-siamo" checked>
-<input type="radio" name="rocard-tab" id="tab-vision">
-<input type="radio" name="rocard-tab" id="tab-modello">
-<input type="radio" name="rocard-tab" id="tab-numeri">
-<input type="radio" name="rocard-tab" id="tab-team">
-<input type="radio" name="rocard-tab" id="tab-lavora">
-<input type="radio" name="rocard-tab" id="tab-contatti">
-
+<input type="radio" name="rtab" id="tab-cs" checked>
+<input type="radio" name="rtab" id="tab-vv">
+<input type="radio" name="rtab" id="tab-nm">
+<input type="radio" name="rtab" id="tab-nc">
+<input type="radio" name="rtab" id="tab-tm">
+<input type="radio" name="rtab" id="tab-lv">
+<input type="radio" name="rtab" id="tab-ct">
 <div class="rocard-tabs-nav">
     <div class="rocard-tabs-nav-inner">
         <div class="nav-logo"><img src="https://customer-assets.emergentagent.com/job_rocard-careers/artifacts/3lph6y6w_images%20%283%29.png" alt="Rocard"></div>
-        <label for="tab-chi-siamo">Chi Siamo</label>
-        <label for="tab-vision">Vision &amp; Valori</label>
-        <label for="tab-modello">Il Nostro Modello</label>
-        <label for="tab-numeri">Numeri &amp; Crescita</label>
-        <label for="tab-team">Il Team</label>
-        <label for="tab-lavora">Lavora con Noi</label>
-        <label for="tab-contatti">Contatti</label>
+        <label for="tab-cs">Chi Siamo</label>
+        <label for="tab-vv">Vision &amp; Valori</label>
+        <label for="tab-nm">Il Nostro Modello</label>
+        <label for="tab-nc">Numeri &amp; Crescita</label>
+        <label for="tab-tm">Il Team</label>
+        <label for="tab-lv">Lavora con Noi</label>
+        <label for="tab-ct">Contatti</label>
     </div>
 </div>
-
 <div class="rocard-tabs-body">
-<div class="rocard-tab-content tab-chi-siamo">
+<div class="rocard-tab-page pg-cs">
 <div class="rocard-chi-siamo">
     <!-- Hero Section with Image -->
     <section class="hero-section">
@@ -2426,14 +2385,8 @@
         </div>
     </section>
 </div>
-                   <span>Qualit&agrave; Garantita</span>
-                </div>
-            </div>
-        </div>
-    </section>
 </div>
-</div>
-<div class="rocard-tab-content tab-vision">
+<div class="rocard-tab-page pg-vv">
 <div class="rocard-vision-valori">
     <!-- Hero -->
     <section class="hero-section">
@@ -2515,7 +2468,7 @@
     </section>
 </div>
 </div>
-<div class="rocard-tab-content tab-modello">
+<div class="rocard-tab-page pg-nm">
 <div class="rocard-nostro-modello">
     <!-- Hero -->
     <section class="hero-section">
@@ -2600,7 +2553,7 @@
     </section>
 </div>
 </div>
-<div class="rocard-tab-content tab-numeri">
+<div class="rocard-tab-page pg-nc">
 <div class="rocard-numeri-crescita">
     <!-- Hero -->
     <section class="hero-section">
@@ -2684,7 +2637,7 @@
 </div>
 /div>
 </div>
-<div class="rocard-tab-content tab-team">
+<div class="rocard-tab-page pg-tm">
 <div class="rocard-team">
     <!-- Hero -->
     <section class="hero-section">
@@ -2758,7 +2711,7 @@
     </section>
 </div>
 </div>
-<div class="rocard-tab-content tab-lavora">
+<div class="rocard-tab-page pg-lv">
 <div class="rocard-lavora">
     <!-- Hero -->
     <section class="hero-section">
@@ -2969,7 +2922,7 @@
     </section>
 </div>
 </div>
-<div class="rocard-tab-content tab-contatti">
+<div class="rocard-tab-page pg-ct">
 <div class="rocard-contatti">
     <!-- Hero -->
     <section class="hero-section">
