@@ -520,8 +520,13 @@
             <h2 class="section-title center">Invia la Tua Candidatura</h2>
             <p class="section-subtitle">Compila il modulo sottostante per candidarti a una posizione aperta o inviare una candidatura spontanea.</p>
             <div class="form-container">
-                <!-- NOTA: In Elementor sostituire con Elementor Form Widget per gestione email a info@rocard.it -->
-                <form action="mailto:info@rocard.it" method="POST" enctype="multipart/form-data">
+                <!-- Form gestito da FormSubmit.co - invia direttamente a info@rocard.it -->
+                <form action="https://formsubmit.co/info@rocard.it" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="_subject" value="Nuova Candidatura - Rocard Lavora con Noi">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="https://www.rocard.it/chi-siamo/">
+                    <input type="hidden" name="_captcha" value="true">
+                    <input type="text" name="_honey" style="display:none">
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="nome">Nome *</label>

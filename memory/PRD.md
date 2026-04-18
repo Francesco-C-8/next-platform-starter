@@ -41,10 +41,13 @@ Sviluppo sezione "Azienda" (Corporate) per il sito WordPress/WooCommerce rocard.
 - [x] Contatti: email unica info@rocard.it con categorizzazione automatica
 - [x] "Non offriamo lavoro da remoto" in Lavora con noi
 - [x] Metriche aggiornate: ~750K spedizioni/anno, 2.000+ prodotti, ~10 collaboratori, 1.000 mq
-- [x] **Conversione tutti i 7 template in formato Elementor drop-in** (autocontenuti con style+html)
+- [x] Conversione tutti i 7 template in formato Elementor drop-in (autocontenuti con style+html)
 - [x] Sostituzione emoji con icone SVG inline
 - [x] Aggiornamento font da Poppins a Outfit + Cormorant Garamond (come sito live)
 - [x] README aggiornato con istruzioni semplificate copia-incolla
+- [x] **Sezione "I Nostri Brand Partner"** in Chi Siamo (Borbone, Caputo, Lavazza, Frontline) con effetto grayscale->colore al hover
+- [x] **Form candidatura con FormSubmit.co** - invio diretto a info@rocard.it senza configurazione
+- [x] Immagini Unsplash mantenute come CDN permanente (nessun upload necessario)
 
 ### Formato Template Elementor
 Ogni file HTML contiene:
@@ -52,9 +55,15 @@ Ogni file HTML contiene:
 2. Tag `<style>` con tutto il CSS (scoped al wrapper)
 3. `<div class="rocard-[pagina]">` wrapper con tutto l'HTML
 
-L'utente puo' semplicemente copiare il contenuto del file e incollarlo in un Widget HTML di Elementor.
+### FormSubmit.co (Lavora con Noi)
+- Il form invia automaticamente a info@rocard.it
+- Soggetto email: "Nuova Candidatura - Rocard Lavora con Noi"
+- Formato email: tabella HTML leggibile
+- Redirect dopo invio: rocard.it/chi-siamo/
+- Protezione spam: reCAPTCHA + honeypot integrati
+- NOTA: Al primo invio, riceverete un'email di conferma da FormSubmit.co - basta cliccare "Activate"
 
-### Fonti Loghi Corrieri
-- GLS: wp-content/uploads (caricato nella Media Library)
-- BRT: wp-content/uploads (caricato nella Media Library)
-- Poste Italiane: wp-content/uploads (caricato nella Media Library)
+### Brand Partner
+- Caffe Borbone, Mulino Caputo, Lavazza, Frontline
+- Loghi generati come immagini PNG con sfondo trasparente
+- Effetto grayscale di default, colore al hover
