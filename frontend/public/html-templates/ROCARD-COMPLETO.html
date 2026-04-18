@@ -4,106 +4,100 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-/* ═══ NAVIGAZIONE PRINCIPALE ═══ */
-.rocard-corporate-nav {
+/* ═══ SISTEMA TAB SOLO CSS (no JavaScript) ═══ */
+.rocard-tabs-wrapper {
     font-family: 'Outfit', sans-serif;
+}
+
+/* Radio buttons nascosti */
+.rocard-tabs-wrapper input[type="radio"] {
+    display: none !important;
+}
+
+/* Navigazione */
+.rocard-tabs-nav {
     position: sticky;
     top: 0;
     z-index: 999;
     background: #1a3c6e;
-    padding: 0;
     box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
-.rocard-corporate-nav .nav-inner {
+.rocard-tabs-nav-inner {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 0 24px;
+    gap: 0;
 }
-.rocard-corporate-nav .nav-brand {
-    padding: 10px 0;
+.rocard-tabs-nav .nav-logo {
+    padding: 10px 20px 10px 0;
+    flex-shrink: 0;
 }
-.rocard-corporate-nav .nav-brand img {
-    height: 38px;
+.rocard-tabs-nav .nav-logo img {
+    height: 36px;
     width: auto;
     display: block;
 }
-.rocard-corporate-nav .nav-links {
-    display: flex;
-    gap: 0;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-.rocard-corporate-nav .nav-links li a {
+.rocard-tabs-nav label {
     display: block;
-    padding: 18px 16px;
-    color: rgba(255,255,255,0.75);
-    text-decoration: none;
-    font-size: 0.85rem;
+    padding: 18px 15px;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.82rem;
     font-weight: 400;
     letter-spacing: 0.3px;
-    transition: color 0.2s ease, background 0.2s ease;
-    border-bottom: 3px solid transparent;
+    cursor: pointer;
     white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    transition: color 0.2s, background 0.2s, border-color 0.2s;
+    text-align: center;
 }
-.rocard-corporate-nav .nav-links li a:hover {
+.rocard-tabs-nav label:hover {
     color: #fff;
     background: rgba(255,255,255,0.05);
 }
-.rocard-corporate-nav .nav-links li a.active {
+
+/* Tab attiva - evidenziazione label */
+#tab-chi-siamo:checked ~ .rocard-tabs-nav label[for="tab-chi-siamo"],
+#tab-vision:checked ~ .rocard-tabs-nav label[for="tab-vision"],
+#tab-modello:checked ~ .rocard-tabs-nav label[for="tab-modello"],
+#tab-numeri:checked ~ .rocard-tabs-nav label[for="tab-numeri"],
+#tab-team:checked ~ .rocard-tabs-nav label[for="tab-team"],
+#tab-lavora:checked ~ .rocard-tabs-nav label[for="tab-lavora"],
+#tab-contatti:checked ~ .rocard-tabs-nav label[for="tab-contatti"] {
     color: #fff;
-    border-bottom-color: #f57c00;
     font-weight: 500;
+    border-bottom-color: #f57c00;
 }
-.rocard-corporate-nav .nav-mobile-toggle {
-    display: none;
-    background: none;
-    border: 2px solid rgba(255,255,255,0.3);
-    color: #fff;
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: border-color 0.2s ease;
-}
-.rocard-corporate-nav .nav-mobile-toggle:hover {
-    border-color: #f57c00;
-}
-.rocard-page-section {
+
+/* Contenuto pagine - tutte nascoste di default */
+.rocard-tab-content {
     display: none;
 }
-.rocard-page-section.active {
+
+/* Mostra la pagina selezionata */
+#tab-chi-siamo:checked ~ .rocard-tabs-body .tab-chi-siamo,
+#tab-vision:checked ~ .rocard-tabs-body .tab-vision,
+#tab-modello:checked ~ .rocard-tabs-body .tab-modello,
+#tab-numeri:checked ~ .rocard-tabs-body .tab-numeri,
+#tab-team:checked ~ .rocard-tabs-body .tab-team,
+#tab-lavora:checked ~ .rocard-tabs-body .tab-lavora,
+#tab-contatti:checked ~ .rocard-tabs-body .tab-contatti {
     display: block;
 }
+
 @media (max-width: 900px) {
-    .rocard-corporate-nav .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: #1a3c6e;
-        flex-direction: column;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    .rocard-tabs-nav label {
+        padding: 14px 12px;
+        font-size: 0.75rem;
     }
-    .rocard-corporate-nav .nav-links.open {
-        display: flex;
+    .rocard-tabs-nav .nav-logo {
+        padding: 8px 12px 8px 0;
     }
-    .rocard-corporate-nav .nav-links li a {
-        padding: 14px 24px;
-        border-bottom: 1px solid rgba(255,255,255,0.06);
-        border-left: 3px solid transparent;
-    }
-    .rocard-corporate-nav .nav-links li a.active {
-        border-bottom-color: rgba(255,255,255,0.06);
-        border-left-color: #f57c00;
-    }
-    .rocard-corporate-nav .nav-mobile-toggle {
-        display: block;
+    .rocard-tabs-nav .nav-logo img {
+        height: 28px;
     }
 }
 
@@ -1943,22 +1937,34 @@
 
 </style>
 
-<nav class="rocard-corporate-nav">
-    <div class="nav-inner">
-        <div class="nav-brand"><img src="https://customer-assets.emergentagent.com/job_rocard-careers/artifacts/3lph6y6w_images%20%283%29.png" alt="Rocard"></div>
-        <button class="nav-mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">Menu &#9662;</button>
-        <ul class="nav-links">
-            <li><a href="#" class="active" onclick="showPage('chi-siamo', this); return false;">Chi Siamo</a></li>
-            <li><a href="#" onclick="showPage('vision-valori', this); return false;">Vision &amp; Valori</a></li>
-            <li><a href="#" onclick="showPage('nostro-modello', this); return false;">Il Nostro Modello</a></li>
-            <li><a href="#" onclick="showPage('numeri-crescita', this); return false;">Numeri &amp; Crescita</a></li>
-            <li><a href="#" onclick="showPage('team', this); return false;">Il Team</a></li>
-            <li><a href="#" onclick="showPage('lavora-con-noi', this); return false;">Lavora con Noi</a></li>
-            <li><a href="#" onclick="showPage('contatti', this); return false;">Contatti</a></li>
-        </ul>
+<div class="rocard-tabs-wrapper">
+
+<!-- Radio buttons (nascosti, controllano i tab) -->
+<input type="radio" name="rocard-tab" id="tab-chi-siamo" checked>
+<input type="radio" name="rocard-tab" id="tab-vision">
+<input type="radio" name="rocard-tab" id="tab-modello">
+<input type="radio" name="rocard-tab" id="tab-numeri">
+<input type="radio" name="rocard-tab" id="tab-team">
+<input type="radio" name="rocard-tab" id="tab-lavora">
+<input type="radio" name="rocard-tab" id="tab-contatti">
+
+<!-- Barra di navigazione -->
+<div class="rocard-tabs-nav">
+    <div class="rocard-tabs-nav-inner">
+        <div class="nav-logo"><img src="https://customer-assets.emergentagent.com/job_rocard-careers/artifacts/3lph6y6w_images%20%283%29.png" alt="Rocard"></div>
+        <label for="tab-chi-siamo">Chi Siamo</label>
+        <label for="tab-vision">Vision &amp; Valori</label>
+        <label for="tab-modello">Il Nostro Modello</label>
+        <label for="tab-numeri">Numeri &amp; Crescita</label>
+        <label for="tab-team">Il Team</label>
+        <label for="tab-lavora">Lavora con Noi</label>
+        <label for="tab-contatti">Contatti</label>
     </div>
-</nav>
-<div id="page-chi-siamo" class="rocard-page-section active">
+</div>
+
+<!-- Contenuto delle pagine -->
+<div class="rocard-tabs-body">
+<div class="rocard-tab-content tab-chi-siamo">
 <div class="rocard-chi-siamo">
     <!-- Hero Section with Image -->
     <section class="hero-section">
@@ -2276,8 +2282,7 @@
     </section>
 </div>
 </div>
-
-<div id="page-vision-valori" class="rocard-page-section">
+<div class="rocard-tab-content tab-vision">
 <div class="rocard-vision-valori">
     <!-- Hero -->
     <section class="hero-section">
@@ -2359,8 +2364,7 @@
     </section>
 </div>
 </div>
-
-<div id="page-nostro-modello" class="rocard-page-section">
+<div class="rocard-tab-content tab-modello">
 <div class="rocard-nostro-modello">
     <!-- Hero -->
     <section class="hero-section">
@@ -2445,8 +2449,7 @@
     </section>
 </div>
 </div>
-
-<div id="page-numeri-crescita" class="rocard-page-section">
+<div class="rocard-tab-content tab-numeri">
 <div class="rocard-numeri-crescita">
     <!-- Hero -->
     <section class="hero-section">
@@ -2530,8 +2533,7 @@
 </div>
 /div>
 </div>
-
-<div id="page-team" class="rocard-page-section">
+<div class="rocard-tab-content tab-team">
 <div class="rocard-team">
     <!-- Hero -->
     <section class="hero-section">
@@ -2605,8 +2607,7 @@
     </section>
 </div>
 </div>
-
-<div id="page-lavora-con-noi" class="rocard-page-section">
+<div class="rocard-tab-content tab-lavora">
 <div class="rocard-lavora">
     <!-- Hero -->
     <section class="hero-section">
@@ -2817,8 +2818,7 @@
     </section>
 </div>
 </div>
-
-<div id="page-contatti" class="rocard-page-section">
+<div class="rocard-tab-content tab-contatti">
 <div class="rocard-contatti">
     <!-- Hero -->
     <section class="hero-section">
@@ -2908,14 +2908,5 @@
     </section>
 </div>
 </div>
-
-<script>
-function showPage(pageId, link) {
-    document.querySelectorAll('.rocard-page-section').forEach(function(s) { s.classList.remove('active'); });
-    document.querySelectorAll('.nav-links a').forEach(function(a) { a.classList.remove('active'); });
-    document.getElementById('page-' + pageId).classList.add('active');
-    if (link) link.classList.add('active');
-    document.querySelector('.nav-links').classList.remove('open');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-</script>
+</div>
+</div>
