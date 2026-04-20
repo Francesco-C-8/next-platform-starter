@@ -1002,37 +1002,102 @@
 <!-- Telecomando: le mie tab pill controllano le tab native TrackShip -->
 <script>
 (function() {
-    var enhanced = false;
-    var nativeTabs = null; // Riferimenti alle tab native del plugin
+    var nativeRefs = null; // { orderTabTrigger, shipTabTrigger, orderPanel, shipPanel, tabsBar }
 
-    function findNativeTabs(mount) {
-        // Trova i link/bottoni tab del plugin TrackShip
-        var candidates = mount.querySelectorAll('a[href^="#tab-"], a[href*="order"], a[href*="track"], li.tab > a, .tab-link, .tab > a');
-        var orderTab = null, shipTab = null;
-        candidates.forEach(function(el) {
-            var txt = (el.textContent || '').trim().toLowerCase();
-            if (!orderTab && /dettagli|ordine|order/i.test(txt) && !/spedizione|tracking|identificazione/i.test(txt)) {
-                orderTab = el;
-            } else if (!shipTab && /spedizione|tracking|identificazione/i.test(txt)) {
-                shipTab = el;
+    // Content-based detection delle tab native
+    function detectNativeTabs(mount) {
+        // STRATEGIA: cerca elementi che contengono TESTI specifici delle tab native
+        // Poi risali al loro parent comune per nascondere l'intera barra
+        var orderLabels = [];
+        var shipLabels = [];
+        mount.querySelectorAll('a, button, li, span, div, h2, h3, h4').forEach(function(el) {
+            if (el.children.length > 2) return; // solo leaf-ish
+            var txt = (el.textContent || '').trim();
+            if (txt.length > 80) return;
+            // match "Dettagli dell'ordine" / "Order details"
+            if (/^dettagli\s*(dell[''])?(ordine|order)|^order\s+details/i.test(txt)) {
+                orderLabels.push(el);
+            }
+            // match "Numero di spedizione (tracking)" / "Numero di identificazione" / "Tracking number"
+            else if (/^numero\s+(di\s+)?(spedizione|identificazione|tracking)|^tracking\s+number/i.test(txt)) {
+                shipLabels.push(el);
             }
         });
-        if (orderTab && shipTab) return { order: orderTab, ship: shipTab };
-        // Fallback: prendi i primi 2 link/bottoni dentro una ul.tabs
-        var ulTabs = mount.querySelector('ul.tabs, .tabs, nav.tabs, .ts-tabs, .order_tracking_tabs');
-        if (ulTabs) {
-            var links = ulTabs.querySelectorAll('a, button');
-            if (links.length >= 2) return { order: links[0], ship: links[1] };
+
+        if (!orderLabels.length || !shipLabels.length) return null;
+
+        var orderLabel = orderLabels[0];
+        var shipLabel = shipLabels[0];
+
+        // Trova il parent comune (contenitore della barra tab)
+        var commonParent = null;
+        var parents = [];
+        var p = orderLabel.parentElement;
+        while (p && p !== mount) { parents.push(p); p = p.parentElement; }
+        p = shipLabel.parentElement;
+        while (p && p !== mount) {
+            if (parents.indexOf(p) >= 0) { commonParent = p; break; }
+            p = p.parentElement;
         }
-        return null;
+
+        // Trova i pannelli di contenuto (form o div associati ad ogni tab)
+        // Strategia: se la tab ha href="#something", il pannello e' l'elemento con quell'id
+        // Altrimenti: i pannelli sono i fratelli del commonParent che contengono form.order_track_form
+        var orderPanel = null, shipPanel = null;
+        var orderHref = orderLabel.tagName === 'A' ? orderLabel.getAttribute('href') : (orderLabel.querySelector('a') ? orderLabel.querySelector('a').getAttribute('href') : null);
+        var shipHref = shipLabel.tagName === 'A' ? shipLabel.getAttribute('href') : (shipLabel.querySelector('a') ? shipLabel.querySelector('a').getAttribute('href') : null);
+        if (orderHref && orderHref.indexOf('#') === 0) orderPanel = document.getElementById(orderHref.substring(1));
+        if (shipHref && shipHref.indexOf('#') === 0) shipPanel = document.getElementById(shipHref.substring(1));
+
+        // Fallback: cerca i form.order_track_form dentro il mount
+        if (!orderPanel || !shipPanel) {
+            var forms = mount.querySelectorAll('form.order_track_form, [class*="tracking_form"], [id*="tab-"]');
+            var candidates = [];
+            forms.forEach(function(f) {
+                var hasOrderId = f.querySelector('input[name="order_id"], #order_id');
+                var hasEmail = f.querySelector('input[name="order_email"], #order_email');
+                var hasTracking = f.querySelector('input[name="tracking_number"], input[name="tracking_no"], input[name="shipment_tracking_number"], #tracking_number');
+                var wrap = f.closest('[id^="tab-"], .tab-content, .tracking_form_wrap') || f;
+                if (hasOrderId && hasEmail && !hasTracking) {
+                    if (!orderPanel) orderPanel = wrap;
+                } else if (hasTracking && !hasOrderId) {
+                    if (!shipPanel) shipPanel = wrap;
+                } else if (hasTracking) {
+                    // Fallback: primo form con tracking_number e' lo ship
+                    if (!shipPanel) shipPanel = wrap;
+                } else if (hasOrderId) {
+                    if (!orderPanel) orderPanel = wrap;
+                }
+                candidates.push({form: f, wrap: wrap, orderId: !!hasOrderId, email: !!hasEmail, tracking: !!hasTracking});
+            });
+        }
+
+        return {
+            orderTabTrigger: orderLabel,
+            shipTabTrigger: shipLabel,
+            orderPanel: orderPanel,
+            shipPanel: shipPanel,
+            tabsBar: commonParent
+        };
     }
 
-    function renameAndStyleContent(mount) {
-        // Rinomina label
+    function hideDuplicateInstructions(mount) {
+        mount.querySelectorAll('p, h2, h3, h4').forEach(function(el) {
+            var txt = (el.textContent || '').trim().toLowerCase();
+            if (txt.indexOf('per tracciare il tuo ordine') === 0 ||
+                txt.indexOf('per tracciare il tuo pacco') === 0 ||
+                txt.indexOf('inserisci il numero di tracciamento') === 0 ||
+                txt.indexOf('per tracciare la tua') === 0) {
+                el.style.display = 'none';
+            }
+        });
+    }
+
+    function renameContent(mount) {
         mount.querySelectorAll('label').forEach(function(lbl) {
             var txt = (lbl.textContent || '').trim();
             var htmlFor = lbl.htmlFor || '';
-            if (/ordina e-mail|order email|ordine email|^e-?mail$/i.test(txt) || htmlFor === 'order_email') {
+            if (/ordina e-mail|order email|ordine email/i.test(txt) || htmlFor === 'order_email') {
                 lbl.textContent = 'Email di fatturazione';
             }
             if (/^id ordine$|^order id$/i.test(txt) || htmlFor === 'order_id') {
@@ -1042,7 +1107,6 @@
                 lbl.textContent = 'Numero di spedizione (tracking)';
             }
         });
-        // Rinomina bottoni
         mount.querySelectorAll('button[type="submit"], input[type="submit"]').forEach(function(btn) {
             var txt = (btn.textContent || btn.value || '').trim();
             if (/traccia il mio pacco|track/i.test(txt)) {
@@ -1050,63 +1114,94 @@
                 else btn.value = 'Traccia il mio ordine';
             }
         });
-        // Aggiorna placeholder
         var orderIdInput = mount.querySelector('input[name="order_id"], #order_id');
         if (orderIdInput) orderIdInput.setAttribute('placeholder', 'Es. 104049');
         var emailInput = mount.querySelector('input[name="order_email"], #order_email');
         if (emailInput) emailInput.setAttribute('placeholder', 'email@esempio.it');
-        var trackingSelectors = ['input[name="tracking_number"]', 'input[name="tracking_no"]', 'input[name="shipment_tracking_number"]', '#tracking_number', '#tracking_no'];
-        trackingSelectors.forEach(function(sel) {
+        ['input[name="tracking_number"]', 'input[name="tracking_no"]', 'input[name="shipment_tracking_number"]', '#tracking_number', '#tracking_no'].forEach(function(sel) {
             var el = mount.querySelector(sel);
             if (el) el.setAttribute('placeholder', 'Es. NN665931971');
         });
-        // Nasconde istruzioni duplicate
-        mount.querySelectorAll('p').forEach(function(p) {
-            var txt = (p.textContent || '').trim().toLowerCase();
-            if (txt.indexOf('per tracciare il tuo ordine') === 0 ||
-                txt.indexOf('per tracciare il tuo pacco') === 0 ||
-                txt.indexOf('inserisci il numero di tracciamento') === 0) {
-                p.style.display = 'none';
-            }
-        });
     }
 
-    function enhance() {
-        if (enhanced) return true;
-        var mount = document.getElementById('rctTrackshipMount');
-        if (!mount) return false;
-        // Aspetta che il form TrackShip sia stato spostato dentro il mount
-        var nativeForm = mount.querySelector('form.order_track_form, .track-order-section');
-        if (!nativeForm) return false;
+    function showPanel(which) {
+        if (!nativeRefs) return;
+        // Prima prova: simula click sulla tab nativa (alcuni plugin gestiscono con JS proprio)
+        var trigger = which === 'order' ? nativeRefs.orderTabTrigger : nativeRefs.shipTabTrigger;
+        if (trigger) {
+            try {
+                // Simula evento reale per compatibilita con jQuery
+                var clickEvent = new MouseEvent('click', { bubbles: true, cancelable: true, view: window });
+                trigger.dispatchEvent(clickEvent);
+                if (typeof window.jQuery !== 'undefined') {
+                    try { window.jQuery(trigger).trigger('click'); } catch(e) {}
+                }
+            } catch(e) {}
+        }
+        // Secondo (piu sicuro): mostra/nascondi manualmente i pannelli
+        if (nativeRefs.orderPanel && nativeRefs.shipPanel && nativeRefs.orderPanel !== nativeRefs.shipPanel) {
+            if (which === 'order') {
+                nativeRefs.orderPanel.style.display = '';
+                nativeRefs.shipPanel.style.display = 'none';
+            } else {
+                nativeRefs.orderPanel.style.display = 'none';
+                nativeRefs.shipPanel.style.display = '';
+            }
+        }
+    }
 
-        nativeTabs = findNativeTabs(mount);
-        renameAndStyleContent(mount);
+    function initMount(mount) {
+        if (nativeRefs) return true;
+        var refs = detectNativeTabs(mount);
+        if (!refs) return false;
+        nativeRefs = refs;
 
-        // Collega le mie tab pill alle tab native
+        // 1. Nasconde la barra tab nativa
+        if (refs.tabsBar) {
+            refs.tabsBar.style.display = 'none';
+            refs.tabsBar.classList.add('rct-hidden-native-tabs');
+        } else {
+            // Fallback: nasconde direttamente i due label tab
+            if (refs.orderTabTrigger) {
+                var orderWrap = refs.orderTabTrigger.closest('li, .tab') || refs.orderTabTrigger;
+                orderWrap.style.display = 'none';
+            }
+            if (refs.shipTabTrigger) {
+                var shipWrap = refs.shipTabTrigger.closest('li, .tab') || refs.shipTabTrigger;
+                shipWrap.style.display = 'none';
+            }
+        }
+
+        // 2. Nasconde istruzioni duplicate
+        hideDuplicateInstructions(mount);
+
+        // 3. Rinomina content
+        renameContent(mount);
+
+        // 4. Mostra di default solo il pannello ordine
+        showPanel('order');
+
+        // 5. Attach handler alle mie tab pill
         var myTabs = document.querySelectorAll('.rocard-tracking .rct-method-tabs .rct-method-tab');
         myTabs.forEach(function(tab) {
+            if (tab.dataset.rctBound === '1') return;
+            tab.dataset.rctBound = '1';
             tab.addEventListener('click', function() {
                 var method = tab.getAttribute('data-method');
-                // Aggiorna UI mie tab
                 myTabs.forEach(function(t) {
                     t.classList.remove('rct-active');
                     t.setAttribute('aria-selected', 'false');
                 });
                 tab.classList.add('rct-active');
                 tab.setAttribute('aria-selected', 'true');
-                // Trigger click sulla tab nativa corrispondente
-                if (!nativeTabs) return;
-                if (method === 'order' && nativeTabs.order) {
-                    nativeTabs.order.click();
-                } else if (method === 'shipping' && nativeTabs.ship) {
-                    nativeTabs.ship.click();
-                }
-                // Riapplica rename dopo eventuale re-render del plugin
-                setTimeout(function() { renameAndStyleContent(mount); }, 100);
+                showPanel(method === 'shipping' ? 'ship' : 'order');
+                setTimeout(function() {
+                    renameContent(mount);
+                    hideDuplicateInstructions(mount);
+                }, 150);
             });
         });
 
-        enhanced = true;
         return true;
     }
 
@@ -1114,12 +1209,17 @@
         var attempts = 0;
         var iv = setInterval(function() {
             attempts++;
-            if (enhance() || attempts > 30) clearInterval(iv);
+            var mount = document.getElementById('rctTrackshipMount');
+            if (!mount) { if (attempts > 30) clearInterval(iv); return; }
+            if (initMount(mount) || attempts > 40) clearInterval(iv);
         }, 400);
-        // Riapplica periodicamente il rename (il plugin potrebbe ri-renderizzare dopo AJAX)
+        // Reapplica periodicamente rename e hide duplicate (il plugin puo ri-renderizzare dopo AJAX)
         setInterval(function() {
             var mount = document.getElementById('rctTrackshipMount');
-            if (mount && enhanced) renameAndStyleContent(mount);
+            if (mount && nativeRefs) {
+                renameContent(mount);
+                hideDuplicateInstructions(mount);
+            }
         }, 1500);
     }
     if (document.readyState === 'loading') {
