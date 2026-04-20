@@ -20,10 +20,9 @@ Il cliente copia-incolla l'HTML direttamente nel widget HTML di Elementor, senza
 ## Cosa è stato implementato
 
 ### 2026-02 — Sessione corrente
-- ✅ **Content-based detection delle tab native TrackShip** (20/02): lo script cerca OGNI elemento nel mount che contenga ESATTAMENTE i testi "Dettagli dell'ordine" / "Numero di spedizione (tracking)", risale al loro parent comune e lo nasconde. Identifica inoltre i pannelli di contenuto trovando i form con `input[name="order_id"]` vs `input[name="tracking_number"]`. Gestisce fallback: click programmatico sulla tab nativa + manipolazione diretta display dei pannelli. Test simulato OK: tab pill switchano correttamente tra form Numero ordine/Email e form Numero di spedizione.
-- ✅ **Pattern "telecomando"**: le tab pill custom controllano dall'esterno le tab native TrackShip (nascoste). Rinomina: "Ordina e-mail"→"Email di fatturazione", "ID ordine"→"Numero ordine", "Traccia il mio Pacco"→"Traccia il mio ordine". Placeholder: Es. 104049, email@esempio.it, Es. NN665931971.
-- ✅ **Approccio DOM-MOVE per TrackShip**: widget HTML con placeholder `.rct-trackship-mount`; script sposta la `.track-order-section` dallo shortcode dentro il mount.
+- ✅ **Strategia finale "separazione pulita"** (20/02): Tab 1 usa il form TrackShip nativo ordine+email (provato funzionante con ordine 104049); Tab 2 usa form CUSTOM con redirect al corriere (GLS/BRT/Poste via auto-detection del formato tracking number). Cleanup AGGRESSIVO del form TrackShip nativo: nasconde tutti i titoli (h1-h4 con "Dettagli dell'ordine" / "Numero di identificazione"), nasconde il secondo form/sezione TrackShip shipping duplicato, classe `rct-clean` sul mount per hide garantito. Due bottoni submit risolti (il secondo era del form shipping duplicato nascosto). Test simulato OK.
 - ✅ **Banner coupon INVIAGGIO10**: countdown 15 min, copia codice, "Solo per te, un'unica volta • Approfittane subito".
+- ✅ **Approccio DOM-MOVE per TrackShip**: widget HTML con placeholder; script sposta la `.track-order-section` dallo shortcode dentro il mount.
 - ✅ **Tracking page namespace fix**: classi prefissate `rct-`.
 - 🟢 **Tracking end-to-end confermato funzionante**: ordine 104049 → GLS + NN665931971.
 

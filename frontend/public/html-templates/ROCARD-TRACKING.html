@@ -565,20 +565,75 @@
 /* Legacy: nasconde eventuale form nativo rimasto nello shortcode dopo lo spostamento */
 .track-order-section-placeholder-hide { display: none !important; }
 
+/* ═══ TAB PANES (switch via JS) ═══ */
+.rocard-tracking .rct-tab-pane { display: none !important; }
+.rocard-tracking .rct-tab-pane.rct-active { display: block !important; }
+
+/* ═══ FORM CUSTOM SHIPPING (tab 2) ═══ */
+.rocard-tracking .rct-shipping-form { display: block !important; max-width: 600px !important; margin: 0 auto !important; }
+.rocard-tracking .rct-shipping-intro {
+    color: #555 !important; font-size: 0.95rem !important; margin-bottom: 20px !important;
+    line-height: 1.5 !important; font-family: 'Outfit', sans-serif !important;
+}
+.rocard-tracking .rct-shipping-form .rct-field-group { margin-bottom: 16px !important; }
+.rocard-tracking .rct-shipping-form label {
+    display: block !important; font-weight: 500 !important; margin-bottom: 6px !important;
+    color: #333 !important; font-size: 0.9rem !important;
+    font-family: 'Outfit', sans-serif !important;
+}
+.rocard-tracking .rct-shipping-form input,
+.rocard-tracking .rct-shipping-form select {
+    width: 100% !important; padding: 12px 16px !important;
+    border: 2px solid #e5e5e5 !important; border-radius: 8px !important;
+    font-size: 0.95rem !important; font-family: 'Outfit', sans-serif !important;
+    outline: none !important; box-shadow: none !important; background: #fff !important;
+    height: auto !important; line-height: 1.4 !important; margin: 0 !important;
+    box-sizing: border-box !important; min-height: 46px !important;
+    color: #333 !important; appearance: none !important; -webkit-appearance: none !important;
+}
+.rocard-tracking .rct-shipping-form select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%232a7ab5' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important; background-position: right 16px center !important;
+    padding-right: 40px !important;
+}
+.rocard-tracking .rct-shipping-form input:focus,
+.rocard-tracking .rct-shipping-form select:focus { border-color: #2a7ab5 !important; }
+.rocard-tracking .rct-shipping-form .rct-shipping-btn {
+    display: flex !important; align-items: center !important; justify-content: center !important;
+    gap: 8px !important; width: 100% !important; padding: 14px !important;
+    background: #2a7ab5 !important; color: #fff !important;
+    border: none !important; border-radius: 8px !important;
+    font-size: 1rem !important; font-weight: 600 !important;
+    font-family: 'Outfit', sans-serif !important; cursor: pointer !important;
+    letter-spacing: 0.3px !important; line-height: 1.4 !important;
+    min-height: 50px !important; margin-top: 4px !important;
+    transition: background 0.3s ease !important;
+}
+.rocard-tracking .rct-shipping-form .rct-shipping-btn:hover { background: #f57c00 !important; }
+.rocard-tracking .rct-shipping-form .rct-shipping-btn svg { width: 18px !important; height: 18px !important; }
+
 /* ═══ HIDE UTILITY (vince su tutti i display:block del nostro CSS) ═══ */
 .rocard-tracking .rct-trackship-mount .rct-hide,
 .rocard-tracking .rct-trackship-mount .rct-hide.order_id_email,
 .rocard-tracking .rct-trackship-mount .rct-hide.shipment_tracking_number,
 .rocard-tracking .rct-trackship-mount .rct-hide.tracking_form,
 .rocard-tracking .rct-trackship-mount .rct-hide.tab-content,
-.rocard-tracking .rct-trackship-mount.rct-has-custom-tabs ul.tabs,
-.rocard-tracking .rct-trackship-mount.rct-has-custom-tabs .tabs:not(.rct-method-tabs),
-.rocard-tracking .rct-trackship-mount.rct-has-custom-tabs nav.tabs,
-.rocard-tracking .rct-trackship-mount.rct-has-custom-tabs ul[role="tablist"] {
+.rocard-tracking .rct-trackship-mount.rct-clean h1,
+.rocard-tracking .rct-trackship-mount.rct-clean h2,
+.rocard-tracking .rct-trackship-mount.rct-clean h3,
+.rocard-tracking .rct-trackship-mount.rct-clean h4,
+.rocard-tracking .rct-trackship-mount.rct-clean ul.tabs,
+.rocard-tracking .rct-trackship-mount.rct-clean .tabs:not(.rct-method-tabs),
+.rocard-tracking .rct-trackship-mount.rct-clean nav.tabs,
+.rocard-tracking .rct-trackship-mount.rct-clean ul[role="tablist"],
+.rocard-tracking .rct-trackship-mount.rct-clean .rct-native-ship-form,
+.rocard-tracking .rct-trackship-mount.rct-clean .rct-section-title-native {
     display: none !important;
     height: 0 !important;
     overflow: hidden !important;
     visibility: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 </style>
@@ -601,7 +656,7 @@
     <div class="rct-container">
         <div class="rct-track-form-container">
 
-            <!-- Tabs custom pill-style: telecomando per le tab interne TrackShip -->
+            <!-- Tabs custom pill-style -->
             <div class="rct-method-tabs" role="tablist">
                 <button type="button" class="rct-method-tab rct-active" data-method="order" role="tab" aria-selected="true">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16.5 9.4 7.55 4.24"></path><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
@@ -613,13 +668,40 @@
                 </button>
             </div>
 
-            <!-- Il form TrackShip nativo (con le sue tab interne che verranno nascoste via CSS/JS) -->
-            <div class="rct-trackship-mount" id="rctTrackshipMount">
-                <div class="rct-form-loading">
-                    <div class="rct-spinner"></div>
-                    <p>Caricamento modulo di tracciamento...</p>
+            <!-- TAB 1: Form TrackShip nativo ordine+email (via mount) -->
+            <div class="rct-tab-pane rct-active" data-pane="order">
+                <div class="rct-trackship-mount" id="rctTrackshipMount">
+                    <div class="rct-form-loading">
+                        <div class="rct-spinner"></div>
+                        <p>Caricamento modulo di tracciamento...</p>
+                    </div>
                 </div>
             </div>
+
+            <!-- TAB 2: Form custom con redirect diretto al corriere -->
+            <div class="rct-tab-pane" data-pane="shipping">
+                <form class="rct-shipping-form" id="rctShippingForm" onsubmit="return false;">
+                    <p class="rct-shipping-intro">Per tracciare il tuo ordine, inserisci il numero di tracciamento che hai ricevuto nell'e-mail di conferma della spedizione</p>
+                    <div class="rct-field-group">
+                        <label for="rctShippingNumber">Numero di identificazione</label>
+                        <input type="text" id="rctShippingNumber" name="shipping_number" placeholder="Es. NN665931971" autocomplete="off">
+                    </div>
+                    <div class="rct-field-group">
+                        <label for="rctShippingCourier">Corriere</label>
+                        <select id="rctShippingCourier" name="shipping_courier">
+                            <option value="auto">Rilevamento automatico</option>
+                            <option value="gls">GLS</option>
+                            <option value="brt">BRT</option>
+                            <option value="poste">Poste Italiane</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="rct-shipping-btn" id="rctShippingBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        <span>Traccia sul sito del corriere</span>
+                    </button>
+                </form>
+            </div>
+
             <p class="rct-form-hint">Trova i dati nell'email di conferma che hai ricevuto dopo l'acquisto</p>
             <div class="rct-trust-indicators">
                 <div class="rct-trust-item">
@@ -1003,229 +1085,169 @@
     }
 })();
 </script>
-<!-- Telecomando: le mie tab pill controllano le tab native TrackShip (detection multi-strategy) -->
+<!-- Script unificato: tabs switch + cleanup form TrackShip nativo + redirect corriere -->
 <script>
 (function() {
-    var state = { mount: null, inited: false };
+    // URL corrieri per redirect diretto
+    var COURIER_URLS = {
+        gls: function(n) { return 'https://www.gls-italy.com/it/servizi-on-line/ricerca-spedizioni?match=' + encodeURIComponent(n); },
+        brt: function(n) { return 'https://vas.brt.it/vas/sped_det_show.htm?referer=sped_numspe_par.htm&Nspediz=' + encodeURIComponent(n); },
+        poste: function(n) { return 'https://www.poste.it/cerca/index.html#/risultati-spedizioni/' + encodeURIComponent(n); }
+    };
+    function detectCourier(number) {
+        var n = (number || '').trim().toUpperCase();
+        if (!n) return 'gls';
+        if (/^NN\d{8,}$/i.test(n)) return 'gls';
+        if (/^(RR|CP|LP|CC|JJ|EE|RZ)/i.test(n) || /^[A-Z]{2}\d{9}(IT)?$/i.test(n)) return 'poste';
+        if (/^\d{12}$/.test(n)) return 'brt';
+        return 'gls';
+    }
 
-    // === Detection delle tab native e dei pannelli ===
-    function findNativeStructure(mount) {
-        // Trova elementi con testo "Dettagli dell'ordine" o "Numero di spedizione" (labels tab)
-        var orderTab = null, shipTab = null;
-        var allEls = mount.querySelectorAll('a, button, li, span, div, h2, h3, h4, p, strong');
-        for (var i = 0; i < allEls.length; i++) {
-            var el = allEls[i];
-            if (el.children.length > 2) continue;
-            var txt = (el.textContent || '').trim().toLowerCase();
-            if (txt.length > 60 || txt.length < 5) continue;
-            if (!orderTab && /^dettagli\s+(dell[''])?ordin/i.test(txt)) orderTab = el;
-            if (!shipTab && /numero\s+(di\s+)?(spedizione.*tracking|identificazione)/i.test(txt)) shipTab = el;
-        }
+    // Pulizia AGGRESSIVA del form TrackShip nativo:
+    // - nasconde TUTTI i titoli/sottotitoli (h1-h4, span con testi specifici)
+    // - nasconde il form con tracking_number (secondo form duplicato)
+    // - nasconde ul.tabs native
+    // - lascia visibile SOLO il form con order_id + order_email
+    function cleanupNativeForm(mount) {
+        if (!mount) return false;
+        mount.classList.add('rct-clean');
 
-        // Trova i form e classifica per contenuto
-        var orderForm = null, shipForm = null, singleForm = null;
-        var allForms = mount.querySelectorAll('form.order_track_form, form[class*="track"], form[id*="track"]');
+        // 1. Nasconde ogni elemento testo che contiene "Dettagli dell'ordine" o "Numero di identificazione"
+        // (siano <h1-4>, <span>, <a>, <div>, ecc.)
+        mount.querySelectorAll('h1, h2, h3, h4, h5, span, a, div, li, p, strong').forEach(function(el) {
+            if (el.children.length > 3) return; // solo leaf-ish
+            var txt = (el.textContent || '').trim();
+            if (txt.length > 50 || txt.length < 5) return;
+            if (/^dettagli\s+(dell[''])?ordin/i.test(txt) ||
+                /^numero\s+(di\s+)?identificazione$/i.test(txt) ||
+                /^numero\s+(di\s+)?spedizione\s*\(?tracking/i.test(txt)) {
+                el.classList.add('rct-section-title-native');
+                el.style.display = 'none';
+                // Nasconde anche il parent se e' un wrapper tipo li/tab
+                var wrap = el.closest('li.tab, li, .tab, [role="tab"]');
+                if (wrap && wrap !== mount) wrap.style.display = 'none';
+            }
+        });
+
+        // 2. Trova i form e classifica
+        var allForms = mount.querySelectorAll('form.order_track_form, form[action*="track"]');
         if (allForms.length === 0) allForms = mount.querySelectorAll('form');
+        var orderForm = null, shipForm = null;
         allForms.forEach(function(f) {
             var hasOrderId = !!f.querySelector('input[name="order_id"], #order_id');
             var hasEmail = !!f.querySelector('input[name="order_email"], #order_email');
             var hasTracking = !!f.querySelector('input[name="tracking_number"], input[name="tracking_no"], input[name="shipment_tracking_number"], #tracking_number, #tracking_no');
-            if (hasOrderId && !hasTracking) orderForm = f;
-            else if (hasTracking && !hasOrderId) shipForm = f;
-            else if (hasOrderId && hasTracking) singleForm = f;
+            if (hasOrderId && hasEmail && !orderForm) orderForm = f;
+            else if (hasTracking && !hasOrderId && !shipForm) shipForm = f;
+            else if (hasOrderId && !orderForm) orderForm = f;
+            else if (hasTracking && !shipForm) shipForm = f;
         });
 
-        // Se due form distinti, trova i wrapper (pannelli)
-        var orderPanel = null, shipPanel = null;
-        if (orderForm) orderPanel = orderForm.closest('[id^="tab-"], [id*="tab_"], .tab-content, .tab_content, .tab-pane') || orderForm;
-        if (shipForm) shipPanel = shipForm.closest('[id^="tab-"], [id*="tab_"], .tab-content, .tab_content, .tab-pane') || shipForm;
-
-        // Se UN SOLO form contenente entrambi i tipi di input, cerca le due SEZIONI interne
-        var orderSection = null, shipSection = null;
-        if (singleForm || (orderForm && shipForm && orderForm === shipForm)) {
-            var f = singleForm || orderForm;
-            // Classi/ID comuni TrackShip per le sezioni
-            orderSection = f.querySelector('.order_id_email, .tracking_form.order_id_email, [class*="order_id_email"]');
-            shipSection = f.querySelector('.shipment_tracking_number, .tracking_form.shipment_tracking_number, [class*="tracking_number"], [class*="shipment_tracking"]');
-            // Fallback: trova il parent piu vicino di order_id/email vs tracking_number che sia DIFFERENTE
-            if (!orderSection) {
-                var oid = f.querySelector('input[name="order_id"], #order_id');
-                if (oid) {
-                    // Risali finche trovi un wrapper "grosso" (div/section/fieldset con almeno 2 figli)
-                    var cur = oid.parentElement;
-                    while (cur && cur !== f && (cur.children.length < 2 || cur.tagName === 'P')) cur = cur.parentElement;
-                    if (cur && cur !== f) orderSection = cur;
-                }
-            }
+        // Se sono lo stesso form (singolo form con entrambi i tipi di input), cerca le sezioni
+        var sameForm = orderForm && shipForm && orderForm === shipForm;
+        if (sameForm) {
+            // Nasconde la sezione shipping dentro il singolo form
+            var shipSection = orderForm.querySelector('.shipment_tracking_number, [class*="tracking_number_only"], [id*="tracking_number"]');
             if (!shipSection) {
-                var tn = f.querySelector('input[name="tracking_number"], input[name="tracking_no"], input[name="shipment_tracking_number"], #tracking_number, #tracking_no');
+                var tn = orderForm.querySelector('input[name="tracking_number"], #tracking_number, input[name="tracking_no"]');
                 if (tn) {
-                    var cur2 = tn.parentElement;
-                    while (cur2 && cur2 !== f && (cur2.children.length < 2 || cur2.tagName === 'P')) cur2 = cur2.parentElement;
-                    if (cur2 && cur2 !== f) shipSection = cur2;
+                    var cur = tn.parentElement;
+                    while (cur && cur !== orderForm && (cur.children.length < 2 || cur.tagName === 'P')) cur = cur.parentElement;
+                    if (cur && cur !== orderForm) shipSection = cur;
                 }
             }
+            if (shipSection) {
+                shipSection.classList.add('rct-native-ship-form');
+                shipSection.style.display = 'none';
+            }
+            shipForm = null;
         }
 
-        // Parent comune delle tab native (barra da nascondere)
-        var tabsBar = null;
-        if (orderTab && shipTab) {
-            var parentsA = [];
-            var pa = orderTab.parentElement;
-            while (pa && pa !== mount) { parentsA.push(pa); pa = pa.parentElement; }
-            var pb = shipTab.parentElement;
-            while (pb && pb !== mount) {
-                if (parentsA.indexOf(pb) >= 0) { tabsBar = pb; break; }
-                pb = pb.parentElement;
+        // 3. Nasconde il form shipping duplicato (se e' un form a parte)
+        if (shipForm && shipForm !== orderForm) {
+            shipForm.classList.add('rct-native-ship-form');
+            shipForm.style.display = 'none';
+            // Nasconde anche il wrapper che lo contiene (div tab-content)
+            var shipWrap = shipForm.closest('[id^="tab-"], .tab-content, .tab_content, .tab-pane');
+            if (shipWrap && shipWrap !== mount) {
+                shipWrap.classList.add('rct-native-ship-form');
+                shipWrap.style.display = 'none';
             }
         }
 
-        return {
-            orderTab: orderTab, shipTab: shipTab, tabsBar: tabsBar,
-            orderForm: orderForm, shipForm: shipForm,
-            orderPanel: orderPanel, shipPanel: shipPanel,
-            orderSection: orderSection, shipSection: shipSection,
-            singleForm: singleForm || (orderForm && shipForm && orderForm === shipForm ? orderForm : null)
-        };
+        // 4. Rimuove il loader
+        var loader = mount.querySelector('.rct-form-loading');
+        if (loader) loader.remove();
+
+        return true;
     }
 
-    function hideIntroTexts(mount) {
-        // Nasconde solo UNO dei due blocchi istruzione — quello NON attivo.
-        // In realta semplifichiamo: nasconde il testo istruzione per la tab NON attiva
-        // (il plugin li mostra entrambi insieme, noi ne mostreremo solo uno)
-        // Gestito nelle funzioni showPanel direttamente
-    }
-
-    function setHide(el, hide) {
-        if (!el) return;
-        if (hide) el.classList.add('rct-hide');
-        else el.classList.remove('rct-hide');
-    }
-
-    function showPanel(which) {
-        var s = state.struct;
-        if (!s) return;
-        var mount = state.mount;
-
-        // CASO A: due pannelli/form distinti
-        if (s.orderPanel && s.shipPanel && s.orderPanel !== s.shipPanel) {
-            setHide(s.orderPanel, which !== 'order');
-            setHide(s.shipPanel, which !== 'ship');
-        }
-        // CASO B: due sezioni dentro un unico form
-        else if (s.orderSection && s.shipSection && s.orderSection !== s.shipSection) {
-            setHide(s.orderSection, which !== 'order');
-            setHide(s.shipSection, which !== 'ship');
-        }
-        // CASO C: due form distinti senza wrapper
-        else if (s.orderForm && s.shipForm && s.orderForm !== s.shipForm) {
-            setHide(s.orderForm, which !== 'order');
-            setHide(s.shipForm, which !== 'ship');
-        }
-        // CASO FALLBACK: nasconde manualmente i wrap degli input non rilevanti
-        else {
-            var oid = mount.querySelector('input[name="order_id"], #order_id');
-            var email = mount.querySelector('input[name="order_email"], #order_email');
-            var tn = mount.querySelector('input[name="tracking_number"], #tracking_number, input[name="tracking_no"], input[name="shipment_tracking_number"]');
-            if (oid) setHide(oid.closest('p, .form-row') || oid.parentElement, which !== 'order');
-            if (email) setHide(email.closest('p, .form-row') || email.parentElement, which !== 'order');
-            if (tn) setHide(tn.closest('p, .form-row') || tn.parentElement, which !== 'ship');
-        }
-
-        // Nasconde/mostra i testi introduttivi (paragrafi) in base alla tab
-        mount.querySelectorAll('p').forEach(function(p) {
-            var txt = (p.textContent || '').trim();
-            var isOrderIntro = /per tracciare il tuo ordine.*numero dell[''](ordine|email)|inserisci il numero dell[''](ordine|email)/i.test(txt);
-            var isShipIntro = /numero di tracciamento|e-?mail di conferma della spedizione/i.test(txt);
-            if (isOrderIntro) setHide(p, which !== 'order');
-            if (isShipIntro) setHide(p, which !== 'ship');
-        });
-
-        // Triggera click sulla tab nativa per compatibilita plugin
-        var trigger = which === 'order' ? s.orderTab : s.shipTab;
-        if (trigger) {
-            try {
-                trigger.click();
-                if (window.jQuery) try { window.jQuery(trigger).trigger('click'); } catch(e) {}
-            } catch(e) {}
-        }
-    }
-
-    function tryInit() {
-        if (state.inited) return true;
-        var mount = document.getElementById('rctTrackshipMount');
-        if (!mount) return false;
-        // Attendi che il form nativo sia stato spostato dentro
-        if (!mount.querySelector('form, .track-order-section, input[name="order_id"], input[name="tracking_number"]')) return false;
-
-        state.mount = mount;
-        state.struct = findNativeStructure(mount);
-
-        // Debug log (visibile solo in console browser dell'utente)
-        try {
-            console.log('[Rocard Tracking] Native structure detected:', {
-                hasOrderTab: !!state.struct.orderTab,
-                hasShipTab: !!state.struct.shipTab,
-                hasTabsBar: !!state.struct.tabsBar,
-                hasOrderForm: !!state.struct.orderForm,
-                hasShipForm: !!state.struct.shipForm,
-                hasOrderSection: !!state.struct.orderSection,
-                hasShipSection: !!state.struct.shipSection,
-                singleForm: !!state.struct.singleForm
-            });
-        } catch(e) {}
-
-        // Nasconde la barra delle tab native (usa la classe sul mount per alta specificita)
-        mount.classList.add('rct-has-custom-tabs');
-        if (state.struct.tabsBar) {
-            setHide(state.struct.tabsBar, true);
-        }
-        // In ogni caso, nasconde esplicitamente i 2 label tab trovati
-        if (state.struct.orderTab) {
-            var w1 = state.struct.orderTab.closest('li, .tab, [role="tab"]') || state.struct.orderTab;
-            setHide(w1, true);
-        }
-        if (state.struct.shipTab) {
-            var w2 = state.struct.shipTab.closest('li, .tab, [role="tab"]') || state.struct.shipTab;
-            setHide(w2, true);
-        }
-
-        // Default: mostra solo il pannello ordine
-        showPanel('order');
-
-        // Bind mie tab pill
-        var myTabs = document.querySelectorAll('.rocard-tracking .rct-method-tabs .rct-method-tab');
-        myTabs.forEach(function(tab) {
+    // === Tab switching ===
+    function initTabs() {
+        var tabs = document.querySelectorAll('.rocard-tracking .rct-method-tabs .rct-method-tab');
+        var panes = document.querySelectorAll('.rocard-tracking .rct-tab-pane');
+        if (!tabs.length) return;
+        tabs.forEach(function(tab) {
             if (tab.dataset.rctBound === '1') return;
             tab.dataset.rctBound = '1';
             tab.addEventListener('click', function() {
                 var method = tab.getAttribute('data-method');
-                myTabs.forEach(function(t) {
+                tabs.forEach(function(t) {
                     t.classList.remove('rct-active');
                     t.setAttribute('aria-selected', 'false');
                 });
                 tab.classList.add('rct-active');
                 tab.setAttribute('aria-selected', 'true');
-                showPanel(method === 'shipping' ? 'ship' : 'order');
+                panes.forEach(function(p) {
+                    if (p.getAttribute('data-pane') === method) p.classList.add('rct-active');
+                    else p.classList.remove('rct-active');
+                });
             });
         });
-
-        state.inited = true;
-        return true;
     }
 
+    // === Form shipping custom: redirect corriere ===
+    function initShippingForm() {
+        var form = document.getElementById('rctShippingForm');
+        var btn = document.getElementById('rctShippingBtn');
+        if (!form) return;
+        var doTrack = function() {
+            var numberInput = document.getElementById('rctShippingNumber');
+            var courierSelect = document.getElementById('rctShippingCourier');
+            var number = (numberInput.value || '').trim();
+            if (!number) {
+                numberInput.focus();
+                numberInput.style.borderColor = '#ef4444';
+                setTimeout(function() { numberInput.style.borderColor = ''; }, 1500);
+                return;
+            }
+            var courier = courierSelect.value;
+            if (courier === 'auto') courier = detectCourier(number);
+            if (!COURIER_URLS[courier]) courier = 'gls';
+            window.open(COURIER_URLS[courier](number), '_blank', 'noopener,noreferrer');
+        };
+        form.addEventListener('submit', function(e) { e.preventDefault(); doTrack(); });
+        if (btn) btn.addEventListener('click', function(e) { e.preventDefault(); doTrack(); });
+    }
+
+    // === Init ===
     function init() {
+        initTabs();
+        initShippingForm();
+        // Cleanup periodico del form TrackShip nativo (aspetta che venga spostato dal suo script)
         var attempts = 0;
         var iv = setInterval(function() {
             attempts++;
-            if (tryInit() || attempts > 40) clearInterval(iv);
-        }, 400);
-        // Riapplica lo stato attivo periodicamente (il plugin puo ri-renderizzare dopo AJAX)
-        setInterval(function() {
-            if (state.inited) {
-                var active = document.querySelector('.rocard-tracking .rct-method-tab.rct-active');
-                if (active) showPanel(active.getAttribute('data-method') === 'shipping' ? 'ship' : 'order');
+            var mount = document.getElementById('rctTrackshipMount');
+            if (mount && mount.querySelector('form.order_track_form, input[name="order_id"]')) {
+                cleanupNativeForm(mount);
             }
+            if (attempts > 40) clearInterval(iv);
+        }, 400);
+        // Continua a riapplicare il cleanup periodicamente (per coprire AJAX re-render)
+        setInterval(function() {
+            var mount = document.getElementById('rctTrackshipMount');
+            if (mount && mount.classList.contains('rct-clean')) cleanupNativeForm(mount);
         }, 2000);
     }
     if (document.readyState === 'loading') {
