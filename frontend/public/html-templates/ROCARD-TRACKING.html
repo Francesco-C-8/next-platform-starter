@@ -220,11 +220,9 @@
     .rocard-tracking .stats-grid { grid-template-columns: 1fr; }
 }
 /* ═══ STILE FORM TRACKSHIP ═══ */
-/* Nasconde il form di TrackShip (shortcode) - usiamo il nostro */
-.track-order-section .search_order_form { display: none !important; }
-.track-order-section .trackship_branding { display: none !important; }
-/* Mostra solo i risultati del tracking */
-.track-order-section .tracking-detail { display: block !important; }
+/* Nasconde il form duplicato dello shortcode - il nostro form ha gia' class order_track_form */
+.track-order-section > .order_track_form { display: none !important; }
+.track-order-section > .trackship_branding { display: none !important; }
 </style>
 
 <div class="rocard-tracking">
@@ -245,15 +243,29 @@
     <div class="container">
         <div class="track-form-container">
             <div style="max-width: 600px; margin: 0 auto;">
-                <form action="https://www.rocard.it/traking_new/" method="post" style="font-family:'Outfit',sans-serif;">
+                <form action="https://www.rocard.it/traking_new/" method="post" class="order_track_form" style="font-family:'Outfit',sans-serif;min-height:auto!important;">
                     <input type="hidden" name="action" value="get_tracking_info">
                     <input type="hidden" name="fronted" value="yes">
-                    <div style="max-width:400px;margin:0 auto;">
-                        <div>
-                            <label for="order_id" style="display:block;font-weight:500;margin-bottom:6px;color:#333;font-size:0.9rem;">ID ordine</label>
-                            <input type="text" name="order_id" id="order_id" required placeholder="Numero d'ordine (es. 104049)" style="width:100%;padding:14px 16px;border:2px solid #e5e5e5;border-radius:8px;font-size:1rem;font-family:'Outfit',sans-serif;outline:none;text-align:center;">
+                    <div class="search_order_form" style="padding:0!important;border:none!important;box-shadow:none!important;">
+                        <div class="order_id_email tracking_form" style="display:block!important;">
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+                                <p class="form-row" style="margin:0;">
+                                    <label for="order_id" style="display:block;font-weight:500;margin-bottom:6px;color:#333;font-size:0.9rem;">ID ordine</label>
+                                    <input class="input-text" type="text" name="order_id" id="order_id" value="" placeholder="Numero d'ordine (es. 104049)" style="width:100%!important;padding:12px 16px!important;border:2px solid #e5e5e5!important;border-radius:8px!important;font-size:0.95rem!important;font-family:'Outfit',sans-serif!important;outline:none!important;box-shadow:none!important;">
+                                </p>
+                                <p class="form-row" style="margin:0;">
+                                    <label for="order_email" style="display:block;font-weight:500;margin-bottom:6px;color:#333;font-size:0.9rem;">Email di fatturazione</label>
+                                    <input class="input-text" type="text" name="order_email" id="order_email" value="" placeholder="Email usata durante l'ordine" style="width:100%!important;padding:12px 16px!important;border:2px solid #e5e5e5!important;border-radius:8px!important;font-size:0.95rem!important;font-family:'Outfit',sans-serif!important;outline:none!important;box-shadow:none!important;">
+                                </p>
+                            </div>
+                            <p class="form-row" style="margin-bottom:0;margin-top:20px;">
+                                <button type="submit" class="button btn btn-secondary" name="track" value="Track" style="display:block!important;width:100%!important;padding:14px!important;background:#2a7ab5!important;color:#fff!important;border:none!important;border-radius:8px!important;font-size:1rem!important;font-weight:600!important;font-family:'Outfit',sans-serif!important;cursor:pointer!important;letter-spacing:0.3px!important;">Traccia il mio ordine</button>
+                            </p>
                         </div>
+                        <div class="track_fail_msg" style="display:none;text-align:center;color:#ef4444;margin-top:16px;font-weight:500;"></div>
                     </div>
+                </form>
+            </div>
                     <div style="margin-top:20px;">
                         <button type="submit" name="track" value="Track" style="display:block;width:100%;padding:14px;background:#2a7ab5;color:#fff;border:none;border-radius:8px;font-size:1rem;font-weight:600;font-family:'Outfit',sans-serif;cursor:pointer;letter-spacing:0.3px;">Traccia il mio ordine</button>
                     </div>
