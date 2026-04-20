@@ -506,6 +506,146 @@
 
 /* Legacy: nasconde eventuale form nativo rimasto nello shortcode dopo lo spostamento */
 .track-order-section-placeholder-hide { display: none !important; }
+
+/* ═══ TABS DI METODO TRACCIAMENTO ═══ */
+.rocard-tracking .rct-method-tabs {
+    display: flex !important;
+    gap: 0 !important;
+    background: #f1f3f5 !important;
+    border-radius: 12px !important;
+    padding: 5px !important;
+    margin-bottom: 12px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+.rocard-tracking .rct-method-tab {
+    flex: 1 !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 12px 16px !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    font-family: 'Outfit', sans-serif !important;
+    color: #666 !important;
+    cursor: pointer !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    transition: all 0.3s ease !important;
+    text-align: center !important;
+    line-height: 1.3 !important;
+}
+.rocard-tracking .rct-method-tab svg {
+    width: 18px !important; height: 18px !important; flex-shrink: 0 !important;
+}
+.rocard-tracking .rct-method-tab:hover {
+    color: #2a7ab5 !important;
+}
+.rocard-tracking .rct-method-tab.rct-active {
+    background: #fff !important;
+    color: #2a7ab5 !important;
+    font-weight: 600 !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+}
+.rocard-tracking .rct-method-hint {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    background: #eff6ff !important;
+    border-left: 3px solid #2a7ab5 !important;
+    padding: 12px 16px !important;
+    border-radius: 6px !important;
+    margin-bottom: 20px !important;
+    font-size: 0.85rem !important;
+    color: #444 !important;
+    line-height: 1.5 !important;
+}
+.rocard-tracking .rct-method-hint svg {
+    width: 18px !important; height: 18px !important; flex-shrink: 0 !important;
+    color: #2a7ab5 !important; margin-top: 2px !important;
+}
+.rocard-tracking .rct-method-hint strong { color: #2a7ab5 !important; }
+
+/* Tab content */
+.rocard-tracking .rct-tab-pane { display: none !important; }
+.rocard-tracking .rct-tab-pane.rct-active { display: block !important; }
+
+/* Form "Numero spedizione diretto" */
+.rocard-tracking .rct-shipping-form { display: block !important; }
+.rocard-tracking .rct-shipping-form .rct-field-group { margin-bottom: 16px !important; }
+.rocard-tracking .rct-shipping-form label {
+    display: block !important;
+    font-weight: 500 !important;
+    margin-bottom: 6px !important;
+    color: #333 !important;
+    font-size: 0.9rem !important;
+    font-family: 'Outfit', sans-serif !important;
+}
+.rocard-tracking .rct-shipping-form input,
+.rocard-tracking .rct-shipping-form select {
+    width: 100% !important;
+    padding: 12px 16px !important;
+    border: 2px solid #e5e5e5 !important;
+    border-radius: 8px !important;
+    font-size: 0.95rem !important;
+    font-family: 'Outfit', sans-serif !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background: #fff !important;
+    height: auto !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    min-height: 46px !important;
+    color: #333 !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+}
+.rocard-tracking .rct-shipping-form select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%232a7ab5' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 16px center !important;
+    padding-right: 40px !important;
+}
+.rocard-tracking .rct-shipping-form input:focus,
+.rocard-tracking .rct-shipping-form select:focus {
+    border-color: #2a7ab5 !important;
+}
+.rocard-tracking .rct-shipping-form .rct-shipping-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    padding: 14px !important;
+    background: #2a7ab5 !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    font-family: 'Outfit', sans-serif !important;
+    cursor: pointer !important;
+    letter-spacing: 0.3px !important;
+    line-height: 1.4 !important;
+    min-height: 50px !important;
+    margin-top: 4px !important;
+    transition: background 0.3s ease !important;
+}
+.rocard-tracking .rct-shipping-form .rct-shipping-btn:hover { background: #f57c00 !important; }
+.rocard-tracking .rct-shipping-form .rct-shipping-btn svg { width: 18px !important; height: 18px !important; }
+
+@media (max-width: 560px) {
+    .rocard-tracking .rct-method-tab span.rct-tab-label-long { display: none !important; }
+    .rocard-tracking .rct-method-tab span.rct-tab-label-short { display: inline !important; }
+    .rocard-tracking .rct-method-tab { padding: 10px 8px !important; font-size: 0.85rem !important; }
+}
+@media (min-width: 561px) {
+    .rocard-tracking .rct-method-tab span.rct-tab-label-short { display: none !important; }
+    .rocard-tracking .rct-method-tab span.rct-tab-label-long { display: inline !important; }
+}
 </style>
 
 <div class="rocard-tracking">
@@ -525,13 +665,60 @@
 <section class="rct-track-form-section">
     <div class="rct-container">
         <div class="rct-track-form-container">
-            <!-- Placeholder dove lo script sposta il form TrackShip nativo -->
-            <div class="rct-trackship-mount" id="rctTrackshipMount">
-                <div class="rct-form-loading">
-                    <div class="rct-spinner"></div>
-                    <p>Caricamento modulo di tracciamento...</p>
+
+            <!-- Tabs: scelta metodo di tracciamento -->
+            <div class="rct-method-tabs" role="tablist">
+                <button type="button" class="rct-method-tab rct-active" data-method="order" role="tab" aria-selected="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16.5 9.4 7.55 4.24"></path><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                    <span class="rct-tab-label-long">Numero ordine + Email</span>
+                    <span class="rct-tab-label-short">Ordine + Email</span>
+                </button>
+                <button type="button" class="rct-method-tab" data-method="shipping" role="tab" aria-selected="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"></path><path d="M2 7h20v10H2z"></path><path d="M6 17v3"></path><path d="M18 17v3"></path></svg>
+                    <span class="rct-tab-label-long">Numero di spedizione</span>
+                    <span class="rct-tab-label-short">Spedizione</span>
+                </button>
+            </div>
+
+            <!-- Hint esplicativa -->
+            <div class="rct-method-hint" id="rctMethodHint">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                <span id="rctHintText"><strong>Due modalit&agrave; a tua scelta:</strong> usa <strong>numero ordine + email</strong> per lo stato completo della spedizione tramite il nostro sistema, oppure il <strong>numero di spedizione</strong> per andare direttamente sul sito del corriere.</span>
+            </div>
+
+            <!-- TAB 1: TrackShip nativo (Ordine + Email) -->
+            <div class="rct-tab-pane rct-active" data-pane="order">
+                <div class="rct-trackship-mount" id="rctTrackshipMount">
+                    <div class="rct-form-loading">
+                        <div class="rct-spinner"></div>
+                        <p>Caricamento modulo di tracciamento...</p>
+                    </div>
                 </div>
             </div>
+
+            <!-- TAB 2: Numero di spedizione diretto -->
+            <div class="rct-tab-pane" data-pane="shipping">
+                <form class="rct-shipping-form" id="rctShippingForm" onsubmit="return false;">
+                    <div class="rct-field-group">
+                        <label for="rctShippingNumber">Numero di spedizione (tracking)</label>
+                        <input type="text" id="rctShippingNumber" name="shipping_number" placeholder="Es. NN665931971" autocomplete="off">
+                    </div>
+                    <div class="rct-field-group">
+                        <label for="rctShippingCourier">Corriere</label>
+                        <select id="rctShippingCourier" name="shipping_courier">
+                            <option value="auto">Rilevamento automatico</option>
+                            <option value="gls">GLS</option>
+                            <option value="brt">BRT</option>
+                            <option value="poste">Poste Italiane</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="rct-shipping-btn" id="rctShippingBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        <span>Traccia sul sito del corriere</span>
+                    </button>
+                </form>
+            </div>
+
             <p class="rct-form-hint">Trova i dati nell'email di conferma che hai ricevuto dopo l'acquisto</p>
             <div class="rct-trust-indicators">
                 <div class="rct-trust-item">
@@ -915,3 +1102,90 @@
     }
 })();
 </script>
+
+<!-- Tab switching + tracking diretto corriere -->
+<script>
+(function() {
+    // URL di tracking dei corrieri supportati
+    var COURIER_URLS = {
+        gls: function(n) { return 'https://www.gls-italy.com/it/servizi-on-line/ricerca-spedizioni?match=' + encodeURIComponent(n); },
+        brt: function(n) { return 'https://vas.brt.it/vas/sped_det_show.htm?referer=sped_numspe_par.htm&Nspediz=' + encodeURIComponent(n); },
+        poste: function(n) { return 'https://www.poste.it/cerca/index.html#/risultati-spedizioni/' + encodeURIComponent(n); }
+    };
+
+    // Rilevamento automatico del corriere dal formato numero spedizione
+    function detectCourier(number) {
+        var n = (number || '').trim().toUpperCase();
+        if (!n) return null;
+        // GLS: solitamente inizia con NN, o e' solo numerico 12 cifre
+        if (/^NN\d{8,}$/i.test(n) || /^\d{11,13}$/.test(n)) return 'gls';
+        // BRT: 12 cifre solitamente (collo), ma spesso distinguibile dall'ordine/rif
+        if (/^\d{12}$/.test(n) || /^[A-Z]{2,3}\d{6,10}$/i.test(n)) return 'brt';
+        // Poste: spesso 13 caratteri alfanumerici, inizia con RR, CP, LP, ecc.
+        if (/^(RR|CP|LP|CC|JJ|EE|RZ)/i.test(n) || /^[A-Z]{2}\d{9}(IT)?$/i.test(n)) return 'poste';
+        return 'gls'; // fallback
+    }
+
+    function initTabs() {
+        var tabs = document.querySelectorAll('.rocard-tracking .rct-method-tab');
+        var panes = document.querySelectorAll('.rocard-tracking .rct-tab-pane');
+        var hintText = document.getElementById('rctHintText');
+        if (!tabs.length) return;
+
+        tabs.forEach(function(tab) {
+            tab.addEventListener('click', function() {
+                var method = tab.getAttribute('data-method');
+                tabs.forEach(function(t) {
+                    t.classList.remove('rct-active');
+                    t.setAttribute('aria-selected', 'false');
+                });
+                tab.classList.add('rct-active');
+                tab.setAttribute('aria-selected', 'true');
+                panes.forEach(function(p) {
+                    if (p.getAttribute('data-pane') === method) p.classList.add('rct-active');
+                    else p.classList.remove('rct-active');
+                });
+                // Cambia hint text
+                if (hintText) {
+                    if (method === 'order') {
+                        hintText.innerHTML = '<strong>Modalit&agrave; ordine:</strong> inserisci il numero ordine (lo trovi nell\'email di conferma) e l\'email usata durante l\'acquisto per vedere lo stato completo della spedizione.';
+                    } else {
+                        hintText.innerHTML = '<strong>Modalit&agrave; spedizione:</strong> inserisci il numero di spedizione (ricevuto tramite SMS o email dal corriere) e verrai portato direttamente sul sito ufficiale del corriere per il tracking in tempo reale.';
+                    }
+                }
+            });
+        });
+
+        // Handler form spedizione
+        var shippingForm = document.getElementById('rctShippingForm');
+        var shippingBtn = document.getElementById('rctShippingBtn');
+        if (shippingForm) {
+            var doTrack = function() {
+                var numberInput = document.getElementById('rctShippingNumber');
+                var courierSelect = document.getElementById('rctShippingCourier');
+                var number = (numberInput.value || '').trim();
+                if (!number) {
+                    numberInput.focus();
+                    numberInput.style.borderColor = '#ef4444';
+                    setTimeout(function() { numberInput.style.borderColor = ''; }, 1500);
+                    return;
+                }
+                var courier = courierSelect.value;
+                if (courier === 'auto') courier = detectCourier(number);
+                if (!COURIER_URLS[courier]) courier = 'gls';
+                var url = COURIER_URLS[courier](number);
+                window.open(url, '_blank', 'noopener,noreferrer');
+            };
+            shippingForm.addEventListener('submit', function(e) { e.preventDefault(); doTrack(); });
+            if (shippingBtn) shippingBtn.addEventListener('click', function(e) { e.preventDefault(); doTrack(); });
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTabs);
+    } else {
+        initTabs();
+    }
+})();
+</script>
+

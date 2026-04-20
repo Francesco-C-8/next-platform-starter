@@ -20,11 +20,14 @@ Il cliente copia-incolla l'HTML direttamente nel widget HTML di Elementor, senza
 ## Cosa è stato implementato
 
 ### 2026-02 — Sessione corrente
-- ✅ **Approccio DOM-MOVE definitivo per TrackShip** (20/02): abbandonato il proxy pattern (fallimento del dual-form). Nuovo approccio: widget HTML contiene solo un placeholder `.rct-trackship-mount`; uno script DOM-move sposta fisicamente l'intera `.track-order-section` (renderizzata dal widget shortcode) dentro il mount point. Così TrackShip lavora con il SUO form originale (AJAX, nonce, eventi jQuery) senza duplicazione, e noi lo stilizziamo aggressivamente via CSS targettando `.rct-trackship-mount .track-order-section`, `form.order_track_form`, input, button, label. Auto-hide del widget shortcode vuoto rimasto vuoto dopo lo spostamento. Fallback con messaggio errore dopo 12s di retry falliti.
-- ✅ **Stile form TrackShip nativo** (20/02): CSS specifico che rende input a due colonne (50/50 con margin 16px), bottone "Traccia" a larghezza piena, label coerenti con font Outfit, box risultato AJAX con sfondo grigio chiaro + bordo + font serif per titoli. Mobile: colonna unica sotto 640px.
-- ✅ **Loading spinner** (20/02): placeholder con spinner rotante + testo "Caricamento modulo di tracciamento..." mostrato fino allo spostamento del form.
-- ✅ **Banner coupon INVIAGGIO10** (20/02): sezione arancione brandizzata dopo i prodotti, countdown 15 min (sessionStorage), bottone "Copia codice" con feedback "Copiato!" verde. Testo meta aggiornato: "Solo per te, un'unica volta • Approfittane subito".
-- ✅ **Tracking page namespace fix** (20/02): classi prefissate `rct-` per eliminare conflitti CSS con Woodmart.
+- ✅ **Tabs dual-method tracking** (20/02): aggiunte due tab pill-style sopra il form con scelta tra "Numero ordine + Email" (default, usa TrackShip nativo via DOM-move) e "Numero di spedizione" (form custom che apre direttamente il sito del corriere in nuova tab con l'URL corretto). Hint esplicativa blu che cambia in base alla tab attiva. Auto-detection del corriere dal formato del tracking number (NN→GLS, lettere+IT→Poste, ecc.) con override manuale via select.
+- ✅ **Redirect corrieri**: URL di tracking per GLS (`gls-italy.com`), BRT (`vas.brt.it`), Poste Italiane (`poste.it`).
+- ✅ **Approccio DOM-MOVE per TrackShip** (20/02): widget HTML contiene placeholder `.rct-trackship-mount`; script sposta la `.track-order-section` nativa dentro il mount. TrackShip lavora con form originale intatto (AJAX + nonce + jQuery). CSS stilizza aggressivamente input/button/label/box risultato per matchare il design. Auto-hide del widget shortcode vuoto dopo lo spostamento.
+- ✅ **Stile form TrackShip nativo**: input due colonne 50/50 con margin 16px, bottone full-width, label Outfit, box risultato grigio chiaro con bordi. Mobile: colonna unica <640px.
+- ✅ **Loading spinner**: mostrato nel mount fino allo spostamento del form.
+- ✅ **Banner coupon INVIAGGIO10**: sezione arancione con countdown 15 min (sessionStorage), bottone "Copia codice" con feedback verde. Testo: "Solo per te, un'unica volta • Approfittane subito".
+- ✅ **Tracking page namespace fix**: classi prefissate `rct-` per eliminare conflitti CSS con Woodmart.
+- 🟢 **Tracking end-to-end confermato funzionante** (20/02): ordine 104049 recupera GLS Europe + NN665931971 correttamente.
 
 ### Sessioni precedenti
 - Consolidati 7 template HTML individuali in `ROCARD-COMPLETO.html` unificato
