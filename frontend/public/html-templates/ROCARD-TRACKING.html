@@ -313,81 +313,199 @@
     margin-top: 8px !important;
 }
 
-/* ═══ STILE FORM TRACKSHIP ═══ */
-/* Nasconde inizialmente il form TrackShip nativo (lo mostreremo via JS al momento del submit per ricevere il risultato) */
-.track-order-section,
-.elementor-shortcode .track-order-section {
+/* ═══ TRACKSHIP MOUNT & FORM NATIVO ═══ */
+/* Contenitore dove il form TrackShip nativo viene spostato */
+.rocard-tracking .rct-trackship-mount {
+    min-height: 180px !important;
+    position: relative !important;
+}
+/* Loading placeholder mostrato prima che il form nativo venga spostato */
+.rocard-tracking .rct-form-loading {
+    display: flex !important; flex-direction: column !important;
+    align-items: center !important; justify-content: center !important;
+    gap: 12px !important; padding: 40px 20px !important;
+    color: #666 !important; font-size: 0.9rem !important;
+}
+.rocard-tracking .rct-form-loading.rct-hidden { display: none !important; }
+.rocard-tracking .rct-spinner {
+    width: 32px !important; height: 32px !important;
+    border: 3px solid #e5e5e5 !important;
+    border-top-color: #2a7ab5 !important;
+    border-radius: 50% !important;
+    animation: rctSpin 0.8s linear infinite !important;
+}
+@keyframes rctSpin { to { transform: rotate(360deg); } }
+
+/* Stilizzazione AGGRESSIVA del form TrackShip nativo, una volta montato nel placeholder */
+.rocard-tracking .rct-trackship-mount .track-order-section,
+.rocard-tracking .rct-trackship-mount > form.order_track_form {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
     padding: 0 !important;
     margin: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    display: block !important;
+    visibility: visible !important;
+    height: auto !important;
+    overflow: visible !important;
 }
-.track-order-section.rct-hidden,
-.elementor-shortcode .track-order-section.rct-hidden {
-    display: none !important;
-    height: 0 !important;
-    overflow: hidden !important;
-    margin: 0 !important;
+.rocard-tracking .rct-trackship-mount form.order_track_form {
+    background: transparent !important;
+    padding: 0 !important; margin: 0 !important;
+    min-height: auto !important;
+}
+.rocard-tracking .rct-trackship-mount .search_order_form {
+    background: transparent !important;
+    padding: 0 !important; border: none !important; box-shadow: none !important;
+    width: 100% !important; display: block !important;
+}
+.rocard-tracking .rct-trackship-mount .order_id_email,
+.rocard-tracking .rct-trackship-mount .tracking_form {
+    display: block !important; width: 100% !important;
+    background: transparent !important; padding: 0 !important; margin: 0 !important;
+    border: none !important; box-shadow: none !important;
+}
+/* Griglia a due colonne per i due input */
+.rocard-tracking .rct-trackship-mount .order_id_email > p.form-row:nth-of-type(1),
+.rocard-tracking .rct-trackship-mount .order_id_email > p.form-row:nth-of-type(2) {
+    display: inline-block !important;
+    width: calc(50% - 8px) !important;
+    vertical-align: top !important;
+    margin: 0 !important; padding: 0 !important;
+    float: none !important; clear: none !important;
+}
+.rocard-tracking .rct-trackship-mount .order_id_email > p.form-row:nth-of-type(1) { margin-right: 16px !important; }
+/* Il bottone su tutta la larghezza */
+.rocard-tracking .rct-trackship-mount .order_id_email > p.form-row:last-child,
+.rocard-tracking .rct-trackship-mount p.form-row-submit,
+.rocard-tracking .rct-trackship-mount p.form-row:has(button[type="submit"]) {
+    display: block !important;
+    width: 100% !important;
+    margin-top: 20px !important;
+    margin-right: 0 !important;
+    float: none !important;
+    clear: both !important;
+}
+.rocard-tracking .rct-trackship-mount p.form-row {
+    margin: 0 !important; padding: 0 !important;
+    float: none !important; clear: none !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+.rocard-tracking .rct-trackship-mount p.form-row label {
+    display: block !important;
+    font-weight: 500 !important;
+    margin-bottom: 6px !important;
+    color: #333 !important;
+    font-size: 0.9rem !important;
+    font-family: 'Outfit', sans-serif !important;
     padding: 0 !important;
+    width: auto !important;
+    float: none !important;
 }
-/* Nasconde solo il branding TrackShip, mai il contenuto funzionale */
-.track-order-section .trackship_branding,
-.elementor-shortcode .trackship_branding { display: none !important; }
-
-/* Style del form nativo TrackShip quando viene mostrato dopo il submit */
-.track-order-section.rct-visible {
-    max-width: 700px !important;
-    margin: 20px auto !important;
+.rocard-tracking .rct-trackship-mount p.form-row input.input-text,
+.rocard-tracking .rct-trackship-mount p.form-row input[type="text"],
+.rocard-tracking .rct-trackship-mount p.form-row input[type="email"] {
+    width: 100% !important;
+    padding: 12px 16px !important;
+    border: 2px solid #e5e5e5 !important;
+    border-radius: 8px !important;
+    font-size: 0.95rem !important;
+    font-family: 'Outfit', sans-serif !important;
+    outline: none !important;
+    box-shadow: none !important;
     background: #fff !important;
-    padding: 32px !important;
-    border-radius: 12px !important;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.06) !important;
+    height: auto !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    min-height: 46px !important;
+    color: #333 !important;
+}
+.rocard-tracking .rct-trackship-mount p.form-row input.input-text:focus { border-color: #2a7ab5 !important; }
+/* Bottone TrackShip stilizzato come il nostro */
+.rocard-tracking .rct-trackship-mount button[type="submit"],
+.rocard-tracking .rct-trackship-mount input[type="submit"],
+.rocard-tracking .rct-trackship-mount button[name="track"] {
+    display: block !important;
+    width: 100% !important;
+    padding: 14px !important;
+    background: #2a7ab5 !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    font-family: 'Outfit', sans-serif !important;
+    cursor: pointer !important;
+    letter-spacing: 0.3px !important;
+    text-transform: none !important;
+    line-height: 1.4 !important;
+    height: auto !important;
+    margin: 0 !important;
+    min-height: 50px !important;
+    transition: background 0.3s ease !important;
+    box-shadow: none !important;
+}
+.rocard-tracking .rct-trackship-mount button[type="submit"]:hover,
+.rocard-tracking .rct-trackship-mount button[name="track"]:hover { background: #f57c00 !important; }
+/* Error message */
+.rocard-tracking .rct-trackship-mount .track_fail_msg {
+    text-align: center !important;
+    color: #ef4444 !important;
+    margin-top: 16px !important;
+    font-weight: 500 !important;
     font-family: 'Outfit', sans-serif !important;
 }
-.track-order-section.rct-visible .search_order_form {
-    padding: 0 !important; border: none !important; box-shadow: none !important; background: transparent !important;
+/* Branding TrackShip: nascondi */
+.rocard-tracking .rct-trackship-mount .trackship_branding,
+.trackship_branding { display: none !important; }
+
+/* Box risultato TrackShip */
+.rocard-tracking .rct-trackship-mount .tracking_info,
+.rocard-tracking .rct-trackship-mount .tracking-info,
+.rocard-tracking .rct-trackship-mount .ts-tracking-wrapper,
+.rocard-tracking .rct-trackship-mount .tracking_detail,
+.rocard-tracking .rct-trackship-mount .tracking-detail,
+.rocard-tracking .rct-trackship-mount .shipment_status,
+.rocard-tracking .rct-trackship-mount .tracking_details_page {
+    font-family: 'Outfit', sans-serif !important;
+    color: #333 !important;
+    margin-top: 20px !important;
+    padding: 20px !important;
+    background: #f8f9fa !important;
+    border-radius: 10px !important;
+    border: 1px solid #e5e5e5 !important;
 }
-.track-order-section.rct-visible .order_id_email { display: none !important; } /* Gli input li ha gia inseriti l'utente nel form custom */
-.track-order-section.rct-visible .tracking_info,
-.track-order-section.rct-visible .tracking-info,
-.track-order-section.rct-visible .tracking_detail,
-.track-order-section.rct-visible .shipment_status {
-    font-family: 'Outfit', sans-serif !important; color: #333 !important;
+.rocard-tracking .rct-trackship-mount h2,
+.rocard-tracking .rct-trackship-mount h3,
+.rocard-tracking .rct-trackship-mount h4 {
+    font-family: 'Cormorant Garamond', serif !important;
+    color: #2a7ab5 !important;
+    font-weight: 600 !important;
+    margin-bottom: 10px !important;
 }
-.track-order-section.rct-visible h2,
-.track-order-section.rct-visible h3 {
-    font-family: 'Cormorant Garamond', serif !important; color: #2a7ab5 !important; font-weight: 600 !important;
+.rocard-tracking .rct-trackship-mount a {
+    color: #f57c00 !important;
+    text-decoration: none !important;
+}
+.rocard-tracking .rct-trackship-mount a:hover { text-decoration: underline !important; }
+
+/* Mobile: colonna unica */
+@media (max-width: 640px) {
+    .rocard-tracking .rct-trackship-mount .order_id_email > p.form-row:nth-of-type(1),
+    .rocard-tracking .rct-trackship-mount .order_id_email > p.form-row:nth-of-type(2) {
+        display: block !important;
+        width: 100% !important;
+        margin-right: 0 !important;
+        margin-bottom: 16px !important;
+    }
 }
 
-/* Form custom nel widget HTML */
-.rocard-tracking .rc-form-wrap { max-width: 600px !important; margin: 0 auto !important; }
-.rocard-tracking form.order_track_form { margin: 0 !important; padding: 0 !important; width: 100% !important; display: block !important; }
-.rocard-tracking .search_order_form { width: 100% !important; display: block !important; }
-.rocard-tracking .order_id_email { width: 100% !important; display: block !important; }
-.rocard-tracking .rc-form-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 16px !important; width: 100% !important; }
-.rocard-tracking p.form-row,
-.rocard-tracking .rc-form-field { margin: 0 !important; padding: 0 !important; width: auto !important; float: none !important; clear: none !important; display: block !important; }
-.rocard-tracking .rc-form-field label { display: block !important; font-weight: 500 !important; margin-bottom: 6px !important; color: #333 !important; font-size: 0.9rem !important; font-family: 'Outfit', sans-serif !important; width: auto !important; float: none !important; padding: 0 !important; }
-.rocard-tracking .rc-form-field .input-text {
-    width: 100% !important; padding: 12px 16px !important; border: 2px solid #e5e5e5 !important;
-    border-radius: 8px !important; font-size: 0.95rem !important; font-family: 'Outfit', sans-serif !important;
-    outline: none !important; box-shadow: none !important; background: #fff !important;
-    height: auto !important; line-height: 1.4 !important; margin: 0 !important;
-}
-.rocard-tracking .rc-form-field .input-text:focus { border-color: #2a7ab5 !important; }
-.rocard-tracking .rc-submit-row { margin-top: 20px !important; margin-bottom: 0 !important; }
-.rocard-tracking .rc-submit-btn {
-    display: block !important; width: 100% !important; padding: 14px !important;
-    background: #2a7ab5 !important; color: #fff !important; border: none !important;
-    border-radius: 8px !important; font-size: 1rem !important; font-weight: 600 !important;
-    font-family: 'Outfit', sans-serif !important; cursor: pointer !important;
-    letter-spacing: 0.3px !important; text-transform: none !important;
-    line-height: 1.4 !important; height: auto !important; margin: 0 !important;
-    transition: background 0.3s ease !important;
-}
-.rocard-tracking .rc-submit-btn:hover { background: #f57c00 !important; }
-.rocard-tracking .rc-track-error { display: none; text-align: center; color: #ef4444; margin-top: 16px; font-weight: 500; }
+/* Legacy: nasconde eventuale form nativo rimasto nello shortcode dopo lo spostamento */
+.track-order-section-placeholder-hide { display: none !important; }
 </style>
 
 <div class="rocard-tracking">
@@ -407,29 +525,12 @@
 <section class="rct-track-form-section">
     <div class="rct-container">
         <div class="rct-track-form-container">
-            <div class="rc-form-wrap">
-                <form action="https://www.rocard.it/traking_new/" method="post" class="order_track_form" style="min-height:auto!important;">
-                    <input type="hidden" name="action" value="get_tracking_info">
-                    <input type="hidden" name="fronted" value="yes">
-                    <div class="search_order_form" style="padding:0!important;border:none!important;box-shadow:none!important;background:transparent!important;">
-                        <div class="order_id_email tracking_form" style="display:block!important;">
-                            <div class="rc-form-grid">
-                                <p class="form-row rc-form-field">
-                                    <label for="order_id">ID ordine</label>
-                                    <input class="input-text" type="text" name="order_id" id="order_id" value="" placeholder="Numero d'ordine (es. 104049)">
-                                </p>
-                                <p class="form-row rc-form-field">
-                                    <label for="order_email">Email di fatturazione</label>
-                                    <input class="input-text" type="text" name="order_email" id="order_email" value="" placeholder="Email usata durante l'ordine">
-                                </p>
-                            </div>
-                            <p class="form-row rc-submit-row">
-                                <button type="submit" class="button btn btn-secondary rc-submit-btn" name="track" value="Track">Traccia il mio ordine</button>
-                            </p>
-                        </div>
-                        <div class="track_fail_msg rc-track-error"></div>
-                    </div>
-                </form>
+            <!-- Placeholder dove lo script sposta il form TrackShip nativo -->
+            <div class="rct-trackship-mount" id="rctTrackshipMount">
+                <div class="rct-form-loading">
+                    <div class="rct-spinner"></div>
+                    <p>Caricamento modulo di tracciamento...</p>
+                </div>
             </div>
             <p class="rct-form-hint">Trova i dati nell'email di conferma che hai ricevuto dopo l'acquisto</p>
             <div class="rct-trust-indicators">
@@ -547,7 +648,7 @@
                     <span>Scade tra</span>
                     <span class="rct-timer-digits" id="rctCouponTimer">15:00</span>
                 </div>
-                <p class="rct-coupon-meta">Valido su ordini da &euro;29 &bull; Limite 1 utilizzo per cliente</p>
+                <p class="rct-coupon-meta">Solo per te, un'unica volta &bull; Approfittane subito</p>
             </div>
             <div class="rct-coupon-code-box">
                 <span class="rct-coupon-code" id="rctCouponCode">INVIAGGIO10</span>
@@ -754,116 +855,57 @@
 })();
 </script>
 
-<!-- Proxy TrackShip: copia i dati nel form nativo, lo rende visibile per ricevere il risultato AJAX -->
+<!-- Sposta il form TrackShip nativo dentro il nostro contenitore stilizzato -->
 <script>
 (function() {
-    // Al caricamento: nasconde il form nativo TrackShip
-    function hideNativeFormInitially() {
-        var allForms = document.querySelectorAll('form.order_track_form');
-        var customForm = document.querySelector('.rocard-tracking form.order_track_form');
-        for (var i = 0; i < allForms.length; i++) {
-            if (allForms[i] === customForm) continue;
-            var wrap = allForms[i].closest('.track-order-section') || allForms[i].parentElement;
-            if (wrap) wrap.classList.add('rct-hidden');
-        }
-    }
-
-    // Trova il form TrackShip nativo (quello dello shortcode, diverso dal nostro custom)
-    function findNativeForm() {
-        var customForm = document.querySelector('.rocard-tracking form.order_track_form');
-        var allForms = document.querySelectorAll('form.order_track_form');
-        for (var i = 0; i < allForms.length; i++) {
-            if (allForms[i] !== customForm) return allForms[i];
-        }
-        return null;
-    }
-
-    // Intercetta il click sul bottone custom: fa proxy al form nativo
-    function setupProxy() {
-        var customForm = document.querySelector('.rocard-tracking form.order_track_form');
-        if (!customForm) return;
-
-        customForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            var nativeForm = findNativeForm();
-            if (!nativeForm) {
-                alert('Errore: modulo di tracciamento non trovato. Ricarica la pagina.');
-                return;
+    var moved = false;
+    function moveTrackShipForm() {
+        if (moved) return true;
+        var mount = document.getElementById('rctTrackshipMount');
+        if (!mount) return false;
+        // Cerca il form TrackShip nativo (ovunque sulla pagina: shortcode, altri widget, ecc.)
+        var nativeSection = document.querySelector('body > div .track-order-section, .elementor-widget-shortcode .track-order-section, .elementor-shortcode .track-order-section, .track-order-section');
+        var nativeForm = nativeSection ? nativeSection.querySelector('form.order_track_form') : document.querySelector('form.order_track_form');
+        if (!nativeForm) return false;
+        // Se il form e gia dentro il mount, non fare nulla
+        if (mount.contains(nativeForm)) { moved = true; return true; }
+        // Preferisci spostare la track-order-section intera per mantenere tutto il contesto TrackShip
+        var toMove = nativeSection && nativeSection.querySelector('form.order_track_form') === nativeForm ? nativeSection : nativeForm;
+        // Nascondi il loading
+        var loader = mount.querySelector('.rct-form-loading');
+        if (loader) loader.classList.add('rct-hidden');
+        // Sposta il form dentro il mount
+        mount.appendChild(toMove);
+        // Nascondi il widget shortcode vuoto rimasto sopra/sotto se c'era (evita spazi vuoti)
+        document.querySelectorAll('.elementor-widget-shortcode').forEach(function(widget) {
+            if (widget.contains(mount)) return;
+            // Se il widget shortcode non contiene piu nulla di utile, nascondilo
+            var hasContent = widget.querySelector('form.order_track_form, .track-order-section, iframe, img, h1, h2, p, .elementor-widget-container > *:not(:empty)');
+            if (!hasContent) {
+                widget.style.display = 'none';
             }
-
-            // Copia i valori dal custom al nativo
-            var orderIdVal = customForm.querySelector('[name="order_id"]').value.trim();
-            var orderEmailVal = customForm.querySelector('[name="order_email"]').value.trim();
-            if (!orderIdVal) {
-                alert('Inserisci il numero d\'ordine.');
-                return;
-            }
-
-            var nativeOrderId = nativeForm.querySelector('[name="order_id"]');
-            var nativeOrderEmail = nativeForm.querySelector('[name="order_email"]');
-            if (nativeOrderId) nativeOrderId.value = orderIdVal;
-            if (nativeOrderEmail) nativeOrderEmail.value = orderEmailVal;
-
-            // Rende visibile il container del form nativo (per ricevere il risultato)
-            var nativeWrap = nativeForm.closest('.track-order-section') || nativeForm.parentElement;
-            if (nativeWrap) {
-                nativeWrap.classList.remove('rct-hidden');
-                nativeWrap.classList.add('rct-visible');
-            }
-
-            // Nasconde il form custom e mostra un messaggio di caricamento
-            var customContainer = customForm.closest('.rct-track-form-container');
-            if (customContainer) {
-                customContainer.style.transition = 'opacity 0.3s';
-                customContainer.style.opacity = '0.3';
-                customContainer.style.pointerEvents = 'none';
-            }
-
-            // Triggera il submit nativo (TrackShip intercettera e fara l'AJAX)
-            var nativeSubmit = nativeForm.querySelector('button[type="submit"], input[type="submit"], button[name="track"]');
-            if (nativeSubmit) {
-                nativeSubmit.click();
-            } else {
-                // Fallback: dispatch submit event
-                if (typeof jQuery !== 'undefined') {
-                    jQuery(nativeForm).trigger('submit');
-                } else {
-                    nativeForm.submit();
-                }
-            }
-
-            // Scroll al risultato dopo breve delay
-            setTimeout(function() {
-                if (nativeWrap && nativeWrap.scrollIntoView) {
-                    nativeWrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-            }, 800);
-        }, true);
-
-        // Intercetta anche il click diretto sul bottone (alcuni temi bypassano il submit event)
-        var submitBtn = customForm.querySelector('.rc-submit-btn');
-        if (submitBtn) {
-            submitBtn.addEventListener('click', function(e) {
-                // Lascia che l'evento submit del form gestisca
-                if (e.target.type === 'submit') {
-                    // nulla
-                }
-            });
-        }
+        });
+        moved = true;
+        return true;
     }
 
     function init() {
-        hideNativeFormInitially();
-        setupProxy();
-        // Riprova dopo delay nel caso lo shortcode TrackShip carichi in ritardo
+        if (moveTrackShipForm()) return;
+        // Retry con setInterval nel caso lo shortcode carichi in ritardo
         var attempts = 0;
         var interval = setInterval(function() {
             attempts++;
-            hideNativeFormInitially();
-            if (findNativeForm() || attempts > 20) clearInterval(interval);
-        }, 500);
+            if (moveTrackShipForm() || attempts > 30) {
+                clearInterval(interval);
+                if (!moved) {
+                    // Fallback: mostra messaggio errore nel mount
+                    var mount = document.getElementById('rctTrackshipMount');
+                    if (mount) {
+                        mount.innerHTML = '<p style="text-align:center;padding:30px;color:#ef4444;">Impossibile caricare il modulo di tracciamento. <a href="#" onclick="location.reload();return false;" style="color:#2a7ab5;">Ricarica la pagina</a> o contatta il supporto.</p>';
+                    }
+                }
+            }
+        }, 400);
     }
 
     if (document.readyState === 'loading') {

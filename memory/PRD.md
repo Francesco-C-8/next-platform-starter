@@ -20,11 +20,11 @@ Il cliente copia-incolla l'HTML direttamente nel widget HTML di Elementor, senza
 ## Cosa è stato implementato
 
 ### 2026-02 — Sessione corrente
-- ✅ **Tracking page namespace fix** (20/02): classi rinominate con prefisso `rct-` per eliminare conflitti CSS con Woodmart. Rimosso HTML duplicato/rotto (tag `<button>`, `</form>`, `</div>` orfani) che causava layout "sfalsato". Verificato via screenshot: layout pulito e ordinato.
-- ✅ **Fix errore "Verifica della sicurezza non riuscita"** (20/02): prima tentato con copia nonce, poi switchato al **pattern proxy** più robusto: il form custom al submit copia i valori `order_id`/`order_email` nel form TrackShip nativo (dello shortcode, inizialmente nascosto), rimuove `display:none`, e triggera la submit nativa. TrackShip gestisce AJAX con il suo nonce valido e inietta il risultato nel proprio DOM, ora visibile e stilizzato.
-- ✅ **Fix padding input form** (20/02): override WooCommerce/Woodmart `.form-row` (margin/padding/float/width) che tagliava le label e riduceva la larghezza dei campi.
-- ✅ **Banner coupon INVIAGGIO10** (20/02): aggiunta sezione arancione brandizzata dopo i prodotti con codice sconto, countdown 15 minuti (sessionStorage persistente per tab), bottone "Copia codice" con feedback visivo. Il coupon è stato creato dall'utente in WooCommerce Marketing.
-- Form custom mantiene classi funzionali TrackShip (`order_track_form`, `order_id`, `order_email`, `search_order_form`, `track_fail_msg`) per integrazione jQuery AJAX nativa.
+- ✅ **Approccio DOM-MOVE definitivo per TrackShip** (20/02): abbandonato il proxy pattern (fallimento del dual-form). Nuovo approccio: widget HTML contiene solo un placeholder `.rct-trackship-mount`; uno script DOM-move sposta fisicamente l'intera `.track-order-section` (renderizzata dal widget shortcode) dentro il mount point. Così TrackShip lavora con il SUO form originale (AJAX, nonce, eventi jQuery) senza duplicazione, e noi lo stilizziamo aggressivamente via CSS targettando `.rct-trackship-mount .track-order-section`, `form.order_track_form`, input, button, label. Auto-hide del widget shortcode vuoto rimasto vuoto dopo lo spostamento. Fallback con messaggio errore dopo 12s di retry falliti.
+- ✅ **Stile form TrackShip nativo** (20/02): CSS specifico che rende input a due colonne (50/50 con margin 16px), bottone "Traccia" a larghezza piena, label coerenti con font Outfit, box risultato AJAX con sfondo grigio chiaro + bordo + font serif per titoli. Mobile: colonna unica sotto 640px.
+- ✅ **Loading spinner** (20/02): placeholder con spinner rotante + testo "Caricamento modulo di tracciamento..." mostrato fino allo spostamento del form.
+- ✅ **Banner coupon INVIAGGIO10** (20/02): sezione arancione brandizzata dopo i prodotti, countdown 15 min (sessionStorage), bottone "Copia codice" con feedback "Copiato!" verde. Testo meta aggiornato: "Solo per te, un'unica volta • Approfittane subito".
+- ✅ **Tracking page namespace fix** (20/02): classi prefissate `rct-` per eliminare conflitti CSS con Woodmart.
 
 ### Sessioni precedenti
 - Consolidati 7 template HTML individuali in `ROCARD-COMPLETO.html` unificato
