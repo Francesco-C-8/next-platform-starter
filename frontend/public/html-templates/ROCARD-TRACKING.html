@@ -239,7 +239,21 @@
     <div class="container">
         <div class="track-form-container">
             <div style="max-width: 600px; margin: 0 auto;">
-                [woocommerce_order_tracking]
+                <form action="https://www.rocard.it/track-order/" method="post" style="font-family:var(--font-body);">
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+                        <div>
+                            <label for="orderid" style="display:block;font-weight:500;margin-bottom:6px;color:var(--rc-text);font-size:0.9rem;">ID ordine</label>
+                            <input type="text" name="orderid" id="orderid" required placeholder="Presente nell'email di conferma ordine." style="width:100%;padding:12px 16px;border:2px solid #e5e5e5;border-radius:8px;font-size:0.95rem;font-family:var(--font-body);transition:border-color 0.2s;outline:none;">
+                        </div>
+                        <div>
+                            <label for="order_email" style="display:block;font-weight:500;margin-bottom:6px;color:var(--rc-text);font-size:0.9rem;">Email di fatturazione</label>
+                            <input type="email" name="order_email" id="order_email" required placeholder="Email utilizzata durante l'ordine." style="width:100%;padding:12px 16px;border:2px solid #e5e5e5;border-radius:8px;font-size:0.95rem;font-family:var(--font-body);transition:border-color 0.2s;outline:none;">
+                        </div>
+                    </div>
+                    <div style="margin-top:20px;">
+                        <button type="submit" name="track" value="Traccia" style="display:block;width:100%;padding:14px;background:#2a7ab5;color:#fff;border:none;border-radius:8px;font-size:1rem;font-weight:600;font-family:'Outfit',sans-serif;cursor:pointer;letter-spacing:0.3px;">Traccia il mio ordine</button>
+                    </div>
+                </form>
             </div>
             <p class="form-hint">Trova i dati nell'email di conferma che hai ricevuto dopo l'acquisto</p>
             <div class="trust-indicators">
