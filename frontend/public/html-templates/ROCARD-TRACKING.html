@@ -224,23 +224,140 @@
     .rocard-tracking .rct-products-grid { grid-template-columns: 1fr !important; }
     .rocard-tracking .rct-reassurance-grid { grid-template-columns: 1fr !important; }
     .rocard-tracking .rct-stats-grid { grid-template-columns: 1fr !important; }
+    .rocard-tracking .rct-coupon-inner { flex-direction: column !important; text-align: center !important; }
+    .rocard-tracking .rct-coupon-code-box { margin: 16px 0 !important; }
+}
+
+/* ═══ COUPON BANNER ═══ */
+.rocard-tracking .rct-coupon-section {
+    padding: 40px 0 !important;
+    background: linear-gradient(135deg, #f57c00 0%, #e65100 100%) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+.rocard-tracking .rct-coupon-section::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background:
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,0.1) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(255,255,255,0.08) 0%, transparent 40%) !important;
+    pointer-events: none !important;
+}
+.rocard-tracking .rct-coupon-inner {
+    position: relative !important; z-index: 1 !important;
+    display: flex !important; align-items: center !important; justify-content: space-between !important;
+    gap: 24px !important; flex-wrap: wrap !important;
+    background: rgba(255,255,255,0.08) !important;
+    border: 2px dashed rgba(255,255,255,0.35) !important;
+    border-radius: 16px !important;
+    padding: 24px 32px !important;
+    backdrop-filter: blur(8px) !important;
+}
+.rocard-tracking .rct-coupon-left { flex: 1 !important; min-width: 240px !important; }
+.rocard-tracking .rct-coupon-tag {
+    display: inline-block !important;
+    font-size: 0.75rem !important; font-weight: 700 !important;
+    letter-spacing: 0.15em !important; text-transform: uppercase !important;
+    color: #fff !important; background: rgba(0,0,0,0.2) !important;
+    padding: 4px 12px !important; border-radius: 20px !important;
+    margin-bottom: 10px !important;
+}
+.rocard-tracking .rct-coupon-title {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: clamp(1.6rem, 3vw, 2.2rem) !important;
+    font-weight: 600 !important; color: #fff !important;
+    line-height: 1.15 !important; margin-bottom: 6px !important;
+}
+.rocard-tracking .rct-coupon-subtitle {
+    color: rgba(255,255,255,0.9) !important;
+    font-size: 0.95rem !important;
+}
+.rocard-tracking .rct-coupon-code-box {
+    display: flex !important; align-items: center !important; gap: 0 !important;
+    background: #fff !important; border-radius: 12px !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15) !important;
+    overflow: hidden !important;
+}
+.rocard-tracking .rct-coupon-code {
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 1.3rem !important; font-weight: 700 !important;
+    color: #2a7ab5 !important; padding: 16px 20px !important;
+    letter-spacing: 0.1em !important;
+    user-select: all !important;
+}
+.rocard-tracking .rct-coupon-btn {
+    background: #2a7ab5 !important; color: #fff !important;
+    border: none !important; cursor: pointer !important;
+    padding: 16px 20px !important; font-size: 0.9rem !important;
+    font-weight: 600 !important; font-family: 'Outfit', sans-serif !important;
+    transition: background 0.3s ease !important;
+    display: flex !important; align-items: center !important; gap: 6px !important;
+}
+.rocard-tracking .rct-coupon-btn:hover { background: #1e6a9e !important; }
+.rocard-tracking .rct-coupon-btn.rct-copied { background: #059669 !important; }
+.rocard-tracking .rct-coupon-timer {
+    display: flex !important; align-items: center !important; gap: 10px !important;
+    color: #fff !important; margin-top: 14px !important;
+    font-size: 0.9rem !important;
+}
+.rocard-tracking .rct-timer-digits {
+    font-family: 'Outfit', sans-serif !important;
+    font-weight: 700 !important; font-size: 1.1rem !important;
+    background: rgba(0,0,0,0.25) !important;
+    padding: 4px 12px !important; border-radius: 8px !important;
+    letter-spacing: 0.05em !important;
+}
+.rocard-tracking .rct-coupon-meta {
+    font-size: 0.75rem !important; color: rgba(255,255,255,0.75) !important;
+    margin-top: 8px !important;
 }
 
 /* ═══ STILE FORM TRACKSHIP ═══ */
-/* Nasconde COMPLETAMENTE il form e branding dello shortcode TrackShip nativo */
-.track-order-section > .order_track_form,
-.track-order-section .trackship_branding,
-.track-order-section > form.order_track_form,
-div.track-order-section > form,
-.elementor-shortcode .track-order-section .search_order_form,
-.elementor-shortcode .track-order-section .trackship_branding,
-.elementor-shortcode .trackship_branding {
+/* Nasconde inizialmente il form TrackShip nativo (lo mostreremo via JS al momento del submit per ricevere il risultato) */
+.track-order-section,
+.elementor-shortcode .track-order-section {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.track-order-section.rct-hidden,
+.elementor-shortcode .track-order-section.rct-hidden {
     display: none !important;
-    visibility: hidden !important;
     height: 0 !important;
     overflow: hidden !important;
     margin: 0 !important;
     padding: 0 !important;
+}
+/* Nasconde solo il branding TrackShip, mai il contenuto funzionale */
+.track-order-section .trackship_branding,
+.elementor-shortcode .trackship_branding { display: none !important; }
+
+/* Style del form nativo TrackShip quando viene mostrato dopo il submit */
+.track-order-section.rct-visible {
+    max-width: 700px !important;
+    margin: 20px auto !important;
+    background: #fff !important;
+    padding: 32px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06) !important;
+    font-family: 'Outfit', sans-serif !important;
+}
+.track-order-section.rct-visible .search_order_form {
+    padding: 0 !important; border: none !important; box-shadow: none !important; background: transparent !important;
+}
+.track-order-section.rct-visible .order_id_email { display: none !important; } /* Gli input li ha gia inseriti l'utente nel form custom */
+.track-order-section.rct-visible .tracking_info,
+.track-order-section.rct-visible .tracking-info,
+.track-order-section.rct-visible .tracking_detail,
+.track-order-section.rct-visible .shipment_status {
+    font-family: 'Outfit', sans-serif !important; color: #333 !important;
+}
+.track-order-section.rct-visible h2,
+.track-order-section.rct-visible h3 {
+    font-family: 'Cormorant Garamond', serif !important; color: #2a7ab5 !important; font-weight: 600 !important;
 }
 
 /* Form custom nel widget HTML */
@@ -417,6 +534,32 @@ div.track-order-section > form,
     </div>
 </section>
 
+<!-- Coupon Banner: INVIAGGIO10 con countdown 15 min -->
+<section class="rct-coupon-section">
+    <div class="rct-container">
+        <div class="rct-coupon-inner">
+            <div class="rct-coupon-left">
+                <span class="rct-coupon-tag">Offerta esclusiva per te</span>
+                <h3 class="rct-coupon-title">Mentre aspetti, risparmia il 10%</h3>
+                <p class="rct-coupon-subtitle">Usa il codice qui a fianco e completa un nuovo acquisto con sconto immediato.</p>
+                <div class="rct-coupon-timer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>Scade tra</span>
+                    <span class="rct-timer-digits" id="rctCouponTimer">15:00</span>
+                </div>
+                <p class="rct-coupon-meta">Valido su ordini da &euro;29 &bull; Limite 1 utilizzo per cliente</p>
+            </div>
+            <div class="rct-coupon-code-box">
+                <span class="rct-coupon-code" id="rctCouponCode">INVIAGGIO10</span>
+                <button type="button" class="rct-coupon-btn" id="rctCouponCopyBtn" aria-label="Copia codice sconto">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    <span id="rctCouponBtnLabel">Copia codice</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Support -->
 <section class="rct-support-section">
     <div class="rct-container">
@@ -532,56 +675,201 @@ div.track-order-section > form,
 
 </div>
 
-<!-- Copia il nonce di sicurezza dal form nativo TrackShip al nostro form custom -->
+<!-- Coupon: countdown 15 min + copia codice -->
 <script>
 (function() {
-    function copyTrackShipNonce() {
-        var customForm = document.querySelector('.rocard-tracking form.order_track_form');
-        if (!customForm) return false;
-        // Cerca il form nativo TrackShip renderizzato dallo shortcode (nascosto dal nostro CSS)
-        var allForms = document.querySelectorAll('form.order_track_form');
-        var nativeForm = null;
-        for (var i = 0; i < allForms.length; i++) {
-            if (allForms[i] !== customForm) { nativeForm = allForms[i]; break; }
+    function initCoupon() {
+        var timerEl = document.getElementById('rctCouponTimer');
+        var copyBtn = document.getElementById('rctCouponCopyBtn');
+        var codeEl = document.getElementById('rctCouponCode');
+        var btnLabel = document.getElementById('rctCouponBtnLabel');
+        if (!timerEl || !copyBtn || !codeEl) return;
+
+        // Countdown persistente 15 min (sessionStorage: si resetta quando chiude la scheda)
+        var DURATION = 15 * 60 * 1000;
+        var storageKey = 'rctCouponDeadline';
+        var deadline = parseInt(sessionStorage.getItem(storageKey) || '0', 10);
+        var now = Date.now();
+        if (!deadline || deadline < now) {
+            deadline = now + DURATION;
+            sessionStorage.setItem(storageKey, String(deadline));
         }
-        if (!nativeForm) return false;
-        // Copia TUTTI i campi nascosti (nonce, referer, ecc.) dal form nativo
-        var hiddenFields = nativeForm.querySelectorAll('input[type="hidden"]');
-        var copiedAny = false;
-        hiddenFields.forEach(function(field) {
-            var name = field.getAttribute('name');
-            if (!name) return;
-            // Evita duplicati: se il campo esiste gia nel form custom, lo aggiorna
-            var existing = customForm.querySelector('input[name="' + name + '"]');
-            if (existing) {
-                existing.value = field.value;
-            } else {
-                var clone = field.cloneNode(true);
-                customForm.appendChild(clone);
+
+        function render() {
+            var remaining = Math.max(0, deadline - Date.now());
+            var mins = Math.floor(remaining / 60000);
+            var secs = Math.floor((remaining % 60000) / 1000);
+            timerEl.textContent = (mins < 10 ? '0' : '') + mins + ':' + (secs < 10 ? '0' : '') + secs;
+            if (remaining <= 0) {
+                timerEl.textContent = 'SCADUTO';
+                copyBtn.disabled = true;
+                copyBtn.style.opacity = '0.5';
+                copyBtn.style.cursor = 'not-allowed';
+                return false;
             }
-            copiedAny = true;
-        });
-        return copiedAny;
-    }
-    function tryNow() {
-        if (!copyTrackShipNonce()) {
-            // riprova piu volte nel caso lo shortcode TrackShip carichi in ritardo
-            var attempts = 0;
-            var interval = setInterval(function() {
-                attempts++;
-                if (copyTrackShipNonce() || attempts > 20) clearInterval(interval);
-            }, 500);
+            return true;
         }
+
+        render();
+        var interval = setInterval(function() {
+            if (!render()) clearInterval(interval);
+        }, 1000);
+
+        // Copia codice
+        copyBtn.addEventListener('click', function() {
+            var code = codeEl.textContent.trim();
+            var done = function() {
+                copyBtn.classList.add('rct-copied');
+                if (btnLabel) btnLabel.textContent = 'Copiato!';
+                setTimeout(function() {
+                    copyBtn.classList.remove('rct-copied');
+                    if (btnLabel) btnLabel.textContent = 'Copia codice';
+                }, 2000);
+            };
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(code).then(done).catch(function() {
+                    // Fallback
+                    var ta = document.createElement('textarea');
+                    ta.value = code;
+                    document.body.appendChild(ta);
+                    ta.select();
+                    try { document.execCommand('copy'); done(); } catch(e) {}
+                    document.body.removeChild(ta);
+                });
+            } else {
+                var ta = document.createElement('textarea');
+                ta.value = code;
+                document.body.appendChild(ta);
+                ta.select();
+                try { document.execCommand('copy'); done(); } catch(e) {}
+                document.body.removeChild(ta);
+            }
+        });
     }
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', tryNow);
+        document.addEventListener('DOMContentLoaded', initCoupon);
     } else {
-        tryNow();
+        initCoupon();
     }
-    // Sicurezza aggiuntiva: al click del bottone, ricopia i nonce
-    document.addEventListener('click', function(e) {
-        var btn = e.target.closest('.rocard-tracking .rc-submit-btn');
-        if (btn) copyTrackShipNonce();
-    }, true);
+})();
+</script>
+
+<!-- Proxy TrackShip: copia i dati nel form nativo, lo rende visibile per ricevere il risultato AJAX -->
+<script>
+(function() {
+    // Al caricamento: nasconde il form nativo TrackShip
+    function hideNativeFormInitially() {
+        var allForms = document.querySelectorAll('form.order_track_form');
+        var customForm = document.querySelector('.rocard-tracking form.order_track_form');
+        for (var i = 0; i < allForms.length; i++) {
+            if (allForms[i] === customForm) continue;
+            var wrap = allForms[i].closest('.track-order-section') || allForms[i].parentElement;
+            if (wrap) wrap.classList.add('rct-hidden');
+        }
+    }
+
+    // Trova il form TrackShip nativo (quello dello shortcode, diverso dal nostro custom)
+    function findNativeForm() {
+        var customForm = document.querySelector('.rocard-tracking form.order_track_form');
+        var allForms = document.querySelectorAll('form.order_track_form');
+        for (var i = 0; i < allForms.length; i++) {
+            if (allForms[i] !== customForm) return allForms[i];
+        }
+        return null;
+    }
+
+    // Intercetta il click sul bottone custom: fa proxy al form nativo
+    function setupProxy() {
+        var customForm = document.querySelector('.rocard-tracking form.order_track_form');
+        if (!customForm) return;
+
+        customForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            var nativeForm = findNativeForm();
+            if (!nativeForm) {
+                alert('Errore: modulo di tracciamento non trovato. Ricarica la pagina.');
+                return;
+            }
+
+            // Copia i valori dal custom al nativo
+            var orderIdVal = customForm.querySelector('[name="order_id"]').value.trim();
+            var orderEmailVal = customForm.querySelector('[name="order_email"]').value.trim();
+            if (!orderIdVal) {
+                alert('Inserisci il numero d\'ordine.');
+                return;
+            }
+
+            var nativeOrderId = nativeForm.querySelector('[name="order_id"]');
+            var nativeOrderEmail = nativeForm.querySelector('[name="order_email"]');
+            if (nativeOrderId) nativeOrderId.value = orderIdVal;
+            if (nativeOrderEmail) nativeOrderEmail.value = orderEmailVal;
+
+            // Rende visibile il container del form nativo (per ricevere il risultato)
+            var nativeWrap = nativeForm.closest('.track-order-section') || nativeForm.parentElement;
+            if (nativeWrap) {
+                nativeWrap.classList.remove('rct-hidden');
+                nativeWrap.classList.add('rct-visible');
+            }
+
+            // Nasconde il form custom e mostra un messaggio di caricamento
+            var customContainer = customForm.closest('.rct-track-form-container');
+            if (customContainer) {
+                customContainer.style.transition = 'opacity 0.3s';
+                customContainer.style.opacity = '0.3';
+                customContainer.style.pointerEvents = 'none';
+            }
+
+            // Triggera il submit nativo (TrackShip intercettera e fara l'AJAX)
+            var nativeSubmit = nativeForm.querySelector('button[type="submit"], input[type="submit"], button[name="track"]');
+            if (nativeSubmit) {
+                nativeSubmit.click();
+            } else {
+                // Fallback: dispatch submit event
+                if (typeof jQuery !== 'undefined') {
+                    jQuery(nativeForm).trigger('submit');
+                } else {
+                    nativeForm.submit();
+                }
+            }
+
+            // Scroll al risultato dopo breve delay
+            setTimeout(function() {
+                if (nativeWrap && nativeWrap.scrollIntoView) {
+                    nativeWrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }, 800);
+        }, true);
+
+        // Intercetta anche il click diretto sul bottone (alcuni temi bypassano il submit event)
+        var submitBtn = customForm.querySelector('.rc-submit-btn');
+        if (submitBtn) {
+            submitBtn.addEventListener('click', function(e) {
+                // Lascia che l'evento submit del form gestisca
+                if (e.target.type === 'submit') {
+                    // nulla
+                }
+            });
+        }
+    }
+
+    function init() {
+        hideNativeFormInitially();
+        setupProxy();
+        // Riprova dopo delay nel caso lo shortcode TrackShip carichi in ritardo
+        var attempts = 0;
+        var interval = setInterval(function() {
+            attempts++;
+            hideNativeFormInitially();
+            if (findNativeForm() || attempts > 20) clearInterval(interval);
+        }, 500);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
 })();
 </script>
