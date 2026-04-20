@@ -248,14 +248,10 @@
                 <form action="https://www.rocard.it/traking_new/" method="post" style="font-family:'Outfit',sans-serif;">
                     <input type="hidden" name="action" value="get_tracking_info">
                     <input type="hidden" name="fronted" value="yes">
-                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+                    <div style="max-width:400px;margin:0 auto;">
                         <div>
                             <label for="order_id" style="display:block;font-weight:500;margin-bottom:6px;color:#333;font-size:0.9rem;">ID ordine</label>
-                            <input type="text" name="order_id" id="order_id" required placeholder="Numero d'ordine" style="width:100%;padding:12px 16px;border:2px solid #e5e5e5;border-radius:8px;font-size:0.95rem;font-family:'Outfit',sans-serif;outline:none;">
-                        </div>
-                        <div>
-                            <label for="order_email" style="display:block;font-weight:500;margin-bottom:6px;color:#333;font-size:0.9rem;">Email di fatturazione</label>
-                            <input type="email" name="order_email" id="order_email" required placeholder="Email utilizzata durante l'ordine" style="width:100%;padding:12px 16px;border:2px solid #e5e5e5;border-radius:8px;font-size:0.95rem;font-family:'Outfit',sans-serif;outline:none;">
+                            <input type="text" name="order_id" id="order_id" required placeholder="Numero d'ordine (es. 104049)" style="width:100%;padding:14px 16px;border:2px solid #e5e5e5;border-radius:8px;font-size:1rem;font-family:'Outfit',sans-serif;outline:none;text-align:center;">
                         </div>
                     </div>
                     <div style="margin-top:20px;">
