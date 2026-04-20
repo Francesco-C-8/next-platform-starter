@@ -220,9 +220,44 @@
     .rocard-tracking .stats-grid { grid-template-columns: 1fr; }
 }
 /* ═══ STILE FORM TRACKSHIP ═══ */
-/* Nasconde il form duplicato dello shortcode - il nostro form ha gia' class order_track_form */
-.track-order-section > .order_track_form { display: none !important; }
-.track-order-section > .trackship_branding { display: none !important; }
+/* Nasconde COMPLETAMENTE il form e branding dello shortcode TrackShip */
+.track-order-section > .order_track_form,
+.track-order-section .trackship_branding,
+.track-order-section > form.order_track_form,
+div.track-order-section > form,
+.elementor-shortcode .track-order-section .search_order_form,
+.elementor-shortcode .track-order-section .trackship_branding,
+.elementor-shortcode .trackship_branding {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Form custom nel widget HTML */
+.rocard-tracking .rc-form-wrap { max-width: 600px; margin: 0 auto; }
+.rocard-tracking .rc-form-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 16px !important; }
+.rocard-tracking .rc-form-field label { display: block !important; font-weight: 500 !important; margin-bottom: 6px !important; color: #333 !important; font-size: 0.9rem !important; font-family: 'Outfit', sans-serif !important; }
+.rocard-tracking .rc-form-field .input-text {
+    width: 100% !important; padding: 12px 16px !important; border: 2px solid #e5e5e5 !important;
+    border-radius: 8px !important; font-size: 0.95rem !important; font-family: 'Outfit', sans-serif !important;
+    outline: none !important; box-shadow: none !important; background: #fff !important;
+    height: auto !important; line-height: 1.4 !important; margin: 0 !important;
+}
+.rocard-tracking .rc-form-field .input-text:focus { border-color: #2a7ab5 !important; }
+.rocard-tracking .rc-submit-row { margin-top: 20px !important; }
+.rocard-tracking .rc-submit-btn {
+    display: block !important; width: 100% !important; padding: 14px !important;
+    background: #2a7ab5 !important; color: #fff !important; border: none !important;
+    border-radius: 8px !important; font-size: 1rem !important; font-weight: 600 !important;
+    font-family: 'Outfit', sans-serif !important; cursor: pointer !important;
+    letter-spacing: 0.3px !important; text-transform: none !important;
+    line-height: 1.4 !important; height: auto !important; margin: 0 !important;
+}
+.rocard-tracking .rc-submit-btn:hover { background: #f57c00 !important; }
+.rocard-tracking .rc-track-error { display: none; text-align: center; color: #ef4444; margin-top: 16px; font-weight: 500; }
 </style>
 
 <div class="rocard-tracking">
@@ -242,27 +277,27 @@
 <section class="track-form-section">
     <div class="container">
         <div class="track-form-container">
-            <div style="max-width: 600px; margin: 0 auto;">
-                <form action="https://www.rocard.it/traking_new/" method="post" class="order_track_form" style="font-family:'Outfit',sans-serif;min-height:auto!important;">
+            <div class="rc-form-wrap">
+                <form action="https://www.rocard.it/traking_new/" method="post" class="order_track_form" style="min-height:auto!important;">
                     <input type="hidden" name="action" value="get_tracking_info">
                     <input type="hidden" name="fronted" value="yes">
-                    <div class="search_order_form" style="padding:0!important;border:none!important;box-shadow:none!important;">
+                    <div class="search_order_form" style="padding:0!important;border:none!important;box-shadow:none!important;background:transparent!important;">
                         <div class="order_id_email tracking_form" style="display:block!important;">
-                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-                                <p class="form-row" style="margin:0;">
-                                    <label for="order_id" style="display:block;font-weight:500;margin-bottom:6px;color:#333;font-size:0.9rem;">ID ordine</label>
-                                    <input class="input-text" type="text" name="order_id" id="order_id" value="" placeholder="Numero d'ordine (es. 104049)" style="width:100%!important;padding:12px 16px!important;border:2px solid #e5e5e5!important;border-radius:8px!important;font-size:0.95rem!important;font-family:'Outfit',sans-serif!important;outline:none!important;box-shadow:none!important;">
+                            <div class="rc-form-grid">
+                                <p class="form-row rc-form-field" style="margin:0!important;">
+                                    <label for="order_id">ID ordine</label>
+                                    <input class="input-text" type="text" name="order_id" id="order_id" value="" placeholder="Numero d'ordine (es. 104049)">
                                 </p>
-                                <p class="form-row" style="margin:0;">
-                                    <label for="order_email" style="display:block;font-weight:500;margin-bottom:6px;color:#333;font-size:0.9rem;">Email di fatturazione</label>
-                                    <input class="input-text" type="text" name="order_email" id="order_email" value="" placeholder="Email usata durante l'ordine" style="width:100%!important;padding:12px 16px!important;border:2px solid #e5e5e5!important;border-radius:8px!important;font-size:0.95rem!important;font-family:'Outfit',sans-serif!important;outline:none!important;box-shadow:none!important;">
+                                <p class="form-row rc-form-field" style="margin:0!important;">
+                                    <label for="order_email">Email di fatturazione</label>
+                                    <input class="input-text" type="text" name="order_email" id="order_email" value="" placeholder="Email usata durante l'ordine">
                                 </p>
                             </div>
-                            <p class="form-row" style="margin-bottom:0;margin-top:20px;">
-                                <button type="submit" class="button btn btn-secondary" name="track" value="Track" style="display:block!important;width:100%!important;padding:14px!important;background:#2a7ab5!important;color:#fff!important;border:none!important;border-radius:8px!important;font-size:1rem!important;font-weight:600!important;font-family:'Outfit',sans-serif!important;cursor:pointer!important;letter-spacing:0.3px!important;">Traccia il mio ordine</button>
+                            <p class="form-row rc-submit-row" style="margin-bottom:0!important;">
+                                <button type="submit" class="button btn btn-secondary rc-submit-btn" name="track" value="Track">Traccia il mio ordine</button>
                             </p>
                         </div>
-                        <div class="track_fail_msg" style="display:none;text-align:center;color:#ef4444;margin-top:16px;font-weight:500;"></div>
+                        <div class="track_fail_msg rc-track-error"></div>
                     </div>
                 </form>
             </div>
