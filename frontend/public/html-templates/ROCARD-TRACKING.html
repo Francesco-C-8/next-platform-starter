@@ -562,20 +562,24 @@
     }
 }
 
-/* ═══ NASCONDE LE TAB NATIVE TRACKSHIP (gestite dal nostro telecomando) ═══ */
-.rocard-tracking .rct-trackship-mount ul.tabs,
-.rocard-tracking .rct-trackship-mount .tabs:not(.rct-method-tabs),
-.rocard-tracking .rct-trackship-mount nav.tabs,
-.rocard-tracking .rct-trackship-mount .ts-tabs,
-.rocard-tracking .rct-trackship-mount .trackship_tabs,
-.rocard-tracking .rct-trackship-mount .order_tracking_tabs,
-.rocard-tracking .rct-trackship-mount ul[role="tablist"],
-.rocard-tracking .rct-trackship-mount .rct-ts-tabs-nav {
-    display: none !important;
-}
-
-/* Legacy */
+/* Legacy: nasconde eventuale form nativo rimasto nello shortcode dopo lo spostamento */
 .track-order-section-placeholder-hide { display: none !important; }
+
+/* ═══ HIDE UTILITY (vince su tutti i display:block del nostro CSS) ═══ */
+.rocard-tracking .rct-trackship-mount .rct-hide,
+.rocard-tracking .rct-trackship-mount .rct-hide.order_id_email,
+.rocard-tracking .rct-trackship-mount .rct-hide.shipment_tracking_number,
+.rocard-tracking .rct-trackship-mount .rct-hide.tracking_form,
+.rocard-tracking .rct-trackship-mount .rct-hide.tab-content,
+.rocard-tracking .rct-trackship-mount.rct-has-custom-tabs ul.tabs,
+.rocard-tracking .rct-trackship-mount.rct-has-custom-tabs .tabs:not(.rct-method-tabs),
+.rocard-tracking .rct-trackship-mount.rct-has-custom-tabs nav.tabs,
+.rocard-tracking .rct-trackship-mount.rct-has-custom-tabs ul[role="tablist"] {
+    display: none !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    visibility: hidden !important;
+}
 
 </style>
 
@@ -999,189 +1003,197 @@
     }
 })();
 </script>
-<!-- Telecomando: le mie tab pill controllano le tab native TrackShip -->
+<!-- Telecomando: le mie tab pill controllano le tab native TrackShip (detection multi-strategy) -->
 <script>
 (function() {
-    var nativeRefs = null; // { orderTabTrigger, shipTabTrigger, orderPanel, shipPanel, tabsBar }
+    var state = { mount: null, inited: false };
 
-    // Content-based detection delle tab native
-    function detectNativeTabs(mount) {
-        // STRATEGIA: cerca elementi che contengono TESTI specifici delle tab native
-        // Poi risali al loro parent comune per nascondere l'intera barra
-        var orderLabels = [];
-        var shipLabels = [];
-        mount.querySelectorAll('a, button, li, span, div, h2, h3, h4').forEach(function(el) {
-            if (el.children.length > 2) return; // solo leaf-ish
-            var txt = (el.textContent || '').trim();
-            if (txt.length > 80) return;
-            // match "Dettagli dell'ordine" / "Order details"
-            if (/^dettagli\s*(dell[''])?(ordine|order)|^order\s+details/i.test(txt)) {
-                orderLabels.push(el);
-            }
-            // match "Numero di spedizione (tracking)" / "Numero di identificazione" / "Tracking number"
-            else if (/^numero\s+(di\s+)?(spedizione|identificazione|tracking)|^tracking\s+number/i.test(txt)) {
-                shipLabels.push(el);
-            }
-        });
-
-        if (!orderLabels.length || !shipLabels.length) return null;
-
-        var orderLabel = orderLabels[0];
-        var shipLabel = shipLabels[0];
-
-        // Trova il parent comune (contenitore della barra tab)
-        var commonParent = null;
-        var parents = [];
-        var p = orderLabel.parentElement;
-        while (p && p !== mount) { parents.push(p); p = p.parentElement; }
-        p = shipLabel.parentElement;
-        while (p && p !== mount) {
-            if (parents.indexOf(p) >= 0) { commonParent = p; break; }
-            p = p.parentElement;
+    // === Detection delle tab native e dei pannelli ===
+    function findNativeStructure(mount) {
+        // Trova elementi con testo "Dettagli dell'ordine" o "Numero di spedizione" (labels tab)
+        var orderTab = null, shipTab = null;
+        var allEls = mount.querySelectorAll('a, button, li, span, div, h2, h3, h4, p, strong');
+        for (var i = 0; i < allEls.length; i++) {
+            var el = allEls[i];
+            if (el.children.length > 2) continue;
+            var txt = (el.textContent || '').trim().toLowerCase();
+            if (txt.length > 60 || txt.length < 5) continue;
+            if (!orderTab && /^dettagli\s+(dell[''])?ordin/i.test(txt)) orderTab = el;
+            if (!shipTab && /numero\s+(di\s+)?(spedizione.*tracking|identificazione)/i.test(txt)) shipTab = el;
         }
 
-        // Trova i pannelli di contenuto (form o div associati ad ogni tab)
-        // Strategia: se la tab ha href="#something", il pannello e' l'elemento con quell'id
-        // Altrimenti: i pannelli sono i fratelli del commonParent che contengono form.order_track_form
-        var orderPanel = null, shipPanel = null;
-        var orderHref = orderLabel.tagName === 'A' ? orderLabel.getAttribute('href') : (orderLabel.querySelector('a') ? orderLabel.querySelector('a').getAttribute('href') : null);
-        var shipHref = shipLabel.tagName === 'A' ? shipLabel.getAttribute('href') : (shipLabel.querySelector('a') ? shipLabel.querySelector('a').getAttribute('href') : null);
-        if (orderHref && orderHref.indexOf('#') === 0) orderPanel = document.getElementById(orderHref.substring(1));
-        if (shipHref && shipHref.indexOf('#') === 0) shipPanel = document.getElementById(shipHref.substring(1));
+        // Trova i form e classifica per contenuto
+        var orderForm = null, shipForm = null, singleForm = null;
+        var allForms = mount.querySelectorAll('form.order_track_form, form[class*="track"], form[id*="track"]');
+        if (allForms.length === 0) allForms = mount.querySelectorAll('form');
+        allForms.forEach(function(f) {
+            var hasOrderId = !!f.querySelector('input[name="order_id"], #order_id');
+            var hasEmail = !!f.querySelector('input[name="order_email"], #order_email');
+            var hasTracking = !!f.querySelector('input[name="tracking_number"], input[name="tracking_no"], input[name="shipment_tracking_number"], #tracking_number, #tracking_no');
+            if (hasOrderId && !hasTracking) orderForm = f;
+            else if (hasTracking && !hasOrderId) shipForm = f;
+            else if (hasOrderId && hasTracking) singleForm = f;
+        });
 
-        // Fallback: cerca i form.order_track_form dentro il mount
-        if (!orderPanel || !shipPanel) {
-            var forms = mount.querySelectorAll('form.order_track_form, [class*="tracking_form"], [id*="tab-"]');
-            var candidates = [];
-            forms.forEach(function(f) {
-                var hasOrderId = f.querySelector('input[name="order_id"], #order_id');
-                var hasEmail = f.querySelector('input[name="order_email"], #order_email');
-                var hasTracking = f.querySelector('input[name="tracking_number"], input[name="tracking_no"], input[name="shipment_tracking_number"], #tracking_number');
-                var wrap = f.closest('[id^="tab-"], .tab-content, .tracking_form_wrap') || f;
-                if (hasOrderId && hasEmail && !hasTracking) {
-                    if (!orderPanel) orderPanel = wrap;
-                } else if (hasTracking && !hasOrderId) {
-                    if (!shipPanel) shipPanel = wrap;
-                } else if (hasTracking) {
-                    // Fallback: primo form con tracking_number e' lo ship
-                    if (!shipPanel) shipPanel = wrap;
-                } else if (hasOrderId) {
-                    if (!orderPanel) orderPanel = wrap;
+        // Se due form distinti, trova i wrapper (pannelli)
+        var orderPanel = null, shipPanel = null;
+        if (orderForm) orderPanel = orderForm.closest('[id^="tab-"], [id*="tab_"], .tab-content, .tab_content, .tab-pane') || orderForm;
+        if (shipForm) shipPanel = shipForm.closest('[id^="tab-"], [id*="tab_"], .tab-content, .tab_content, .tab-pane') || shipForm;
+
+        // Se UN SOLO form contenente entrambi i tipi di input, cerca le due SEZIONI interne
+        var orderSection = null, shipSection = null;
+        if (singleForm || (orderForm && shipForm && orderForm === shipForm)) {
+            var f = singleForm || orderForm;
+            // Classi/ID comuni TrackShip per le sezioni
+            orderSection = f.querySelector('.order_id_email, .tracking_form.order_id_email, [class*="order_id_email"]');
+            shipSection = f.querySelector('.shipment_tracking_number, .tracking_form.shipment_tracking_number, [class*="tracking_number"], [class*="shipment_tracking"]');
+            // Fallback: trova il parent piu vicino di order_id/email vs tracking_number che sia DIFFERENTE
+            if (!orderSection) {
+                var oid = f.querySelector('input[name="order_id"], #order_id');
+                if (oid) {
+                    // Risali finche trovi un wrapper "grosso" (div/section/fieldset con almeno 2 figli)
+                    var cur = oid.parentElement;
+                    while (cur && cur !== f && (cur.children.length < 2 || cur.tagName === 'P')) cur = cur.parentElement;
+                    if (cur && cur !== f) orderSection = cur;
                 }
-                candidates.push({form: f, wrap: wrap, orderId: !!hasOrderId, email: !!hasEmail, tracking: !!hasTracking});
-            });
+            }
+            if (!shipSection) {
+                var tn = f.querySelector('input[name="tracking_number"], input[name="tracking_no"], input[name="shipment_tracking_number"], #tracking_number, #tracking_no');
+                if (tn) {
+                    var cur2 = tn.parentElement;
+                    while (cur2 && cur2 !== f && (cur2.children.length < 2 || cur2.tagName === 'P')) cur2 = cur2.parentElement;
+                    if (cur2 && cur2 !== f) shipSection = cur2;
+                }
+            }
+        }
+
+        // Parent comune delle tab native (barra da nascondere)
+        var tabsBar = null;
+        if (orderTab && shipTab) {
+            var parentsA = [];
+            var pa = orderTab.parentElement;
+            while (pa && pa !== mount) { parentsA.push(pa); pa = pa.parentElement; }
+            var pb = shipTab.parentElement;
+            while (pb && pb !== mount) {
+                if (parentsA.indexOf(pb) >= 0) { tabsBar = pb; break; }
+                pb = pb.parentElement;
+            }
         }
 
         return {
-            orderTabTrigger: orderLabel,
-            shipTabTrigger: shipLabel,
-            orderPanel: orderPanel,
-            shipPanel: shipPanel,
-            tabsBar: commonParent
+            orderTab: orderTab, shipTab: shipTab, tabsBar: tabsBar,
+            orderForm: orderForm, shipForm: shipForm,
+            orderPanel: orderPanel, shipPanel: shipPanel,
+            orderSection: orderSection, shipSection: shipSection,
+            singleForm: singleForm || (orderForm && shipForm && orderForm === shipForm ? orderForm : null)
         };
     }
 
-    function hideDuplicateInstructions(mount) {
-        mount.querySelectorAll('p, h2, h3, h4').forEach(function(el) {
-            var txt = (el.textContent || '').trim().toLowerCase();
-            if (txt.indexOf('per tracciare il tuo ordine') === 0 ||
-                txt.indexOf('per tracciare il tuo pacco') === 0 ||
-                txt.indexOf('inserisci il numero di tracciamento') === 0 ||
-                txt.indexOf('per tracciare la tua') === 0) {
-                el.style.display = 'none';
-            }
-        });
+    function hideIntroTexts(mount) {
+        // Nasconde solo UNO dei due blocchi istruzione — quello NON attivo.
+        // In realta semplifichiamo: nasconde il testo istruzione per la tab NON attiva
+        // (il plugin li mostra entrambi insieme, noi ne mostreremo solo uno)
+        // Gestito nelle funzioni showPanel direttamente
     }
 
-    function renameContent(mount) {
-        mount.querySelectorAll('label').forEach(function(lbl) {
-            var txt = (lbl.textContent || '').trim();
-            var htmlFor = lbl.htmlFor || '';
-            if (/ordina e-mail|order email|ordine email/i.test(txt) || htmlFor === 'order_email') {
-                lbl.textContent = 'Email di fatturazione';
-            }
-            if (/^id ordine$|^order id$/i.test(txt) || htmlFor === 'order_id') {
-                lbl.textContent = 'Numero ordine';
-            }
-            if (/numero di identificazione|tracking number/i.test(txt)) {
-                lbl.textContent = 'Numero di spedizione (tracking)';
-            }
-        });
-        mount.querySelectorAll('button[type="submit"], input[type="submit"]').forEach(function(btn) {
-            var txt = (btn.textContent || btn.value || '').trim();
-            if (/traccia il mio pacco|track/i.test(txt)) {
-                if (btn.tagName === 'BUTTON') btn.textContent = 'Traccia il mio ordine';
-                else btn.value = 'Traccia il mio ordine';
-            }
-        });
-        var orderIdInput = mount.querySelector('input[name="order_id"], #order_id');
-        if (orderIdInput) orderIdInput.setAttribute('placeholder', 'Es. 104049');
-        var emailInput = mount.querySelector('input[name="order_email"], #order_email');
-        if (emailInput) emailInput.setAttribute('placeholder', 'email@esempio.it');
-        ['input[name="tracking_number"]', 'input[name="tracking_no"]', 'input[name="shipment_tracking_number"]', '#tracking_number', '#tracking_no'].forEach(function(sel) {
-            var el = mount.querySelector(sel);
-            if (el) el.setAttribute('placeholder', 'Es. NN665931971');
-        });
+    function setHide(el, hide) {
+        if (!el) return;
+        if (hide) el.classList.add('rct-hide');
+        else el.classList.remove('rct-hide');
     }
 
     function showPanel(which) {
-        if (!nativeRefs) return;
-        // Prima prova: simula click sulla tab nativa (alcuni plugin gestiscono con JS proprio)
-        var trigger = which === 'order' ? nativeRefs.orderTabTrigger : nativeRefs.shipTabTrigger;
+        var s = state.struct;
+        if (!s) return;
+        var mount = state.mount;
+
+        // CASO A: due pannelli/form distinti
+        if (s.orderPanel && s.shipPanel && s.orderPanel !== s.shipPanel) {
+            setHide(s.orderPanel, which !== 'order');
+            setHide(s.shipPanel, which !== 'ship');
+        }
+        // CASO B: due sezioni dentro un unico form
+        else if (s.orderSection && s.shipSection && s.orderSection !== s.shipSection) {
+            setHide(s.orderSection, which !== 'order');
+            setHide(s.shipSection, which !== 'ship');
+        }
+        // CASO C: due form distinti senza wrapper
+        else if (s.orderForm && s.shipForm && s.orderForm !== s.shipForm) {
+            setHide(s.orderForm, which !== 'order');
+            setHide(s.shipForm, which !== 'ship');
+        }
+        // CASO FALLBACK: nasconde manualmente i wrap degli input non rilevanti
+        else {
+            var oid = mount.querySelector('input[name="order_id"], #order_id');
+            var email = mount.querySelector('input[name="order_email"], #order_email');
+            var tn = mount.querySelector('input[name="tracking_number"], #tracking_number, input[name="tracking_no"], input[name="shipment_tracking_number"]');
+            if (oid) setHide(oid.closest('p, .form-row') || oid.parentElement, which !== 'order');
+            if (email) setHide(email.closest('p, .form-row') || email.parentElement, which !== 'order');
+            if (tn) setHide(tn.closest('p, .form-row') || tn.parentElement, which !== 'ship');
+        }
+
+        // Nasconde/mostra i testi introduttivi (paragrafi) in base alla tab
+        mount.querySelectorAll('p').forEach(function(p) {
+            var txt = (p.textContent || '').trim();
+            var isOrderIntro = /per tracciare il tuo ordine.*numero dell[''](ordine|email)|inserisci il numero dell[''](ordine|email)/i.test(txt);
+            var isShipIntro = /numero di tracciamento|e-?mail di conferma della spedizione/i.test(txt);
+            if (isOrderIntro) setHide(p, which !== 'order');
+            if (isShipIntro) setHide(p, which !== 'ship');
+        });
+
+        // Triggera click sulla tab nativa per compatibilita plugin
+        var trigger = which === 'order' ? s.orderTab : s.shipTab;
         if (trigger) {
             try {
-                // Simula evento reale per compatibilita con jQuery
-                var clickEvent = new MouseEvent('click', { bubbles: true, cancelable: true, view: window });
-                trigger.dispatchEvent(clickEvent);
-                if (typeof window.jQuery !== 'undefined') {
-                    try { window.jQuery(trigger).trigger('click'); } catch(e) {}
-                }
+                trigger.click();
+                if (window.jQuery) try { window.jQuery(trigger).trigger('click'); } catch(e) {}
             } catch(e) {}
-        }
-        // Secondo (piu sicuro): mostra/nascondi manualmente i pannelli
-        if (nativeRefs.orderPanel && nativeRefs.shipPanel && nativeRefs.orderPanel !== nativeRefs.shipPanel) {
-            if (which === 'order') {
-                nativeRefs.orderPanel.style.display = '';
-                nativeRefs.shipPanel.style.display = 'none';
-            } else {
-                nativeRefs.orderPanel.style.display = 'none';
-                nativeRefs.shipPanel.style.display = '';
-            }
         }
     }
 
-    function initMount(mount) {
-        if (nativeRefs) return true;
-        var refs = detectNativeTabs(mount);
-        if (!refs) return false;
-        nativeRefs = refs;
+    function tryInit() {
+        if (state.inited) return true;
+        var mount = document.getElementById('rctTrackshipMount');
+        if (!mount) return false;
+        // Attendi che il form nativo sia stato spostato dentro
+        if (!mount.querySelector('form, .track-order-section, input[name="order_id"], input[name="tracking_number"]')) return false;
 
-        // 1. Nasconde la barra tab nativa
-        if (refs.tabsBar) {
-            refs.tabsBar.style.display = 'none';
-            refs.tabsBar.classList.add('rct-hidden-native-tabs');
-        } else {
-            // Fallback: nasconde direttamente i due label tab
-            if (refs.orderTabTrigger) {
-                var orderWrap = refs.orderTabTrigger.closest('li, .tab') || refs.orderTabTrigger;
-                orderWrap.style.display = 'none';
-            }
-            if (refs.shipTabTrigger) {
-                var shipWrap = refs.shipTabTrigger.closest('li, .tab') || refs.shipTabTrigger;
-                shipWrap.style.display = 'none';
-            }
+        state.mount = mount;
+        state.struct = findNativeStructure(mount);
+
+        // Debug log (visibile solo in console browser dell'utente)
+        try {
+            console.log('[Rocard Tracking] Native structure detected:', {
+                hasOrderTab: !!state.struct.orderTab,
+                hasShipTab: !!state.struct.shipTab,
+                hasTabsBar: !!state.struct.tabsBar,
+                hasOrderForm: !!state.struct.orderForm,
+                hasShipForm: !!state.struct.shipForm,
+                hasOrderSection: !!state.struct.orderSection,
+                hasShipSection: !!state.struct.shipSection,
+                singleForm: !!state.struct.singleForm
+            });
+        } catch(e) {}
+
+        // Nasconde la barra delle tab native (usa la classe sul mount per alta specificita)
+        mount.classList.add('rct-has-custom-tabs');
+        if (state.struct.tabsBar) {
+            setHide(state.struct.tabsBar, true);
+        }
+        // In ogni caso, nasconde esplicitamente i 2 label tab trovati
+        if (state.struct.orderTab) {
+            var w1 = state.struct.orderTab.closest('li, .tab, [role="tab"]') || state.struct.orderTab;
+            setHide(w1, true);
+        }
+        if (state.struct.shipTab) {
+            var w2 = state.struct.shipTab.closest('li, .tab, [role="tab"]') || state.struct.shipTab;
+            setHide(w2, true);
         }
 
-        // 2. Nasconde istruzioni duplicate
-        hideDuplicateInstructions(mount);
-
-        // 3. Rinomina content
-        renameContent(mount);
-
-        // 4. Mostra di default solo il pannello ordine
+        // Default: mostra solo il pannello ordine
         showPanel('order');
 
-        // 5. Attach handler alle mie tab pill
+        // Bind mie tab pill
         var myTabs = document.querySelectorAll('.rocard-tracking .rct-method-tabs .rct-method-tab');
         myTabs.forEach(function(tab) {
             if (tab.dataset.rctBound === '1') return;
@@ -1195,13 +1207,10 @@
                 tab.classList.add('rct-active');
                 tab.setAttribute('aria-selected', 'true');
                 showPanel(method === 'shipping' ? 'ship' : 'order');
-                setTimeout(function() {
-                    renameContent(mount);
-                    hideDuplicateInstructions(mount);
-                }, 150);
             });
         });
 
+        state.inited = true;
         return true;
     }
 
@@ -1209,18 +1218,15 @@
         var attempts = 0;
         var iv = setInterval(function() {
             attempts++;
-            var mount = document.getElementById('rctTrackshipMount');
-            if (!mount) { if (attempts > 30) clearInterval(iv); return; }
-            if (initMount(mount) || attempts > 40) clearInterval(iv);
+            if (tryInit() || attempts > 40) clearInterval(iv);
         }, 400);
-        // Reapplica periodicamente rename e hide duplicate (il plugin puo ri-renderizzare dopo AJAX)
+        // Riapplica lo stato attivo periodicamente (il plugin puo ri-renderizzare dopo AJAX)
         setInterval(function() {
-            var mount = document.getElementById('rctTrackshipMount');
-            if (mount && nativeRefs) {
-                renameContent(mount);
-                hideDuplicateInstructions(mount);
+            if (state.inited) {
+                var active = document.querySelector('.rocard-tracking .rct-method-tab.rct-active');
+                if (active) showPanel(active.getAttribute('data-method') === 'shipping' ? 'ship' : 'order');
             }
-        }, 1500);
+        }, 2000);
     }
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
