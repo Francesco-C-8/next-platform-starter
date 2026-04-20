@@ -20,11 +20,12 @@ Il cliente copia-incolla l'HTML direttamente nel widget HTML di Elementor, senza
 ## Cosa è stato implementato
 
 ### 2026-02 — Sessione corrente
-- ✅ **Enhancement tab native TrackShip** (20/02): rimosse le mie tab custom duplicate (il plugin ha già le sue); aggiunto script che trasforma le tab native del plugin TrackShip (`ul.tabs`, `a[href^="#tab-"]`) in pill-style stilizzate come il resto del design. Lo script: nasconde istruzioni duplicate "Per tracciare il tuo ordine...", rinomina label ("Ordina e-mail"→"Email di fatturazione", "Numero di identificazione"→"Numero di spedizione (tracking)", "ID ordine"→"Numero ordine"), rinomina bottone "Traccia il mio Pacco"→"Traccia il mio ordine", migliora placeholder, mostra solo una tab alla volta con switch fluido. Multi-selector fallback per supportare varie strutture DOM del plugin.
-- ✅ **Approccio DOM-MOVE per TrackShip**: widget HTML con placeholder `.rct-trackship-mount`; script sposta la `.track-order-section` dallo shortcode dentro il mount. Auto-hide shortcode widget vuoto.
+- ✅ **Pattern "telecomando"** (20/02): le tab pill custom sopra il form fungono da UI-facciata, mentre le tab native TrackShip (`ul.tabs` con "Dettagli dell'ordine | Numero di spedizione (tracking)") vengono NASCOSTE via CSS. Click sulla mia tab "Numero ordine + Email" → triggera click sulla tab nativa "Dettagli dell'ordine". Click sulla mia tab "Numero di spedizione" → triggera click sulla tab nativa "Numero di identificazione". Così il plugin gestisce il contenuto normalmente e io mostro UI pulita.
+- ✅ **Rinomina in italiano pulito**: "Ordina e-mail"→"Email di fatturazione", "ID ordine"→"Numero ordine", "Numero di identificazione"→"Numero di spedizione (tracking)", "Traccia il mio Pacco"→"Traccia il mio ordine". Placeholder migliorati (Es. 104049, email@esempio.it, Es. NN665931971). Nasconde istruzioni duplicate ("Per tracciare il tuo ordine...").
+- ✅ **Approccio DOM-MOVE per TrackShip**: widget HTML con placeholder `.rct-trackship-mount`; script sposta la `.track-order-section` dallo shortcode dentro il mount.
 - ✅ **Banner coupon INVIAGGIO10**: countdown 15 min, copia codice, "Solo per te, un'unica volta • Approfittane subito".
-- ✅ **Tracking page namespace fix**: classi prefissate `rct-` per evitare conflitti Woodmart.
-- 🟢 **Tracking end-to-end confermato funzionante**: ordine 104049 → GLS Europe + NN665931971.
+- ✅ **Tracking page namespace fix**: classi prefissate `rct-`.
+- 🟢 **Tracking end-to-end confermato funzionante**: ordine 104049 → GLS + NN665931971.
 
 ### Sessioni precedenti
 - Consolidati 7 template HTML individuali in `ROCARD-COMPLETO.html` unificato
