@@ -245,9 +245,13 @@ div.track-order-section > form,
 
 /* Form custom nel widget HTML */
 .rocard-tracking .rc-form-wrap { max-width: 600px !important; margin: 0 auto !important; }
-.rocard-tracking .rc-form-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 16px !important; }
-.rocard-tracking .rc-form-field { margin: 0 !important; padding: 0 !important; }
-.rocard-tracking .rc-form-field label { display: block !important; font-weight: 500 !important; margin-bottom: 6px !important; color: #333 !important; font-size: 0.9rem !important; font-family: 'Outfit', sans-serif !important; }
+.rocard-tracking form.order_track_form { margin: 0 !important; padding: 0 !important; width: 100% !important; display: block !important; }
+.rocard-tracking .search_order_form { width: 100% !important; display: block !important; }
+.rocard-tracking .order_id_email { width: 100% !important; display: block !important; }
+.rocard-tracking .rc-form-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 16px !important; width: 100% !important; }
+.rocard-tracking p.form-row,
+.rocard-tracking .rc-form-field { margin: 0 !important; padding: 0 !important; width: auto !important; float: none !important; clear: none !important; display: block !important; }
+.rocard-tracking .rc-form-field label { display: block !important; font-weight: 500 !important; margin-bottom: 6px !important; color: #333 !important; font-size: 0.9rem !important; font-family: 'Outfit', sans-serif !important; width: auto !important; float: none !important; padding: 0 !important; }
 .rocard-tracking .rc-form-field .input-text {
     width: 100% !important; padding: 12px 16px !important; border: 2px solid #e5e5e5 !important;
     border-radius: 8px !important; font-size: 0.95rem !important; font-family: 'Outfit', sans-serif !important;
@@ -527,3 +531,57 @@ div.track-order-section > form,
 </section>
 
 </div>
+
+<!-- Copia il nonce di sicurezza dal form nativo TrackShip al nostro form custom -->
+<script>
+(function() {
+    function copyTrackShipNonce() {
+        var customForm = document.querySelector('.rocard-tracking form.order_track_form');
+        if (!customForm) return false;
+        // Cerca il form nativo TrackShip renderizzato dallo shortcode (nascosto dal nostro CSS)
+        var allForms = document.querySelectorAll('form.order_track_form');
+        var nativeForm = null;
+        for (var i = 0; i < allForms.length; i++) {
+            if (allForms[i] !== customForm) { nativeForm = allForms[i]; break; }
+        }
+        if (!nativeForm) return false;
+        // Copia TUTTI i campi nascosti (nonce, referer, ecc.) dal form nativo
+        var hiddenFields = nativeForm.querySelectorAll('input[type="hidden"]');
+        var copiedAny = false;
+        hiddenFields.forEach(function(field) {
+            var name = field.getAttribute('name');
+            if (!name) return;
+            // Evita duplicati: se il campo esiste gia nel form custom, lo aggiorna
+            var existing = customForm.querySelector('input[name="' + name + '"]');
+            if (existing) {
+                existing.value = field.value;
+            } else {
+                var clone = field.cloneNode(true);
+                customForm.appendChild(clone);
+            }
+            copiedAny = true;
+        });
+        return copiedAny;
+    }
+    function tryNow() {
+        if (!copyTrackShipNonce()) {
+            // riprova piu volte nel caso lo shortcode TrackShip carichi in ritardo
+            var attempts = 0;
+            var interval = setInterval(function() {
+                attempts++;
+                if (copyTrackShipNonce() || attempts > 20) clearInterval(interval);
+            }, 500);
+        }
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', tryNow);
+    } else {
+        tryNow();
+    }
+    // Sicurezza aggiuntiva: al click del bottone, ricopia i nonce
+    document.addEventListener('click', function(e) {
+        var btn = e.target.closest('.rocard-tracking .rc-submit-btn');
+        if (btn) copyTrackShipNonce();
+    }, true);
+})();
+</script>

@@ -21,6 +21,8 @@ Il cliente copia-incolla l'HTML direttamente nel widget HTML di Elementor, senza
 
 ### 2026-02 — Sessione corrente
 - ✅ **Tracking page namespace fix** (20/02): classi rinominate con prefisso `rct-` per eliminare conflitti CSS con Woodmart. Rimosso HTML duplicato/rotto (tag `<button>`, `</form>`, `</div>` orfani) che causava layout "sfalsato". Verificato via screenshot: layout pulito e ordinato.
+- ✅ **Fix errore "Verifica della sicurezza non riuscita"** (20/02): aggiunto inline `<script>` che copia automaticamente tutti i campi hidden (compreso `_wpnonce`) dal form TrackShip nativo (reso dallo shortcode e nascosto via CSS) nel form custom. Risolve il fallimento del nonce WordPress sulla submit AJAX.
+- ✅ **Fix padding input form** (20/02): override WooCommerce/Woodmart `.form-row` (margin/padding/float/width) che tagliava le label e riduceva la larghezza dei campi.
 - Form custom mantiene classi funzionali TrackShip (`order_track_form`, `order_id`, `order_email`, `search_order_form`, `track_fail_msg`) per integrazione jQuery AJAX nativa.
 
 ### Sessioni precedenti
