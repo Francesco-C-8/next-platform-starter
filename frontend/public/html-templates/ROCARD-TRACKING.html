@@ -1,0 +1,460 @@
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --rc-primary: #2a7ab5;
+    --rc-primary-dark: #1e6a9e;
+    --rc-accent: #f57c00;
+    --rc-text: #333;
+    --rc-bg: #fff;
+    --rc-bg-light: #f8f9fa;
+    --rc-border: #e5e5e5;
+    --rc-green: #059669;
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'Outfit', sans-serif;
+}
+.rocard-tracking { font-family: var(--font-body); color: var(--rc-text); line-height: 1.6; }
+.rocard-tracking *, .rocard-tracking *::before, .rocard-tracking *::after { box-sizing: border-box; margin: 0; padding: 0; }
+.rocard-tracking .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* Hero */
+.rocard-tracking .hero-section {
+    background: linear-gradient(135deg, var(--rc-primary) 0%, var(--rc-primary-dark) 100%);
+    color: #fff;
+    padding: 60px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.rocard-tracking .hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(245,124,0,0.08) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(245,124,0,0.08) 0%, transparent 50%);
+    pointer-events: none;
+}
+.rocard-tracking .hero-content { position: relative; z-index: 1; }
+.rocard-tracking .hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #fff;
+}
+.rocard-tracking .hero-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 20px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.rocard-tracking .hero-couriers {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 10px 24px;
+    background: rgba(245,124,0,0.2);
+    border: 1px solid var(--rc-accent);
+    border-radius: 30px;
+}
+
+/* Track Form */
+.rocard-tracking .track-form-section { padding: 60px 0; background: var(--rc-bg-light); }
+.rocard-tracking .track-form-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+}
+.rocard-tracking .form-hint { text-align: center; margin-top: 16px; font-size: 0.875rem; color: #666; }
+
+/* Trust Indicators */
+.rocard-tracking .trust-indicators { display: flex; justify-content: center; gap: 32px; margin-top: 24px; flex-wrap: wrap; }
+.rocard-tracking .trust-item { display: flex; align-items: center; gap: 6px; color: var(--rc-green); font-size: 0.875rem; }
+.rocard-tracking .trust-item svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+/* Social Proof */
+.rocard-tracking .social-proof { display: flex; justify-content: center; gap: 40px; margin-top: 24px; flex-wrap: wrap; padding: 24px 0; }
+.rocard-tracking .proof-item { display: flex; align-items: center; gap: 12px; }
+.rocard-tracking .proof-avatars { display: flex; }
+.rocard-tracking .proof-avatar {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--rc-primary); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.7rem; font-weight: 600;
+    border: 2px solid #fff; margin-left: -8px;
+}
+.rocard-tracking .proof-avatar:first-child { margin-left: 0; }
+.rocard-tracking .proof-text { font-size: 0.875rem; }
+.rocard-tracking .live-dot {
+    width: 8px; height: 8px; background: #ef4444;
+    border-radius: 50%; animation: rcPulse 2s infinite;
+}
+@keyframes rcPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+/* Stats */
+.rocard-tracking .stats-section { padding: 60px 0; background: #fff; }
+.rocard-tracking .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+.rocard-tracking .stat-card { padding: 24px; }
+.rocard-tracking .stat-icon { margin-bottom: 12px; color: var(--rc-primary); }
+.rocard-tracking .stat-number { font-family: var(--font-heading); font-size: 2.8rem; color: var(--rc-accent); font-weight: 600; }
+.rocard-tracking .stat-label { font-size: 0.85rem; color: #666; text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* Section Title */
+.rocard-tracking .section-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    text-align: center;
+    margin-bottom: 32px;
+    font-weight: 600;
+    color: var(--rc-primary);
+}
+
+/* Products */
+.rocard-tracking .products-section { padding: 60px 0; background: var(--rc-bg-light); }
+.rocard-tracking .products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.rocard-tracking .product-card {
+    background: #fff; border-radius: 12px; padding: 20px;
+    text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: all 0.3s ease;
+}
+.rocard-tracking .product-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.1); transform: translateY(-4px); }
+.rocard-tracking .product-image { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 12px; }
+.rocard-tracking .product-badge {
+    display: inline-block; padding: 3px 10px; background: var(--rc-green);
+    color: #fff; font-size: 0.7rem; border-radius: 12px; margin-bottom: 6px; font-weight: 600;
+}
+.rocard-tracking .product-badge.sale { background: #ef4444; }
+.rocard-tracking .product-name { font-size: 0.9rem; font-weight: 500; margin-bottom: 6px; min-height: 2.5rem; color: var(--rc-text); }
+.rocard-tracking .product-price { font-family: var(--font-heading); font-size: 1.4rem; color: var(--rc-accent); font-weight: 600; margin-bottom: 6px; }
+.rocard-tracking .product-price .old { font-size: 0.9rem; color: #999; text-decoration: line-through; margin-left: 6px; }
+.rocard-tracking .product-meta { display: flex; align-items: center; justify-content: center; gap: 4px; font-size: 0.75rem; color: #666; margin-bottom: 12px; }
+.rocard-tracking .product-meta svg { width: 14px; height: 14px; fill: #f59e0b; }
+.rocard-tracking .product-btn {
+    display: block; width: 100%; padding: 10px; background: var(--rc-primary);
+    color: #fff; text-decoration: none; border-radius: 8px; font-weight: 500;
+    transition: all 0.3s ease; font-size: 0.9rem;
+}
+.rocard-tracking .product-btn:hover { background: var(--rc-accent); }
+
+/* Support */
+.rocard-tracking .support-section { padding: 60px 0; background: #fff; }
+.rocard-tracking .support-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 32px; }
+.rocard-tracking .support-card {
+    padding: 28px; background: #fff; border-radius: 12px;
+    border: 1px solid #f0f0f0; box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    transition: all 0.3s ease; position: relative; overflow: hidden;
+}
+.rocard-tracking .support-card::before {
+    content: ""; position: absolute; top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: linear-gradient(180deg, var(--rc-accent), transparent);
+}
+.rocard-tracking .support-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); transform: translateY(-4px); }
+.rocard-tracking .support-card h3 { font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 16px; color: var(--rc-primary); }
+.rocard-tracking .support-card p { font-size: 0.9rem; color: #555; margin-bottom: 8px; }
+.rocard-tracking .courier-list { display: grid; gap: 10px; margin-top: 12px; }
+.rocard-tracking .courier-item { display: flex; align-items: center; gap: 12px; padding: 10px; background: var(--rc-bg-light); border-radius: 6px; }
+.rocard-tracking .courier-name { font-weight: 600; color: var(--rc-text); }
+.rocard-tracking .courier-link { color: var(--rc-accent); text-decoration: none; font-size: 0.85rem; }
+.rocard-tracking .courier-link:hover { text-decoration: underline; }
+.rocard-tracking .info-list { list-style: none; margin-top: 10px; }
+.rocard-tracking .info-list li { margin-bottom: 6px; padding-left: 20px; position: relative; font-size: 0.9rem; color: #555; }
+.rocard-tracking .info-list li:before { content: ""; position: absolute; left: 0; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--rc-green); }
+.rocard-tracking .payment-icons { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.rocard-tracking .payment-icon {
+    width: 52px; height: 34px; background: var(--rc-bg-light);
+    border-radius: 6px; display: flex; align-items: center; justify-content: center;
+    font-size: 0.65rem; font-weight: 700; border: 1px solid #e5e5e5;
+}
+
+/* Reassurance */
+.rocard-tracking .reassurance-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-top: 40px; }
+.rocard-tracking .reassurance-item { text-align: center; padding: 20px; }
+.rocard-tracking .reassurance-icon { margin-bottom: 10px; color: var(--rc-primary); }
+.rocard-tracking .reassurance-title { font-weight: 600; margin-bottom: 4px; font-size: 0.9rem; color: var(--rc-primary); }
+.rocard-tracking .reassurance-desc { font-size: 0.8rem; color: #666; }
+
+/* FAQ */
+.rocard-tracking .faq-section { padding: 60px 0; background: var(--rc-bg-light); }
+.rocard-tracking .faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 32px; }
+.rocard-tracking .faq-item { background: #fff; padding: 24px; border-radius: 10px; }
+.rocard-tracking .faq-question { font-weight: 600; margin-bottom: 6px; color: var(--rc-primary); font-size: 0.95rem; }
+.rocard-tracking .faq-answer { font-size: 0.875rem; color: #666; }
+
+/* Trust Footer */
+.rocard-tracking .trust-footer { background: var(--rc-primary); color: #fff; padding: 24px 0; text-align: center; }
+.rocard-tracking .trust-badges { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+.rocard-tracking .trust-badge { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; }
+.rocard-tracking .trust-badge svg { width: 22px; height: 22px; color: #D4AF37; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .rocard-tracking .products-grid { grid-template-columns: repeat(2, 1fr); }
+    .rocard-tracking .support-grid { grid-template-columns: repeat(2, 1fr); }
+    .rocard-tracking .reassurance-grid { grid-template-columns: repeat(3, 1fr); }
+    .rocard-tracking .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .rocard-tracking .container { padding: 0 16px; }
+    .rocard-tracking .support-grid, .rocard-tracking .faq-grid { grid-template-columns: 1fr; }
+    .rocard-tracking .products-grid { grid-template-columns: 1fr 1fr; }
+    .rocard-tracking .reassurance-grid { grid-template-columns: repeat(2, 1fr); }
+    .rocard-tracking .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .rocard-tracking .hero-section { padding: 40px 0; }
+    .rocard-tracking .track-form-section, .rocard-tracking .stats-section, .rocard-tracking .products-section,
+    .rocard-tracking .support-section, .rocard-tracking .faq-section { padding: 40px 0; }
+}
+@media (max-width: 480px) {
+    .rocard-tracking .products-grid { grid-template-columns: 1fr; }
+    .rocard-tracking .reassurance-grid { grid-template-columns: 1fr; }
+    .rocard-tracking .stats-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="rocard-tracking">
+
+<!-- Hero -->
+<section class="hero-section">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">Traccia il tuo ordine</h1>
+            <p class="hero-subtitle">Inserisci il numero dell'ordine per visualizzare lo stato della spedizione in tempo reale</p>
+            <p class="hero-couriers">Corrieri: BRT, GLS, Poste Italiane</p>
+        </div>
+    </div>
+</section>
+
+<!-- Track Form -->
+<section class="track-form-section">
+    <div class="container">
+        <div class="track-form-container">
+            <div style="max-width: 600px; margin: 0 auto;">
+                [woocommerce_order_tracking]
+            </div>
+            <p class="form-hint">Trova i dati nell'email di conferma che hai ricevuto dopo l'acquisto</p>
+            <div class="trust-indicators">
+                <div class="trust-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <span>Tracking in tempo reale</span>
+                </div>
+                <div class="trust-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <span>Notifiche SMS ed Email</span>
+                </div>
+                <div class="trust-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <span>Consegna 24-72h</span>
+                </div>
+            </div>
+        </div>
+        <div class="social-proof">
+            <div class="proof-item">
+                <div class="proof-avatars">
+                    <div class="proof-avatar">MR</div>
+                    <div class="proof-avatar" style="background:var(--rc-accent);">LG</div>
+                    <div class="proof-avatar" style="background:var(--rc-green);">AP</div>
+                    <div class="proof-avatar">+</div>
+                </div>
+                <span class="proof-text"><strong>2.847 ordini</strong> spediti questa settimana</span>
+            </div>
+            <div class="proof-item">
+                <span class="live-dot"></span>
+                <span class="proof-text"><strong>127 persone</strong> stanno acquistando ora</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats -->
+<section class="stats-section">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="6"></circle><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path></svg></div>
+                <div class="stat-number">2014</div>
+                <div class="stat-label">Online dal</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div>
+                <div class="stat-number">4.9</div>
+                <div class="stat-label">Rating medio</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path><path d="M15 18H9"></path><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path><circle cx="17" cy="18" r="2"></circle><circle cx="7" cy="18" r="2"></circle></svg></div>
+                <div class="stat-number">96%</div>
+                <div class="stat-label">Consegne puntuali</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+                <div class="stat-number">730k+</div>
+                <div class="stat-label">Clienti soddisfatti</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Products -->
+<section class="products-section">
+    <div class="container">
+        <h2 class="section-title">Mentre Aspetti il Tuo Pacco...</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="https://www.rocard.it/wp-content/uploads/2023/03/4836-jpg-275x275.webp" alt="Caff&egrave; Borbone Grani Miscela Blu" class="product-image" loading="lazy">
+                <span class="product-badge">Bestseller</span>
+                <h3 class="product-name">Caff&egrave; Borbone Grani Miscela Blu 1kg</h3>
+                <div class="product-price">&euro;19,40</div>
+                <div class="product-meta"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 4.9 (2.341 recensioni)</div>
+                <a href="https://www.rocard.it/shop/caffe-borbone-grani-miscela-blu/" class="product-btn">Aggiungi al carrello</a>
+            </div>
+            <div class="product-card">
+                <img src="https://www.rocard.it/wp-content/uploads/2023/02/4777-jpg-275x275.webp" alt="Farina Caputo Pizzeria" class="product-image" loading="lazy">
+                <span class="product-badge sale">-10%</span>
+                <h3 class="product-name">Farina Caputo Pizzeria Tipo 00 1kg</h3>
+                <div class="product-price">&euro;1,65 <span class="old">&euro;1,83</span></div>
+                <div class="product-meta"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 4.8 (1.892 recensioni)</div>
+                <a href="https://www.rocard.it/shop/farina-caputo-pizzeria-2/" class="product-btn">Aggiungi al carrello</a>
+            </div>
+            <div class="product-card">
+                <img src="https://www.rocard.it/wp-content/uploads/2025/02/16180-275x275.webp" alt="Compo Bio Terriccio" class="product-image" loading="lazy">
+                <span class="product-badge" style="background:var(--rc-primary);">Bio</span>
+                <h3 class="product-name">Compo Bio Terriccio per Orto e Semina 20L</h3>
+                <div class="product-price">&euro;8,20</div>
+                <div class="product-meta"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 4.8 (436 recensioni)</div>
+                <a href="https://www.rocard.it/shop/compo-bio-terriccio-per-orto-e-semina-per-colture-orticole-frutticole-e-semina-20-litri/" class="product-btn">Aggiungi al carrello</a>
+            </div>
+            <div class="product-card">
+                <img src="https://www.rocard.it/wp-content/uploads/2021/05/1772-jpg-275x275.webp" alt="Lievito Caputo" class="product-image" loading="lazy">
+                <span class="product-badge" style="background:var(--rc-accent);">Essenziale</span>
+                <h3 class="product-name">Lievito Secco Caputo 100% Italiano 100g</h3>
+                <div class="product-price">&euro;2,50</div>
+                <div class="product-meta"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 4.8 (654 recensioni)</div>
+                <a href="https://www.rocard.it/shop/lievito-secco-caputo-100-italiano-100g/" class="product-btn">Aggiungi al carrello</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Support -->
+<section class="support-section">
+    <div class="container">
+        <h2 class="section-title">Supporto e Informazioni</h2>
+        <div class="support-grid">
+            <div class="support-card">
+                <h3><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="vertical-align:middle;margin-right:6px;color:var(--rc-accent);"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path><path d="M15 18H9"></path><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path><circle cx="17" cy="18" r="2"></circle><circle cx="7" cy="18" r="2"></circle></svg>I Nostri Corrieri</h3>
+                <div class="courier-list">
+                    <div class="courier-item"><div><div class="courier-name">GLS</div><a href="https://www.gls-italy.com/" target="_blank" class="courier-link">Traccia su GLS &rarr;</a></div></div>
+                    <div class="courier-item"><div><div class="courier-name">BRT</div><a href="https://www.brt.it/it/tracking" target="_blank" class="courier-link">Traccia su BRT &rarr;</a></div></div>
+                    <div class="courier-item"><div><div class="courier-name">Poste Italiane</div><a href="https://www.poste.it/cerca/index.html#/risultati-spedizioni/" target="_blank" class="courier-link">Traccia su Poste &rarr;</a></div></div>
+                </div>
+            </div>
+            <div class="support-card">
+                <h3><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="vertical-align:middle;margin-right:6px;color:var(--rc-accent);"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>Hai Bisogno di Aiuto?</h3>
+                <p><strong>Email:</strong> info@rocard.it</p>
+                <p><strong>Telefono:</strong> +39 0773 1888391</p>
+                <p><strong>Orari:</strong> Lun-Ven 6:00-21:00</p>
+                <p><strong>Sab-Dom:</strong> 9:00-21:00</p>
+            </div>
+            <div class="support-card">
+                <h3><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="vertical-align:middle;margin-right:6px;color:var(--rc-accent);"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M8 16H3v5"></path></svg>Politiche di Reso</h3>
+                <p style="margin-bottom:8px;">Soddisfazione garantita</p>
+                <ul class="info-list">
+                    <li>14 giorni per il reso</li>
+                    <li>Rimborso completo*</li>
+                    <li>Prodotto integro</li>
+                    <li>Confezione originale</li>
+                    <li>Processo semplice</li>
+                </ul>
+                <p style="margin-top:8px;font-size:0.7rem;color:#999;font-style:italic;">* Secondo Termini &amp; Condizioni</p>
+            </div>
+            <div class="support-card">
+                <h3><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="vertical-align:middle;margin-right:6px;color:var(--rc-accent);"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>Metodi di Pagamento</h3>
+                <p style="margin-bottom:8px;">Pagamenti sicuri e protetti</p>
+                <div class="payment-icons">
+                    <div class="payment-icon" style="background:#1434CB;color:#fff;">VISA</div>
+                    <div class="payment-icon" style="background:#EB001B;color:#fff;">MC</div>
+                    <div class="payment-icon" style="background:#003087;color:#fff;">PayPal</div>
+                    <div class="payment-icon" style="background:#00A3E0;color:#fff;">Amex</div>
+                    <div class="payment-icon">Bonifico</div>
+                    <div class="payment-icon" style="background:#FFD700;color:#333;">Contanti</div>
+                </div>
+                <p style="margin-top:10px;font-size:0.8rem;color:#666;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px;display:inline-block;vertical-align:middle;color:var(--rc-green);"><path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/></svg> Transazioni protette SSL</p>
+            </div>
+        </div>
+        <div class="reassurance-grid">
+            <div class="reassurance-item">
+                <div class="reassurance-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path><path d="M15 18H9"></path><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path><circle cx="17" cy="18" r="2"></circle><circle cx="7" cy="18" r="2"></circle></svg></div>
+                <div class="reassurance-title">Spedizione Veloce</div>
+                <div class="reassurance-desc">Consegna in 24-72 ore lavorative</div>
+            </div>
+            <div class="reassurance-item">
+                <div class="reassurance-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div>
+                <div class="reassurance-title">Pagamenti Sicuri</div>
+                <div class="reassurance-desc">Transazioni protette SSL</div>
+            </div>
+            <div class="reassurance-item">
+                <div class="reassurance-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M8 16H3v5"></path></svg></div>
+                <div class="reassurance-title">Reso Facile</div>
+                <div class="reassurance-desc">14 giorni per il reso</div>
+            </div>
+            <div class="reassurance-item">
+                <div class="reassurance-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg></div>
+                <div class="reassurance-title">Supporto Dedicato</div>
+                <div class="reassurance-desc">Assistenza personalizzata</div>
+            </div>
+            <div class="reassurance-item">
+                <div class="reassurance-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="6"></circle><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path></svg></div>
+                <div class="reassurance-title">Qualit&agrave; Garantita</div>
+                <div class="reassurance-desc">Prodotti certificati</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+    <div class="container">
+        <h2 class="section-title">Domande Frequenti</h2>
+        <div class="faq-grid">
+            <div class="faq-item"><div class="faq-question">Quanto tempo ci vuole per la consegna?</div><div class="faq-answer">I nostri ordini vengono consegnati in 24-72 ore lavorative dalla spedizione. Riceverai un'email con il numero di tracking non appena il pacco parte.</div></div>
+            <div class="faq-item"><div class="faq-question">Come posso tracciare il mio ordine?</div><div class="faq-answer">Inserisci il numero d'ordine e l'email nel form sopra. Troverai questi dati nell'email di conferma che hai ricevuto dopo l'acquisto.</div></div>
+            <div class="faq-item"><div class="faq-question">Cosa faccio se il tracking non funziona?</div><div class="faq-answer">Se il numero di tracking non &egrave; ancora attivo, potrebbe essere che il corriere non l'abbia ancora aggiornato. Attendi qualche ora e riprova.</div></div>
+            <div class="faq-item"><div class="faq-question">Posso modificare l'indirizzo di spedizione?</div><div class="faq-answer">Se l'ordine non &egrave; ancora stato spedito, contattaci immediatamente. Una volta preso in carico dal corriere, non sar&agrave; pi&ugrave; possibile modificare l'indirizzo.</div></div>
+            <div class="faq-item"><div class="faq-question">Quanto costa la spedizione?</div><div class="faq-answer">La spedizione &egrave; GRATUITA per ordini superiori a 29&euro;. Per ordini inferiori, il costo &egrave; di 4,90&euro;.</div></div>
+            <div class="faq-item"><div class="faq-question">Quali corrieri utilizzate?</div><div class="faq-answer">Utilizziamo GLS, BRT e Poste Italiane per garantire la massima affidabilit&agrave; e velocit&agrave; nelle consegne.</div></div>
+            <div class="faq-item"><div class="faq-question">Come funziona il reso?</div><div class="faq-answer">Hai 14 giorni dalla ricezione per richiedere il reso. Il prodotto deve essere integro e nella confezione originale. Contattaci per avviare la pratica.</div></div>
+            <div class="faq-item"><div class="faq-question">Il pacco &egrave; assicurato?</div><div class="faq-answer">S&igrave;, tutti i nostri pacchi sono assicurati contro smarrimento o danneggiamento durante il trasporto.</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- Trust Footer -->
+<section class="trust-footer">
+    <div class="container">
+        <div class="trust-badges">
+            <div class="trust-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                <span>Pagamenti Sicuri SSL</span>
+            </div>
+            <div class="trust-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="6"></circle><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path></svg>
+                <span>Trusted Shop 4.9</span>
+            </div>
+            <div class="trust-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                <span>730.000+ Clienti Felici</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+</div>
