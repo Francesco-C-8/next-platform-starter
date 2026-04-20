@@ -616,6 +616,11 @@
 .rocard-tracking .rct-trackship-mount input[name="tracking_number"],
 .rocard-tracking .rct-trackship-mount input[name="tracking_no"],
 .rocard-tracking .rct-trackship-mount input[name="shipment_tracking_number"],
+.rocard-tracking .rct-trackship-mount input[name*="tracking"]:not([name="order_id"]):not([name="order_email"]),
+.rocard-tracking .rct-trackship-mount input[name*="shipment"]:not([name="order_id"]):not([name="order_email"]),
+.rocard-tracking .rct-trackship-mount input[placeholder*="tracciabilit" i],
+.rocard-tracking .rct-trackship-mount input[placeholder*="tracciament" i],
+.rocard-tracking .rct-trackship-mount input[placeholder*="tracking" i],
 .rocard-tracking .rct-trackship-mount #tracking_number,
 .rocard-tracking .rct-trackship-mount #tracking_no {
     display: none !important;
@@ -623,6 +628,11 @@
 .rocard-tracking .rct-trackship-mount p.form-row:has(input[name="tracking_number"]),
 .rocard-tracking .rct-trackship-mount p.form-row:has(input[name="tracking_no"]),
 .rocard-tracking .rct-trackship-mount p.form-row:has(input[name="shipment_tracking_number"]),
+.rocard-tracking .rct-trackship-mount p.form-row:has(input[name*="tracking"]),
+.rocard-tracking .rct-trackship-mount p.form-row:has(input[name*="shipment"]),
+.rocard-tracking .rct-trackship-mount p.form-row:has(input[placeholder*="tracciabilit" i]),
+.rocard-tracking .rct-trackship-mount p.form-row:has(input[placeholder*="tracciament" i]),
+.rocard-tracking .rct-trackship-mount p.form-row:has(input[placeholder*="tracking" i]),
 .rocard-tracking .rct-trackship-mount p.form-row:has(#tracking_number),
 .rocard-tracking .rct-trackship-mount .shipment_tracking_number,
 .rocard-tracking .rct-trackship-mount .tracking_form.shipment_tracking_number,
@@ -1278,10 +1288,26 @@
             }
         }
 
-        // === 5. Nasconde eventuali input tracking_number ===
-        mount.querySelectorAll('input[name="tracking_number"], input[name="tracking_no"], input[name="shipment_tracking_number"], #tracking_number, #tracking_no').forEach(function(input) {
-            var wrap = input.closest('p.form-row, .form-row') || input.parentElement;
-            if (wrap) wrap.style.setProperty('display', 'none', 'important');
+        // === 5. Nasconde eventuali input tracking/tracciabilita (by name OR placeholder) ===
+        // Whitelist: order_id e order_email NON devono mai essere nascosti
+        mount.querySelectorAll('input').forEach(function(input) {
+            var name = (input.getAttribute('name') || '').toLowerCase();
+            var id = (input.getAttribute('id') || '').toLowerCase();
+            var placeholder = (input.getAttribute('placeholder') || '').toLowerCase();
+            // Whitelist: salta order_id e order_email
+            if (name === 'order_id' || id === 'order_id' ||
+                name === 'order_email' || id === 'order_email') return;
+            // Match per name, id o placeholder
+            var combined = name + ' ' + id + ' ' + placeholder;
+            if (/tracking|tracciabilit|tracciament|shipment/i.test(combined)) {
+                var wrap = input.closest('p.form-row, .form-row') || input.parentElement;
+                if (wrap && wrap !== mount) {
+                    wrap.style.setProperty('display', 'none', 'important');
+                    wrap.classList.add('rct-native-ship-form');
+                } else {
+                    input.style.setProperty('display', 'none', 'important');
+                }
+            }
         });
 
         // Rimuove il loader
