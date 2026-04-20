@@ -569,6 +569,81 @@
 .rocard-tracking .rct-tab-pane { display: none !important; }
 .rocard-tracking .rct-tab-pane.rct-active { display: block !important; }
 
+/* ═══ CSS-ONLY CLEANUP DEL FORM TRACKSHIP NATIVO ═══ */
+/* Queste regole funzionano ANCHE senza JavaScript. Nascondono: */
+/* 1. Tutti i titoli h1-h4 nel mount (include "Dettagli dell'ordine" e "Numero di identificazione") */
+.rocard-tracking .rct-trackship-mount h1,
+.rocard-tracking .rct-trackship-mount h2,
+.rocard-tracking .rct-trackship-mount h3,
+.rocard-tracking .rct-trackship-mount h4,
+.rocard-tracking .rct-trackship-mount h5 {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
+/* 2. Tutte le barre tab native (ul, nav, tablist) */
+.rocard-tracking .rct-trackship-mount ul.tabs,
+.rocard-tracking .rct-trackship-mount .tabs:not(.rct-method-tabs),
+.rocard-tracking .rct-trackship-mount nav.tabs,
+.rocard-tracking .rct-trackship-mount ul[role="tablist"],
+.rocard-tracking .rct-trackship-mount > div > ul,
+.rocard-tracking .rct-trackship-mount .track-order-section > ul,
+.rocard-tracking .rct-trackship-mount .track-order-section > div > ul,
+.rocard-tracking .rct-trackship-mount > .search_order_form > ul {
+    display: none !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* 3. Nasconde il SECONDO form.order_track_form (form shipping duplicato) */
+.rocard-tracking .rct-trackship-mount form.order_track_form:nth-of-type(2),
+.rocard-tracking .rct-trackship-mount form.order_track_form ~ form.order_track_form,
+.rocard-tracking .rct-trackship-mount form.order_track_form + form.order_track_form {
+    display: none !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* 4. Nasconde tutti gli input tracking_number (ownutti e i loro wrapper) */
+.rocard-tracking .rct-trackship-mount input[name="tracking_number"],
+.rocard-tracking .rct-trackship-mount input[name="tracking_no"],
+.rocard-tracking .rct-trackship-mount input[name="shipment_tracking_number"],
+.rocard-tracking .rct-trackship-mount #tracking_number,
+.rocard-tracking .rct-trackship-mount #tracking_no {
+    display: none !important;
+}
+.rocard-tracking .rct-trackship-mount p.form-row:has(input[name="tracking_number"]),
+.rocard-tracking .rct-trackship-mount p.form-row:has(input[name="tracking_no"]),
+.rocard-tracking .rct-trackship-mount p.form-row:has(input[name="shipment_tracking_number"]),
+.rocard-tracking .rct-trackship-mount p.form-row:has(#tracking_number),
+.rocard-tracking .rct-trackship-mount .shipment_tracking_number,
+.rocard-tracking .rct-trackship-mount .tracking_form.shipment_tracking_number,
+.rocard-tracking .rct-trackship-mount .tracking_number_only {
+    display: none !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* 5. Nasconde il paragrafo intro shipping ("Per tracciare...numero di tracciamento") */
+/* CSS non puo filtrare per contenuto testo — lo fara il JS. Fallback: nasconde p che seguono
+   un form nascosto o sono dentro sezioni shipping */
+.rocard-tracking .rct-trackship-mount .shipment_tracking_number p,
+.rocard-tracking .rct-trackship-mount .tracking_form.shipment_tracking_number p { display: none !important; }
+
+/* 6. Nasconde SEMPRE la trackship branding */
+.rocard-tracking .rct-trackship-mount .trackship_branding,
+.rocard-tracking .rct-trackship-mount [class*="trackship_branding"] { display: none !important; }
+
 /* ═══ FORM CUSTOM SHIPPING (tab 2) ═══ */
 .rocard-tracking .rct-shipping-form { display: block !important; max-width: 600px !important; margin: 0 auto !important; }
 .rocard-tracking .rct-shipping-intro {
@@ -612,22 +687,11 @@
 .rocard-tracking .rct-shipping-form .rct-shipping-btn:hover { background: #f57c00 !important; }
 .rocard-tracking .rct-shipping-form .rct-shipping-btn svg { width: 18px !important; height: 18px !important; }
 
-/* ═══ HIDE UTILITY (vince su tutti i display:block del nostro CSS) ═══ */
+/* ═══ Hide utility per JS fallback ═══ */
 .rocard-tracking .rct-trackship-mount .rct-hide,
-.rocard-tracking .rct-trackship-mount .rct-hide.order_id_email,
-.rocard-tracking .rct-trackship-mount .rct-hide.shipment_tracking_number,
-.rocard-tracking .rct-trackship-mount .rct-hide.tracking_form,
-.rocard-tracking .rct-trackship-mount .rct-hide.tab-content,
-.rocard-tracking .rct-trackship-mount.rct-clean h1,
-.rocard-tracking .rct-trackship-mount.rct-clean h2,
-.rocard-tracking .rct-trackship-mount.rct-clean h3,
-.rocard-tracking .rct-trackship-mount.rct-clean h4,
-.rocard-tracking .rct-trackship-mount.rct-clean ul.tabs,
-.rocard-tracking .rct-trackship-mount.rct-clean .tabs:not(.rct-method-tabs),
-.rocard-tracking .rct-trackship-mount.rct-clean nav.tabs,
-.rocard-tracking .rct-trackship-mount.rct-clean ul[role="tablist"],
 .rocard-tracking .rct-trackship-mount.rct-clean .rct-native-ship-form,
-.rocard-tracking .rct-trackship-mount.rct-clean .rct-section-title-native {
+.rocard-tracking .rct-trackship-mount.rct-clean .rct-section-title-native,
+.rocard-tracking .rct-trackship-mount.rct-clean .rct-intro-ship-native {
     display: none !important;
     height: 0 !important;
     overflow: hidden !important;
@@ -1103,79 +1167,42 @@
         return 'gls';
     }
 
-    // Pulizia AGGRESSIVA del form TrackShip nativo:
-    // - nasconde TUTTI i titoli/sottotitoli (h1-h4, span con testi specifici)
-    // - nasconde il form con tracking_number (secondo form duplicato)
-    // - nasconde ul.tabs native
-    // - lascia visibile SOLO il form con order_id + order_email
+    // Pulizia AGGRESSIVA del form TrackShip nativo (content-based - il CSS gia copre molto)
     function cleanupNativeForm(mount) {
         if (!mount) return false;
         mount.classList.add('rct-clean');
 
-        // 1. Nasconde ogni elemento testo che contiene "Dettagli dell'ordine" o "Numero di identificazione"
-        // (siano <h1-4>, <span>, <a>, <div>, ecc.)
-        mount.querySelectorAll('h1, h2, h3, h4, h5, span, a, div, li, p, strong').forEach(function(el) {
-            if (el.children.length > 3) return; // solo leaf-ish
+        // Nasconde i <p> che contengono il testo "numero di tracciamento...nell'e-mail di conferma della spedizione"
+        // (il CSS non puo filtrare per contenuto testuale)
+        mount.querySelectorAll('p, span, div').forEach(function(el) {
+            if (el.children.length > 2) return;
             var txt = (el.textContent || '').trim();
-            if (txt.length > 50 || txt.length < 5) return;
+            if (txt.length < 20 || txt.length > 250) return;
+            if (/numero di tracciamento.*e-?mail di conferma della spedizione/i.test(txt) ||
+                /inserisci il numero di tracciamento/i.test(txt)) {
+                el.classList.add('rct-intro-ship-native');
+                el.style.setProperty('display', 'none', 'important');
+            }
+            // Nasconde anche eventuali titoli "Dettagli dell'ordine" e "Numero di identificazione"
+            // che siano <span>/<div> invece di <h1-4> (gia coperti dal CSS)
             if (/^dettagli\s+(dell[''])?ordin/i.test(txt) ||
                 /^numero\s+(di\s+)?identificazione$/i.test(txt) ||
                 /^numero\s+(di\s+)?spedizione\s*\(?tracking/i.test(txt)) {
                 el.classList.add('rct-section-title-native');
-                el.style.display = 'none';
-                // Nasconde anche il parent se e' un wrapper tipo li/tab
-                var wrap = el.closest('li.tab, li, .tab, [role="tab"]');
-                if (wrap && wrap !== mount) wrap.style.display = 'none';
+                el.style.setProperty('display', 'none', 'important');
+                var wrap = el.closest('li.tab, li, [role="tab"]');
+                if (wrap && wrap !== mount) wrap.style.setProperty('display', 'none', 'important');
             }
         });
 
-        // 2. Trova i form e classifica
-        var allForms = mount.querySelectorAll('form.order_track_form, form[action*="track"]');
-        if (allForms.length === 0) allForms = mount.querySelectorAll('form');
-        var orderForm = null, shipForm = null;
-        allForms.forEach(function(f) {
-            var hasOrderId = !!f.querySelector('input[name="order_id"], #order_id');
-            var hasEmail = !!f.querySelector('input[name="order_email"], #order_email');
-            var hasTracking = !!f.querySelector('input[name="tracking_number"], input[name="tracking_no"], input[name="shipment_tracking_number"], #tracking_number, #tracking_no');
-            if (hasOrderId && hasEmail && !orderForm) orderForm = f;
-            else if (hasTracking && !hasOrderId && !shipForm) shipForm = f;
-            else if (hasOrderId && !orderForm) orderForm = f;
-            else if (hasTracking && !shipForm) shipForm = f;
-        });
-
-        // Se sono lo stesso form (singolo form con entrambi i tipi di input), cerca le sezioni
-        var sameForm = orderForm && shipForm && orderForm === shipForm;
-        if (sameForm) {
-            // Nasconde la sezione shipping dentro il singolo form
-            var shipSection = orderForm.querySelector('.shipment_tracking_number, [class*="tracking_number_only"], [id*="tracking_number"]');
-            if (!shipSection) {
-                var tn = orderForm.querySelector('input[name="tracking_number"], #tracking_number, input[name="tracking_no"]');
-                if (tn) {
-                    var cur = tn.parentElement;
-                    while (cur && cur !== orderForm && (cur.children.length < 2 || cur.tagName === 'P')) cur = cur.parentElement;
-                    if (cur && cur !== orderForm) shipSection = cur;
-                }
-            }
-            if (shipSection) {
-                shipSection.classList.add('rct-native-ship-form');
-                shipSection.style.display = 'none';
-            }
-            shipForm = null;
+        // Nasconde il SECONDO form.order_track_form (il form shipping duplicato)
+        var forms = mount.querySelectorAll('form.order_track_form');
+        for (var i = 1; i < forms.length; i++) {
+            forms[i].classList.add('rct-native-ship-form');
+            forms[i].style.setProperty('display', 'none', 'important');
         }
 
-        // 3. Nasconde il form shipping duplicato (se e' un form a parte)
-        if (shipForm && shipForm !== orderForm) {
-            shipForm.classList.add('rct-native-ship-form');
-            shipForm.style.display = 'none';
-            // Nasconde anche il wrapper che lo contiene (div tab-content)
-            var shipWrap = shipForm.closest('[id^="tab-"], .tab-content, .tab_content, .tab-pane');
-            if (shipWrap && shipWrap !== mount) {
-                shipWrap.classList.add('rct-native-ship-form');
-                shipWrap.style.display = 'none';
-            }
-        }
-
-        // 4. Rimuove il loader
+        // Rimuove il loader
         var loader = mount.querySelector('.rct-form-loading');
         if (loader) loader.remove();
 
