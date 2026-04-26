@@ -552,7 +552,9 @@
     letter-spacing: normal !important;
     box-shadow: none !important;
     min-height: 44px !important;
+    text-decoration: none !important;
 }
+.rocard-tracking .rct-method-tab:hover { text-decoration: none !important; }
 .rocard-tracking .rct-method-tab svg {
     width: 18px !important; height: 18px !important; flex-shrink: 0 !important;
 }
@@ -580,9 +582,29 @@
 /* Legacy: nasconde eventuale form nativo rimasto nello shortcode dopo lo spostamento */
 .track-order-section-placeholder-hide { display: none !important; }
 
-/* ═══ TAB PANES (switch via JS) ═══ */
-.rocard-tracking .rct-tab-pane { display: none !important; }
-.rocard-tracking .rct-tab-pane.rct-active { display: block !important; }
+/* ═══ TAB PANES (CSS-only via :target) ═══ */
+/* Default: Tab 1 (order) attiva */
+.rocard-tracking .rct-tab-pane[data-pane="order"] { display: block !important; }
+.rocard-tracking .rct-tab-pane[data-pane="shipping"] { display: none !important; }
+/* Default tab pill */
+.rocard-tracking .rct-method-tabs a[data-method="order"] { background: #fff !important; color: #2a7ab5 !important; font-weight: 600 !important; box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important; }
+
+/* Quando cliccato sul link "shipping" (URL ha #rct-tab-shipping) */
+.rocard-tracking:has(#rct-tab-shipping:target) .rct-tab-pane[data-pane="order"],
+body:has(#rct-tab-shipping:target) .rocard-tracking .rct-tab-pane[data-pane="order"] { display: none !important; }
+.rocard-tracking:has(#rct-tab-shipping:target) .rct-tab-pane[data-pane="shipping"],
+body:has(#rct-tab-shipping:target) .rocard-tracking .rct-tab-pane[data-pane="shipping"] { display: block !important; }
+.rocard-tracking:has(#rct-tab-shipping:target) .rct-method-tabs a[data-method="order"],
+body:has(#rct-tab-shipping:target) .rocard-tracking .rct-method-tabs a[data-method="order"] { background: transparent !important; color: #666 !important; font-weight: 500 !important; box-shadow: none !important; }
+.rocard-tracking:has(#rct-tab-shipping:target) .rct-method-tabs a[data-method="shipping"],
+body:has(#rct-tab-shipping:target) .rocard-tracking .rct-method-tabs a[data-method="shipping"] { background: #fff !important; color: #2a7ab5 !important; font-weight: 600 !important; box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important; }
+
+/* Quando cliccato sul link "order" (URL ha #rct-tab-order) — ripristina default esplicito */
+.rocard-tracking:has(#rct-tab-order:target) .rct-tab-pane[data-pane="order"],
+body:has(#rct-tab-order:target) .rocard-tracking .rct-tab-pane[data-pane="order"] { display: block !important; }
+.rocard-tracking:has(#rct-tab-order:target) .rct-tab-pane[data-pane="shipping"],
+body:has(#rct-tab-order:target) .rocard-tracking .rct-tab-pane[data-pane="shipping"] { display: none !important; }
+
 
 /* ═══ CSS-ONLY CLEANUP DEL FORM TRACKSHIP NATIVO ═══ */
 /* Queste regole funzionano ANCHE senza JavaScript. Nascondono: */
@@ -669,48 +691,59 @@
 .rocard-tracking .rct-trackship-mount .trackship_branding,
 .rocard-tracking .rct-trackship-mount [class*="trackship_branding"] { display: none !important; }
 
-/* ═══ FORM CUSTOM SHIPPING (tab 2) ═══ */
-.rocard-tracking .rct-shipping-form { display: block !important; max-width: 600px !important; margin: 0 auto !important; }
+/* ═══ FORM CUSTOM SHIPPING (tab 2) - LINK DIRETTI CORRIERI (no JS) ═══ */
 .rocard-tracking .rct-shipping-intro {
     color: #555 !important; font-size: 0.95rem !important; margin-bottom: 20px !important;
-    line-height: 1.5 !important; font-family: 'Outfit', sans-serif !important;
+    line-height: 1.5 !important; font-family: 'Outfit', sans-serif !important; text-align: center !important;
 }
-.rocard-tracking .rct-shipping-form .rct-field-group { margin-bottom: 16px !important; }
-.rocard-tracking .rct-shipping-form label {
-    display: block !important; font-weight: 500 !important; margin-bottom: 6px !important;
-    color: #333 !important; font-size: 0.9rem !important;
+.rocard-tracking .rct-courier-direct-grid {
+    display: grid !important; grid-template-columns: repeat(3, 1fr) !important;
+    gap: 14px !important; margin-bottom: 18px !important;
+}
+.rocard-tracking .rct-courier-direct {
+    display: flex !important; flex-direction: column !important;
+    align-items: center !important; justify-content: center !important;
+    gap: 8px !important; padding: 24px 16px !important;
+    background: #fff !important; border: 2px solid #e5e5e5 !important;
+    border-radius: 12px !important; text-decoration: none !important;
+    transition: all 0.3s ease !important; min-height: 120px !important;
+    text-align: center !important;
+}
+.rocard-tracking .rct-courier-direct:hover {
+    border-color: #2a7ab5 !important; transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(42,122,181,0.15) !important;
+    text-decoration: none !important;
+}
+.rocard-tracking .rct-courier-direct-name {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 1.5rem !important; font-weight: 700 !important;
+    color: #2a7ab5 !important; letter-spacing: 0.02em !important;
+}
+.rocard-tracking .rct-courier-direct-action {
+    display: inline-flex !important; align-items: center !important; gap: 5px !important;
+    font-size: 0.8rem !important; color: #f57c00 !important; font-weight: 500 !important;
     font-family: 'Outfit', sans-serif !important;
 }
-.rocard-tracking .rct-shipping-form input,
-.rocard-tracking .rct-shipping-form select {
-    width: 100% !important; padding: 12px 16px !important;
-    border: 2px solid #e5e5e5 !important; border-radius: 8px !important;
-    font-size: 0.95rem !important; font-family: 'Outfit', sans-serif !important;
-    outline: none !important; box-shadow: none !important; background: #fff !important;
-    height: auto !important; line-height: 1.4 !important; margin: 0 !important;
-    box-sizing: border-box !important; min-height: 46px !important;
-    color: #333 !important; appearance: none !important; -webkit-appearance: none !important;
+.rocard-tracking .rct-courier-direct-action svg { color: #f57c00 !important; }
+.rocard-tracking .rct-shipping-tip {
+    background: #eff6ff !important; border-left: 3px solid #2a7ab5 !important;
+    padding: 12px 16px !important; border-radius: 6px !important;
+    font-size: 0.85rem !important; color: #444 !important;
+    line-height: 1.5 !important; font-family: 'Outfit', sans-serif !important;
+    margin: 0 !important;
 }
-.rocard-tracking .rct-shipping-form select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%232a7ab5' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
-    background-repeat: no-repeat !important; background-position: right 16px center !important;
-    padding-right: 40px !important;
+.rocard-tracking .rct-shipping-tip strong { color: #2a7ab5 !important; }
+.rocard-tracking .rct-shipping-tip code {
+    background: rgba(42,122,181,0.1) !important; color: #2a7ab5 !important;
+    padding: 2px 8px !important; border-radius: 4px !important;
+    font-family: 'Outfit', monospace !important; font-weight: 600 !important;
 }
-.rocard-tracking .rct-shipping-form input:focus,
-.rocard-tracking .rct-shipping-form select:focus { border-color: #2a7ab5 !important; }
-.rocard-tracking .rct-shipping-form .rct-shipping-btn {
-    display: flex !important; align-items: center !important; justify-content: center !important;
-    gap: 8px !important; width: 100% !important; padding: 14px !important;
-    background: #2a7ab5 !important; color: #fff !important;
-    border: none !important; border-radius: 8px !important;
-    font-size: 1rem !important; font-weight: 600 !important;
-    font-family: 'Outfit', sans-serif !important; cursor: pointer !important;
-    letter-spacing: 0.3px !important; line-height: 1.4 !important;
-    min-height: 50px !important; margin-top: 4px !important;
-    transition: background 0.3s ease !important;
+@media (max-width: 600px) {
+    .rocard-tracking .rct-courier-direct-grid { grid-template-columns: 1fr !important; }
 }
-.rocard-tracking .rct-shipping-form .rct-shipping-btn:hover { background: #f57c00 !important; }
-.rocard-tracking .rct-shipping-form .rct-shipping-btn svg { width: 18px !important; height: 18px !important; }
+
+/* OLD .rct-shipping-form rimasto per compatibilita - innocuo */
+.rocard-tracking .rct-shipping-form { display: block !important; max-width: 600px !important; margin: 0 auto !important; }
 
 /* ═══ Hide utility per JS fallback ═══ */
 .rocard-tracking .rct-trackship-mount .rct-hide,
@@ -750,16 +783,18 @@
     <div class="rct-container">
         <div class="rct-track-form-container">
 
-            <!-- Tabs custom pill-style -->
+            <!-- Tabs custom pill-style (CSS-only via :target) -->
+            <span id="rct-tab-order"></span>
+            <span id="rct-tab-shipping"></span>
             <div class="rct-method-tabs" role="tablist">
-                <button type="button" class="rct-method-tab rct-active" data-method="order" role="tab" aria-selected="true">
+                <a href="#rct-tab-order" class="rct-method-tab" data-method="order" role="tab">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16.5 9.4 7.55 4.24"></path><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
                     <span>Numero ordine + Email</span>
-                </button>
-                <button type="button" class="rct-method-tab" data-method="shipping" role="tab" aria-selected="false">
+                </a>
+                <a href="#rct-tab-shipping" class="rct-method-tab" data-method="shipping" role="tab">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"></path><path d="M2 7h20v10H2z"></path><path d="M6 17v3"></path><path d="M18 17v3"></path></svg>
                     <span>Numero di spedizione</span>
-                </button>
+                </a>
             </div>
 
             <!-- TAB 1: Form TrackShip nativo ordine+email (via mount) -->
@@ -772,28 +807,30 @@
                 </div>
             </div>
 
-            <!-- TAB 2: Form custom con redirect diretto al corriere -->
+            <!-- TAB 2: Link diretti per ogni corriere (no JS richiesto - funziona anche se Elementor strippa script) -->
             <div class="rct-tab-pane" data-pane="shipping">
-                <form class="rct-shipping-form" id="rctShippingForm" onsubmit="return false;">
-                    <p class="rct-shipping-intro">Per tracciare il tuo ordine, inserisci il numero di tracciamento che hai ricevuto nell'e-mail di conferma della spedizione</p>
-                    <div class="rct-field-group">
-                        <label for="rctShippingNumber">Numero di identificazione</label>
-                        <input type="text" id="rctShippingNumber" name="shipping_number" placeholder="Es. NN665931971" autocomplete="off">
-                    </div>
-                    <div class="rct-field-group">
-                        <label for="rctShippingCourier">Corriere</label>
-                        <select id="rctShippingCourier" name="shipping_courier">
-                            <option value="auto">Rilevamento automatico</option>
-                            <option value="gls">GLS</option>
-                            <option value="brt">BRT</option>
-                            <option value="poste">Poste Italiane</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="rct-shipping-btn" id="rctShippingBtn">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                        <span>Traccia sul sito del corriere</span>
-                    </button>
-                </form>
+                <p class="rct-shipping-intro">Per tracciare la tua spedizione, clicca sul corriere e inserisci il numero di tracciamento ricevuto via email/SMS dopo la spedizione.</p>
+                <div class="rct-courier-direct-grid">
+                    <a href="https://www.gls-italy.com/" target="_blank" rel="noopener" class="rct-courier-direct rct-courier-gls">
+                        <span class="rct-courier-direct-name">GLS</span>
+                        <span class="rct-courier-direct-action">Apri sito tracking
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        </span>
+                    </a>
+                    <a href="https://www.brt.it/it/tracking" target="_blank" rel="noopener" class="rct-courier-direct rct-courier-brt">
+                        <span class="rct-courier-direct-name">BRT</span>
+                        <span class="rct-courier-direct-action">Apri sito tracking
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        </span>
+                    </a>
+                    <a href="https://www.poste.it/cerca/index.html#/risultati-spedizioni/" target="_blank" rel="noopener" class="rct-courier-direct rct-courier-poste">
+                        <span class="rct-courier-direct-name">Poste Italiane</span>
+                        <span class="rct-courier-direct-action">Apri sito tracking
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        </span>
+                    </a>
+                </div>
+                <p class="rct-shipping-tip"><strong>Suggerimento:</strong> il numero di tracciamento (es. <code>NN665931971</code>) lo trovi nell'email di spedizione che ti abbiamo inviato dopo l'ordine.</p>
             </div>
 
             <p class="rct-form-hint">Trova i dati nell'email di conferma che hai ricevuto dopo l'acquisto</p>
