@@ -271,6 +271,72 @@
     word-break: break-all !important;
 }
 
+/* Form contatto */
+.rocard-help .rca-form-section { padding: 60px 0 !important; background: #fff !important; }
+.rocard-help .rca-form-wrap {
+    max-width: 760px !important; margin: 28px auto 0 !important;
+    background: #fff !important; padding: 40px !important;
+    border-radius: 16px !important; border: 1px solid #e5e5e5 !important;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.04) !important;
+}
+.rocard-help .rca-form-row {
+    display: grid !important; grid-template-columns: 1fr 1fr !important;
+    gap: 16px !important; margin-bottom: 16px !important;
+}
+.rocard-help .rca-form-group { margin-bottom: 16px !important; display: flex !important; flex-direction: column !important; }
+.rocard-help .rca-form-group label {
+    font-size: 0.82rem !important; font-weight: 600 !important;
+    color: #333 !important; margin-bottom: 6px !important;
+    letter-spacing: 0.02em !important;
+}
+.rocard-help .rca-form-group label .rca-req { color: #f57c00 !important; }
+.rocard-help .rca-form-group input,
+.rocard-help .rca-form-group select,
+.rocard-help .rca-form-group textarea {
+    width: 100% !important; padding: 12px 14px !important;
+    border: 1px solid #d4d4d8 !important; border-radius: 10px !important;
+    font-family: 'Outfit', sans-serif !important; font-size: 0.95rem !important;
+    color: #333 !important; background: #fafafa !important;
+    transition: all 0.2s ease !important; outline: none !important;
+}
+.rocard-help .rca-form-group input:focus,
+.rocard-help .rca-form-group select:focus,
+.rocard-help .rca-form-group textarea:focus {
+    border-color: #2a7ab5 !important; background: #fff !important;
+    box-shadow: 0 0 0 3px rgba(42,122,181,0.12) !important;
+}
+.rocard-help .rca-form-group textarea { resize: vertical !important; min-height: 130px !important; }
+.rocard-help .rca-form-submit {
+    display: inline-flex !important; align-items: center !important;
+    justify-content: center !important; gap: 8px !important;
+    background: linear-gradient(135deg, #f57c00 0%, #ef6c00 100%) !important;
+    color: #fff !important; border: none !important;
+    padding: 14px 36px !important; border-radius: 30px !important;
+    font-family: 'Outfit', sans-serif !important; font-size: 1rem !important;
+    font-weight: 600 !important; cursor: pointer !important;
+    transition: all 0.3s ease !important; margin-top: 8px !important;
+    box-shadow: 0 4px 16px rgba(245,124,0,0.3) !important;
+    letter-spacing: 0.02em !important;
+}
+.rocard-help .rca-form-submit:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 24px rgba(245,124,0,0.4) !important;
+}
+.rocard-help .rca-form-submit svg { width: 18px !important; height: 18px !important; }
+.rocard-help .rca-form-note {
+    font-size: 0.8rem !important; color: #999 !important;
+    margin-top: 12px !important; text-align: center !important;
+}
+.rocard-help .rca-form-note a { color: #2a7ab5 !important; }
+.rocard-help .rca-form-privacy {
+    display: flex !important; align-items: flex-start !important; gap: 10px !important;
+    background: #f8f9fa !important; padding: 14px 16px !important;
+    border-radius: 10px !important; margin-top: 16px !important;
+    font-size: 0.82rem !important; color: #666 !important; line-height: 1.5 !important;
+}
+.rocard-help .rca-form-privacy svg { width: 18px !important; height: 18px !important; color: #059669 !important; flex-shrink: 0 !important; margin-top: 2px !important; }
+.rocard-help .rca-form-privacy a { color: #2a7ab5 !important; }
+
 /* Trust footer */
 .rocard-help .rca-trust-footer { background: #2a7ab5 !important; color: #fff !important; padding: 32px 0 !important; text-align: center !important; }
 .rocard-help .rca-trust-footer-grid { display: flex !important; justify-content: center !important; gap: 50px !important; flex-wrap: wrap !important; }
@@ -285,6 +351,8 @@
     .rocard-help .rca-quick-grid { grid-template-columns: 1fr !important; margin-top: -60px !important; }
     .rocard-help .rca-contact-grid { grid-template-columns: 1fr !important; }
     .rocard-help .rca-tab { flex: 1 1 calc(50% - 8px) !important; min-width: 0 !important; }
+    .rocard-help .rca-form-row { grid-template-columns: 1fr !important; }
+    .rocard-help .rca-form-wrap { padding: 28px 22px !important; }
 }
 @media (max-width: 600px) {
     .rocard-help .rca-hero { padding: 50px 0 40px !important; }
@@ -314,7 +382,7 @@
                 </div>
                 <div class="rca-hero-trust-item">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                    <span>Supporto Lun&ndash;Dom</span>
+                    <span>Lun&ndash;Dom 9:00&ndash;18:00</span>
                 </div>
                 <div class="rca-hero-trust-item">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
@@ -338,7 +406,7 @@
             <a href="tel:+3907731888391" class="rca-quick-card">
                 <div class="rca-quick-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div>
                 <h3>Chiamaci ora</h3>
-                <p>Lun&ndash;Ven 6:00&ndash;21:00 &bull; Sab&ndash;Dom 9:00&ndash;21:00</p>
+                <p>Lun&ndash;Dom 9:00&ndash;18:00</p>
                 <span class="rca-quick-link">+39 0773 188 8391 &rarr;</span>
             </a>
             <a href="https://www.rocard.it/track-order/" class="rca-quick-card">
@@ -442,6 +510,66 @@
     </div>
 </section>
 
+<!-- Form Contatto -->
+<section class="rca-form-section">
+    <div class="rca-container">
+        <h2 class="rca-section-title">Scrivici un messaggio</h2>
+        <p class="rca-section-subtitle">Compila il modulo: il nostro team ti risponder&agrave; entro 24 ore lavorative all'indirizzo email indicato.</p>
+        <div class="rca-form-wrap">
+            <form action="mailto:info@rocard.it" method="post" enctype="text/plain">
+                <div class="rca-form-row">
+                    <div class="rca-form-group">
+                        <label for="rca-nome">Nome e Cognome <span class="rca-req">*</span></label>
+                        <input type="text" id="rca-nome" name="Nome" required placeholder="Mario Rossi">
+                    </div>
+                    <div class="rca-form-group">
+                        <label for="rca-email">Email <span class="rca-req">*</span></label>
+                        <input type="email" id="rca-email" name="Email" required placeholder="mario.rossi@email.it">
+                    </div>
+                </div>
+                <div class="rca-form-row">
+                    <div class="rca-form-group">
+                        <label for="rca-telefono">Telefono</label>
+                        <input type="tel" id="rca-telefono" name="Telefono" placeholder="+39 333 1234567">
+                    </div>
+                    <div class="rca-form-group">
+                        <label for="rca-ordine">Numero d'ordine</label>
+                        <input type="text" id="rca-ordine" name="Numero-Ordine" placeholder="Es. 104049">
+                    </div>
+                </div>
+                <div class="rca-form-group">
+                    <label for="rca-oggetto">Argomento <span class="rca-req">*</span></label>
+                    <select id="rca-oggetto" name="Argomento" required>
+                        <option value="">Seleziona l'argomento della tua richiesta</option>
+                        <option value="Informazioni su un prodotto">Informazioni su un prodotto</option>
+                        <option value="Stato di un ordine">Stato di un ordine</option>
+                        <option value="Spedizione e consegna">Spedizione e consegna</option>
+                        <option value="Pagamenti e fatturazione">Pagamenti e fatturazione</option>
+                        <option value="Reso o sostituzione">Reso o sostituzione</option>
+                        <option value="Articolo danneggiato o difettoso">Articolo danneggiato o difettoso</option>
+                        <option value="Altro">Altro</option>
+                    </select>
+                </div>
+                <div class="rca-form-group">
+                    <label for="rca-messaggio">Messaggio <span class="rca-req">*</span></label>
+                    <textarea id="rca-messaggio" name="Messaggio" required placeholder="Descrivi nel dettaglio la tua richiesta. Pi&ugrave; informazioni ci fornisci, pi&ugrave; rapidamente potremo aiutarti."></textarea>
+                </div>
+                <div class="rca-form-privacy">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                    <span>Inviando il modulo accetti la nostra <a href="https://www.rocard.it/privacy-policy/">Privacy Policy</a>. I tuoi dati saranno usati esclusivamente per rispondere alla tua richiesta.</span>
+                </div>
+                <div style="text-align:center;margin-top:8px;">
+                    <button type="submit" class="rca-form-submit">
+                        Invia la richiesta
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    </button>
+                </div>
+                <p class="rca-form-note">Preferisci scriverci direttamente? <a href="mailto:info@rocard.it">info@rocard.it</a></p>
+            </form>
+        </div>
+    </div>
+</section>
+
 <!-- Contact -->
 <section class="rca-contact">
     <div class="rca-container">
@@ -469,7 +597,7 @@
                         <div class="rca-contact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
                         <div class="rca-contact-text">
                             <div class="rca-contact-label">Orari supporto</div>
-                            <div class="rca-contact-value">Lun&ndash;Ven 6:00&ndash;21:00<br>Sab&ndash;Dom 9:00&ndash;21:00</div>
+                            <div class="rca-contact-value">Lun&ndash;Dom 9:00&ndash;18:00</div>
                         </div>
                     </li>
                     <li>
