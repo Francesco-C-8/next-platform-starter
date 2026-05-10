@@ -318,6 +318,47 @@
 .rocard-help .rca-form-privacy svg { width: 18px !important; height: 18px !important; color: #059669 !important; flex-shrink: 0 !important; margin-top: 2px !important; }
 .rocard-help .rca-form-privacy a { color: #2a7ab5 !important; }
 
+/* Stile per Contact Form 7 quando renderizzato dentro il wrapper */
+.rocard-help .rca-form-wrap .wpcf7 form p,
+.rocard-help .rca-form-wrap .wpcf7-form p { margin-bottom: 14px !important; }
+.rocard-help .rca-form-wrap .wpcf7-form label {
+    display: block !important; font-size: 0.85rem !important; font-weight: 600 !important;
+    color: #333 !important; margin-bottom: 6px !important; letter-spacing: 0.02em !important;
+}
+.rocard-help .rca-form-wrap .wpcf7-form input[type="text"],
+.rocard-help .rca-form-wrap .wpcf7-form input[type="email"],
+.rocard-help .rca-form-wrap .wpcf7-form input[type="tel"],
+.rocard-help .rca-form-wrap .wpcf7-form input[type="number"],
+.rocard-help .rca-form-wrap .wpcf7-form select,
+.rocard-help .rca-form-wrap .wpcf7-form textarea {
+    width: 100% !important; padding: 12px 14px !important;
+    border: 1px solid #d4d4d8 !important; border-radius: 10px !important;
+    font-family: 'Outfit', sans-serif !important; font-size: 0.95rem !important;
+    color: #333 !important; background: #fafafa !important;
+    transition: all 0.2s ease !important; outline: none !important;
+}
+.rocard-help .rca-form-wrap .wpcf7-form input:focus,
+.rocard-help .rca-form-wrap .wpcf7-form select:focus,
+.rocard-help .rca-form-wrap .wpcf7-form textarea:focus {
+    border-color: #2a7ab5 !important; background: #fff !important;
+    box-shadow: 0 0 0 3px rgba(42,122,181,0.12) !important;
+}
+.rocard-help .rca-form-wrap .wpcf7-form textarea { resize: vertical !important; min-height: 130px !important; }
+.rocard-help .rca-form-wrap .wpcf7-form input[type="submit"] {
+    background: linear-gradient(135deg, #f57c00 0%, #ef6c00 100%) !important;
+    color: #fff !important; border: none !important;
+    padding: 14px 36px !important; border-radius: 30px !important;
+    font-family: 'Outfit', sans-serif !important; font-size: 1rem !important;
+    font-weight: 600 !important; cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 16px rgba(245,124,0,0.3) !important;
+    letter-spacing: 0.02em !important; text-transform: uppercase !important;
+}
+.rocard-help .rca-form-wrap .wpcf7-form input[type="submit"]:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 24px rgba(245,124,0,0.4) !important;
+}
+
 /* ============ CONTACT ============ */
 .rocard-help .rca-contact { padding: 60px 0 !important; background: #f8f9fa !important; }
 .rocard-help .rca-contact-grid {
@@ -565,62 +606,37 @@
     </div>
 </section>
 
-<!-- ============ FORM CONTATTO ============ -->
+<!-- ============ FORM CONTATTO (Contact Form 7) ============ -->
 <section class="rca-form-section">
     <div class="rca-container">
         <h2 class="rca-section-title">Scrivici un messaggio</h2>
         <p class="rca-section-subtitle">Compila il modulo: il nostro team ti risponder&agrave; entro 24 ore lavorative all'indirizzo email indicato.</p>
         <div class="rca-form-wrap">
-            <form action="mailto:info@rocard.it" method="post" enctype="text/plain">
-                <div class="rca-form-row">
-                    <div class="rca-form-group">
-                        <label for="rca-nome">Nome e Cognome <span class="rca-req">*</span></label>
-                        <input type="text" id="rca-nome" name="Nome" required placeholder="Mario Rossi">
-                    </div>
-                    <div class="rca-form-group">
-                        <label for="rca-email">Email <span class="rca-req">*</span></label>
-                        <input type="email" id="rca-email" name="Email" required placeholder="mario.rossi@email.it">
-                    </div>
-                </div>
-                <div class="rca-form-row">
-                    <div class="rca-form-group">
-                        <label for="rca-telefono">Telefono</label>
-                        <input type="tel" id="rca-telefono" name="Telefono" placeholder="+39 333 1234567">
-                    </div>
-                    <div class="rca-form-group">
-                        <label for="rca-ordine">Numero d'ordine</label>
-                        <input type="text" id="rca-ordine" name="Numero-Ordine" placeholder="Es. 104049">
-                    </div>
-                </div>
-                <div class="rca-form-group">
-                    <label for="rca-oggetto">Argomento <span class="rca-req">*</span></label>
-                    <select id="rca-oggetto" name="Argomento" required>
-                        <option value="">Seleziona l'argomento della tua richiesta</option>
-                        <option value="Informazioni su un prodotto">Informazioni su un prodotto</option>
-                        <option value="Stato di un ordine">Stato di un ordine</option>
-                        <option value="Spedizione e consegna">Spedizione e consegna</option>
-                        <option value="Pagamenti e fatturazione">Pagamenti e fatturazione</option>
-                        <option value="Reso o sostituzione">Reso o sostituzione</option>
-                        <option value="Articolo danneggiato o difettoso">Articolo danneggiato o difettoso</option>
-                        <option value="Altro">Altro</option>
-                    </select>
-                </div>
-                <div class="rca-form-group">
-                    <label for="rca-messaggio">Messaggio <span class="rca-req">*</span></label>
-                    <textarea id="rca-messaggio" name="Messaggio" required placeholder="Descrivi nel dettaglio la tua richiesta. Pi&ugrave; informazioni ci fornisci, pi&ugrave; rapidamente potremo aiutarti."></textarea>
-                </div>
-                <div class="rca-form-privacy">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
-                    <span>Inviando il modulo accetti la nostra <a href="https://www.rocard.it/privacy-policy/">Privacy Policy</a>. I tuoi dati saranno usati esclusivamente per rispondere alla tua richiesta.</span>
-                </div>
-                <div style="text-align:center;margin-top:8px;">
-                    <button type="submit" class="rca-form-submit">
-                        Invia la richiesta
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                    </button>
-                </div>
-                <p class="rca-form-note">Preferisci scriverci direttamente? <a href="mailto:info@rocard.it">info@rocard.it</a></p>
-            </form>
+            <!--
+              ╔══════════════════════════════════════════════════════════════════╗
+              ║  ISTRUZIONI PER L'INTEGRAZIONE CON IL TUO CONTACT FORM 7          ║
+              ╠══════════════════════════════════════════════════════════════════╣
+              ║                                                                    ║
+              ║  Sostituisci lo shortcode qui sotto con quello del TUO modulo:    ║
+              ║                                                                    ║
+              ║  1. Vai in WordPress → Contatto → Moduli di contatto              ║
+              ║  2. Trova "Modulo Contatti" e copia lo SHORTCODE accanto al nome  ║
+              ║     (sarà tipo: [contact-form-7 id="123" title="Modulo Contatti"])║
+              ║  3. Sostituiscilo a quello qui sotto                              ║
+              ║                                                                    ║
+              ║  NOTA: Elementor processa gli shortcode dentro il widget HTML,    ║
+              ║  quindi il modulo CF7 verrà renderizzato qui correttamente.       ║
+              ║                                                                    ║
+              ║  Se NON viene renderizzato (testo grezzo), allora dividi:         ║
+              ║  - questo widget HTML termina prima dello shortcode               ║
+              ║  - inserisci sotto un widget "Contact Form 7" di Elementor        ║
+              ║  - poi un nuovo widget HTML con la sezione contatti e footer      ║
+              ╚══════════════════════════════════════════════════════════════════╝
+            -->
+
+            [contact-form-7 id="MODULO_CONTATTI_ID" title="Modulo Contatti"]
+
+            <p class="rca-form-note" style="margin-top:18px;">Preferisci scriverci direttamente? <a href="mailto:info@rocard.it">info@rocard.it</a> &bull; <a href="tel:+3907731888391">+39 0773 188 8391</a></p>
         </div>
     </div>
 </section>
