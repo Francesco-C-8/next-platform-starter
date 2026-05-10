@@ -1,7 +1,7 @@
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com/">
 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 .rocard-help {
@@ -19,87 +19,124 @@
 .rocard-help *, .rocard-help *::before, .rocard-help *::after { box-sizing: border-box !important; }
 .rocard-help .rca-container { max-width: 1200px !important; margin: 0 auto !important; padding: 0 24px !important; width: 100% !important; }
 
-/* Hero */
+/* ============ HERO ============ */
 .rocard-help .rca-hero {
-    background: linear-gradient(135deg, #2a7ab5 0%, #1e6a9e 100%) !important;
-    color: #fff !important; padding: 70px 0 50px !important; text-align: center !important;
+    background: linear-gradient(135deg, #1e6a9e 0%, #2a7ab5 50%, #1e6a9e 100%) !important;
+    color: #fff !important; padding: 70px 0 160px !important; text-align: center !important;
     position: relative !important; overflow: hidden !important;
 }
 .rocard-help .rca-hero::before {
     content: "" !important; position: absolute !important; inset: 0 !important;
-    background: radial-gradient(circle at 20% 50%, rgba(245,124,0,0.08) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(245,124,0,0.08) 0%, transparent 50%) !important;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(245,124,0,0.12) 0%, transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(245,124,0,0.10) 0%, transparent 45%),
+        radial-gradient(circle at 50% 100%, rgba(255,255,255,0.06) 0%, transparent 50%) !important;
     pointer-events: none !important;
 }
-.rocard-help .rca-hero-content { position: relative !important; z-index: 1 !important; }
-.rocard-help .rca-hero-eyebrow {
-    display: inline-block !important; font-size: 0.8rem !important; font-weight: 700 !important;
-    letter-spacing: 0.15em !important; text-transform: uppercase !important;
-    color: #fff !important; background: rgba(245,124,0,0.25) !important;
-    border: 1px solid #f57c00 !important; padding: 6px 18px !important;
-    border-radius: 30px !important; margin-bottom: 20px !important;
+.rocard-help .rca-hero::after {
+    content: "" !important; position: absolute !important; inset: 0 !important;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'><g fill='none' stroke='%23ffffff' stroke-opacity='0.04' stroke-width='1'><path d='M0 30 L60 30 M30 0 L30 60'/></g></svg>") !important;
+    pointer-events: none !important; opacity: 0.6 !important;
 }
+.rocard-help .rca-hero-content { position: relative !important; z-index: 1 !important; }
+
+/* Eyebrow elegante con linee decorative */
+.rocard-help .rca-eyebrow-wrap {
+    display: inline-flex !important; align-items: center !important; justify-content: center !important;
+    gap: 18px !important; margin-bottom: 22px !important;
+}
+.rocard-help .rca-eyebrow-line {
+    height: 1px !important; width: 60px !important;
+    background: linear-gradient(90deg, transparent, rgba(245,124,0,0.7), transparent) !important;
+}
+.rocard-help .rca-hero-eyebrow {
+    display: inline-flex !important; align-items: center !important; gap: 10px !important;
+    font-size: 0.78rem !important; font-weight: 700 !important;
+    letter-spacing: 0.22em !important; text-transform: uppercase !important;
+    color: #fff !important;
+}
+.rocard-help .rca-hero-eyebrow svg {
+    width: 18px !important; height: 18px !important; color: #f57c00 !important;
+}
+
 .rocard-help .rca-hero h1 {
     font-family: 'Cormorant Garamond', serif !important;
-    font-size: clamp(2.4rem, 5vw, 3.8rem) !important; font-weight: 600 !important;
-    color: #fff !important; line-height: 1.1 !important; margin-bottom: 16px !important;
+    font-size: clamp(2.6rem, 5.2vw, 4rem) !important; font-weight: 600 !important;
+    color: #fff !important; line-height: 1.05 !important; margin: 0 0 14px !important;
+    letter-spacing: -0.01em !important;
+}
+.rocard-help .rca-hero h1 em {
+    font-style: italic !important; color: #ffd9a8 !important; font-weight: 500 !important;
 }
 .rocard-help .rca-hero p {
-    font-size: 1.1rem !important; color: rgba(255,255,255,0.9) !important;
-    max-width: 700px !important; margin: 0 auto 28px !important;
+    font-size: 1.08rem !important; color: rgba(255,255,255,0.88) !important;
+    max-width: 660px !important; margin: 0 auto 30px !important; font-weight: 300 !important;
 }
-.rocard-help .rca-hero-trust {
-    display: flex !important; justify-content: center !important; gap: 40px !important;
-    flex-wrap: wrap !important; margin-top: 8px !important;
-}
-.rocard-help .rca-hero-trust-item {
-    display: flex !important; align-items: center !important; gap: 8px !important;
-    color: rgba(255,255,255,0.95) !important; font-size: 0.9rem !important;
-}
-.rocard-help .rca-hero-trust-item svg { width: 20px !important; height: 20px !important; color: #f57c00 !important; }
 
-/* Quick contact cards */
-.rocard-help .rca-quick { padding: 50px 0 30px !important; background: #f8f9fa !important; }
+/* Trust strip elegante */
+.rocard-help .rca-trust-strip {
+    display: inline-flex !important; align-items: center !important;
+    background: rgba(255,255,255,0.08) !important;
+    border: 1px solid rgba(255,255,255,0.18) !important;
+    backdrop-filter: blur(8px) !important; -webkit-backdrop-filter: blur(8px) !important;
+    border-radius: 60px !important; padding: 10px 8px !important;
+    flex-wrap: wrap !important; gap: 0 !important;
+}
+.rocard-help .rca-trust-item {
+    display: inline-flex !important; align-items: center !important; gap: 8px !important;
+    padding: 4px 18px !important; font-size: 0.85rem !important; font-weight: 500 !important;
+    color: rgba(255,255,255,0.95) !important; white-space: nowrap !important;
+    border-right: 1px solid rgba(255,255,255,0.15) !important;
+}
+.rocard-help .rca-trust-item:last-child { border-right: none !important; }
+.rocard-help .rca-trust-item svg { width: 16px !important; height: 16px !important; color: #f57c00 !important; flex-shrink: 0 !important; }
+.rocard-help .rca-trust-stars { color: #f57c00 !important; letter-spacing: 0.5px !important; font-size: 0.95rem !important; }
+
+/* ============ QUICK CARDS ============ */
+.rocard-help .rca-quick { padding: 0 0 50px !important; background: #f8f9fa !important; position: relative !important; z-index: 2 !important; }
 .rocard-help .rca-quick-grid {
     display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 20px !important;
-    margin-top: -110px !important; position: relative !important; z-index: 5 !important;
+    margin-top: -80px !important; position: relative !important; z-index: 5 !important;
 }
 .rocard-help .rca-quick-card {
-    background: #fff !important; border-radius: 14px !important;
-    padding: 28px 24px !important; text-align: center !important;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.08) !important;
+    background: #fff !important; border-radius: 16px !important;
+    padding: 32px 24px !important; text-align: center !important;
+    box-shadow: 0 12px 40px rgba(30,106,158,0.12), 0 2px 6px rgba(0,0,0,0.04) !important;
     transition: all 0.3s ease !important;
     text-decoration: none !important; display: flex !important;
     flex-direction: column !important; align-items: center !important; gap: 10px !important;
-    color: inherit !important;
+    color: inherit !important; border: 1px solid rgba(42,122,181,0.08) !important;
 }
 .rocard-help .rca-quick-card:hover {
-    transform: translateY(-4px) !important;
-    box-shadow: 0 12px 36px rgba(42,122,181,0.18) !important;
+    transform: translateY(-6px) !important;
+    box-shadow: 0 20px 50px rgba(42,122,181,0.22) !important;
+    border-color: rgba(245,124,0,0.3) !important;
 }
 .rocard-help .rca-quick-icon {
-    width: 56px !important; height: 56px !important; border-radius: 50% !important;
+    width: 60px !important; height: 60px !important; border-radius: 50% !important;
     background: linear-gradient(135deg, #2a7ab5, #1e6a9e) !important;
     display: flex !important; align-items: center !important; justify-content: center !important;
     color: #fff !important; margin-bottom: 8px !important;
+    box-shadow: 0 6px 18px rgba(42,122,181,0.3) !important;
 }
-.rocard-help .rca-quick-icon svg { width: 26px !important; height: 26px !important; }
+.rocard-help .rca-quick-icon svg { width: 28px !important; height: 28px !important; }
 .rocard-help .rca-quick-card h3 {
     font-family: 'Cormorant Garamond', serif !important;
-    font-size: 1.4rem !important; color: #2a7ab5 !important;
+    font-size: 1.5rem !important; color: #1e6a9e !important;
     font-weight: 600 !important; margin: 0 !important;
 }
 .rocard-help .rca-quick-card p { font-size: 0.9rem !important; color: #666 !important; margin: 0 !important; }
 .rocard-help .rca-quick-link {
-    color: #f57c00 !important; font-size: 0.9rem !important;
+    color: #f57c00 !important; font-size: 0.92rem !important;
     font-weight: 600 !important; margin-top: 6px !important;
     display: inline-flex !important; align-items: center !important; gap: 4px !important;
 }
 
-/* Section title */
+/* ============ SECTION TITLE ============ */
 .rocard-help .rca-section-title {
     font-family: 'Cormorant Garamond', serif !important;
     font-size: clamp(1.8rem, 3.5vw, 2.6rem) !important; font-weight: 600 !important;
-    color: #2a7ab5 !important; text-align: center !important;
+    color: #1e6a9e !important; text-align: center !important;
     line-height: 1.2 !important; margin-bottom: 12px !important;
 }
 .rocard-help .rca-section-subtitle {
@@ -108,73 +145,80 @@
     margin: 0 auto 36px !important;
 }
 
-/* FAQ tabs (CSS-only via :target) */
+/* ============ FAQ TABS — architettura ~ sibling, NO :has() ============ */
 .rocard-help .rca-faq { padding: 60px 0 !important; background: #fff !important; }
-.rocard-help .rca-tabs-wrap {
+.rocard-help .rca-faq-box {
     display: flex !important; flex-wrap: wrap !important; gap: 8px !important;
     background: #f1f3f5 !important; border-radius: 14px !important;
-    padding: 8px !important; margin-bottom: 32px !important;
-    justify-content: center !important;
+    padding: 10px !important; position: relative !important;
 }
 .rocard-help .rca-tab {
     flex: 1 1 auto !important; min-width: 130px !important;
     background: transparent !important; border: none !important;
-    padding: 10px 14px !important; font-size: 0.85rem !important; font-weight: 500 !important;
-    font-family: 'Outfit', sans-serif !important; color: #666 !important;
-    cursor: pointer !important; border-radius: 8px !important;
+    padding: 11px 14px !important; font-size: 0.85rem !important; font-weight: 500 !important;
+    font-family: 'Outfit', sans-serif !important; color: #555 !important;
+    cursor: pointer !important; border-radius: 10px !important;
     text-decoration: none !important; text-align: center !important;
-    transition: all 0.3s ease !important; display: flex !important;
+    transition: all 0.25s ease !important; display: flex !important;
     align-items: center !important; justify-content: center !important; gap: 6px !important;
     line-height: 1.2 !important;
 }
 .rocard-help .rca-tab svg { width: 16px !important; height: 16px !important; flex-shrink: 0 !important; }
-.rocard-help .rca-tab:hover { color: #2a7ab5 !important; background: rgba(255,255,255,0.5) !important; text-decoration: none !important; }
+.rocard-help .rca-tab:hover { color: #1e6a9e !important; background: rgba(255,255,255,0.7) !important; text-decoration: none !important; }
 
-/* All panes hidden by default, except first one (general) */
-.rocard-help .rca-pane { display: none !important; }
-.rocard-help .rca-pane[data-pane="general"] { display: block !important; }
-.rocard-help .rca-tabs-wrap a[href="#rca-general"] { background: #fff !important; color: #2a7ab5 !important; font-weight: 600 !important; box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important; }
-
-/* Pattern :target per ogni tab */
-.rocard-help:has(#rca-orders:target) .rca-pane,
-.rocard-help:has(#rca-payments:target) .rca-pane,
-.rocard-help:has(#rca-scalapay:target) .rca-pane,
-.rocard-help:has(#rca-klarna:target) .rca-pane,
-.rocard-help:has(#rca-shipping:target) .rca-pane,
-.rocard-help:has(#rca-locations:target) .rca-pane,
-.rocard-help:has(#rca-returns:target) .rca-pane,
-.rocard-help:has(#rca-billing:target) .rca-pane { display: none !important; }
-
-.rocard-help:has(#rca-general:target) .rca-pane[data-pane="general"],
-.rocard-help:has(#rca-orders:target) .rca-pane[data-pane="orders"],
-.rocard-help:has(#rca-payments:target) .rca-pane[data-pane="payments"],
-.rocard-help:has(#rca-scalapay:target) .rca-pane[data-pane="scalapay"],
-.rocard-help:has(#rca-klarna:target) .rca-pane[data-pane="klarna"],
-.rocard-help:has(#rca-shipping:target) .rca-pane[data-pane="shipping"],
-.rocard-help:has(#rca-locations:target) .rca-pane[data-pane="locations"],
-.rocard-help:has(#rca-returns:target) .rca-pane[data-pane="returns"],
-.rocard-help:has(#rca-billing:target) .rca-pane[data-pane="billing"] { display: block !important; }
-
-/* Reset attivo della tab quando si naviga */
-.rocard-help:has(#rca-orders:target) .rca-tabs-wrap a[href="#rca-general"],
-.rocard-help:has(#rca-payments:target) .rca-tabs-wrap a[href="#rca-general"],
-.rocard-help:has(#rca-scalapay:target) .rca-tabs-wrap a[href="#rca-general"],
-.rocard-help:has(#rca-klarna:target) .rca-tabs-wrap a[href="#rca-general"],
-.rocard-help:has(#rca-shipping:target) .rca-tabs-wrap a[href="#rca-general"],
-.rocard-help:has(#rca-locations:target) .rca-tabs-wrap a[href="#rca-general"],
-.rocard-help:has(#rca-returns:target) .rca-tabs-wrap a[href="#rca-general"],
-.rocard-help:has(#rca-billing:target) .rca-tabs-wrap a[href="#rca-general"] {
-    background: transparent !important; color: #666 !important; font-weight: 500 !important; box-shadow: none !important;
+/* Tab default (Generali) — appare per primo via flex order */
+.rocard-help .rca-tab.rca-tab-default {
+    order: -1 !important;
+    background: linear-gradient(135deg, #2a7ab5, #1e6a9e) !important;
+    color: #fff !important; font-weight: 600 !important;
+    box-shadow: 0 4px 12px rgba(42,122,181,0.25) !important;
 }
-.rocard-help:has(#rca-orders:target) .rca-tabs-wrap a[href="#rca-orders"],
-.rocard-help:has(#rca-payments:target) .rca-tabs-wrap a[href="#rca-payments"],
-.rocard-help:has(#rca-scalapay:target) .rca-tabs-wrap a[href="#rca-scalapay"],
-.rocard-help:has(#rca-klarna:target) .rca-tabs-wrap a[href="#rca-klarna"],
-.rocard-help:has(#rca-shipping:target) .rca-tabs-wrap a[href="#rca-shipping"],
-.rocard-help:has(#rca-locations:target) .rca-tabs-wrap a[href="#rca-locations"],
-.rocard-help:has(#rca-returns:target) .rca-tabs-wrap a[href="#rca-returns"],
-.rocard-help:has(#rca-billing:target) .rca-tabs-wrap a[href="#rca-billing"] {
-    background: #fff !important; color: #2a7ab5 !important; font-weight: 600 !important; box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+
+/* Tab :target = attivo */
+.rocard-help .rca-tab:target {
+    background: linear-gradient(135deg, #2a7ab5, #1e6a9e) !important;
+    color: #fff !important; font-weight: 600 !important;
+    box-shadow: 0 4px 12px rgba(42,122,181,0.25) !important;
+}
+
+/* Pane: full-width sotto i tab, default tutti hidden tranne general */
+.rocard-help .rca-pane {
+    display: none !important; flex-basis: 100% !important; width: 100% !important;
+    background: #fff !important; border-radius: 12px !important;
+    padding: 24px 22px !important; margin-top: 14px !important;
+    order: 99 !important;
+}
+.rocard-help .rca-pane-default { display: block !important; }
+
+/* Quando un tab specifico è :target, mostra il suo pane */
+#rca-tab-orders:target ~ .rca-pane-orders,
+#rca-tab-payments:target ~ .rca-pane-payments,
+#rca-tab-scalapay:target ~ .rca-pane-scalapay,
+#rca-tab-klarna:target ~ .rca-pane-klarna,
+#rca-tab-shipping:target ~ .rca-pane-shipping,
+#rca-tab-returns:target ~ .rca-pane-returns,
+#rca-tab-billing:target ~ .rca-pane-billing,
+#rca-tab-general:target ~ .rca-pane-default { display: block !important; }
+
+/* Quando un altro tab è :target, nascondi il default general */
+#rca-tab-orders:target ~ .rca-pane-default,
+#rca-tab-payments:target ~ .rca-pane-default,
+#rca-tab-scalapay:target ~ .rca-pane-default,
+#rca-tab-klarna:target ~ .rca-pane-default,
+#rca-tab-shipping:target ~ .rca-pane-default,
+#rca-tab-returns:target ~ .rca-pane-default,
+#rca-tab-billing:target ~ .rca-pane-default { display: none !important; }
+
+/* Quando un altro tab è :target, deseleziona "Generali" (default) */
+#rca-tab-orders:target ~ .rca-tab-default,
+#rca-tab-payments:target ~ .rca-tab-default,
+#rca-tab-scalapay:target ~ .rca-tab-default,
+#rca-tab-klarna:target ~ .rca-tab-default,
+#rca-tab-shipping:target ~ .rca-tab-default,
+#rca-tab-returns:target ~ .rca-tab-default,
+#rca-tab-billing:target ~ .rca-tab-default {
+    background: transparent !important; color: #555 !important;
+    font-weight: 500 !important; box-shadow: none !important;
 }
 
 /* Accordion FAQ con <details> */
@@ -189,7 +233,7 @@
 }
 .rocard-help details.rca-q summary {
     cursor: pointer !important; padding: 18px 22px !important;
-    font-weight: 600 !important; color: #2a7ab5 !important;
+    font-weight: 600 !important; color: #1e6a9e !important;
     font-size: 0.98rem !important; list-style: none !important;
     display: flex !important; align-items: center !important; justify-content: space-between !important;
     gap: 16px !important; user-select: none !important;
@@ -208,70 +252,7 @@
 .rocard-help details.rca-q .rca-q-body strong { color: #333 !important; }
 .rocard-help details.rca-q .rca-q-body a { color: #f57c00 !important; text-decoration: underline !important; }
 
-/* Contact section */
-.rocard-help .rca-contact { padding: 60px 0 !important; background: #f8f9fa !important; }
-.rocard-help .rca-contact-grid {
-    display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 32px !important;
-    margin-top: 28px !important;
-}
-.rocard-help .rca-contact-info {
-    background: #fff !important; padding: 32px !important; border-radius: 14px !important;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05) !important;
-}
-.rocard-help .rca-contact-info h3 {
-    font-family: 'Cormorant Garamond', serif !important;
-    color: #2a7ab5 !important; font-size: 1.5rem !important;
-    font-weight: 600 !important; margin-bottom: 16px !important;
-}
-.rocard-help .rca-contact-list { list-style: none !important; padding: 0 !important; margin: 0 !important; }
-.rocard-help .rca-contact-list li {
-    display: flex !important; gap: 14px !important; align-items: flex-start !important;
-    padding: 14px 0 !important; border-bottom: 1px solid #f0f0f0 !important;
-}
-.rocard-help .rca-contact-list li:last-child { border-bottom: none !important; }
-.rocard-help .rca-contact-icon {
-    width: 40px !important; height: 40px !important; flex-shrink: 0 !important;
-    border-radius: 10px !important; background: #eff6ff !important;
-    display: flex !important; align-items: center !important; justify-content: center !important;
-    color: #2a7ab5 !important;
-}
-.rocard-help .rca-contact-icon svg { width: 20px !important; height: 20px !important; }
-.rocard-help .rca-contact-text { flex: 1 !important; }
-.rocard-help .rca-contact-label { font-size: 0.8rem !important; color: #999 !important; text-transform: uppercase !important; letter-spacing: 0.05em !important; }
-.rocard-help .rca-contact-value { font-weight: 600 !important; color: #333 !important; }
-.rocard-help .rca-contact-value a { color: #2a7ab5 !important; text-decoration: none !important; }
-.rocard-help .rca-contact-value a:hover { color: #f57c00 !important; }
-
-/* Banca info */
-.rocard-help .rca-bank-card {
-    background: #fff !important; padding: 28px !important; border-radius: 14px !important;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05) !important;
-}
-.rocard-help .rca-bank-card h3 {
-    font-family: 'Cormorant Garamond', serif !important;
-    color: #2a7ab5 !important; font-size: 1.5rem !important;
-    font-weight: 600 !important; margin-bottom: 16px !important;
-}
-.rocard-help .rca-bank-row {
-    display: flex !important; justify-content: space-between !important;
-    padding: 12px 0 !important; border-bottom: 1px dashed #e5e5e5 !important;
-    align-items: center !important;
-}
-.rocard-help .rca-bank-row:last-child { border-bottom: none !important; }
-.rocard-help .rca-bank-label { color: #666 !important; font-size: 0.85rem !important; }
-.rocard-help .rca-bank-value {
-    font-weight: 600 !important; color: #333 !important;
-    font-family: 'Outfit', monospace !important; font-size: 0.95rem !important;
-}
-.rocard-help .rca-bank-iban {
-    background: #eff6ff !important; padding: 10px 14px !important;
-    border-radius: 8px !important; font-family: monospace !important;
-    color: #2a7ab5 !important; font-weight: 700 !important;
-    letter-spacing: 0.05em !important; font-size: 0.9rem !important;
-    word-break: break-all !important;
-}
-
-/* Form contatto */
+/* ============ FORM CONTATTO ============ */
 .rocard-help .rca-form-section { padding: 60px 0 !important; background: #fff !important; }
 .rocard-help .rca-form-wrap {
     max-width: 760px !important; margin: 28px auto 0 !important;
@@ -337,8 +318,69 @@
 .rocard-help .rca-form-privacy svg { width: 18px !important; height: 18px !important; color: #059669 !important; flex-shrink: 0 !important; margin-top: 2px !important; }
 .rocard-help .rca-form-privacy a { color: #2a7ab5 !important; }
 
-/* Trust footer */
-.rocard-help .rca-trust-footer { background: #2a7ab5 !important; color: #fff !important; padding: 32px 0 !important; text-align: center !important; }
+/* ============ CONTACT ============ */
+.rocard-help .rca-contact { padding: 60px 0 !important; background: #f8f9fa !important; }
+.rocard-help .rca-contact-grid {
+    display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 24px !important;
+    margin-top: 28px !important;
+}
+.rocard-help .rca-card {
+    background: #fff !important; padding: 32px !important; border-radius: 16px !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05) !important;
+    border: 1px solid rgba(42,122,181,0.06) !important;
+}
+.rocard-help .rca-card h3 {
+    font-family: 'Cormorant Garamond', serif !important;
+    color: #1e6a9e !important; font-size: 1.55rem !important;
+    font-weight: 600 !important; margin: 0 0 16px !important;
+    display: flex !important; align-items: center !important; gap: 10px !important;
+}
+.rocard-help .rca-card h3 svg { width: 22px !important; height: 22px !important; color: #f57c00 !important; }
+
+.rocard-help .rca-contact-list { list-style: none !important; padding: 0 !important; margin: 0 !important; }
+.rocard-help .rca-contact-list li {
+    display: flex !important; gap: 14px !important; align-items: flex-start !important;
+    padding: 14px 0 !important; border-bottom: 1px solid #f0f0f0 !important;
+}
+.rocard-help .rca-contact-list li:last-child { border-bottom: none !important; }
+.rocard-help .rca-contact-icon {
+    width: 40px !important; height: 40px !important; flex-shrink: 0 !important;
+    border-radius: 10px !important; background: #eff6ff !important;
+    display: flex !important; align-items: center !important; justify-content: center !important;
+    color: #2a7ab5 !important;
+}
+.rocard-help .rca-contact-icon svg { width: 20px !important; height: 20px !important; }
+.rocard-help .rca-contact-text { flex: 1 !important; }
+.rocard-help .rca-contact-label { font-size: 0.78rem !important; color: #999 !important; text-transform: uppercase !important; letter-spacing: 0.06em !important; font-weight: 600 !important; }
+.rocard-help .rca-contact-value { font-weight: 600 !important; color: #333 !important; margin-top: 2px !important; }
+.rocard-help .rca-contact-value a { color: #2a7ab5 !important; text-decoration: none !important; }
+.rocard-help .rca-contact-value a:hover { color: #f57c00 !important; }
+
+/* Bank + Fiscale */
+.rocard-help .rca-data-row {
+    display: flex !important; justify-content: space-between !important;
+    padding: 11px 0 !important; border-bottom: 1px dashed #e5e5e5 !important;
+    align-items: center !important; gap: 14px !important;
+}
+.rocard-help .rca-data-row:last-child { border-bottom: none !important; }
+.rocard-help .rca-data-label { color: #777 !important; font-size: 0.82rem !important; font-weight: 500 !important; }
+.rocard-help .rca-data-value {
+    font-weight: 600 !important; color: #333 !important;
+    font-size: 0.9rem !important; text-align: right !important;
+}
+.rocard-help .rca-iban {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%) !important;
+    padding: 12px 16px !important;
+    border-radius: 10px !important; font-family: monospace !important;
+    color: #1e6a9e !important; font-weight: 700 !important;
+    letter-spacing: 0.06em !important; font-size: 0.92rem !important;
+    word-break: break-all !important; margin-top: 6px !important;
+    border: 1px solid rgba(42,122,181,0.15) !important;
+}
+.rocard-help .rca-mono { font-family: 'Outfit', monospace !important; letter-spacing: 0.02em !important; }
+
+/* ============ TRUST FOOTER ============ */
+.rocard-help .rca-trust-footer { background: #1e6a9e !important; color: #fff !important; padding: 32px 0 !important; text-align: center !important; }
 .rocard-help .rca-trust-footer-grid { display: flex !important; justify-content: center !important; gap: 50px !important; flex-wrap: wrap !important; }
 .rocard-help .rca-trust-footer-item {
     display: flex !important; align-items: center !important; gap: 10px !important;
@@ -346,54 +388,67 @@
 }
 .rocard-help .rca-trust-footer-item svg { width: 24px !important; height: 24px !important; color: #f57c00 !important; }
 
-/* Responsive */
+/* ============ RESPONSIVE ============ */
 @media (max-width: 900px) {
-    .rocard-help .rca-quick-grid { grid-template-columns: 1fr !important; margin-top: -60px !important; }
+    .rocard-help .rca-hero { padding: 60px 0 130px !important; }
+    .rocard-help .rca-quick-grid { grid-template-columns: 1fr !important; margin-top: -70px !important; }
     .rocard-help .rca-contact-grid { grid-template-columns: 1fr !important; }
     .rocard-help .rca-tab { flex: 1 1 calc(50% - 8px) !important; min-width: 0 !important; }
     .rocard-help .rca-form-row { grid-template-columns: 1fr !important; }
     .rocard-help .rca-form-wrap { padding: 28px 22px !important; }
+    .rocard-help .rca-trust-strip { flex-direction: column !important; padding: 12px 16px !important; border-radius: 18px !important; }
+    .rocard-help .rca-trust-item { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.15) !important; padding: 6px 0 !important; }
+    .rocard-help .rca-trust-item:last-child { border-bottom: none !important; }
+    .rocard-help .rca-eyebrow-line { width: 30px !important; }
 }
 @media (max-width: 600px) {
-    .rocard-help .rca-hero { padding: 50px 0 40px !important; }
+    .rocard-help .rca-hero { padding: 50px 0 120px !important; }
     .rocard-help .rca-faq, .rocard-help .rca-contact { padding: 40px 0 !important; }
     .rocard-help .rca-tab { font-size: 0.78rem !important; padding: 8px 10px !important; }
     .rocard-help .rca-tab svg { width: 14px !important; height: 14px !important; }
-    .rocard-help .rca-hero-trust { gap: 20px !important; }
+    .rocard-help .rca-card { padding: 24px !important; }
 }
 </style>
 
 <div class="rocard-help">
 
-<!-- Anchor targets per le tab CSS-only -->
-<span id="rca-general"></span><span id="rca-orders"></span><span id="rca-payments"></span><span id="rca-scalapay"></span><span id="rca-klarna"></span><span id="rca-shipping"></span><span id="rca-locations"></span><span id="rca-returns"></span><span id="rca-billing"></span>
-
-<!-- Hero -->
+<!-- ============ HERO ============ -->
 <section class="rca-hero">
     <div class="rca-container">
         <div class="rca-hero-content">
-            <span class="rca-hero-eyebrow">Centro Assistenza Rocard</span>
-            <h1>Siamo qui per aiutarti</h1>
-            <p>Il nostro team è a tua disposizione per ogni domanda su ordini, spedizioni, pagamenti e resi. Risposte certe, supporto reale, in tempi rapidi.</p>
-            <div class="rca-hero-trust">
-                <div class="rca-hero-trust-item">
+            <div class="rca-eyebrow-wrap">
+                <span class="rca-eyebrow-line"></span>
+                <span class="rca-hero-eyebrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                    Centro Assistenza Rocard
+                </span>
+                <span class="rca-eyebrow-line"></span>
+            </div>
+            <h1>Siamo qui <em>per aiutarti</em></h1>
+            <p>Il nostro team &egrave; a tua disposizione per ogni domanda su ordini, spedizioni, pagamenti e resi. Risposte certe, supporto reale, in tempi rapidi.</p>
+            <div class="rca-trust-strip">
+                <div class="rca-trust-item">
+                    <span class="rca-trust-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                    <span><strong>4.9/5</strong> Trusted Shop</span>
+                </div>
+                <div class="rca-trust-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    <span>Pagamenti SSL crittografati</span>
+                </div>
+                <div class="rca-trust-item">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                     <span>Risposta entro 24h</span>
                 </div>
-                <div class="rca-hero-trust-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                    <span>Lun&ndash;Dom 9:00&ndash;18:00</span>
-                </div>
-                <div class="rca-hero-trust-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                    <span>730.000+ clienti soddisfatti</span>
+                <div class="rca-trust-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                    <span><strong>730.000+</strong> clienti</span>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Quick contact cards -->
+<!-- ============ QUICK CONTACT CARDS ============ -->
 <section class="rca-quick">
     <div class="rca-container">
         <div class="rca-quick-grid">
@@ -419,98 +474,98 @@
     </div>
 </section>
 
-<!-- FAQ -->
+<!-- ============ FAQ ============ -->
 <section class="rca-faq">
     <div class="rca-container">
         <h2 class="rca-section-title">Domande Frequenti</h2>
         <p class="rca-section-subtitle">Trova subito la risposta che cerchi. Seleziona la categoria pi&ugrave; vicina al tuo dubbio.</p>
 
-        <!-- Tabs -->
-        <div class="rca-tabs-wrap">
-            <a href="#rca-general" class="rca-tab"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>Generali</a>
-            <a href="#rca-orders" class="rca-tab"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16.5 9.4 7.55 4.24"></path><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>Ordini</a>
-            <a href="#rca-payments" class="rca-tab"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>Pagamenti</a>
-            <a href="#rca-scalapay" class="rca-tab"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>Scalapay</a>
-            <a href="#rca-klarna" class="rca-tab"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path></svg>Klarna</a>
-            <a href="#rca-shipping" class="rca-tab"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path><path d="M15 18H9"></path><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path><circle cx="17" cy="18" r="2"></circle><circle cx="7" cy="18" r="2"></circle></svg>Spedizioni</a>
-            <a href="#rca-returns" class="rca-tab"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M8 16H3v5"></path></svg>Resi</a>
-            <a href="#rca-billing" class="rca-tab"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>Fatturazione</a>
-        </div>
+        <!-- FAQ box: tabs + pane nello stesso parent flex (per ~ sibling combinator) -->
+        <div class="rca-faq-box">
 
-        <!-- GENERALI -->
-        <div class="rca-pane" data-pane="general">
-            <details class="rca-q"><summary>Tutti gli articoli su Rocard sono disponibili?</summary><div class="rca-q-body">Da sempre ci impegniamo per mantenere alti gli standard qualitativi del servizio. Su Rocard troverai online <strong>solo articoli subito disponibili</strong> o con arrivo certo presso i nostri magazzini.</div></details>
-            <details class="rca-q"><summary>Perch&eacute; il prezzo di un articolo &egrave; cambiato?</summary><div class="rca-q-body">La modifica di accordi commerciali pu&ograve; talvolta determinare l'aumento, talvolta la riduzione dei prezzi di alcuni articoli. Aumentare i prezzi, in alcune occasioni, significa salvaguardare l'alta qualit&agrave; del servizio che ci contraddistingue: sicurezza, garanzia e assistenza pre e post vendita.</div></details>
-            <details class="rca-q"><summary>I prezzi sono IVA inclusa?</summary><div class="rca-q-body">S&igrave;, tutti i prezzi indicati sul sito sono <strong>gi&agrave; comprensivi di IVA</strong>, salvo particolari eccezioni opportunamente segnalate.</div></details>
-        </div>
+            <!-- TABS (i tab "non-default" hanno l'id usato dal :target) -->
+            <a id="rca-tab-orders" href="#rca-tab-orders" class="rca-tab"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16.5 9.4 7.55 4.24"></path><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>Ordini</a>
+            <a id="rca-tab-payments" href="#rca-tab-payments" class="rca-tab"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>Pagamenti</a>
+            <a id="rca-tab-scalapay" href="#rca-tab-scalapay" class="rca-tab"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>Scalapay</a>
+            <a id="rca-tab-klarna" href="#rca-tab-klarna" class="rca-tab"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path></svg>Klarna</a>
+            <a id="rca-tab-shipping" href="#rca-tab-shipping" class="rca-tab"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path><path d="M15 18H9"></path><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path><circle cx="17" cy="18" r="2"></circle><circle cx="7" cy="18" r="2"></circle></svg>Spedizioni</a>
+            <a id="rca-tab-returns" href="#rca-tab-returns" class="rca-tab"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M8 16H3v5"></path></svg>Resi</a>
+            <a id="rca-tab-billing" href="#rca-tab-billing" class="rca-tab"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>Fatturazione</a>
+            <!-- Default tab Generali: messo dopo nel DOM, ma posizionato come PRIMO via flex order -->
+            <a id="rca-tab-general" href="#rca-tab-general" class="rca-tab rca-tab-default"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>Generali</a>
 
-        <!-- ORDINI -->
-        <div class="rca-pane" data-pane="orders">
-            <details class="rca-q"><summary>Come si aggiunge un prodotto al carrello?</summary><div class="rca-q-body">Una volta trovato il prodotto, inserisci la quantit&agrave; desiderata e clicca <strong>AGGIUNGI AL CARRELLO</strong>. In alto a destra di ogni pagina troverai la voce CARRELLO con il numero degli articoli inseriti.</div></details>
-            <details class="rca-q"><summary>Riempire il carrello mi obbliga all'acquisto?</summary><div class="rca-q-body">No, non c'&egrave; alcun obbligo. Dal carrello puoi aggiungere o eliminare tutti gli articoli che vuoi. Quando sei pronto, basta aprirlo e cliccare su <strong>VAI ALLA CASSA</strong>.</div></details>
-            <details class="rca-q"><summary>Posso rimuovere un prodotto dal carrello?</summary><div class="rca-q-body">S&igrave;, &egrave; possibile rimuovere uno o pi&ugrave; prodotti dal carrello in qualsiasi momento prima del checkout.</div></details>
-        </div>
+            <!-- ORDINI -->
+            <div class="rca-pane rca-pane-orders">
+                <details class="rca-q"><summary>Come si aggiunge un prodotto al carrello?</summary><div class="rca-q-body">Una volta trovato il prodotto, inserisci la quantit&agrave; desiderata e clicca <strong>AGGIUNGI AL CARRELLO</strong>. In alto a destra di ogni pagina troverai la voce CARRELLO con il numero degli articoli inseriti.</div></details>
+                <details class="rca-q"><summary>Riempire il carrello mi obbliga all'acquisto?</summary><div class="rca-q-body">No, non c'&egrave; alcun obbligo. Dal carrello puoi aggiungere o eliminare tutti gli articoli che vuoi. Quando sei pronto, basta aprirlo e cliccare su <strong>VAI ALLA CASSA</strong>.</div></details>
+                <details class="rca-q"><summary>Posso rimuovere un prodotto dal carrello?</summary><div class="rca-q-body">S&igrave;, &egrave; possibile rimuovere uno o pi&ugrave; prodotti dal carrello in qualsiasi momento prima del checkout.</div></details>
+            </div>
 
-        <!-- PAGAMENTI -->
-        <div class="rca-pane" data-pane="payments">
-            <details class="rca-q"><summary>Quali metodi di pagamento accettate?</summary><div class="rca-q-body">Su Rocard puoi pagare con: <strong>Carte di credito</strong> (MasterCard, Visa, Maestro, Postepay), <strong>Bonifico Bancario</strong> anticipato, <strong>PayPal</strong>, <strong>Scalapay</strong> e <strong>Klarna</strong> (rateizzazione senza interessi), <strong>Contrassegno</strong>.</div></details>
-            <details class="rca-q"><summary>Dove trovo le coordinate per il bonifico bancario?</summary><div class="rca-q-body">Le coordinate sono disponibili in cassa durante la scelta del metodo di pagamento e nell'email di conferma ordine. Eccole comunque qui:<br><br><strong>Intestatario:</strong> R.C.M. S.R.L.<br><strong>IBAN:</strong> IT78 L 03069 40122 100000008372<br><strong>Banca:</strong> Intesa Sanpaolo<br><br>Dopo aver effettuato l'ordine, hai 3 giorni lavorativi per disporre il bonifico. Lo visualizzeremo entro 3 giorni lavorativi successivi.</div></details>
-            <details class="rca-q"><summary>&Egrave; sicuro usare la mia carta di credito su Rocard?</summary><div class="rca-q-body">S&igrave;, il nostro sistema di pagamento &egrave; <strong>sicuro e crittografato con tecnologia SSL</strong> (Secure Socket Layer). Puoi verificarlo dall'URL che inizia con <code>https://</code>. <strong>Non avremo mai accesso al numero della tua carta n&eacute; verr&agrave; memorizzato nei nostri sistemi.</strong></div></details>
-            <details class="rca-q"><summary>Perch&eacute; la mia carta di credito &egrave; stata rifiutata?</summary><div class="rca-q-body">I motivi possono essere diversi:<br>&bull; Tetto massimo di spesa mensile raggiunto o credito insufficiente<br>&bull; Manca il Secure Code rilasciato dalla tua banca<br>&bull; PostePay non abilitata agli acquisti online<br>&bull; Sessione scaduta<br>&bull; Problemi temporanei del circuito della carta</div></details>
-            <details class="rca-q"><summary>Perch&eacute; non riesco a pagare con PayPal?</summary><div class="rca-q-body">In caso di difficolt&agrave; con PayPal, segui questi passaggi:<br>1. Cancella la cronologia del browser e chiudi tutte le schede<br>2. Accedi nuovamente a <a href="https://www.rocard.it/">www.rocard.it</a><br>3. Accetta tutti i cookie quando richiesto<br>4. Ripeti l'acquisto selezionando PayPal<br><br>Se il problema persiste, prova con un browser alternativo (Firefox, Edge, Safari).</div></details>
-        </div>
+            <!-- PAGAMENTI -->
+            <div class="rca-pane rca-pane-payments">
+                <details class="rca-q"><summary>Quali metodi di pagamento accettate?</summary><div class="rca-q-body">Su Rocard puoi pagare con: <strong>Carte di credito</strong> (MasterCard, Visa, Maestro, Postepay), <strong>Bonifico Bancario</strong> anticipato, <strong>PayPal</strong>, <strong>Scalapay</strong> e <strong>Klarna</strong> (rateizzazione senza interessi), <strong>Contrassegno</strong>.</div></details>
+                <details class="rca-q"><summary>Dove trovo le coordinate per il bonifico bancario?</summary><div class="rca-q-body">Le coordinate sono disponibili in cassa durante la scelta del metodo di pagamento e nell'email di conferma ordine. Eccole comunque qui:<br><br><strong>Intestatario:</strong> RCM SRL<br><strong>IBAN:</strong> IT78 L 03069 40122 100000008372<br><strong>Banca:</strong> Intesa Sanpaolo<br><br>Dopo aver effettuato l'ordine, hai 3 giorni lavorativi per disporre il bonifico. Lo visualizzeremo entro 3 giorni lavorativi successivi.</div></details>
+                <details class="rca-q"><summary>&Egrave; sicuro usare la mia carta di credito su Rocard?</summary><div class="rca-q-body">S&igrave;, il nostro sistema di pagamento &egrave; <strong>sicuro e crittografato con tecnologia SSL</strong> (Secure Socket Layer). Puoi verificarlo dall'URL che inizia con <code>https://</code>. <strong>Non avremo mai accesso al numero della tua carta n&eacute; verr&agrave; memorizzato nei nostri sistemi.</strong></div></details>
+                <details class="rca-q"><summary>Perch&eacute; la mia carta di credito &egrave; stata rifiutata?</summary><div class="rca-q-body">I motivi possono essere diversi:<br>&bull; Tetto massimo di spesa mensile raggiunto o credito insufficiente<br>&bull; Manca il Secure Code rilasciato dalla tua banca<br>&bull; PostePay non abilitata agli acquisti online<br>&bull; Sessione scaduta<br>&bull; Problemi temporanei del circuito della carta</div></details>
+                <details class="rca-q"><summary>Perch&eacute; non riesco a pagare con PayPal?</summary><div class="rca-q-body">In caso di difficolt&agrave; con PayPal, segui questi passaggi:<br>1. Cancella la cronologia del browser e chiudi tutte le schede<br>2. Accedi nuovamente a <a href="https://www.rocard.it/">www.rocard.it</a><br>3. Accetta tutti i cookie quando richiesto<br>4. Ripeti l'acquisto selezionando PayPal<br><br>Se il problema persiste, prova con un browser alternativo (Firefox, Edge, Safari).</div></details>
+            </div>
 
-        <!-- SCALAPAY -->
-        <div class="rca-pane" data-pane="scalapay">
-            <details class="rca-q"><summary>Cos'&egrave; Scalapay?</summary><div class="rca-q-body">Scalapay &egrave; un metodo di finanziamento che ti permette di acquistare e <strong>ricevere subito</strong> i tuoi prodotti, pagando in comode <strong>rate mensili senza interessi</strong>.</div></details>
-            <details class="rca-q"><summary>Chi pu&ograve; usare Scalapay?</summary><div class="rca-q-body">Chiunque sia in possesso di una carta di credito o debito (anche prepagata) dei circuiti VISA, MASTERCARD o AMERICAN EXPRESS.</div></details>
-            <details class="rca-q"><summary>Quante rate posso scegliere?</summary><div class="rca-q-body">Con Scalapay paghi senza interessi:<br>&bull; <strong>3 rate</strong> per ordini tra &euro;5 e &euro;4.999,99<br>&bull; <strong>4 rate</strong> per ordini tra &euro;400 e &euro;4.999,99<br><br>Sopra i &euro;400 puoi scegliere autonomamente tra 3 o 4 rate.</div></details>
-            <details class="rca-q"><summary>Quando vengono addebitate le rate?</summary><div class="rca-q-body">&bull; <strong>1&deg; rata</strong>: al momento dell'acquisto<br>&bull; <strong>2&deg; rata</strong>: 1 mese dopo<br>&bull; <strong>3&deg; rata</strong>: 2 mesi dopo<br>&bull; <strong>4&deg; rata</strong> (se prevista): 3 mesi dopo<br><br>Riceverai un promemoria via SMS ed email prima di ogni scadenza.</div></details>
-            <details class="rca-q"><summary>Pagare con Scalapay &egrave; sicuro?</summary><div class="rca-q-body">S&igrave;. Tutti i pagamenti Scalapay sono gestiti da <strong>Stripe</strong>, leader mondiale nei pagamenti digitali.</div></details>
-            <details class="rca-q"><summary>Fino a che cifra posso pagare con Scalapay?</summary><div class="rca-q-body">Scalapay &egrave; disponibile per acquisti fino a <strong>&euro;5.000</strong>.</div></details>
-        </div>
+            <!-- SCALAPAY -->
+            <div class="rca-pane rca-pane-scalapay">
+                <details class="rca-q"><summary>Cos'&egrave; Scalapay?</summary><div class="rca-q-body">Scalapay &egrave; un metodo di finanziamento che ti permette di acquistare e <strong>ricevere subito</strong> i tuoi prodotti, pagando in comode <strong>rate mensili senza interessi</strong>.</div></details>
+                <details class="rca-q"><summary>Chi pu&ograve; usare Scalapay?</summary><div class="rca-q-body">Chiunque sia in possesso di una carta di credito o debito (anche prepagata) dei circuiti VISA, MASTERCARD o AMERICAN EXPRESS.</div></details>
+                <details class="rca-q"><summary>Quante rate posso scegliere?</summary><div class="rca-q-body">Con Scalapay paghi senza interessi:<br>&bull; <strong>3 rate</strong> per ordini tra &euro;5 e &euro;4.999,99<br>&bull; <strong>4 rate</strong> per ordini tra &euro;400 e &euro;4.999,99<br><br>Sopra i &euro;400 puoi scegliere autonomamente tra 3 o 4 rate.</div></details>
+                <details class="rca-q"><summary>Quando vengono addebitate le rate?</summary><div class="rca-q-body">&bull; <strong>1&deg; rata</strong>: al momento dell'acquisto<br>&bull; <strong>2&deg; rata</strong>: 1 mese dopo<br>&bull; <strong>3&deg; rata</strong>: 2 mesi dopo<br>&bull; <strong>4&deg; rata</strong> (se prevista): 3 mesi dopo<br><br>Riceverai un promemoria via SMS ed email prima di ogni scadenza.</div></details>
+                <details class="rca-q"><summary>Pagare con Scalapay &egrave; sicuro?</summary><div class="rca-q-body">S&igrave;. Tutti i pagamenti Scalapay sono gestiti da <strong>Stripe</strong>, leader mondiale nei pagamenti digitali.</div></details>
+                <details class="rca-q"><summary>Fino a che cifra posso pagare con Scalapay?</summary><div class="rca-q-body">Scalapay &egrave; disponibile per acquisti fino a <strong>&euro;5.000</strong>.</div></details>
+            </div>
 
-        <!-- KLARNA -->
-        <div class="rca-pane" data-pane="klarna">
-            <details class="rca-q"><summary>Come funziona il pagamento in 3 rate Klarna?</summary><div class="rca-q-body">Seleziona Klarna 3 rate al checkout per suddividere il costo in tre piccole rate <strong>senza interessi</strong>, addebitate ogni 30 giorni a partire dalla conferma dell'ordine. Aggiungi i dati della tua carta e ricevi un promemoria prima di ogni scadenza.</div></details>
-            <details class="rca-q"><summary>Ci sono costi aggiuntivi?</summary><div class="rca-q-body">No, il pagamento in 3 rate <strong>non prevede interessi, costi o commissioni</strong>, a condizione che vengano rispettate le scadenze. In caso di ritardo potrebbero applicarsi commissioni di mora.</div></details>
-            <details class="rca-q"><summary>Klarna fa una valutazione creditizia?</summary><div class="rca-q-body">S&igrave;, Klarna pu&ograve; richiedere a terze parti una valutazione della tua affidabilit&agrave; creditizia per offrirti il pagamento in 3 rate. Per dettagli completi consulta i termini Klarna.</div></details>
-        </div>
+            <!-- KLARNA -->
+            <div class="rca-pane rca-pane-klarna">
+                <details class="rca-q"><summary>Come funziona il pagamento in 3 rate Klarna?</summary><div class="rca-q-body">Seleziona Klarna 3 rate al checkout per suddividere il costo in tre piccole rate <strong>senza interessi</strong>, addebitate ogni 30 giorni a partire dalla conferma dell'ordine. Aggiungi i dati della tua carta e ricevi un promemoria prima di ogni scadenza.</div></details>
+                <details class="rca-q"><summary>Ci sono costi aggiuntivi?</summary><div class="rca-q-body">No, il pagamento in 3 rate <strong>non prevede interessi, costi o commissioni</strong>, a condizione che vengano rispettate le scadenze. In caso di ritardo potrebbero applicarsi commissioni di mora.</div></details>
+                <details class="rca-q"><summary>Klarna fa una valutazione creditizia?</summary><div class="rca-q-body">S&igrave;, Klarna pu&ograve; richiedere a terze parti una valutazione della tua affidabilit&agrave; creditizia per offrirti il pagamento in 3 rate. Per dettagli completi consulta i termini Klarna.</div></details>
+            </div>
 
-        <!-- SPEDIZIONI -->
-        <div class="rca-pane" data-pane="shipping">
-            <details class="rca-q"><summary>Quali sono i tempi di spedizione?</summary><div class="rca-q-body">La spedizione standard impiega <strong>2&ndash;3 giorni lavorativi</strong>. Dopo l'elaborazione (1 giorno lavorativo per affidare l'ordine al corriere) i tempi sono:<br>&bull; <strong>Italia terraferma</strong>: 2&ndash;3 giorni lavorativi<br>&bull; <strong>Italia isole</strong>: 2&ndash;4 giorni lavorativi<br><br>Per priorit&agrave; massima, scegli <strong>Spedizione Fast</strong> a &euro;1: la spedizione parte il giorno stesso (ordini entro le 14:00).</div></details>
-            <details class="rca-q"><summary>Come faccio a sapere quando il mio pacco viene spedito?</summary><div class="rca-q-body">Riceverai una <strong>email + SMS gratuito</strong> non appena l'ordine viene preso in carico e la merce parte. Potrai seguire la spedizione in tempo reale nella sezione <a href="https://www.rocard.it/track-order/">Trova la spedizione</a>.</div></details>
-            <details class="rca-q"><summary>Se il corriere non mi trova, il pacco torna indietro?</summary><div class="rca-q-body">Il corriere effettua <strong>2 tentativi di consegna</strong> all'indirizzo indicato. Se entrambi falliscono, il pacco viene trasferito alla filiale pi&ugrave; vicina e il nostro ufficio spedizioni ti contatta per concordare nuova consegna o ritiro.</div></details>
-            <details class="rca-q"><summary>Consegnate il sabato o la domenica?</summary><div class="rca-q-body">In alcune zone i nostri corrieri consegnano anche di <strong>Sabato e Domenica</strong>. Riceverai il codice di tracciamento con la data di consegna prevista. Lavoriamo per estendere il servizio a tutta Italia.</div></details>
-            <details class="rca-q"><summary>Possibili ritardi nel periodo natalizio</summary><div class="rca-q-body">Durante le festivit&agrave; i corrieri gestiscono volumi eccezionali e i tempi di consegna potrebbero allungarsi di <strong>1&ndash;3 giorni lavorativi</strong>. Faremo del nostro meglio per consegnare il tuo ordine nel minor tempo possibile.</div></details>
-            <details class="rca-q"><summary>Cosa sono le localit&agrave; disagiate?</summary><div class="rca-q-body">Sono zone particolarmente difficili da raggiungere per i corrieri. Per le spedizioni in queste aree viene applicato un <strong>sovrapprezzo</strong> alla tariffa base, calcolato in carrello in base al CAP di destinazione.</div></details>
-        </div>
+            <!-- SPEDIZIONI -->
+            <div class="rca-pane rca-pane-shipping">
+                <details class="rca-q"><summary>Quali sono i tempi di spedizione?</summary><div class="rca-q-body">La spedizione standard impiega <strong>2&ndash;3 giorni lavorativi</strong>. Dopo l'elaborazione (1 giorno lavorativo per affidare l'ordine al corriere) i tempi sono:<br>&bull; <strong>Italia terraferma</strong>: 2&ndash;3 giorni lavorativi<br>&bull; <strong>Italia isole</strong>: 2&ndash;4 giorni lavorativi<br><br>Per priorit&agrave; massima, scegli <strong>Spedizione Fast</strong> a &euro;1: la spedizione parte il giorno stesso (ordini entro le 14:00).</div></details>
+                <details class="rca-q"><summary>Come faccio a sapere quando il mio pacco viene spedito?</summary><div class="rca-q-body">Riceverai una <strong>email + SMS gratuito</strong> non appena l'ordine viene preso in carico e la merce parte. Potrai seguire la spedizione in tempo reale nella sezione <a href="https://www.rocard.it/track-order/">Trova la spedizione</a>.</div></details>
+                <details class="rca-q"><summary>Se il corriere non mi trova, il pacco torna indietro?</summary><div class="rca-q-body">Il corriere effettua <strong>2 tentativi di consegna</strong> all'indirizzo indicato. Se entrambi falliscono, il pacco viene trasferito alla filiale pi&ugrave; vicina e il nostro ufficio spedizioni ti contatta per concordare nuova consegna o ritiro.</div></details>
+                <details class="rca-q"><summary>Consegnate il sabato o la domenica?</summary><div class="rca-q-body">In alcune zone i nostri corrieri consegnano anche di <strong>Sabato e Domenica</strong>. Riceverai il codice di tracciamento con la data di consegna prevista. Lavoriamo per estendere il servizio a tutta Italia.</div></details>
+                <details class="rca-q"><summary>Possibili ritardi nel periodo natalizio</summary><div class="rca-q-body">Durante le festivit&agrave; i corrieri gestiscono volumi eccezionali e i tempi di consegna potrebbero allungarsi di <strong>1&ndash;3 giorni lavorativi</strong>. Faremo del nostro meglio per consegnare il tuo ordine nel minor tempo possibile.</div></details>
+                <details class="rca-q"><summary>Cosa sono le localit&agrave; disagiate?</summary><div class="rca-q-body">Sono zone particolarmente difficili da raggiungere per i corrieri. Per le spedizioni in queste aree viene applicato un <strong>sovrapprezzo</strong> alla tariffa base, calcolato in carrello in base al CAP di destinazione.</div></details>
+            </div>
 
-        <!-- RESI -->
-        <div class="rca-pane" data-pane="returns">
-            <details class="rca-q"><summary>Posso effettuare un reso?</summary><div class="rca-q-body">S&igrave;, puoi esercitare il <strong>diritto di recesso entro 14 giorni</strong> dalla consegna dell'ordine. Il prodotto deve essere integro, completo di tutti i suoi componenti e nell'imballo originale.</div></details>
-            <details class="rca-q"><summary>Come richiedo un reso?</summary><div class="rca-q-body">Apri un ticket con il nostro servizio clienti <a href="https://www.rocard.it/assistenza/#mail">cliccando qui</a>. La tua richiesta sar&agrave; gestita entro 24 ore. Riceverai le istruzioni per la spedizione.<br><br><strong>Nota:</strong> il costo della spedizione di reso &egrave; a carico del cliente.</div></details>
-            <details class="rca-q"><summary>Quando ricever&ograve; il rimborso?</summary><div class="rca-q-body">Il rimborso avviene con lo stesso metodo di pagamento dell'ordine:<br>&bull; <strong>Carta di credito</strong>: 5&ndash;15 giorni lavorativi<br>&bull; <strong>PayPal e Bonifico</strong>: 24&ndash;48 ore lavorative<br>&bull; <strong>Scalapay</strong>: 24&ndash;48 ore lavorative<br>&bull; <strong>Bonifico/Contrassegno</strong>: ti chiederemo l'IBAN<br><br>Requisiti: prodotto non installato, imballo originale, tutti i componenti.</div></details>
-            <details class="rca-q"><summary>Un articolo &egrave; arrivato danneggiato, cosa faccio?</summary><div class="rca-q-body">Apri un ticket per danneggiamento <a href="https://www.rocard.it/assistenza/#mail">cliccando qui</a>. Allega:<br>&bull; <strong>Foto del dettaglio</strong> del danneggiamento<br>&bull; <strong>Foto dell'intero prodotto</strong><br>&bull; Se composto da pi&ugrave; parti, foto del foglio illustrativo con il componente danneggiato cerchiato<br><br>Questa procedura ci permette di velocizzare la gestione della tua richiesta.</div></details>
-            <details class="rca-q"><summary>Un articolo presenta difetti o non &egrave; conforme</summary><div class="rca-q-body">Se l'articolo &egrave; difettoso o non corrisponde alla descrizione, apri un ticket <a href="https://www.rocard.it/assistenza/#mail">cliccando qui</a> allegando foto del difetto e dell'intero prodotto. Il nostro team risolver&agrave; rapidamente con sostituzione, rispedizione o rimborso.</div></details>
-        </div>
+            <!-- RESI -->
+            <div class="rca-pane rca-pane-returns">
+                <details class="rca-q"><summary>Posso effettuare un reso?</summary><div class="rca-q-body">S&igrave;, puoi esercitare il <strong>diritto di recesso entro 14 giorni</strong> dalla consegna dell'ordine. Il prodotto deve essere integro, completo di tutti i suoi componenti e nell'imballo originale.</div></details>
+                <details class="rca-q"><summary>Come richiedo un reso?</summary><div class="rca-q-body">Apri un ticket con il nostro servizio clienti compilando il <strong>form di contatto</strong> qui sotto. La tua richiesta sar&agrave; gestita entro 24 ore. Riceverai le istruzioni per la spedizione.<br><br><strong>Nota:</strong> il costo della spedizione di reso &egrave; a carico del cliente.</div></details>
+                <details class="rca-q"><summary>Quando ricever&ograve; il rimborso?</summary><div class="rca-q-body">Il rimborso avviene con lo stesso metodo di pagamento dell'ordine:<br>&bull; <strong>Carta di credito</strong>: 5&ndash;15 giorni lavorativi<br>&bull; <strong>PayPal e Bonifico</strong>: 24&ndash;48 ore lavorative<br>&bull; <strong>Scalapay</strong>: 24&ndash;48 ore lavorative<br>&bull; <strong>Bonifico/Contrassegno</strong>: ti chiederemo l'IBAN<br><br>Requisiti: prodotto non installato, imballo originale, tutti i componenti.</div></details>
+                <details class="rca-q"><summary>Un articolo &egrave; arrivato danneggiato, cosa faccio?</summary><div class="rca-q-body">Apri un ticket per danneggiamento dal form di contatto qui sotto. Allega:<br>&bull; <strong>Foto del dettaglio</strong> del danneggiamento<br>&bull; <strong>Foto dell'intero prodotto</strong><br>&bull; Se composto da pi&ugrave; parti, foto del foglio illustrativo con il componente danneggiato cerchiato<br><br>Questa procedura ci permette di velocizzare la gestione della tua richiesta.</div></details>
+                <details class="rca-q"><summary>Un articolo presenta difetti o non &egrave; conforme</summary><div class="rca-q-body">Se l'articolo &egrave; difettoso o non corrisponde alla descrizione, apri un ticket dal form qui sotto allegando foto del difetto e dell'intero prodotto. Il nostro team risolver&agrave; rapidamente con sostituzione, rispedizione o rimborso.</div></details>
+            </div>
 
-        <!-- LOCALITA (sotto Spedizioni - condivisa) -->
-        <div class="rca-pane" data-pane="locations">
-            <details class="rca-q"><summary>Cosa sono le localit&agrave; disagiate?</summary><div class="rca-q-body">Sono zone particolarmente difficili e onerose da raggiungere per i corrieri. Per le spedizioni in queste aree applichiamo un <strong>sovrapprezzo</strong> alla tariffa base.</div></details>
-            <details class="rca-q"><summary>&Egrave; previsto un supplemento?</summary><div class="rca-q-body">S&igrave;. Il supplemento &egrave; aggiunto automaticamente alla tariffa base in base al CAP di destinazione, ed &egrave; visibile nel carrello prima del pagamento finale.</div></details>
-        </div>
+            <!-- FATTURAZIONE -->
+            <div class="rca-pane rca-pane-billing">
+                <details class="rca-q"><summary>Posso richiedere una fattura per l'ordine?</summary><div class="rca-q-body">S&igrave;, ti basta inserire i dati nell'<strong>indirizzo di fatturazione</strong> al checkout. La fattura ti verr&agrave; inviata via email automaticamente. Se non la ricevi, scrivici a <a href="mailto:info@rocard.it">info@rocard.it</a> e ti metteremo in contatto con uno specialista.</div></details>
+                <details class="rca-q"><summary>Posso richiedere fattura elettronica con codice univoco/SDI?</summary><div class="rca-q-body">S&igrave;. Inserisci il tuo <strong>Codice Univoco</strong> o l'indirizzo PEC nei dati di fatturazione al checkout: la fattura elettronica verr&agrave; trasmessa automaticamente al Sistema di Interscambio (SDI) e una copia di cortesia ti arriver&agrave; via email.</div></details>
+                <details class="rca-q"><summary>Quali sono i dati fiscali di Rocard?</summary><div class="rca-q-body"><strong>Ragione Sociale:</strong> RCM SRL<br><strong>P.IVA:</strong> 09736331217<br><strong>Sede Legale e Operativa:</strong> Localit&agrave; Ponte Riccio, Zona ASI snc &mdash; Capannone Sirio 12 B, 80014 Giugliano in Campania (NA)<br><strong>PEC:</strong> rcm21@pec.it<br><strong>Codice Univoco:</strong> TULURSB</div></details>
+            </div>
 
-        <!-- FATTURAZIONE -->
-        <div class="rca-pane" data-pane="billing">
-            <details class="rca-q"><summary>Posso richiedere una fattura per l'ordine?</summary><div class="rca-q-body">S&igrave;, ti basta inserire i dati nell'<strong>indirizzo di fatturazione</strong> al checkout. La fattura ti verr&agrave; inviata via email automaticamente. Se non la ricevi, scrivici a <a href="mailto:info@rocard.it">info@rocard.it</a> e ti metteremo in contatto con uno specialista.</div></details>
-        </div>
+            <!-- DEFAULT (general) - posizionato per ULTIMO nel DOM ma per primo via order: -1 con flex sui pane non avviene; default visible via .rca-pane-default -->
+            <div class="rca-pane rca-pane-default">
+                <details class="rca-q"><summary>Tutti gli articoli su Rocard sono disponibili?</summary><div class="rca-q-body">Da sempre ci impegniamo per mantenere alti gli standard qualitativi del servizio. Su Rocard troverai online <strong>solo articoli subito disponibili</strong> o con arrivo certo presso i nostri magazzini.</div></details>
+                <details class="rca-q"><summary>Perch&eacute; il prezzo di un articolo &egrave; cambiato?</summary><div class="rca-q-body">La modifica di accordi commerciali pu&ograve; talvolta determinare l'aumento, talvolta la riduzione dei prezzi di alcuni articoli. Aumentare i prezzi, in alcune occasioni, significa salvaguardare l'alta qualit&agrave; del servizio che ci contraddistingue: sicurezza, garanzia e assistenza pre e post vendita.</div></details>
+                <details class="rca-q"><summary>I prezzi sono IVA inclusa?</summary><div class="rca-q-body">S&igrave;, tutti i prezzi indicati sul sito sono <strong>gi&agrave; comprensivi di IVA</strong>, salvo particolari eccezioni opportunamente segnalate.</div></details>
+                <details class="rca-q"><summary>Dove ha sede Rocard?</summary><div class="rca-q-body">RCM SRL ha sede legale e operativa in <strong>Localit&agrave; Ponte Riccio, Zona ASI snc &mdash; Capannone Sirio 12 B, 80014 Giugliano in Campania (NA)</strong>.</div></details>
+            </div>
 
+        </div>
     </div>
 </section>
 
-<!-- Form Contatto -->
+<!-- ============ FORM CONTATTO ============ -->
 <section class="rca-form-section">
     <div class="rca-container">
         <h2 class="rca-section-title">Scrivici un messaggio</h2>
@@ -570,14 +625,18 @@
     </div>
 </section>
 
-<!-- Contact -->
+<!-- ============ CONTACT + DATI FISCALI ============ -->
 <section class="rca-contact">
     <div class="rca-container">
         <h2 class="rca-section-title">Contattaci direttamente</h2>
         <p class="rca-section-subtitle">Il nostro team di assistenza clienti &egrave; sempre pronto ad aiutarti. Scegli il canale che preferisci.</p>
         <div class="rca-contact-grid">
-            <div class="rca-contact-info">
-                <h3>I nostri contatti</h3>
+
+            <div class="rca-card">
+                <h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    I nostri contatti
+                </h3>
                 <ul class="rca-contact-list">
                     <li>
                         <div class="rca-contact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div>
@@ -603,28 +662,47 @@
                     <li>
                         <div class="rca-contact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
                         <div class="rca-contact-text">
-                            <div class="rca-contact-label">Sede</div>
-                            <div class="rca-contact-value">R.C.M. S.R.L.<br>Latina (LT) &bull; Italia</div>
+                            <div class="rca-contact-label">Sede Operativa</div>
+                            <div class="rca-contact-value">Localit&agrave; Ponte Riccio, Zona ASI snc<br>Capannone Sirio 12 B<br>80014 Giugliano in Campania (NA)</div>
                         </div>
                     </li>
                 </ul>
             </div>
-            <div class="rca-bank-card" id="mail">
-                <h3>Coordinate Bancarie</h3>
-                <p style="font-size:0.9rem;color:#666;margin-bottom:16px;">Per pagamenti con bonifico bancario anticipato</p>
-                <div class="rca-bank-row"><span class="rca-bank-label">Intestatario</span><span class="rca-bank-value">R.C.M. S.R.L.</span></div>
-                <div class="rca-bank-row"><span class="rca-bank-label">Banca</span><span class="rca-bank-value">Intesa Sanpaolo</span></div>
-                <div style="margin-top:16px;">
-                    <div class="rca-bank-label" style="margin-bottom:6px;">IBAN</div>
-                    <div class="rca-bank-iban">IT78 L 03069 40122 100000008372</div>
+
+            <div>
+                <div class="rca-card" style="margin-bottom:24px;">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+                        Coordinate Bancarie
+                    </h3>
+                    <p style="font-size:0.9rem;color:#666;margin:-6px 0 14px;">Per pagamenti con bonifico bancario anticipato</p>
+                    <div class="rca-data-row"><span class="rca-data-label">Intestatario</span><span class="rca-data-value">RCM SRL</span></div>
+                    <div class="rca-data-row"><span class="rca-data-label">Banca</span><span class="rca-data-value">Intesa Sanpaolo</span></div>
+                    <div style="margin-top:14px;">
+                        <div class="rca-data-label" style="margin-bottom:4px;">IBAN</div>
+                        <div class="rca-iban">IT78 L 03069 40122 100000008372</div>
+                    </div>
+                    <p style="font-size:0.78rem;color:#999;margin-top:12px;font-style:italic;">Causale: numero d'ordine ricevuto via email dopo l'acquisto.</p>
                 </div>
-                <p style="font-size:0.8rem;color:#999;margin-top:14px;font-style:italic;">Causale: numero d'ordine ricevuto via email dopo l'acquisto.</p>
+
+                <div class="rca-card">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                        Dati Aziendali
+                    </h3>
+                    <p style="font-size:0.9rem;color:#666;margin:-6px 0 14px;">Per fatturazione elettronica e comunicazioni ufficiali</p>
+                    <div class="rca-data-row"><span class="rca-data-label">Ragione Sociale</span><span class="rca-data-value">RCM SRL</span></div>
+                    <div class="rca-data-row"><span class="rca-data-label">P.IVA</span><span class="rca-data-value rca-mono">09736331217</span></div>
+                    <div class="rca-data-row"><span class="rca-data-label">PEC</span><span class="rca-data-value"><a href="mailto:rcm21@pec.it" style="color:#2a7ab5;text-decoration:none;">rcm21@pec.it</a></span></div>
+                    <div class="rca-data-row"><span class="rca-data-label">Codice Univoco</span><span class="rca-data-value rca-mono">TULURSB</span></div>
+                </div>
             </div>
+
         </div>
     </div>
 </section>
 
-<!-- Trust footer -->
+<!-- ============ TRUST FOOTER ============ -->
 <section class="rca-trust-footer">
     <div class="rca-container">
         <div class="rca-trust-footer-grid">
