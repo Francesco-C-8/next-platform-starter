@@ -20,6 +20,7 @@ Il cliente copia-incolla l'HTML direttamente nel widget HTML di Elementor, senza
 ## Cosa è stato implementato
 
 ### 2026-02 — Sessione corrente
+- ✅ **ROCARD-ASSISTENZA.html** (10/02): blocco unificato Info + Assistenza. Hero blu con eyebrow + 3 trust badges, 3 quick-card overlapping (mail / telefono / tracking), FAQ tabs CSS-only `:target` con 8 categorie (Generali, Ordini, Pagamenti, Scalapay, Klarna, Spedizioni, Resi, Fatturazione), accordion `<details>` con icone +/-, sezione Contattaci con I nostri contatti + Coordinate Bancarie (IBAN evidenziato), trust footer. Tutte le classi prefissate `rca-`. Verificato via screenshot.
 - ✅ **Strategia finale "separazione pulita"** (20/02): Tab 1 usa il form TrackShip nativo ordine+email (provato funzionante con ordine 104049); Tab 2 usa form CUSTOM con redirect al corriere (GLS/BRT/Poste via auto-detection del formato tracking number). Cleanup AGGRESSIVO del form TrackShip nativo: nasconde tutti i titoli (h1-h4 con "Dettagli dell'ordine" / "Numero di identificazione"), nasconde il secondo form/sezione TrackShip shipping duplicato, classe `rct-clean` sul mount per hide garantito. Due bottoni submit risolti (il secondo era del form shipping duplicato nascosto). Test simulato OK.
 - ✅ **Banner coupon INVIAGGIO10**: countdown 15 min, copia codice, "Solo per te, un'unica volta • Approfittane subito".
 - ✅ **Approccio DOM-MOVE per TrackShip**: widget HTML con placeholder; script sposta la `.track-order-section` dallo shortcode dentro il mount.
