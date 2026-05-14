@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Mockup Gallery · Rocard CRO · Download per developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+<link rel="stylesheet" href="./styles.css" />
+<style>
+  .gal-hero{
+    background:
+      radial-gradient(circle at 10% 20%, rgba(255,198,41,.18) 0%, transparent 50%),
+      radial-gradient(circle at 90% 70%, rgba(27,137,192,.16) 0%, transparent 50%),
+      linear-gradient(180deg, #fff 0%, var(--bg) 100%);
+    padding: 50px 20px 30px;
+    text-align:center; border-bottom:1px solid var(--line);
+  }
+  .gal-grid{
+    display:grid; grid-template-columns: 1fr 1fr; gap: 22px;
+    margin: 30px 0;
+  }
+  @media (max-width:780px){.gal-grid{grid-template-columns: 1fr}}
+  .gal-card{
+    background:#fff; border:1px solid var(--line); border-radius: var(--r-lg);
+    overflow:hidden; transition: all .2s ease;
+  }
+  .gal-card:hover{transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--rocard-blue)}
+  .gal-thumb{
+    position:relative; background: var(--bg-alt);
+    aspect-ratio: 16/10; overflow:hidden;
+    display:grid; place-items:start center;
+  }
+  .gal-thumb img{
+    width:100%; height:100%; object-fit: cover; object-position: top center;
+    transition: transform .3s ease;
+  }
+  .gal-card:hover .gal-thumb img{transform: scale(1.02)}
+  .gal-thumb .num{
+    position:absolute; top:14px; left:14px;
+    background: var(--rocard-yellow); color: var(--ink-900);
+    width:36px; height:36px; border-radius: 50%;
+    display:grid; place-items:center;
+    font-family: var(--font-display); font-weight:800; font-size: 15px;
+    box-shadow: var(--shadow-md);
+    z-index:2;
+  }
+  .gal-thumb .device{
+    position:absolute; top:14px; right:14px;
+    background: rgba(15,30,55,.85); color:#fff;
+    padding: 4px 12px; border-radius: var(--r-pill);
+    font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+    backdrop-filter: blur(8px);
+    z-index:2;
+  }
+  .gal-meta{padding: 18px 22px}
+  .gal-meta h3{font-size: 17px; margin-bottom: 4px}
+  .gal-meta .desc{font-size: 13.5px; color: var(--ink-500); line-height: 1.5}
+  .gal-actions{
+    display:flex; gap:8px; padding: 0 22px 22px; flex-wrap:wrap;
+  }
+  .gal-btn{
+    flex: 1; padding: 11px 14px; border-radius: var(--r-pill);
+    font-size: 13.5px; font-weight: 700; text-align: center;
+    text-decoration: none; transition: all .2s ease;
+    min-width: 140px;
+  }
+  .gal-btn-primary{
+    background: var(--rocard-blue); color: #fff;
+  }
+  .gal-btn-primary:hover{background: var(--rocard-blue-deep); color:#fff; text-decoration: none}
+  .gal-btn-ghost{
+    background: transparent; color: var(--ink-700); border: 1.5px solid var(--line-strong);
+  }
+  .gal-btn-ghost:hover{background: var(--bg-alt); border-color: var(--rocard-blue); color: var(--ink-900); text-decoration: none}
+
+  .download-all{
+    background: linear-gradient(135deg, var(--rocard-yellow-soft) 0%, #FFF 60%);
+    border: 2px solid var(--rocard-yellow);
+    border-radius: var(--r-xl);
+    padding: 26px;
+    display:flex; gap:18px; align-items:center; flex-wrap:wrap;
+    margin-bottom: 26px;
+  }
+  .download-all .ico-big{
+    width:60px; height:60px; border-radius:14px;
+    background: var(--rocard-yellow); color: var(--ink-900);
+    display:grid; place-items:center; font-size:24px; flex-shrink:0;
+  }
+  .download-all .txt{flex:1; min-width:220px}
+  .download-all h3{font-size:18px}
+  .download-all p{margin: 4px 0 0; color: var(--ink-500); font-size:14px}
+
+  .lightbox{
+    position: fixed; inset:0; background: rgba(0,0,0,.92);
+    display:none; align-items:flex-start; justify-content:center;
+    z-index: 1000; overflow-y: auto;
+    padding: 20px;
+  }
+  .lightbox.open{display:flex}
+  .lightbox img{
+    max-width: 1180px; width: 100%; height: auto; display:block;
+    border-radius: 10px; box-shadow: 0 30px 80px rgba(0,0,0,.4);
+  }
+  .lightbox-close{
+    position: fixed; top: 16px; right: 16px;
+    background: rgba(255,255,255,.15); color: #fff;
+    width: 44px; height: 44px; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.2);
+    cursor: pointer; font-size: 20px;
+    display:grid; place-items:center;
+    backdrop-filter: blur(8px);
+  }
+  .lightbox-close:hover{background: rgba(255,255,255,.25)}
+
+  .stat-row{
+    display:flex; gap:30px; justify-content:center; flex-wrap:wrap;
+    margin-top:24px;
+  }
+  .stat-row .s b{
+    font-family: var(--font-display); font-size: 28px; color: var(--rocard-blue-deep);
+    display:block; font-weight:800;
+  }
+  .stat-row .s span{font-size: 13px; color: var(--ink-500)}
+</style>
+</head>
+<body>
+
+<header class="r-header">
+  <div class="r-header-inner">
+    <a href="./index.html" class="r-logo"><span class="logo-mark">R</span><span>ROCARD</span></a>
+    <div class="r-header-trust">
+      <span class="item"><i class="fas fa-images"></i> Mockup Gallery</span>
+      <span class="item"><i class="fas fa-download"></i> Download per developer</span>
+    </div>
+  </div>
+</header>
+
+<section class="gal-hero">
+  <span class="sub-pill" style="display:inline-flex; gap:8px; align-items:center; background:var(--rocard-yellow-soft); color:var(--rocard-yellow-deep); padding:6px 14px; border-radius:99px; font-weight:700; font-size:12px; letter-spacing:.05em; text-transform:uppercase;">
+    <i class="fas fa-images"></i> 10 Mockup pronti
+  </span>
+  <h1 class="h-display" style="font-size:38px; max-width: 760px; margin: 18px auto 8px; line-height:1.1;">
+    Mockup Rocard CRO<br/>
+    <span style="color: var(--rocard-blue-deep);">pronti da scaricare</span>
+  </h1>
+  <p class="muted" style="font-size:16px; max-width: 580px; margin: 0 auto;">
+    8 mockup desktop full-page + 2 mockup mobile in formato PNG ad alta risoluzione.
+    Click destro → "Salva immagine" oppure usa i pulsanti sotto ogni card.
+  </p>
+  <div class="stat-row">
+    <div class="s"><b>10</b><span>Mockup totali</span></div>
+    <div class="s"><b>PNG</b><span>Formato lossless</span></div>
+    <div class="s"><b>1440×</b><span>Risoluzione desktop</span></div>
+    <div class="s"><b>390×</b><span>Risoluzione mobile</span></div>
+  </div>
+</section>
+
+<main class="container" style="padding: 30px 20px 60px; max-width: 1180px;">
+
+  <!-- Download all -->
+  <div class="download-all">
+    <div class="ico-big"><i class="fas fa-file-zipper"></i></div>
+    <div class="txt">
+      <h3>Vuoi tutti i mockup in una volta?</h3>
+      <p>Apri uno per uno tramite i link sotto · oppure scarica lo ZIP completo (consigliato per girarlo al developer)</p>
+    </div>
+    <a href="./screenshots/rocard-mockups.zip" class="btn btn-primary btn-lg" download>
+      <i class="fas fa-download"></i> Scarica tutto in ZIP
+    </a>
+  </div>
+
+  <!-- DESKTOP MOCKUPS -->
+  <h2 style="margin-top: 18px;"><i class="fas fa-desktop text-rocard"></i> Desktop · 1440px width</h2>
+  <p class="muted" style="margin-top:4px;">Mockup full-page per design review e handoff allo sviluppatore.</p>
+
+  <div class="gal-grid">
+
+    <div class="gal-card">
+      <div class="gal-thumb" onclick="openLightbox('./screenshots/01-carrello-desktop.png')">
+        <span class="num">01</span>
+        <span class="device">Desktop</span>
+        <img src="./screenshots/01-carrello-desktop.png" alt="Step 1 — Carrello" loading="lazy" />
+      </div>
+      <div class="gal-meta">
+        <h3>Step 1 — Carrello</h3>
+        <div class="desc">Caffè Borbone Blu, bundle 1/3/5, scientific spec, free-shipping bar, cross-sell reali Rocard, order bumps sidebar.</div>
+      </div>
+      <div class="gal-actions">
+        <a href="./screenshots/01-carrello-desktop.png" download class="gal-btn gal-btn-primary"><i class="fas fa-download"></i> Scarica PNG</a>
+        <a href="./cart.html" target="_blank" class="gal-btn gal-btn-ghost"><i class="fas fa-arrow-up-right-from-square"></i> Apri live</a>
+      </div>
+    </div>
+
+    <div class="gal-card">
+      <div class="gal-thumb" onclick="openLightbox('./screenshots/02-spedizione-desktop.png')">
+        <span class="num">02</span>
+        <span class="device">Desktop</span>
+        <img src="./screenshots/02-spedizione-desktop.png" alt="Step 2 — Spedizione" loading="lazy" />
+      </div>
+      <div class="gal-meta">
+        <h3>Step 2 — Spedizione</h3>
+        <div class="desc">Express Pay top, form pulito Contatto/Indirizzo/Metodo (no doppi titoli), real-time validation, summary sticky.</div>
+      </div>
+      <div class="gal-actions">
+        <a href="./screenshots/02-spedizione-desktop.png" download class="gal-btn gal-btn-primary"><i class="fas fa-download"></i> Scarica PNG</a>
+        <a href="./checkout.html" target="_blank" class="gal-btn gal-btn-ghost"><i class="fas fa-arrow-up-right-from-square"></i> Apri live</a>
+      </div>
+    </div>
+
+    <div class="gal-card">
+      <div class="gal-thumb" onclick="openLightbox('./screenshots/03-pagamento-desktop.png')">
+        <span class="num">03</span>
+        <span class="device">Desktop</span>
+        <img src="./screenshots/03-pagamento-desktop.png" alt="Step 3 — Pagamento" loading="lazy" />
+      </div>
+      <div class="gal-meta">
+        <h3>Step 3 — Pagamento</h3>
+        <div class="desc">Reservation timer 10', social proof 78%, fisarmonica metodi (Carta/PayPal/Klarna/SEPA), tooltip CVV, testimonial.</div>
+      </div>
+      <div class="gal-actions">
+        <a href="./screenshots/03-pagamento-desktop.png" download class="gal-btn gal-btn-primary"><i class="fas fa-download"></i> Scarica PNG</a>
+        <a href="./payment.html" target="_blank" class="gal-btn gal-btn-ghost"><i class="fas fa-arrow-up-right-from-square"></i> Apri live</a>
+      </div>
+    </div>
+
+    <div class="gal-card">
+      <div class="gal-thumb" onclick="openLightbox('./screenshots/04-conferma-desktop.png')">
+        <span class="num">04</span>
+        <span class="device">Desktop</span>
+        <img src="./screenshots/04-conferma-desktop.png" alt="Step 4 — Conferma" loading="lazy" />
+      </div>
+      <div class="gal-meta">
+        <h3>Step 4 — Conferma (Thank-you)</h3>
+        <div class="desc">Hero check animato, timeline 4 step, post-purchase upsell 15', subscribe & save, voucher ROCARD10, referral, NPS.</div>
+      </div>
+      <div class="gal-actions">
+        <a href="./screenshots/04-conferma-desktop.png" download class="gal-btn gal-btn-primary"><i class="fas fa-download"></i> Scarica PNG</a>
+        <a href="./thank-you.html" target="_blank" class="gal-btn gal-btn-ghost"><i class="fas fa-arrow-up-right-from-square"></i> Apri live</a>
+      </div>
+    </div>
+
+    <div class="gal-card">
+      <div class="gal-thumb" onclick="openLightbox('./screenshots/05-abbonamento-desktop.png')">
+        <span class="num">05</span>
+        <span class="device">Desktop · Smart Enhancement</span>
+        <img src="./screenshots/05-abbonamento-desktop.png" alt="Landing Abbonamento Rocard" loading="lazy" />
+      </div>
+      <div class="gal-meta">
+        <h3>Landing Abbonamento Rocard ⭐</h3>
+        <div class="desc">Hero "Mai più scorte finite", calcolatore risparmio JS, comparison table, 6 categorie, 3 testimonial, FAQ 8 voci.</div>
+      </div>
+      <div class="gal-actions">
+        <a href="./screenshots/05-abbonamento-desktop.png" download class="gal-btn gal-btn-primary"><i class="fas fa-download"></i> Scarica PNG</a>
+        <a href="./subscription.html" target="_blank" class="gal-btn gal-btn-ghost"><i class="fas fa-arrow-up-right-from-square"></i> Apri live</a>
+      </div>
+    </div>
+
+    <div class="gal-card">
+      <div class="gal-thumb" onclick="openLightbox('./screenshots/06-developer-brief-desktop.png')">
+        <span class="num">06</span>
+        <span class="device">Documento Printable</span>
+        <img src="./screenshots/06-developer-brief-desktop.png" alt="Developer Brief" loading="lazy" />
+      </div>
+      <div class="gal-meta">
+        <h3>Developer Brief (PDF-ready)</h3>
+        <div class="desc">Sprint plan 8 settimane, plugin matrix, ACF schema, hook PHP, 10 eventi GA4, checklist 30+ voci. <b>Apri live → Stampa</b> per ottenere il PDF.</div>
+      </div>
+      <div class="gal-actions">
+        <a href="./screenshots/06-developer-brief-desktop.png" download class="gal-btn gal-btn-primary"><i class="fas fa-download"></i> Scarica PNG</a>
+        <a href="./developer-brief.html" target="_blank" class="gal-btn gal-btn-ghost"><i class="fas fa-print"></i> Apri & stampa PDF</a>
+      </div>
+    </div>
+
+    <div class="gal-card">
+      <div class="gal-thumb" onclick="openLightbox('./screenshots/07-audit-cro-desktop.png')">
+        <span class="num">07</span>
+        <span class="device">Documento di Audit</span>
+        <img src="./screenshots/07-audit-cro-desktop.png" alt="Audit CRO" loading="lazy" />
+      </div>
+      <div class="gal-meta">
+        <h3>Audit CRO Rocard.it</h3>
+        <div class="desc">Diagnosi flusso attuale, confronto con i tuoi mockup, 12 pattern CRO implementati, esempi copy scientifico, A/B test plan.</div>
+      </div>
+      <div class="gal-actions">
+        <a href="./screenshots/07-audit-cro-desktop.png" download class="gal-btn gal-btn-primary"><i class="fas fa-download"></i> Scarica PNG</a>
+        <a href="./audit.html" target="_blank" class="gal-btn gal-btn-ghost"><i class="fas fa-arrow-up-right-from-square"></i> Apri live</a>
+      </div>
+    </div>
+
+    <div class="gal-card">
+      <div class="gal-thumb" onclick="openLightbox('./screenshots/08-hub-desktop.png')">
+        <span class="num">08</span>
+        <span class="device">Hub di navigazione</span>
+        <img src="./screenshots/08-hub-desktop.png" alt="Hub" loading="lazy" />
+      </div>
+      <div class="gal-meta">
+        <h3>Hub di navigazione</h3>
+        <div class="desc">Pagina indice del prototipo · KPI attesi (+18-35% CVR, +12-22% AOV, +8-15% LTV) · entry point per esplorare tutti gli step.</div>
+      </div>
+      <div class="gal-actions">
+        <a href="./screenshots/08-hub-desktop.png" download class="gal-btn gal-btn-primary"><i class="fas fa-download"></i> Scarica PNG</a>
+        <a href="./index.html" target="_blank" class="gal-btn gal-btn-ghost"><i class="fas fa-arrow-up-right-from-square"></i> Apri live</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MOBILE MOCKUPS -->
+  <h2 style="margin-top: 18px;"><i class="fas fa-mobile-screen text-rocard"></i> Mobile · 390px width</h2>
+  <p class="muted" style="margin-top:4px;">Render mobile per validare il responsive — il 70% del traffico e-commerce IT è mobile.</p>
+
+  <div class="gal-grid">
+
+    <div class="gal-card">
+      <div class="gal-thumb" onclick="openLightbox('./screenshots/09-carrello-mobile.png')" style="aspect-ratio: 9/16; max-height: 600px;">
+        <span class="num">09</span>
+        <span class="device">Mobile · 390px</span>
+        <img src="./screenshots/09-carrello-mobile.png" alt="Carrello mobile" loading="lazy" style="object-position: top; object-fit: contain; background:#fff;" />
+      </div>
+      <div class="gal-meta">
+        <h3>Carrello — Mobile</h3>
+        <div class="desc">Stack verticale, prodotto + scientific spec full-width, qty stepper accessibile, summary sotto i prodotti.</div>
+      </div>
+      <div class="gal-actions">
+        <a href="./screenshots/09-carrello-mobile.png" download class="gal-btn gal-btn-primary"><i class="fas fa-download"></i> Scarica PNG</a>
+        <a href="./cart.html" target="_blank" class="gal-btn gal-btn-ghost"><i class="fas fa-arrow-up-right-from-square"></i> Apri live</a>
+      </div>
+    </div>
+
+    <div class="gal-card">
+      <div class="gal-thumb" onclick="openLightbox('./screenshots/10-conferma-mobile.png')" style="aspect-ratio: 9/16; max-height: 600px;">
+        <span class="num">10</span>
+        <span class="device">Mobile · 390px</span>
+        <img src="./screenshots/10-conferma-mobile.png" alt="Conferma mobile" loading="lazy" style="object-position: top; object-fit: contain; background:#fff;" />
+      </div>
+      <div class="gal-meta">
+        <h3>Conferma — Mobile</h3>
+        <div class="desc">Hero conferma full-width, timeline 2×2 grid, upsell card stacked, voucher + referral + supporto verticali.</div>
+      </div>
+      <div class="gal-actions">
+        <a href="./screenshots/10-conferma-mobile.png" download class="gal-btn gal-btn-primary"><i class="fas fa-download"></i> Scarica PNG</a>
+        <a href="./thank-you.html" target="_blank" class="gal-btn gal-btn-ghost"><i class="fas fa-arrow-up-right-from-square"></i> Apri live</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- HELP -->
+  <div class="card mt-6" style="background:linear-gradient(135deg, #F4F9FD 0%, #FFFFFF 60%); border-color:#C2DEF3;">
+    <h2 style="font-size:20px;"><i class="fas fa-lightbulb text-rocard"></i> Come usare questi mockup col tuo developer</h2>
+    <ol style="line-height:1.85; margin-top:10px; padding-left: 22px;">
+      <li><b>Scarica lo ZIP</b> (pulsante giallo in alto) e invialo via email/Drive al developer come reference visiva.</li>
+      <li><b>Condividi il link live</b> al developer: <code>https://conversion-flow-test.preview.emergentagent.com/rocard/</code> — può ispezionare il DOM e copiare il CSS direttamente.</li>
+      <li><b>Stampa il Developer Brief in PDF</b> (mockup 06 → "Apri & stampa PDF") — è già formattato come documento operativo con sprint plan, plugin matrix, snippet PHP, checklist.</li>
+      <li><b>Prioritizza con la matrice P0/P1/P2</b> nel Developer Brief: parti dai P0 (Express Pay, Stepper, Free Shipping Bar) → quick wins in 1 sprint.</li>
+      <li><b>Pianifica i 6 A/B test</b> elencati nell'Audit CRO per validare i risultati nei primi 90 giorni.</li>
+    </ol>
+  </div>
+
+</main>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox(event)" aria-label="Chiudi"><i class="fas fa-times"></i></button>
+  <img id="lightboxImg" src="" alt="Mockup preview" />
+</div>
+
+<footer class="r-footer">
+  © 2026 Rocard · Mockup gallery · <a href="./index.html">← Hub studio CRO</a> · <a href="./developer-brief.html">Developer Brief</a>
+</footer>
+
+<script>
+function openLightbox(src){
+  const lb = document.getElementById('lightbox');
+  document.getElementById('lightboxImg').src = src;
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(e){
+  if(e && e.target.tagName === 'IMG') return;
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox(); });
+</script>
+
+</body></html>
