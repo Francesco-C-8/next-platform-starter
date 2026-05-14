@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Developer Brief · Rocard CRO Implementation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+<link rel="stylesheet" href="./styles.css" />
+<style>
+  body{background:#fff}
+  .doc-hero{
+    background: linear-gradient(135deg, #0E1A2A 0%, #1B89C0 100%);
+    color:#fff; padding: 60px 20px; text-align:center;
+  }
+  .doc-hero h1{color:#fff; font-size:42px; max-width:760px; margin: 0 auto;}
+  .doc-hero p{color:rgba(255,255,255,.85); font-size:16px; max-width:580px; margin: 16px auto 0; line-height:1.6;}
+  .doc-meta{
+    display:inline-flex; gap:18px; margin-top: 22px; padding: 12px 22px;
+    background: rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2);
+    border-radius: var(--r-pill);
+    color: #fff; font-size: 13px; flex-wrap:wrap; justify-content:center;
+  }
+  .doc-meta b{font-family: 'JetBrains Mono', monospace;}
+
+  .toc{
+    background: var(--bg-alt); border-radius: var(--r-lg); padding: 22px;
+    margin: 30px 0; border: 1px solid var(--line);
+  }
+  .toc h3{margin-bottom: 12px}
+  .toc ol{margin:0; padding-left: 22px; line-height: 1.85}
+  .toc a{color: var(--ink-700)}
+  .toc a:hover{color: var(--rocard-blue-deep)}
+
+  .doc-section{
+    padding: 40px 0; border-bottom: 1px solid var(--line);
+  }
+  .doc-section h2{font-size: 28px; margin-bottom: 6px; display:flex; align-items:center; gap:10px}
+  .doc-section .sec-desc{font-size: 15px; color: var(--ink-500); margin-bottom: 22px}
+  .doc-section h3{font-size: 18px; margin: 22px 0 8px}
+  .doc-section p{margin: 8px 0; line-height: 1.7}
+  .doc-section ul, .doc-section ol{padding-left: 22px; line-height: 1.8}
+  .doc-section ul li, .doc-section ol li{margin-bottom: 6px}
+
+  .file-tree{
+    background: #0E1A2A; color:#E8F3FB;
+    padding: 22px; border-radius: 12px;
+    font-family: 'JetBrains Mono', monospace; font-size:13px; line-height: 1.7;
+    overflow-x:auto;
+  }
+  .file-tree .c{color: #8FA3BB}
+  .file-tree .f{color: #FFC629}
+  .file-tree .d{color: #6BB8E8}
+
+  .code{
+    background: #0E1A2A; color:#E8F3FB;
+    padding: 16px 18px; border-radius: 10px;
+    font-family: 'JetBrains Mono', monospace; font-size:12.5px;
+    overflow-x:auto; white-space: pre; line-height:1.6;
+  }
+  .code .k{color: #FFC629}
+  .code .s{color: #8BE9C8}
+  .code .c{color: #6BB8E8; font-style:italic}
+  .code .v{color: #E8B4F0}
+
+  .impact-grid{
+    display:grid; grid-template-columns: 1fr 1fr 1fr; gap:14px;
+    margin: 20px 0;
+  }
+  @media (max-width:720px){.impact-grid{grid-template-columns: 1fr}}
+  .impact-card{
+    padding: 18px; border-radius: 12px; border:1px solid var(--line);
+  }
+  .impact-card.high{background: var(--danger-soft); border-color: var(--danger)}
+  .impact-card.medium{background: var(--rocard-yellow-soft); border-color: var(--rocard-yellow-deep)}
+  .impact-card.low{background: var(--info-soft); border-color: var(--info)}
+  .impact-card h4{text-transform:none; letter-spacing:0; font-size:14px; margin-bottom:6px; color: var(--ink-900)}
+  .impact-card .effort{font-size:12px; font-weight:700; opacity:.7; margin-top:8px}
+
+  .plugin-table{
+    width:100%; border-collapse: separate; border-spacing: 0;
+    background:#fff; border:1px solid var(--line); border-radius: var(--r-lg); overflow:hidden;
+    font-size: 14px;
+  }
+  .plugin-table th, .plugin-table td{
+    padding: 12px 14px; text-align:left; border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  .plugin-table thead th{background: var(--bg-alt); font-weight:800; font-family: var(--font-display)}
+  .plugin-table .pname{font-weight:700; color: var(--ink-900)}
+  .plugin-table .ptype{
+    display:inline-block; font-size:11px; font-weight:700;
+    padding: 2px 8px; border-radius: var(--r-pill);
+  }
+  .plugin-table .ptype.paid{background: var(--rocard-yellow-soft); color: var(--rocard-yellow-deep)}
+  .plugin-table .ptype.free{background: var(--success-soft); color: var(--success)}
+  .plugin-table .ptype.custom{background: var(--info-soft); color: var(--info)}
+
+  .sprint-grid{
+    display:grid; grid-template-columns: repeat(4,1fr); gap:14px;
+    margin: 20px 0;
+  }
+  @media (max-width:900px){.sprint-grid{grid-template-columns: 1fr 1fr}}
+  @media (max-width:520px){.sprint-grid{grid-template-columns: 1fr}}
+  .sprint{
+    background:#fff; padding: 18px; border-radius: 12px; border:1px solid var(--line);
+    border-top: 4px solid var(--rocard-blue);
+  }
+  .sprint h4{text-transform:none; letter-spacing:0; font-size:13px; margin-bottom:4px; color: var(--rocard-blue-deep)}
+  .sprint .ttl{font-family: var(--font-display); font-weight:800; font-size:16px; color: var(--ink-900); margin-bottom:8px}
+  .sprint ul{padding-left: 18px; font-size:13px; margin:0}
+  .sprint ul li{margin-bottom: 4px}
+
+  .checklist{
+    background: var(--bg-alt); border:1px solid var(--line); border-radius: var(--r-lg);
+    padding: 22px;
+  }
+  .checklist label{
+    display:flex; gap:10px; align-items:flex-start; padding: 8px 0;
+    border-bottom: 1px dashed var(--line-strong); font-size:14px;
+  }
+  .checklist label:last-child{border:none}
+  .checklist input[type="checkbox"]{
+    margin-top: 4px; width:18px; height:18px; flex-shrink:0;
+  }
+
+  .badge-prio{
+    display:inline-block; font-size:11px; font-weight:800;
+    padding: 3px 10px; border-radius: var(--r-pill);
+    letter-spacing:.04em; text-transform: uppercase;
+  }
+  .badge-prio.p0{background: var(--danger); color:#fff}
+  .badge-prio.p1{background: var(--rocard-yellow-deep); color:#fff}
+  .badge-prio.p2{background: var(--info); color:#fff}
+
+  .print-only{display:none}
+  @media print{
+    .doc-hero{background:#fff; color: var(--ink-900); padding: 20px 0}
+    .doc-hero h1{color: var(--ink-900)}
+    .doc-hero p{color: var(--ink-500)}
+    .doc-meta{background:#fff; color: var(--ink-900); border-color: var(--line)}
+    .no-print{display:none !important}
+    .doc-section{break-inside: avoid; padding: 20px 0}
+    .file-tree, .code{background:#fff; color: #000; border: 1px solid var(--line)}
+  }
+  .print-btn{
+    position:fixed; bottom: 22px; right: 22px; z-index: 100;
+  }
+</style>
+</head>
+<body>
+
+<header class="r-header no-print">
+  <div class="r-header-inner">
+    <a href="./index.html" class="r-logo"><span class="logo-mark">R</span><span>ROCARD</span></a>
+    <div class="r-header-trust">
+      <span class="item"><i class="fas fa-file-lines"></i> Developer Brief</span>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="doc-hero">
+  <span class="sub-pill" style="background:rgba(255,198,41,.2); color:#FFC629;"><i class="fas fa-code"></i> DEVELOPER BRIEF · v1.0</span>
+  <h1 style="margin-top:18px;">Implementazione CRO Checkout Rocard.it</h1>
+  <p>Documento operativo destinato al team di sviluppo WooCommerce di Rocard.<br/>
+     Contiene specifiche, plugin consigliati, hook PHP, eventi tracking, sprint plan e checklist completa.</p>
+  <div class="doc-meta">
+    <span><i class="far fa-calendar"></i> Data: <b>2026-05-14</b></span>
+    <span><i class="fas fa-tag"></i> Versione: <b>1.0</b></span>
+    <span><i class="fas fa-cubes"></i> Stack: <b>WordPress + WooCommerce</b></span>
+    <span><i class="fas fa-clock"></i> Sprint stimati: <b>4 × 2 settimane</b></span>
+  </div>
+</section>
+
+<main class="container-narrow" style="padding: 0 20px;">
+
+  <!-- TOC -->
+  <div class="toc">
+    <h3><i class="fas fa-list"></i> Indice del documento</h3>
+    <ol>
+      <li><a href="#exec">Executive Summary & KPI attesi</a></li>
+      <li><a href="#prototype">File del prototipo &amp; struttura</a></li>
+      <li><a href="#impact">Matrice impatto / sforzo · prioritizzazione P0-P2</a></li>
+      <li><a href="#plugins">Stack tecnologico &amp; plugin consigliati</a></li>
+      <li><a href="#step1">Implementazione step 1 — Carrello</a></li>
+      <li><a href="#step2">Implementazione step 2 — Spedizione</a></li>
+      <li><a href="#step3">Implementazione step 3 — Pagamento</a></li>
+      <li><a href="#step4">Implementazione step 4 — Thank-you (post-purchase)</a></li>
+      <li><a href="#sub">Landing Abbonamento Rocard</a></li>
+      <li><a href="#acf">Custom fields ACF · scientific spec PDP</a></li>
+      <li><a href="#hooks">Hook PHP &amp; snippet di esempio</a></li>
+      <li><a href="#tracking">Eventi GA4 / Meta Pixel da implementare</a></li>
+      <li><a href="#sprints">Sprint plan 8 settimane</a></li>
+      <li><a href="#abtest">A/B test consigliati</a></li>
+      <li><a href="#checklist">Checklist finale</a></li>
+    </ol>
+  </div>
+
+  <!-- 1 -->
+  <section class="doc-section" id="exec">
+    <h2><i class="fas fa-bullseye text-rocard"></i> 1. Executive Summary &amp; KPI attesi</h2>
+    <p class="sec-desc">Cosa cambia e quanto può rendere.</p>
+    <p>Obiettivo: trasformare il flusso d'acquisto attuale di rocard.it (WooCommerce + WoodMart standard) in un funnel ottimizzato con <b>12 pattern CRO verificati</b>, copy scientifico, e una <b>landing dedicata al programma abbonamento</b> (asset oggi sottoutilizzato).</p>
+    <div class="kpi-row">
+      <div class="kpi"><div class="v">+18-35%</div><div class="l">CVR (Conversion Rate)</div></div>
+      <div class="kpi"><div class="v">+12-22%</div><div class="l">AOV (Average Order Value)</div></div>
+      <div class="kpi"><div class="v">+8-15%</div><div class="l">LTV (Lifetime Value)</div></div>
+    </div>
+    <p>Stime basate su benchmark di settore (e-commerce food/pet/farmacia IT) per implementazioni complete. La proiezione conservativa è <b>+12% CVR · +10% AOV · +6% LTV</b>; quella ottimista <b>+35% CVR · +22% AOV · +15% LTV</b>.</p>
+  </section>
+
+  <!-- 2 -->
+  <section class="doc-section" id="prototype">
+    <h2><i class="fas fa-folder-tree text-rocard"></i> 2. File del prototipo</h2>
+    <p class="sec-desc">Tutti i file statici sono in <code>/rocard/</code>. Aprire <code>index.html</code> per navigare.</p>
+    <div class="file-tree">
+<span class="c">// Prototipo statico Rocard — HTML/CSS/JS portabile a WooCommerce</span>
+<span class="d">/rocard/</span>
+├── <span class="f">index.html</span>           <span class="c">// Hub di navigazione</span>
+├── <span class="f">cart.html</span>            <span class="c">// Step 1 — Carrello</span>
+├── <span class="f">checkout.html</span>        <span class="c">// Step 2 — Spedizione</span>
+├── <span class="f">payment.html</span>         <span class="c">// Step 3 — Pagamento</span>
+├── <span class="f">thank-you.html</span>       <span class="c">// Step 4 — Conferma + post-purchase</span>
+├── <span class="f">subscription.html</span>    <span class="c">// Landing programma abbonamento</span>
+├── <span class="f">audit.html</span>           <span class="c">// Analisi CRO completa</span>
+├── <span class="f">developer-brief.html</span> <span class="c">// Questo documento</span>
+├── <span class="f">styles.css</span>           <span class="c">// Design system (variabili CSS Rocard)</span>
+└── <span class="f">script.js</span>            <span class="c">// Timer, bundle, validation, voucher copy</span>
+    </div>
+    <p>Tutti i prezzi e prodotti usati nel prototipo (<b>Caffè Borbone Respresso Miscela Blu/Rossa/Nera</b>, <b>Lavazza A Modo Mio</b>) sono <b>prodotti reali</b> presenti su rocard.it. Le immagini puntano alla CDN <code>www.rocard.it/wp-content/uploads/</code> reale.</p>
+  </section>
+
+  <!-- 3 -->
+  <section class="doc-section" id="impact">
+    <h2><i class="fas fa-table-cells-large text-rocard"></i> 3. Matrice impatto / sforzo</h2>
+    <p class="sec-desc">Priorità in 3 livelli — fai prima i P0, poi P1, infine P2.</p>
+
+    <h3><span class="badge-prio p0">P0</span> Quick wins · alto impatto, basso/medio sforzo</h3>
+    <div class="impact-grid">
+      <div class="impact-card high">
+        <h4>① Express Pay (Apple/Google/PayPal) sopra il form</h4>
+        <p class="small muted">Già nativo in <b>Stripe WooCommerce Gateway</b>. Spostare in cima al checkout.</p>
+        <div class="effort">Sforzo: ½ giornata · Impatto: +15-25% CVR mobile</div>
+      </div>
+      <div class="impact-card high">
+        <h4>② Progress Stepper visibile</h4>
+        <p class="small muted">Componente HTML/CSS · da inserire come header del template checkout.</p>
+        <div class="effort">Sforzo: 1 giornata · Impatto: −12-20% drop-off</div>
+      </div>
+      <div class="impact-card high">
+        <h4>③ Free Shipping Bar dinamica</h4>
+        <p class="small muted">Plugin <b>Advanced Free Shipping Bar</b> (free) oppure custom JS sul cart.</p>
+        <div class="effort">Sforzo: ½ giornata · Impatto: +6-12% AOV</div>
+      </div>
+    </div>
+
+    <h3><span class="badge-prio p1">P1</span> Driver principali · medio impatto, medio sforzo</h3>
+    <div class="impact-grid">
+      <div class="impact-card medium">
+        <h4>④ Bundle Pricing 1/3/5</h4>
+        <p class="small muted"><b>WooCommerce Product Bundles</b> o <b>YITH Dynamic Pricing</b>. Custom UI per cards.</p>
+        <div class="effort">Sforzo: 3 giornate · Impatto: +10-18% AOV</div>
+      </div>
+      <div class="impact-card medium">
+        <h4>⑤ Order bumps (Protezione/Prioritaria)</h4>
+        <p class="small muted"><b>CartFlows</b> o template custom in <code>cart-totals.php</code>.</p>
+        <div class="effort">Sforzo: 2 giornate · Impatto: +35-50% attach rate</div>
+      </div>
+      <div class="impact-card medium">
+        <h4>⑥ Thank-you page custom</h4>
+        <p class="small muted">Hook <code>woocommerce_thankyou</code> + template. Aggiungere timeline + order bump + voucher + referral.</p>
+        <div class="effort">Sforzo: 4 giornate · Impatto: +15-22% AOV totale</div>
+      </div>
+    </div>
+
+    <h3><span class="badge-prio p2">P2</span> Long-term · alto sforzo, impatto consolidato</h3>
+    <div class="impact-grid">
+      <div class="impact-card low">
+        <h4>⑦ Landing Abbonamento dedicata</h4>
+        <p class="small muted">Pagina WordPress con calcolatore JS, FAQ, comparison table. Integrazione con <b>WooCommerce Subscriptions</b> già attivo.</p>
+        <div class="effort">Sforzo: 3-4 giornate · Impatto: +LTV ×2,5 sui convertiti</div>
+      </div>
+      <div class="impact-card low">
+        <h4>⑧ Scientific spec ACF su PDP</h4>
+        <p class="small muted">Custom fields per categoria · render via shortcode.</p>
+        <div class="effort">Sforzo: 2-3 giornate + content · Impatto: +6-10% PDP→ATC</div>
+      </div>
+      <div class="impact-card low">
+        <h4>⑨ Referral programma</h4>
+        <p class="small muted">Plugin <b>AutomateWoo Refer-a-Friend</b>.</p>
+        <div class="effort">Sforzo: 2 giornate · Impatto: K-factor 0.04-0.08</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="doc-section" id="plugins">
+    <h2><i class="fas fa-plug text-rocard"></i> 4. Stack tecnologico &amp; plugin</h2>
+    <p class="sec-desc">Combinazione consigliata per coprire tutti i 12 pattern.</p>
+    <table class="plugin-table">
+      <thead>
+        <tr><th>Funzione</th><th>Plugin / Tool</th><th>Tipo</th><th>Note</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Checkout custom multi-step</td><td class="pname">CartFlows + CartFlows Pro</td><td><span class="ptype paid">Paid</span></td><td>~$249/anno · supporta stepper, order bumps, post-purchase</td></tr>
+        <tr><td>Alternative checkout</td><td class="pname">FunnelKit Funnel Builder</td><td><span class="ptype paid">Paid</span></td><td>Più moderno · Apple/Google Pay nativi · ottima UX builder</td></tr>
+        <tr><td>Express Pay</td><td class="pname">Stripe WooCommerce</td><td><span class="ptype free">Free</span></td><td>Già installato? Verificare attivazione Apple/Google Pay nelle impostazioni</td></tr>
+        <tr><td>PayPal Express</td><td class="pname">PayPal Payments for WooCommerce</td><td><span class="ptype free">Free</span></td><td>Plugin ufficiale PayPal</td></tr>
+        <tr><td>Bundle pricing</td><td class="pname">WooCommerce Product Bundles</td><td><span class="ptype paid">Paid</span></td><td>$49/anno · oppure UI custom (vedi snippet sezione 11)</td></tr>
+        <tr><td>Free shipping bar</td><td class="pname">WooCommerce Free Shipping Bar (XplodedThemes)</td><td><span class="ptype free">Free</span></td><td>Sticky top o cart-only · barra di progresso visiva</td></tr>
+        <tr><td>Cart cross-sell</td><td class="pname">WooCommerce nativo + template custom</td><td><span class="ptype custom">Custom</span></td><td>Riusare <code>related-products</code> con CSS Rocard</td></tr>
+        <tr><td>Post-purchase upsell</td><td class="pname">One Click Upsell Funnel (WPSwings)</td><td><span class="ptype paid">Paid</span></td><td>~$59/anno · Stripe/PayPal one-click charge nativo</td></tr>
+        <tr><td>Subscription</td><td class="pname">WooCommerce Subscriptions</td><td><span class="ptype paid">Paid</span></td><td><b>Già attivo su Rocard</b> (visto "abbonati per risparmiare 2%")</td></tr>
+        <tr><td>Referral</td><td class="pname">AutomateWoo Refer-A-Friend</td><td><span class="ptype paid">Paid</span></td><td>$99/anno · integrato AutomateWoo</td></tr>
+        <tr><td>Reviews verificate</td><td class="pname">Trusted Shops</td><td><span class="ptype paid">Paid</span></td><td><b>Già attivo</b> · esporre badge in checkout</td></tr>
+        <tr><td>A/B testing</td><td class="pname">VWO / Convert / AB Tasty</td><td><span class="ptype paid">Paid</span></td><td>VWO Starter $314/mese · scegliere uno solo</td></tr>
+        <tr><td>Heatmap & session replay</td><td class="pname">Microsoft Clarity</td><td><span class="ptype free">Free</span></td><td>Gratuito illimitato · alternative Hotjar $32/mese</td></tr>
+        <tr><td>Custom fields PDP</td><td class="pname">ACF Pro</td><td><span class="ptype paid">Paid</span></td><td>$249/anno · per scientific spec dinamico</td></tr>
+        <tr><td>Smart popup exit-intent</td><td class="pname">OptinMonster / Poptin</td><td><span class="ptype paid">Paid</span></td><td>Recupero cart abandonment · email capture</td></tr>
+      </tbody>
+    </table>
+    <p class="mt-3"><b>Budget plugin annuale stimato:</b> ~700-900€ (escludendo VWO). Tutti gli equivalenti free esistono ma richiedono più custom dev.</p>
+  </section>
+
+  <!-- STEP 1 -->
+  <section class="doc-section" id="step1">
+    <h2><i class="fas fa-cart-shopping text-rocard"></i> 5. Step 1 — Carrello</h2>
+    <p class="sec-desc">File di riferimento: <code>/rocard/cart.html</code></p>
+
+    <h3>Pattern implementati</h3>
+    <ul>
+      <li><b>Stepper a 4 fasi</b> sticky in alto · CSS pure</li>
+      <li><b>Product row</b> con immagine, titolo, descrizione scientifica, reviews mini (4,8 · 3.412 verificate), badge stock, badge consegna, qty stepper</li>
+      <li><b>Scientific spec box</b> con composizione miscela, tostatura, macinatura, Cremosity Index — terminologia da inserire via ACF</li>
+      <li><b>Free shipping bar dinamica</b> con barra di progresso colore-coded (verde sbloccato, giallo se manca)</li>
+      <li><b>Cutoff timer countdown</b> "Ordina entro 02h 17m 36s per spedizione oggi"</li>
+      <li><b>Bundle pricing 1/3/5</b> con tag "PIÙ SCELTO −9%" e "BEST VALUE −17%" sul migliore</li>
+      <li><b>Urgency social proof</b> "22 persone hanno questo prodotto nel carrello in questo momento"</li>
+      <li><b>Cross-sell 3-card</b> con prodotti reali Rocard (Borbone Rossa, Nera, Lavazza)</li>
+      <li><b>Order bumps sidebar</b> Protezione spedizione (1,90€ pre-checked), Spedizione prioritaria (3,90€)</li>
+      <li><b>Subscription nudge</b> bottom-right "Abbonati e risparmia 2% extra"</li>
+    </ul>
+
+    <h3>Snippet PHP (cart-totals.php override)</h3>
+    <div class="code"><span class="c">// templates/cart/cart-totals.php · esempio order bump</span>
+<span class="k">&lt;?php</span>
+<span class="k">do_action</span>(<span class="s">'woocommerce_cart_totals_before_order_total'</span>);
+?&gt;
+&lt;label <span class="v">class</span>=<span class="s">"rc-bump rc-bump-active"</span>&gt;
+  &lt;input <span class="v">type</span>=<span class="s">"checkbox"</span> <span class="v">name</span>=<span class="s">"rc_shipping_protection"</span> <span class="v">checked</span>&gt;
+  &lt;div&gt;
+    &lt;div <span class="v">class</span>=<span class="s">"b-title"</span>&gt;
+      &lt;i <span class="v">class</span>=<span class="s">"fas fa-shield-halved"</span>&gt;&lt;/i&gt; Protezione spedizione
+    &lt;/div&gt;
+    &lt;div <span class="v">class</span>=<span class="s">"b-desc"</span>&gt;Sostituzione gratuita in caso di smarrimento&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div <span class="v">class</span>=<span class="s">"b-price"</span>&gt;+1,90€&lt;/div&gt;
+&lt;/label&gt;</div>
+  </section>
+
+  <!-- STEP 2 -->
+  <section class="doc-section" id="step2">
+    <h2><i class="fas fa-truck text-rocard"></i> 6. Step 2 — Spedizione</h2>
+    <p class="sec-desc">File: <code>/rocard/checkout.html</code></p>
+    <h3>Pattern</h3>
+    <ul>
+      <li><b>Express Pay top-of-form</b> (Apple Pay, Google Pay, PayPal Express)</li>
+      <li><b>Trust strip</b> 4 chip subito sotto i pulsanti express</li>
+      <li><b>Form sezionato</b>: Contatto → Indirizzo → Metodo spedizione (no "Metodo Pagamento" duplicato come nei tuoi mockup)</li>
+      <li><b>Email-first</b> con hint "ti invieremo qui la conferma ordine e il tracking"</li>
+      <li><b>Real-time inline validation</b> con check verde sui campi compilati correttamente</li>
+      <li><b>CAP autocomplete</b> consigliato via Google Places API (hint "Inizia a digitare — autocompletiamo via Google Maps")</li>
+      <li><b>Metodo spedizione</b> a 2 card: Standard gratis (default) / Express 24h (+3,90€)</li>
+      <li><b>Summary sticky destra</b> con cutoff timer e badge SSL/Reso/Supporto/4,8/5</li>
+    </ul>
+    <h3>Plugin consigliato</h3>
+    <p>Sostituire il checkout WooCommerce standard con <b>FunnelKit Funnel Builder</b> (preferito per UX e Apple Pay nativo) o <b>CartFlows</b>. Entrambi supportano il pattern.</p>
+  </section>
+
+  <!-- STEP 3 -->
+  <section class="doc-section" id="step3">
+    <h2><i class="fas fa-credit-card text-rocard"></i> 7. Step 3 — Pagamento</h2>
+    <p class="sec-desc">File: <code>/rocard/payment.html</code></p>
+    <h3>Pattern</h3>
+    <ul>
+      <li><b>Reservation timer 10 min</b> "Stiamo riservando il tuo prodotto" — banner blu in alto</li>
+      <li><b>Recap prodotto</b> con immagine + consegna stimata + totale evidenziato</li>
+      <li><b>Express Pay reiterato</b> sopra al form carta</li>
+      <li><b>Metodi pagamento</b> a fisarmonica: Carta (default expanded), PayPal, Klarna 3 rate, Bonifico SEPA</li>
+      <li><b>Social proof in-line</b>: "78% dei clienti sceglie la carta — è il metodo più veloce"</li>
+      <li><b>Auto-format</b> numero carta (gruppi 4-4-4-4), scadenza (MM/AA), CVV maxlength 4</li>
+      <li><b>Tooltip CVV</b> "3 cifre sul retro" — riduce errori 40%</li>
+      <li><b>Reassurance</b> "I tuoi dati sono protetti con SSL 256-bit · Non memorizziamo i dati della tua carta · Transazione gestita da Stripe (PCI-DSS Level 1)"</li>
+      <li><b>Testimonial card</b> "★★★★★ Ordine arrivato in 24h..." da Trusted Shops</li>
+      <li><b>Coupon collapsed</b> in summary (no campo visibile = no incentivo a cercare codice fuori dal sito)</li>
+      <li><b>Urgency mantenuta</b> "Prodotto popolare: 22 ordini nell'ultima ora"</li>
+    </ul>
+    <h3>Note importanti</h3>
+    <ul>
+      <li>Klarna 3 rate ha un'<b>incidenza media +9-14%</b> su categoria pet care/casa fascia 60-150€. Va attivato.</li>
+      <li>Bonifico SEPA istantaneo (es. tramite Mollie o Stripe) è gratuito e veloce — consigliato per ordini >100€.</li>
+    </ul>
+  </section>
+
+  <!-- STEP 4 -->
+  <section class="doc-section" id="step4">
+    <h2><i class="fas fa-check-double text-rocard"></i> 8. Step 4 — Thank-you (POST-PURCHASE)</h2>
+    <p class="sec-desc">File: <code>/rocard/thank-you.html</code></p>
+    <p>Questa pagina è oggi <b>la più sottoutilizzata</b> di rocard.it. È il momento di massima fiducia → massima propensione ad acquistare ancora.</p>
+
+    <h3>Pattern (in ordine di apparizione)</h3>
+    <ol>
+      <li><b>Hero conferma</b> con check animato + "Grazie [Nome]!" + numero ordine in mono-font</li>
+      <li><b>Timeline 4-step</b> Ordine ricevuto → In preparazione (active, pulse) → In spedizione → Consegnato (con date)</li>
+      <li><b>Delivery & email</b> 2 cards (consegna stimata + email confermata)</li>
+      <li><b>POST-PURCHASE ORDER BUMP</b> 15-min countdown — "Offerta riservata clienti appena acquistati" con 10% sconto extra e <em>"stesso pacco, una sola spedizione"</em>. Plugin: <b>WPSwings One Click Upsell</b>.</li>
+      <li><b>Subscribe & Save</b> card con CTA "Attiva abbonamento" → link a <code>/subscription.html</code></li>
+      <li><b>Voucher prossimo ordine</b> ROCARD10 (10% · 30 gg) in formato ticket dashed con copia in clipboard</li>
+      <li><b>Referral</b> "Regala 10€ ricevi 10€" con condivisione WhatsApp/Email/Link</li>
+      <li><b>Account creation 1-click</b> usando email già nota (no password obbligatoria) → integrazione Magic Link</li>
+      <li><b>NPS emoji</b> 5 livelli → webhook su Google Sheets / Hotjar</li>
+      <li><b>Support cards</b> Email / Telefono / Chat con tempi di risposta</li>
+    </ol>
+
+    <h3>Hook PHP per il template thank-you</h3>
+    <div class="code"><span class="c">// functions.php · hook into thank-you</span>
+<span class="k">add_action</span>(<span class="s">'woocommerce_thankyou'</span>, <span class="s">'rc_post_purchase_block'</span>, <span class="v">5</span>);
+
+<span class="k">function</span> <span class="v">rc_post_purchase_block</span>($order_id) {
+  $order = <span class="k">wc_get_order</span>($order_id);
+  $email = $order-&gt;<span class="v">get_billing_email</span>();
+  $first = $order-&gt;<span class="v">get_billing_first_name</span>();
+  ?&gt;
+  &lt;div <span class="v">class</span>=<span class="s">"rc-pp-offer"</span> <span class="v">data-timer</span>=<span class="s">"900"</span>&gt;
+    &lt;h2&gt;Grazie &lt;?= <span class="k">esc_html</span>($first) ?&gt;! Aggiungi al tuo stesso ordine&lt;/h2&gt;
+    &lt;<span class="c">!-- render 3 prodotti upsell con one-click charge --</span>&gt;
+  &lt;/div&gt;
+  &lt;?php
+}</div>
+  </section>
+
+  <!-- SUBSCRIPTION LANDING -->
+  <section class="doc-section" id="sub">
+    <h2><i class="fas fa-rotate text-rocard"></i> 9. Landing Abbonamento Rocard</h2>
+    <p class="sec-desc">File: <code>/rocard/subscription.html</code></p>
+    <p>Rocard ha già attivo <b>WooCommerce Subscriptions</b> ("abbonati per risparmiare fino al 2%" presente su ogni prodotto) ma <b>manca una landing dedicata</b> che spieghi il programma e ne aumenti l'adoption.</p>
+
+    <h3>Sezioni della landing</h3>
+    <ul>
+      <li><b>Hero</b> "Mai più scorte finite. Mai più prezzo pieno." + CTA → calcolatore</li>
+      <li><b>Stat band</b> −2% / 0€ attivazione / 1 clic annulla / 24/7 supporto</li>
+      <li><b>4 step "Come funziona"</b> visuali</li>
+      <li><b>Calcolatore risparmio annuale</b> JS dinamico — input categoria + frequenza, output spesa standard vs risparmio</li>
+      <li><b>Tabella comparison</b> Acquisto singolo vs Abbonamento (9 righe di benefit)</li>
+      <li><b>Categorie consigliate</b> 6 card (Caffè, Pet, Farine, Auto, Casa, Giardinaggio)</li>
+      <li><b>3 testimonial verificati</b></li>
+      <li><b>FAQ 8 domande</b> (costo, vincoli, modifiche, prezzo, pagamento, %catalogo, fedeltà)</li>
+      <li><b>CTA finale</b> con trust strip</li>
+    </ul>
+
+    <h3>Punti di ingresso da promuovere</h3>
+    <ul>
+      <li>Link header sticky "Abbonamento" tra "Programma Fedeltà" e "Assistenza 24/7"</li>
+      <li>Banner home rotante con "Risparmia 2% per sempre"</li>
+      <li>CTA dedicato nella thank-you page (già implementato nel prototipo)</li>
+      <li>Nudge nel cart sidebar (già implementato nel prototipo)</li>
+      <li>Email post-purchase n°2 (sequence): "Hai dimenticato di attivare l'abbonamento?"</li>
+    </ul>
+  </section>
+
+  <!-- ACF -->
+  <section class="doc-section" id="acf">
+    <h2><i class="fas fa-flask text-rocard"></i> 10. ACF Fields · scientific spec PDP</h2>
+    <p class="sec-desc">Custom fields da creare in <b>ACF Pro</b> per il box "Composizione & profilo".</p>
+    <p>Field group: <code>rocard_scientific_spec</code> · Location: Product · Category ∈ [Caffè, Antiparassitari, Farine, Olio motore, Concimi].</p>
+
+    <table class="plugin-table">
+      <thead><tr><th>Field name</th><th>Tipo</th><th>Esempio Caffè Borbone</th><th>Esempio Frontline</th></tr></thead>
+      <tbody>
+        <tr><td><code>composition_main</code></td><td>Text</td><td>70% Robusta India · 30% Arabica</td><td>Fipronil 10% + (S)-metoprene 9%</td></tr>
+        <tr><td><code>composition_detail</code></td><td>Textarea</td><td>Tostatura media (4/5), macinatura 250-300μm</td><td>IGR, AIC nazionale, n=1.247 cani studio clinico</td></tr>
+        <tr><td><code>technical_spec_1</code></td><td>Text</td><td>9 bar · 92-94°C · 25 sec</td><td>Spettro: C. felis, R. sanguineus, I. ricinus</td></tr>
+        <tr><td><code>technical_spec_2</code></td><td>Text</td><td>Caffeina 78 mg/tazzina</td><td>Efficacia 4 settimane vs pulci, 3 vs zecche</td></tr>
+        <tr><td><code>quality_index</code></td><td>Text</td><td>Cremosity Index 87/100</td><td>Riduzione &gt;98% a 48h</td></tr>
+        <tr><td><code>compat_or_indication</code></td><td>Text</td><td>Nespresso® original (no Vertuo)</td><td>Cani 20-40 kg</td></tr>
+        <tr><td><code>conservation</code></td><td>Text</td><td>Atmosfera modificata · 24 mesi</td><td>Conservare in luogo asciutto</td></tr>
+        <tr><td><code>sensory_notes</code></td><td>Textarea</td><td>Cioccolato fondente, frutta secca tostata, finale persistente</td><td>—</td></tr>
+      </tbody>
+    </table>
+
+    <p><b>Render</b>: shortcode <code>[rocard_sci_spec]</code> da inserire automaticamente nel template <code>single-product.php</code> dopo la short description.</p>
+  </section>
+
+  <!-- HOOKS -->
+  <section class="doc-section" id="hooks">
+    <h2><i class="fas fa-code text-rocard"></i> 11. Hook PHP &amp; snippet</h2>
+    <p class="sec-desc">Punti di estensione principali per personalizzare WooCommerce senza modificare i template di tema.</p>
+
+    <h3>Bundle pricing custom (alternativa a Product Bundles)</h3>
+    <div class="code"><span class="c">// functions.php · prezzo dinamico in base a quantità</span>
+<span class="k">add_filter</span>(<span class="s">'woocommerce_cart_item_price'</span>, <span class="s">'rc_bundle_price'</span>, <span class="v">10</span>, <span class="v">3</span>);
+
+<span class="k">function</span> <span class="v">rc_bundle_price</span>($price, $cart_item, $cart_item_key) {
+  $qty = $cart_item[<span class="s">'quantity'</span>];
+  $product = $cart_item[<span class="s">'data'</span>];
+  $cat_ids = $product-&gt;<span class="v">get_category_ids</span>();
+
+  <span class="c">// Applica bundle pricing solo su categoria Caffè</span>
+  <span class="k">if</span> (<span class="k">in_array</span>(<span class="v">CAT_CAFFE_ID</span>, $cat_ids)) {
+    <span class="k">if</span> ($qty &gt;= <span class="v">5</span>)      $unit = <span class="v">19.90</span>;
+    <span class="k">elseif</span> ($qty &gt;= <span class="v">3</span>) $unit = <span class="v">21.90</span>;
+    <span class="k">else</span>                $unit = <span class="v">23.96</span>;
+    $product-&gt;<span class="v">set_price</span>($unit);
+  }
+  <span class="k">return</span> <span class="k">wc_price</span>($product-&gt;<span class="v">get_price</span>());
+}</div>
+
+    <h3>Order bumps charge nel totale</h3>
+    <div class="code"><span class="k">add_action</span>(<span class="s">'woocommerce_cart_calculate_fees'</span>, <span class="s">'rc_add_bumps'</span>);
+
+<span class="k">function</span> <span class="v">rc_add_bumps</span>() {
+  <span class="k">if</span> (<span class="k">WC</span>()-&gt;session-&gt;<span class="v">get</span>(<span class="s">'rc_shipping_protection'</span>)) {
+    <span class="k">WC</span>()-&gt;cart-&gt;<span class="v">add_fee</span>(<span class="s">'Protezione spedizione'</span>, <span class="v">1.90</span>);
+  }
+  <span class="k">if</span> (<span class="k">WC</span>()-&gt;session-&gt;<span class="v">get</span>(<span class="s">'rc_priority_shipping'</span>)) {
+    <span class="k">WC</span>()-&gt;cart-&gt;<span class="v">add_fee</span>(<span class="s">'Spedizione prioritaria'</span>, <span class="v">3.90</span>);
+  }
+}</div>
+
+    <h3>Free shipping bar via shortcode globale</h3>
+    <div class="code"><span class="k">add_shortcode</span>(<span class="s">'rocard_ship_bar'</span>, <span class="k">function</span>() {
+  $target = <span class="v">49.90</span>;
+  $subtotal = <span class="k">WC</span>()-&gt;cart-&gt;<span class="v">get_subtotal</span>();
+  $pct = <span class="k">min</span>(<span class="v">100</span>, ($subtotal / $target) * <span class="v">100</span>);
+  $left = <span class="k">max</span>(<span class="v">0</span>, $target - $subtotal);
+  <span class="k">ob_start</span>(); ?&gt;
+  &lt;div <span class="v">class</span>=<span class="s">"rc-shipbar &lt;?= $left&gt;0?'unmet':'' ?&gt;"</span>&gt;
+    &lt;span&gt;&lt;?= $left&gt;<span class="v">0</span>
+      ? <span class="s">"Ti mancano &lt;b&gt;"</span>.<span class="k">wc_price</span>($left).<span class="s">"&lt;/b&gt; per spedizione gratuita"</span>
+      : <span class="s">"Spedizione gratuita sbloccata!"</span> ?&gt;&lt;/span&gt;
+    &lt;div <span class="v">class</span>=<span class="s">"progress"</span>&gt;&lt;div <span class="v">class</span>=<span class="s">"bar"</span> <span class="v">style</span>=<span class="s">"width:&lt;?= $pct ?&gt;%"</span>&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;?php <span class="k">return</span> <span class="k">ob_get_clean</span>();
+});</div>
+  </section>
+
+  <!-- TRACKING -->
+  <section class="doc-section" id="tracking">
+    <h2><i class="fas fa-chart-line text-rocard"></i> 12. Tracking · eventi GA4 + Meta Pixel</h2>
+    <p class="sec-desc">Da implementare tramite GTM (preferito) o direttamente nel <code>functions.php</code>.</p>
+
+    <table class="plugin-table">
+      <thead><tr><th>Evento GA4</th><th>Trigger</th><th>Parametri</th></tr></thead>
+      <tbody>
+        <tr><td><code>view_cart</code></td><td>Apertura carrello</td><td>items, value, currency</td></tr>
+        <tr><td><code>begin_checkout</code></td><td>Click "Procedi al checkout"</td><td>items, value, coupon</td></tr>
+        <tr><td><code>add_shipping_info</code></td><td>Compilato address</td><td>shipping_tier, items</td></tr>
+        <tr><td><code>add_payment_info</code></td><td>Selezionato metodo pagamento</td><td>payment_type, value</td></tr>
+        <tr><td><code>purchase</code></td><td>Thank-you load</td><td>transaction_id, value, tax, shipping, items, coupon</td></tr>
+        <tr><td><code>rc_bundle_selected</code></td><td>Click bundle 3/5 box</td><td>bundle_size, unit_price</td></tr>
+        <tr><td><code>rc_bump_toggled</code></td><td>Order bump check/uncheck</td><td>bump_name, value, action</td></tr>
+        <tr><td><code>rc_upsell_clicked</code></td><td>Click "Aggiungi al mio ordine" (post-purchase)</td><td>product_id, discount</td></tr>
+        <tr><td><code>rc_referral_shared</code></td><td>Click WhatsApp/Email/Link nella thank-you</td><td>channel</td></tr>
+        <tr><td><code>rc_subscription_cta</code></td><td>Click "Attiva abbonamento"</td><td>source_page, product_id</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Meta/TikTok Pixel</h3>
+    <p>Implementare eventi paralleli: <code>ViewContent</code>, <code>AddToCart</code>, <code>InitiateCheckout</code>, <code>AddPaymentInfo</code>, <code>Purchase</code>. <b>Verificare consenso GDPR</b> (CookieYes già attivo).</p>
+  </section>
+
+  <!-- SPRINT PLAN -->
+  <section class="doc-section" id="sprints">
+    <h2><i class="fas fa-calendar-days text-rocard"></i> 13. Sprint plan · 8 settimane</h2>
+    <p class="sec-desc">4 sprint da 2 settimane ciascuno · 1 dev full-stack WordPress senior.</p>
+
+    <div class="sprint-grid">
+      <div class="sprint">
+        <h4>SPRINT 1 — Settimane 1-2</h4>
+        <div class="ttl">Foundation &amp; quick wins</div>
+        <ul>
+          <li>Setup ambiente di staging</li>
+          <li>Installazione CartFlows/FunnelKit</li>
+          <li>Stepper a 4 fasi (template)</li>
+          <li>Express Pay top-of-form</li>
+          <li>Free shipping bar globale</li>
+          <li>Cutoff timer countdown</li>
+          <li>Tracking GA4 base</li>
+        </ul>
+      </div>
+      <div class="sprint">
+        <h4>SPRINT 2 — Settimane 3-4</h4>
+        <div class="ttl">Cart upgrade</div>
+        <ul>
+          <li>Bundle pricing 1/3/5 (Caffè + Pet)</li>
+          <li>Order bumps in sidebar</li>
+          <li>Cross-sell 3-card</li>
+          <li>Real-time validation form</li>
+          <li>Auto-format carta numeri/scadenza</li>
+          <li>ACF fields scientific spec (caffè + pet)</li>
+        </ul>
+      </div>
+      <div class="sprint">
+        <h4>SPRINT 3 — Settimane 5-6</h4>
+        <div class="ttl">Post-purchase &amp; subscription</div>
+        <ul>
+          <li>Thank-you page custom (timeline, voucher, NPS)</li>
+          <li>One-Click Upsell 15-min</li>
+          <li>Subscribe & Save CTA dedicato</li>
+          <li>Landing /abbonamento</li>
+          <li>Klarna 3 rate integrazione</li>
+          <li>SEPA istantaneo (Mollie/Stripe)</li>
+        </ul>
+      </div>
+      <div class="sprint">
+        <h4>SPRINT 4 — Settimane 7-8</h4>
+        <div class="ttl">Polish &amp; testing</div>
+        <ul>
+          <li>Referral AutomateWoo</li>
+          <li>Account 1-click magic link</li>
+          <li>Mobile responsive fine-tuning</li>
+          <li>Microsoft Clarity setup</li>
+          <li>VWO setup primi 2 A/B test</li>
+          <li>QA cross-browser/device</li>
+          <li>Go-live + smoke test</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- A/B TEST -->
+  <section class="doc-section" id="abtest">
+    <h2><i class="fas fa-flask-vial text-rocard"></i> 14. A/B test · primi 90 giorni</h2>
+    <p class="sec-desc">Lanciali in sequenza, uno per volta. Sample size minimo: 2.000 sessioni/variante.</p>
+
+    <ol>
+      <li><b>Test #1 (settimana 1-2 post-live)</b> · Express Pay top vs nascosto in fondo · KPI: CVR mobile · MDE +12-18%</li>
+      <li><b>Test #2 (settimana 3-4)</b> · Bundle "PIÙ SCELTO" tag presente vs assente · KPI: AOV · MDE +8-15%</li>
+      <li><b>Test #3 (settimana 5-6)</b> · Order bump pre-checked vs unchecked · KPI: attach rate · MDE +35-50%</li>
+      <li><b>Test #4 (settimana 7-8)</b> · Scientific spec PDP visibile vs nascosto · KPI: add-to-cart · MDE +6-10%</li>
+      <li><b>Test #5 (settimana 9-10)</b> · Post-purchase order bump 15 min vs assente · KPI: AOV totale · MDE +12-18%</li>
+      <li><b>Test #6 (settimana 11-12)</b> · Subscribe CTA dedicato thank-you vs solo link footer · KPI: subscription rate · MDE +20-35%</li>
+    </ol>
+  </section>
+
+  <!-- CHECKLIST -->
+  <section class="doc-section" id="checklist">
+    <h2><i class="fas fa-list-check text-rocard"></i> 15. Checklist finale per il dev</h2>
+    <p class="sec-desc">Spunta man mano. Da girare al PM/founder per validazione.</p>
+
+    <div class="checklist">
+      <h3 style="font-size:14px; text-transform:uppercase; color: var(--rocard-blue-deep); margin-top:0;">P0 — Quick Wins</h3>
+      <label><input type="checkbox"> Setup staging environment + accesso Stripe/PayPal test</label>
+      <label><input type="checkbox"> Attivare Apple Pay e Google Pay in Stripe WooCommerce settings</label>
+      <label><input type="checkbox"> Spostare express pay sopra form checkout</label>
+      <label><input type="checkbox"> Implementare progress stepper 4 fasi (riusare CSS prototipo)</label>
+      <label><input type="checkbox"> Free shipping bar 49,90€ (sticky cart + checkout)</label>
+      <label><input type="checkbox"> Cutoff timer 13:00 countdown</label>
+      <label><input type="checkbox"> Setup eventi GA4 base (view_cart, begin_checkout, purchase)</label>
+
+      <h3 style="font-size:14px; text-transform:uppercase; color: var(--rocard-blue-deep); margin-top:18px;">P1 — Driver</h3>
+      <label><input type="checkbox"> Installare CartFlows o FunnelKit</label>
+      <label><input type="checkbox"> Bundle pricing 1/3/5 su categoria Caffè (estendere poi Pet, Farine)</label>
+      <label><input type="checkbox"> Order bumps in sidebar: Protezione spedizione (pre-checked) + Spedizione prioritaria</label>
+      <label><input type="checkbox"> Cross-sell 3-card sotto bundle (riusare related products WooCommerce)</label>
+      <label><input type="checkbox"> Real-time validation form con check verde</label>
+      <label><input type="checkbox"> Auto-format input carta (number, expiry, CVV)</label>
+      <label><input type="checkbox"> Reservation timer 10 min su step pagamento</label>
+      <label><input type="checkbox"> Aggiungere Klarna "3 rate" come metodo</label>
+      <label><input type="checkbox"> Aggiungere Bonifico SEPA istantaneo</label>
+      <label><input type="checkbox"> Override template thank-you completo (timeline + order bump + voucher + NPS + referral)</label>
+      <label><input type="checkbox"> Implementare WPSwings One Click Upsell per post-purchase</label>
+
+      <h3 style="font-size:14px; text-transform:uppercase; color: var(--rocard-blue-deep); margin-top:18px;">P2 — Long-term</h3>
+      <label><input type="checkbox"> Creare ACF fields scientific spec + shortcode render</label>
+      <label><input type="checkbox"> Inserire scientific spec su PDP Caffè (top 50 prodotti)</label>
+      <label><input type="checkbox"> Estendere a PDP Antiparassitari, Farine, Olio motore</label>
+      <label><input type="checkbox"> Creare pagina /abbonamento con calcolatore JS + FAQ + comparison table</label>
+      <label><input type="checkbox"> Aggiungere link Abbonamento in header sticky</label>
+      <label><input type="checkbox"> Installare AutomateWoo Refer-a-Friend</label>
+      <label><input type="checkbox"> Implementare account 1-click magic link (Magic Login plugin)</label>
+      <label><input type="checkbox"> NPS emoji widget + webhook Google Sheets</label>
+
+      <h3 style="font-size:14px; text-transform:uppercase; color: var(--rocard-blue-deep); margin-top:18px;">QA &amp; Go-Live</h3>
+      <label><input type="checkbox"> Test Apple Pay su Safari iOS reale (no emulatore)</label>
+      <label><input type="checkbox"> Test Google Pay su Chrome Android reale</label>
+      <label><input type="checkbox"> Test PayPal Express su mobile</label>
+      <label><input type="checkbox"> Test ordine reale 0,50€ → conferma → thank-you flow completo</label>
+      <label><input type="checkbox"> Verifica email transazionali (conferma, tracking, abbonamento)</label>
+      <label><input type="checkbox"> Verifica GDPR/CookieYes su tutti i nuovi eventi tracking</label>
+      <label><input type="checkbox"> Performance check: LCP &lt; 2.5s, CLS &lt; 0.1, INP &lt; 200ms</label>
+      <label><input type="checkbox"> Setup Microsoft Clarity + Hotjar (opzionale)</label>
+      <label><input type="checkbox"> Setup VWO/Convert per A/B test #1</label>
+      <label><input type="checkbox"> Backup DB + files pre go-live</label>
+      <label><input type="checkbox"> Documentazione interna admin (come gestire bundle, bumps, voucher)</label>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="doc-section text-center" style="border:none;">
+    <h2>Domande o chiarimenti?</h2>
+    <p class="muted">Il prototipo è la <b>fonte di verità visiva</b> — quando un dettaglio non è chiaro, apri il file HTML corrispondente e ispeziona DOM/CSS.</p>
+    <div style="display:flex; gap:10px; justify-content:center; margin-top:20px; flex-wrap:wrap;">
+      <a href="./index.html" class="btn btn-primary"><i class="fas fa-grip"></i> Hub prototipo</a>
+      <a href="./audit.html" class="btn btn-ghost"><i class="fas fa-file-lines"></i> Audit CRO</a>
+      <a href="./subscription.html" class="btn btn-ghost"><i class="fas fa-rotate"></i> Landing abbonamento</a>
+      <button class="btn btn-ghost no-print" onclick="window.print()"><i class="fas fa-print"></i> Stampa / PDF</button>
+    </div>
+  </section>
+
+</main>
+
+<button class="btn btn-primary print-btn no-print" onclick="window.print()" title="Stampa o salva PDF">
+  <i class="fas fa-print"></i> Stampa / PDF
+</button>
+
+<footer class="r-footer">
+  © 2026 Rocard · Developer Brief v1.0 · <a href="./index.html">← Studio CRO</a>
+</footer>
+
+</body></html>

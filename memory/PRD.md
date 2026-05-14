@@ -2,58 +2,54 @@
 
 ## Problem statement (originale, IT)
 > Analizza il mio sito: https://www.rocard.it/
-> Simula un acquisto e vedi tra l'attuale sistema di carrello, Checkout e pagina di ringraziamento (se puoi) e migliore quella attuale o gli screen che ti invio o dammi degli screen tu per rendere il mio sito una macchina di conversioni aumentando queste tre cose.
-
-## Goal
-Consegnare allo sviluppatore WooCommerce di Rocard uno **studio CRO** + **prototipo statico navigabile** (HTML/CSS/JS) che ridisegna i 4 step Carrello → Spedizione → Pagamento → Conferma, con pattern verificati per aumentare CVR (+18-35%), AOV (+12-22%) e LTV (+8-15%).
+> Simula un acquisto e migliora il sistema di Carrello, Checkout e Thank-you page per renderlo una macchina di conversioni.
 
 ## User choices (verbatim)
 - Stack: **HTML/CSS/JS statico** (portabile a WooCommerce)
-- Scope: **tutti e 4 gli step** con tutti i pattern CRO
+- Scope: **tutti e 4 gli step** + smart enhancement
 - Lingua: **italiano + terminologia scientifica**
 - Style: seguire grafica rocard.it ma migliorando dove serve
-- Tech reale: WooCommerce (utente non ha accesso diretto)
+- Tech reale: WooCommerce + WoodMart theme (utente non ha accesso diretto al codice)
+- Prodotti: **REALI** presenti sul sito rocard.it
+- Deliverable per developer
 
-## Deliverables consegnati
-File statici in `/app/frontend/public/rocard/`, accessibili al preview URL:
-- `index.html` — Hub di navigazione con KPI attesi
-- `cart.html` — Carrello con bundle 1/2/3, free-shipping bar, urgency, scientific spec, cross-sell
-- `checkout.html` — Spedizione con express pay top, form pulito, real-time validation
-- `payment.html` — Pagamento con reservation timer 10 min, social proof 78%, Klarna/SEPA aggiunti
-- `thank-you.html` — Conferma con timeline 4-step, order bump 15 min, voucher, referral, subscribe, NPS
-- `audit.html` — Documento CRO completo (diagnosi, confronto mockup, 12 pattern, copy scientifico, roadmap WooCommerce, A/B test, checklist developer)
-- `styles.css` (~700 righe) + `script.js` (timer, bundle, validation, copy voucher)
+## Deliverables (8 file in /app/frontend/public/rocard/)
+- `index.html` — Hub di navigazione con 3 CTA (Audit, Landing Abbonamento, Dev Brief)
+- `cart.html` — Carrello con Caffè Borbone Respresso Miscela Blu (REAL product + REAL image)
+- `checkout.html` — Spedizione
+- `payment.html` — Pagamento
+- `thank-you.html` — Conferma con upsell Borbone Rossa/Nera/Grani (TUTTI REAL Rocard)
+- `subscription.html` — Landing dedicata Abbonamento Rocard (smart enhancement) con calcolatore risparmio annuale
+- `audit.html` — Analisi CRO completa
+- `developer-brief.html` — Documento operativo PRINTABILE per dev (sprint plan 8 settimane, ACF schema, hook PHP, plugin matrix, checklist, A/B test plan)
+- `styles.css` + `script.js`
 
-## Migliorie applicate vs mockup originali utente
-- Mockup 1 Spedizione: rimosso "Metodo di Pagamento" duplicato, CTA "Conferma e Ricevi a Casa" non duplicata, typo "Protecione"→"Protezione"
-- Mockup 2 Pagamento: corretto "MM/AAA"→"MM/AA", aggiunti Klarna 3 rate e SEPA, tooltip CVV
-- Mockup 3 Conferma: corretti tutti i typo (Antipassitario, Tegila, csisinioe, sempicliste), aggiunta timeline evasione, account 1-click, NPS emoji, subscribe & save
-- Mockup 4 Carrello: tag "PIÙ SCELTO · -13%" chiaro sul bundle migliore, free-shipping bar dinamica, scientific spec box
+## Iterazione finale
+- Sostituiti TUTTI prodotti generici con prodotti REALI di rocard.it:
+  - **Caffè Borbone Respresso Miscela Blu** (prodotto principale demo) — img da CDN rocard.it
+  - Borbone Rossa, Nera, Grani (upsell)
+  - Lavazza A Modo Mio Crema e Gusto (cross-sell)
+- Aggiornati prezzi (21,90€ bundle x 3 = 65,70€ totale, vs 23,96€ listino)
+- Aggiornata scientific spec con copy caffè (Cremosity Index 87/100, 9 bar, 92-94°C, miscela 70% Robusta + 30% Arabica)
+- Creata landing /subscription.html con: calcolatore JS risparmio annuale, comparison table 9 righe, 6 categorie, 3 testimonial, 8 FAQ
+- Creato developer-brief.html stampabile con:
+  - Executive summary KPI
+  - Matrice impatto/sforzo P0-P1-P2
+  - Plugin stack table (15 plugin con prezzi)
+  - Snippet PHP per bundle pricing, order bumps, shipping bar
+  - ACF schema scientific spec
+  - 10 eventi GA4 da tracciare
+  - Sprint plan 8 settimane (4 sprint da 2 settimane)
+  - 6 A/B test ordering per primi 90 giorni
+  - Checklist finale 30+ voci
 
-## Pattern CRO implementati (12)
-Stepper · Express Pay top · Bundle pricing · Free shipping bar · Order bumps · Scarcity multi-livello · Scientific authority · Real-time validation · Trust strip ricorrente · Post-purchase order bump · Subscribe & save · Referral viral loop
-
-## URL Preview (live)
+## URL Preview
 - Hub: `/rocard/index.html`
-- Carrello: `/rocard/cart.html`
-- Spedizione: `/rocard/checkout.html`
-- Pagamento: `/rocard/payment.html`
-- Conferma: `/rocard/thank-you.html`
-- Audit completo: `/rocard/audit.html`
-
-## Stato
-- ✅ Prototipo statico completo e navigabile
-- ✅ Verificato visivamente su 5 viewport via screenshot
-- ✅ Documento CRO con roadmap implementativa per developer WooCommerce
-- ✅ A/B test plan per primi 90 giorni
-- ✅ Checklist developer-ready
-
-## Backlog / Future
-- Versione mobile-first ottimizzata 360px (responsive di base OK ma da rifinire)
-- Versione tradotta EN per espansione internazionale
-- Variante PDP (pagina prodotto) con scientific spec espansa
-- Integrazione mockup dei plugin WooCommerce specifici (CartFlows, FunnelKit screens)
-- Email post-purchase flow (sequenza 7 email automatizzate)
+- Audit: `/rocard/audit.html`
+- Landing Abbonamento: `/rocard/subscription.html`
+- Developer Brief: `/rocard/developer-brief.html`
+- Step: `/rocard/cart.html` → `/checkout.html` → `/payment.html` → `/thank-you.html`
 
 ## Dates
-- 2026-05-14: Studio CRO + prototipo statico completo (initial delivery)
+- 2026-05-14 v1.0: Studio CRO + prototipo statico completo
+- 2026-05-14 v1.1: Prodotti REALI Rocard + Landing Abbonamento + Developer Brief printable

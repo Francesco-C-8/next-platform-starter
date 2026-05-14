@@ -25,7 +25,6 @@
   </div>
 </header>
 
-<!-- Stepper -->
 <div class="stepper-wrap">
   <div class="stepper-title">Completa il tuo ordine in <b>meno di 60 secondi</b></div>
   <div class="stepper">
@@ -42,7 +41,6 @@
 <main class="container" style="padding: 24px 20px 60px;">
   <div class="grid grid-checkout">
 
-    <!-- LEFT: cart content -->
     <div>
 
       <!-- ARTICLE -->
@@ -55,16 +53,18 @@
 
         <div class="product-row">
           <div class="product-img">
-            <img src="https://www.rocard.it/wp-content/uploads/2025/06/18173-300x300.jpg" alt="Frontline Combo Cane Taglia 20-40 kg" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-prescription-bottle-medical\' style=\'font-size:46px; color:var(--rocard-blue);\'></i>'" />
+            <img src="https://www.rocard.it/wp-content/uploads/2023/03/4818-jpg-300x300.webp"
+                 alt="Caffè Borbone Respresso Miscela Blu"
+                 onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-mug-hot\' style=\'font-size:46px; color:var(--rocard-blue);\'></i>'" />
           </div>
           <div class="product-info">
-            <h3>RICOFEND® Antiparassitario Spot-On — Cane Taglia 20-40 kg</h3>
-            <div class="desc">Pipette monodose contro pulci, zecche e pidocchi masticatori — 3 pipette</div>
+            <h3>Caffè Borbone Respresso Miscela Blu — 50 capsule</h3>
+            <div class="desc">Capsule compatibili Nespresso® original · Espresso cremoso e bilanciato</div>
             <div class="reviews-mini">
-              <span class="stars">★★★★★</span> <b>4,8</b> · <span class="muted">2.137 recensioni verificate</span>
+              <span class="stars">★★★★★</span> <b>4,8</b> · <span class="muted">3.412 recensioni verificate</span>
             </div>
             <div class="meta" style="margin-top:8px;">
-              <span class="badge-stock"><i class="fas fa-circle-check"></i> Disponibile — solo 7 lotti</span>
+              <span class="badge-stock"><i class="fas fa-circle-check"></i> Disponibile — pronto da spedire</span>
               <span class="badge-delivery"><i class="fas fa-truck-fast"></i> Consegna: <b>Mer 4 — Gio 5 Mar</b></span>
             </div>
           </div>
@@ -75,8 +75,8 @@
               <button onclick="qtyChange(1)" aria-label="Aumenta">+</button>
             </div>
             <div style="text-align:right;">
-              <div class="strike small">22,90€ / pipetta</div>
-              <div class="fw-800" style="font-size:18px; color:var(--rocard-blue-deep);" id="sumUnit">19,90€</div>
+              <div class="strike small">23,96€ / box</div>
+              <div class="fw-800" style="font-size:18px; color:var(--rocard-blue-deep);" id="sumUnit">21,90€</div>
               <div class="tiny muted">cad.</div>
             </div>
           </div>
@@ -84,17 +84,21 @@
 
         <!-- Scientific spec -->
         <div class="sci-spec">
-          <h4><i class="fas fa-microscope"></i> Composizione & meccanismo d'azione</h4>
+          <h4><i class="fas fa-mug-hot"></i> Composizione & profilo sensoriale</h4>
           <div class="sci-row">
-            <span><b>Fipronil</b> 10% p/v</span>
-            <span><b>(S)-Metoprene</b> 9% p/v <small class="muted">— IGR</small></span>
-            <span><b>Spettro:</b> <em>C. felis, R. sanguineus, I. ricinus</em></span>
+            <span><b>Miscela:</b> 70% Robusta India · 30% Arabica Centro-Sud America</span>
+            <span><b>Tostatura:</b> Media (livello 4/5)</span>
+            <span><b>Macinatura:</b> Fine espresso 250-300 μm</span>
+          </div>
+          <div class="sci-row" style="margin-top:6px;">
+            <span><b>Estrazione:</b> 9 bar · 92-94°C · 25 sec</span>
+            <span><b>Caffeina:</b> 78 mg/tazzina</span>
+            <span><b>Cremosity Index:</b> 87/100</span>
           </div>
           <div class="sci-note">
             <i class="fas fa-flask-vial" style="color:var(--rocard-blue-deep);"></i>
-            <b>Efficacia clinicamente provata:</b> 4 settimane contro pulci adulte, 3 settimane contro zecche.
-            Studio veterinario multicentrico <em>n = 1.247 cani</em> — riduzione infestazione &gt;98% a 48h.
-            Dispositivo medico-veterinario AIC nazionale.
+            <b>Note aromatiche:</b> cioccolato fondente, frutta secca tostata, finale persistente.
+            Capsule in atmosfera modificata · conservazione 24 mesi · compatibilità Nespresso® original system (no Vertuo).
           </div>
         </div>
 
@@ -115,87 +119,87 @@
       <section class="card">
         <div class="card-title">
           <span class="ico" style="background:var(--success-soft); color:var(--success);"><i class="fas fa-fire"></i></span>
-          <h2>Risparmia acquistando più pezzi</h2>
+          <h2>Risparmia acquistando più box</h2>
         </div>
         <p class="muted small" style="margin-top:-8px; margin-bottom:14px;">
-          L'<b>82% dei veterinari</b> consiglia copertura trimestrale continuativa — 3 pipette = 12 settimane di protezione.
+          Il <b>72% dei clienti Rocard</b> ordina almeno 3 box per copertura mensile · scorta sempre disponibile.
         </p>
 
         <div class="bundle-grid">
-          <div class="bundle-card" data-qty="1" data-unit="22.90" onclick="selectBundle(this,1,22.90)">
-            <div class="qty">1 pipetta</div>
-            <div class="price">22,90€ <small>cad.</small></div>
-            <div class="save">Copertura 4 settimane</div>
+          <div class="bundle-card" data-qty="1" data-unit="23.96" onclick="selectBundle(this,1,23.96)">
+            <div class="qty">1 box · 50 capsule</div>
+            <div class="price">23,96€ <small>cad.</small></div>
+            <div class="save">~ 2 settimane di caffè</div>
           </div>
-          <div class="bundle-card" data-qty="2" data-unit="21.90" onclick="selectBundle(this,2,21.90)">
-            <div class="bundle-tag">Risparmi 2€</div>
-            <div class="qty">2 pipette</div>
+          <div class="bundle-card active" data-qty="3" data-unit="21.90" onclick="selectBundle(this,3,21.90)">
+            <div class="bundle-tag best">PIÙ SCELTO · −9%</div>
+            <div class="qty">3 box · 150 capsule</div>
             <div class="price">21,90€ <small>cad.</small></div>
-            <div class="save">Copertura 8 settimane</div>
+            <div class="save">~ 6 settimane · risparmi <b>6,18€</b></div>
           </div>
-          <div class="bundle-card active" data-qty="3" data-unit="19.90" onclick="selectBundle(this,3,19.90)">
-            <div class="bundle-tag best">PIÙ SCELTO · -13%</div>
-            <div class="qty">3 pipette</div>
+          <div class="bundle-card" data-qty="5" data-unit="19.90" onclick="selectBundle(this,5,19.90)">
+            <div class="bundle-tag">BEST VALUE · −17%</div>
+            <div class="qty">5 box · 250 capsule</div>
             <div class="price">19,90€ <small>cad.</small></div>
-            <div class="save">Copertura 12 settimane · risparmi <b>9€</b></div>
+            <div class="save">~ 3 mesi · risparmi <b>20,30€</b></div>
           </div>
         </div>
 
         <div class="urgency" style="margin-top:14px;">
           <i class="fas fa-bell"></i>
-          <span><b>14 persone</b> hanno questo prodotto nel carrello ora · scorta limitata</span>
+          <span><b>22 persone</b> hanno questo prodotto nel carrello in questo momento</span>
         </div>
       </section>
 
-      <!-- CROSS-SELL -->
+      <!-- CROSS-SELL: REAL Rocard products -->
       <section class="card">
         <div class="card-title">
           <span class="ico" style="background:var(--info-soft); color:var(--info);"><i class="fas fa-plus"></i></span>
-          <h2>Completa la protezione del tuo cane</h2>
+          <h2>Aggiungi al carrello e risparmia</h2>
         </div>
         <p class="muted small" style="margin-top:-8px; margin-bottom:14px;">
-          Prodotti complementari raccomandati dai nostri veterinari — già scontati nel bundle.
+          Altre miscele Caffè Borbone Respresso e capsule compatibili — già in promo sul tuo prossimo ordine.
         </p>
 
         <div class="xsell-grid">
           <div class="xsell-card">
             <div class="ximg">
               <span class="tag">−9%</span>
-              <i class="fas fa-spray-can-sparkles" style="font-size:54px; color:var(--rocard-blue);"></i>
+              <img src="https://www.rocard.it/wp-content/uploads/2023/03/4820-jpg-300x300.webp" alt="Caffè Borbone Miscela Rossa" onerror="this.style.display='none'; this.parentElement.innerHTML+='<i class=\'fas fa-mug-hot\' style=\'font-size:54px; color:#C8102E;\'></i>'" />
             </div>
-            <h4>ANIBIO Antizecche Naturale — spray 100ml</h4>
-            <div class="muted tiny">Olio di Neem 4% + Citronellolo · repellente fitoterapico</div>
+            <h4>Caffè Borbone Respresso Miscela Rossa — 50 caps</h4>
+            <div class="muted tiny">Espresso intenso e corposo · 60% Robusta + 40% Arabica</div>
             <div class="price-row">
-              <span class="strike tiny">15,90€</span>
-              <span class="p">12,50€</span>
+              <span class="strike tiny">23,25€</span>
+              <span class="p">21,27€</span>
             </div>
-            <button class="xsell-add" onclick="addXsell(this,'Antizecche Spray',12.50)"><i class="fas fa-plus"></i> Aggiungi all'ordine</button>
+            <button class="xsell-add" onclick="addXsell(this)"><i class="fas fa-plus"></i> Aggiungi all'ordine</button>
           </div>
           <div class="xsell-card">
             <div class="ximg">
-              <span class="tag">BIO</span>
-              <i class="fas fa-pump-soap" style="font-size:54px; color:var(--rocard-blue);"></i>
+              <span class="tag">−9%</span>
+              <img src="https://www.rocard.it/wp-content/uploads/2023/03/4813-jpg-300x300.webp" alt="Caffè Borbone Miscela Nera" onerror="this.style.display='none'; this.parentElement.innerHTML+='<i class=\'fas fa-mug-hot\' style=\'font-size:54px; color:#1a1a1a;\'></i>'" />
             </div>
-            <h4>ANIBIO Shampoo Dermatologico — 250ml</h4>
-            <div class="muted tiny">pH 7.0, lenitivo, con Pantenolo 2% e Aloe Vera</div>
+            <h4>Caffè Borbone Respresso Miscela Nera — 50 caps</h4>
+            <div class="muted tiny">Espresso intenso · 80% Robusta + 20% Arabica · note tostate</div>
             <div class="price-row">
-              <span class="strike tiny">12,90€</span>
-              <span class="p">9,80€</span>
+              <span class="strike tiny">22,40€</span>
+              <span class="p">20,50€</span>
             </div>
-            <button class="xsell-add" onclick="addXsell(this,'Shampoo',9.80)"><i class="fas fa-plus"></i> Aggiungi all'ordine</button>
+            <button class="xsell-add" onclick="addXsell(this)"><i class="fas fa-plus"></i> Aggiungi all'ordine</button>
           </div>
           <div class="xsell-card">
             <div class="ximg">
               <span class="tag">BEST</span>
-              <i class="fas fa-comb" style="font-size:54px; color:var(--rocard-blue);"></i>
+              <img src="https://www.rocard.it/wp-content/uploads/2026/01/21207-300x300.jpg" alt="Lavazza A Modo Mio" onerror="this.style.display='none'; this.parentElement.innerHTML+='<i class=\'fas fa-mug-hot\' style=\'font-size:54px; color:#003594;\'></i>'" />
             </div>
-            <h4>Pettine antipulci microdenti — acciaio inox</h4>
-            <div class="muted tiny">Densità 24 denti/cm — rimozione meccanica uova</div>
+            <h4>Lavazza A Modo Mio Crema e Gusto Classico</h4>
+            <div class="muted tiny">Capsule originali · 70% Robusta + 30% Arabica · sistema A Modo Mio</div>
             <div class="price-row">
-              <span class="strike tiny">8,90€</span>
-              <span class="p">5,90€</span>
+              <span class="strike tiny">33,75€</span>
+              <span class="p">31,39€</span>
             </div>
-            <button class="xsell-add" onclick="addXsell(this,'Pettine',5.90)"><i class="fas fa-plus"></i> Aggiungi all'ordine</button>
+            <button class="xsell-add" onclick="addXsell(this)"><i class="fas fa-plus"></i> Aggiungi all'ordine</button>
           </div>
         </div>
       </section>
@@ -216,15 +220,14 @@
         <h3 style="font-size:16px; margin-bottom:14px;">Riepilogo ordine</h3>
 
         <div class="sum-row">
-          <span>Antiparassitario × <b id="sumQty">3</b></span>
-          <span class="fw-700" id="sumSubtotal">59,70€</span>
+          <span>Caffè Borbone Blu × <b id="sumQty">3</b></span>
+          <span class="fw-700" id="sumSubtotal">65,70€</span>
         </div>
         <div class="sum-row">
           <span>Spedizione</span>
           <span class="fw-700 text-success" id="sumShipping">Gratuita</span>
         </div>
 
-        <!-- Order bumps -->
         <label class="bump active" for="bumpProtection">
           <input type="checkbox" id="bumpProtection" checked onchange="toggleBump()" />
           <div style="flex:1;">
@@ -245,11 +248,11 @@
 
         <div class="sum-row total">
           <span>Totale</span>
-          <span class="v" id="sumTotal">61,60€</span>
+          <span class="v" id="sumTotal">67,60€</span>
         </div>
 
         <a href="./checkout.html" id="ctaCheckout" class="btn btn-primary btn-lg btn-block" style="margin-top:14px;">
-          Procedi al checkout • 61,60€ <i class="fas fa-arrow-right"></i>
+          Procedi al checkout • 67,60€ <i class="fas fa-arrow-right"></i>
         </a>
 
         <div class="text-center muted tiny mt-3">
@@ -271,6 +274,20 @@
           </div>
         </div>
       </div>
+
+      <!-- Subscription nudge -->
+      <a href="./subscription.html" class="card" style="display:block; text-decoration:none; color:inherit; margin-top:16px; background:linear-gradient(135deg,#F4F9FD 0%,#E7F1FA 100%); border-color:#C2DEF3;">
+        <div style="display:flex; gap:10px; align-items:center;">
+          <div style="width:42px; height:42px; border-radius:10px; background:var(--rocard-blue); display:grid; place-items:center; flex-shrink:0;">
+            <i class="fas fa-rotate" style="color:#fff;"></i>
+          </div>
+          <div style="flex:1;">
+            <div class="fw-700 small">Abbonati e <span class="text-rocard">risparmia 2% extra</span></div>
+            <div class="muted tiny">Consegna automatica · annulli quando vuoi</div>
+          </div>
+          <i class="fas fa-arrow-right text-rocard"></i>
+        </div>
+      </a>
     </aside>
 
   </div>
@@ -283,6 +300,6 @@
 <script src="./script.js"></script>
 <script>
   startCutoff('cutoffTimer');
-  updateTotals(3, 19.90);
+  updateTotals(3, 21.90);
 </script>
 </body></html>
