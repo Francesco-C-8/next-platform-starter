@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Carrello · Rocard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+<link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+
+<header class="r-header">
+  <div class="r-header-inner">
+    <a href="./index.html" class="r-logo">
+      <span class="logo-mark">R</span><span>ROCARD</span>
+    </a>
+    <div class="r-header-trust">
+      <span class="item"><i class="fas fa-headset"></i> Supporto 24/7</span>
+      <span class="item"><i class="fas fa-shield-halved"></i> Reso 14 giorni</span>
+      <span class="item"><i class="fas fa-lock"></i> SSL 256-bit</span>
+    </div>
+  </div>
+</header>
+
+<!-- Stepper -->
+<div class="stepper-wrap">
+  <div class="stepper-title">Completa il tuo ordine in <b>meno di 60 secondi</b></div>
+  <div class="stepper">
+    <div class="step active"><div class="dot">1</div><div class="label">Carrello</div></div>
+    <div class="step-line"></div>
+    <div class="step"><div class="dot">2</div><div class="label">Spedizione</div></div>
+    <div class="step-line"></div>
+    <div class="step"><div class="dot">3</div><div class="label">Pagamento</div></div>
+    <div class="step-line"></div>
+    <div class="step"><div class="dot">4</div><div class="label">Conferma</div></div>
+  </div>
+</div>
+
+<main class="container" style="padding: 24px 20px 60px;">
+  <div class="grid grid-checkout">
+
+    <!-- LEFT: cart content -->
+    <div>
+
+      <!-- ARTICLE -->
+      <section class="card">
+        <div class="card-title">
+          <span class="ico" style="background:var(--rocard-yellow-soft); color:var(--rocard-yellow-deep);"><i class="fas fa-cart-shopping"></i></span>
+          <h2>I tuoi articoli</h2>
+          <span class="muted small" style="margin-left:auto;" id="sumItemCount">3 articoli</span>
+        </div>
+
+        <div class="product-row">
+          <div class="product-img">
+            <img src="https://www.rocard.it/wp-content/uploads/2025/06/18173-300x300.jpg" alt="Frontline Combo Cane Taglia 20-40 kg" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-prescription-bottle-medical\' style=\'font-size:46px; color:var(--rocard-blue);\'></i>'" />
+          </div>
+          <div class="product-info">
+            <h3>RICOFEND® Antiparassitario Spot-On — Cane Taglia 20-40 kg</h3>
+            <div class="desc">Pipette monodose contro pulci, zecche e pidocchi masticatori — 3 pipette</div>
+            <div class="reviews-mini">
+              <span class="stars">★★★★★</span> <b>4,8</b> · <span class="muted">2.137 recensioni verificate</span>
+            </div>
+            <div class="meta" style="margin-top:8px;">
+              <span class="badge-stock"><i class="fas fa-circle-check"></i> Disponibile — solo 7 lotti</span>
+              <span class="badge-delivery"><i class="fas fa-truck-fast"></i> Consegna: <b>Mer 4 — Gio 5 Mar</b></span>
+            </div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; justify-content:space-between; gap:10px;">
+            <div class="qty-stepper">
+              <button onclick="qtyChange(-1)" aria-label="Diminuisci">−</button>
+              <span id="qtyVal">3</span>
+              <button onclick="qtyChange(1)" aria-label="Aumenta">+</button>
+            </div>
+            <div style="text-align:right;">
+              <div class="strike small">22,90€ / pipetta</div>
+              <div class="fw-800" style="font-size:18px; color:var(--rocard-blue-deep);" id="sumUnit">19,90€</div>
+              <div class="tiny muted">cad.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scientific spec -->
+        <div class="sci-spec">
+          <h4><i class="fas fa-microscope"></i> Composizione & meccanismo d'azione</h4>
+          <div class="sci-row">
+            <span><b>Fipronil</b> 10% p/v</span>
+            <span><b>(S)-Metoprene</b> 9% p/v <small class="muted">— IGR</small></span>
+            <span><b>Spettro:</b> <em>C. felis, R. sanguineus, I. ricinus</em></span>
+          </div>
+          <div class="sci-note">
+            <i class="fas fa-flask-vial" style="color:var(--rocard-blue-deep);"></i>
+            <b>Efficacia clinicamente provata:</b> 4 settimane contro pulci adulte, 3 settimane contro zecche.
+            Studio veterinario multicentrico <em>n = 1.247 cani</em> — riduzione infestazione &gt;98% a 48h.
+            Dispositivo medico-veterinario AIC nazionale.
+          </div>
+        </div>
+
+        <!-- Free shipping bar -->
+        <div class="shipbar" id="shipBar">
+          <span class="label"><i class="fas fa-check-circle"></i> <b>Spedizione gratuita sbloccata!</b></span>
+          <div class="progress"><div class="bar" style="width:100%;"></div></div>
+        </div>
+
+        <!-- Cutoff -->
+        <div class="cutoff">
+          <i class="fas fa-bolt"></i>
+          Ordina entro <b id="cutoffTimer">--h --m --s</b> per la spedizione <b>oggi stesso</b>
+        </div>
+      </section>
+
+      <!-- BUNDLE PRICING -->
+      <section class="card">
+        <div class="card-title">
+          <span class="ico" style="background:var(--success-soft); color:var(--success);"><i class="fas fa-fire"></i></span>
+          <h2>Risparmia acquistando più pezzi</h2>
+        </div>
+        <p class="muted small" style="margin-top:-8px; margin-bottom:14px;">
+          L'<b>82% dei veterinari</b> consiglia copertura trimestrale continuativa — 3 pipette = 12 settimane di protezione.
+        </p>
+
+        <div class="bundle-grid">
+          <div class="bundle-card" data-qty="1" data-unit="22.90" onclick="selectBundle(this,1,22.90)">
+            <div class="qty">1 pipetta</div>
+            <div class="price">22,90€ <small>cad.</small></div>
+            <div class="save">Copertura 4 settimane</div>
+          </div>
+          <div class="bundle-card" data-qty="2" data-unit="21.90" onclick="selectBundle(this,2,21.90)">
+            <div class="bundle-tag">Risparmi 2€</div>
+            <div class="qty">2 pipette</div>
+            <div class="price">21,90€ <small>cad.</small></div>
+            <div class="save">Copertura 8 settimane</div>
+          </div>
+          <div class="bundle-card active" data-qty="3" data-unit="19.90" onclick="selectBundle(this,3,19.90)">
+            <div class="bundle-tag best">PIÙ SCELTO · -13%</div>
+            <div class="qty">3 pipette</div>
+            <div class="price">19,90€ <small>cad.</small></div>
+            <div class="save">Copertura 12 settimane · risparmi <b>9€</b></div>
+          </div>
+        </div>
+
+        <div class="urgency" style="margin-top:14px;">
+          <i class="fas fa-bell"></i>
+          <span><b>14 persone</b> hanno questo prodotto nel carrello ora · scorta limitata</span>
+        </div>
+      </section>
+
+      <!-- CROSS-SELL -->
+      <section class="card">
+        <div class="card-title">
+          <span class="ico" style="background:var(--info-soft); color:var(--info);"><i class="fas fa-plus"></i></span>
+          <h2>Completa la protezione del tuo cane</h2>
+        </div>
+        <p class="muted small" style="margin-top:-8px; margin-bottom:14px;">
+          Prodotti complementari raccomandati dai nostri veterinari — già scontati nel bundle.
+        </p>
+
+        <div class="xsell-grid">
+          <div class="xsell-card">
+            <div class="ximg">
+              <span class="tag">−9%</span>
+              <i class="fas fa-spray-can-sparkles" style="font-size:54px; color:var(--rocard-blue);"></i>
+            </div>
+            <h4>ANIBIO Antizecche Naturale — spray 100ml</h4>
+            <div class="muted tiny">Olio di Neem 4% + Citronellolo · repellente fitoterapico</div>
+            <div class="price-row">
+              <span class="strike tiny">15,90€</span>
+              <span class="p">12,50€</span>
+            </div>
+            <button class="xsell-add" onclick="addXsell(this,'Antizecche Spray',12.50)"><i class="fas fa-plus"></i> Aggiungi all'ordine</button>
+          </div>
+          <div class="xsell-card">
+            <div class="ximg">
+              <span class="tag">BIO</span>
+              <i class="fas fa-pump-soap" style="font-size:54px; color:var(--rocard-blue);"></i>
+            </div>
+            <h4>ANIBIO Shampoo Dermatologico — 250ml</h4>
+            <div class="muted tiny">pH 7.0, lenitivo, con Pantenolo 2% e Aloe Vera</div>
+            <div class="price-row">
+              <span class="strike tiny">12,90€</span>
+              <span class="p">9,80€</span>
+            </div>
+            <button class="xsell-add" onclick="addXsell(this,'Shampoo',9.80)"><i class="fas fa-plus"></i> Aggiungi all'ordine</button>
+          </div>
+          <div class="xsell-card">
+            <div class="ximg">
+              <span class="tag">BEST</span>
+              <i class="fas fa-comb" style="font-size:54px; color:var(--rocard-blue);"></i>
+            </div>
+            <h4>Pettine antipulci microdenti — acciaio inox</h4>
+            <div class="muted tiny">Densità 24 denti/cm — rimozione meccanica uova</div>
+            <div class="price-row">
+              <span class="strike tiny">8,90€</span>
+              <span class="p">5,90€</span>
+            </div>
+            <button class="xsell-add" onclick="addXsell(this,'Pettine',5.90)"><i class="fas fa-plus"></i> Aggiungi all'ordine</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trust strip -->
+      <div class="trust-strip">
+        <div class="ti"><i class="fas fa-truck"></i> Spedizione gratis &gt; 49,90€</div>
+        <div class="ti"><i class="fas fa-rotate-left"></i> Reso facile 14 giorni</div>
+        <div class="ti"><i class="fas fa-lock"></i> Pagamenti SSL 256-bit</div>
+        <div class="ti"><i class="fas fa-star"></i> 4,8/5 · 12.000+ recensioni</div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: Summary -->
+    <aside>
+      <div class="card summary">
+        <h3 style="font-size:16px; margin-bottom:14px;">Riepilogo ordine</h3>
+
+        <div class="sum-row">
+          <span>Antiparassitario × <b id="sumQty">3</b></span>
+          <span class="fw-700" id="sumSubtotal">59,70€</span>
+        </div>
+        <div class="sum-row">
+          <span>Spedizione</span>
+          <span class="fw-700 text-success" id="sumShipping">Gratuita</span>
+        </div>
+
+        <!-- Order bumps -->
+        <label class="bump active" for="bumpProtection">
+          <input type="checkbox" id="bumpProtection" checked onchange="toggleBump()" />
+          <div style="flex:1;">
+            <div class="b-title"><i class="fas fa-shield-halved" style="color:var(--info);"></i> Protezione spedizione</div>
+            <div class="b-desc">Sostituzione gratuita in caso di smarrimento o danneggiamento del pacco</div>
+          </div>
+          <div class="b-price">+1,90€</div>
+        </label>
+
+        <label class="bump warm" for="bumpPriority">
+          <input type="checkbox" id="bumpPriority" onchange="toggleBump()" />
+          <div style="flex:1;">
+            <div class="b-title"><i class="fas fa-bolt" style="color:var(--warning);"></i> Spedizione prioritaria</div>
+            <div class="b-desc">Salta la coda — consegna in <b>24h garantite</b></div>
+          </div>
+          <div class="b-price">+3,90€</div>
+        </label>
+
+        <div class="sum-row total">
+          <span>Totale</span>
+          <span class="v" id="sumTotal">61,60€</span>
+        </div>
+
+        <a href="./checkout.html" id="ctaCheckout" class="btn btn-primary btn-lg btn-block" style="margin-top:14px;">
+          Procedi al checkout • 61,60€ <i class="fas fa-arrow-right"></i>
+        </a>
+
+        <div class="text-center muted tiny mt-3">
+          <i class="fas fa-lock"></i> Acquisto sicuro su <b>Rocard.it</b>
+        </div>
+
+        <div class="sum-line"></div>
+
+        <div class="tiny muted text-center mt-3" style="line-height:1.6;">
+          Accettiamo:
+          <div style="display:flex; gap:8px; justify-content:center; margin-top:8px; flex-wrap:wrap;">
+            <span class="card-brand">VISA</span>
+            <span class="card-brand">MC</span>
+            <span class="card-brand">AMEX</span>
+            <span class="card-brand">PayPal</span>
+            <span class="card-brand">G Pay</span>
+            <span class="card-brand">Apple Pay</span>
+            <span class="card-brand">Klarna</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</main>
+
+<footer class="r-footer">
+  <a href="./index.html">← Torna allo studio CRO</a> · Prototipo statico — Rocard
+</footer>
+
+<script src="./script.js"></script>
+<script>
+  startCutoff('cutoffTimer');
+  updateTotals(3, 19.90);
+</script>
+</body></html>

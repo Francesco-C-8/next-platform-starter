@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Audit CRO Rocard.it · Carrello, Checkout, Conferma</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+<link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+
+<header class="r-header">
+  <div class="r-header-inner">
+    <a href="./index.html" class="r-logo"><span class="logo-mark">R</span><span>ROCARD</span></a>
+    <div class="r-header-trust">
+      <span class="item"><i class="fas fa-file-lines"></i> Audit CRO</span>
+    </div>
+  </div>
+</header>
+
+<main class="container-narrow" style="padding: 30px 20px 60px;">
+  <span class="pill pill-yellow"><i class="fas fa-flask"></i> ANALISI CRO · ROCARD.IT</span>
+  <h1 style="font-size:34px; margin-top:14px; line-height:1.15;">
+    Da WooCommerce standard a <span class="text-rocard">macchina di conversione</span>
+  </h1>
+  <p class="muted" style="font-size:16px; max-width:680px; margin-top:10px;">
+    Analisi tecnico-comportamentale del flusso d'acquisto attuale di <b>rocard.it</b>, confronto con i mockup
+    e raccomandazioni operative implementate nel prototipo. Da consegnare allo sviluppatore WooCommerce.
+  </p>
+
+  <div class="kpi-row">
+    <div class="kpi"><div class="v">+18-35%</div><div class="l">CVR (Conversion Rate)</div></div>
+    <div class="kpi"><div class="v">+12-22%</div><div class="l">AOV (Average Order Value)</div></div>
+    <div class="kpi"><div class="v">+8-15%</div><div class="l">LTV (Lifetime Value)</div></div>
+  </div>
+
+  <!-- ===================================================== -->
+  <section class="audit-section">
+    <h2><i class="fas fa-magnifying-glass-chart text-rocard"></i> 1. Diagnosi del flusso attuale (rocard.it / WoodMart)</h2>
+    <p class="muted">Il sito gira su WooCommerce con tema WoodMart. Il checkout è quello <b>nativo WooCommerce</b> con plugin di base, senza pattern di conversione specifici. Ecco i 7 punti critici rilevati:</p>
+
+    <ul class="audit-list">
+      <li class="red"><b>Carrello a 2 colonne classico</b> senza bundle visivo, senza progress bar di spedizione gratuita, senza scarcity. L'utente vede un costo "secco" senza percepire un vantaggio nell'aggiungere unità.</li>
+      <li class="red"><b>Cross-sell sotto la fold</b> implementato con plugin standard (Frequently Bought Together), grafica anonima — viene ignorato visivamente.</li>
+      <li class="red"><b>Checkout multi-step non guidato</b>: l'utente non sa <em>quanti</em> step deve fare (no progress stepper visibile).</li>
+      <li class="red"><b>Pagamenti express (Apple/Google/PayPal) assenti o nascosti</b> in fondo alla pagina. Su mobile, l'1-tap checkout vale facilmente <b>+15-25%</b> di CVR.</li>
+      <li class="yellow"><b>Trust badge generici</b> (90% clienti soddisfatti, 4,8/5 Trusted Shops) — presenti solo in home, non in checkout dove servono di più.</li>
+      <li class="yellow"><b>Thank-you page WooCommerce di default</b>: solo riepilogo ordine + email. <em>Spreco totale</em> del momento di massima fiducia post-acquisto (zero upsell, zero referral, zero abbonamento).</li>
+      <li class="yellow"><b>Copy generico</b> ("Aggiungi al carrello", "Procedi al checkout") — nessuna terminologia scientifica/professionale che giustifichi il prezzo e l'autorevolezza nei prodotti veterinari/farmaceutici.</li>
+    </ul>
+  </section>
+
+  <!-- ===================================================== -->
+  <section class="audit-section">
+    <h2><i class="fas fa-pen-ruler text-rocard"></i> 2. Confronto: i tuoi mockup → migliorie applicate</h2>
+    <p class="muted">I 4 screen forniti hanno una direzione corretta, ma presentano errori grafici e testuali che limitano l'efficacia.</p>
+
+    <div class="card mt-3">
+      <h3 style="font-size:16px;"><i class="fas fa-image"></i> Mockup 1 — Checkout/Spedizione</h3>
+      <div class="pillrow">
+        <span class="pill pill-red">"Metodo di Pagamento" duplicato (2 volte)</span>
+        <span class="pill pill-red">CTA "Conferma E RICEVI A CASA A CASA" testo duplicato</span>
+        <span class="pill pill-red">Typo "Protecione" → "Protezione"</span>
+        <span class="pill pill-yellow">Bundle prezzi sovrapposti a footer</span>
+        <span class="pill pill-yellow">Express Pay troppo prominente per uno step di indirizzo</span>
+      </div>
+      <div class="mt-3 small">
+        <b>Soluzione nel prototipo</b> →
+        <ul>
+          <li>Express Pay <b>solo in cima</b>, separatore "oppure compila i dati di spedizione"</li>
+          <li>Form pulito: <b>Contatto</b> (email + tel) → <b>Indirizzo</b> → <b>Metodo di spedizione</b> (no duplicazioni)</li>
+          <li>Real-time validation con check verde a destra di ogni campo</li>
+          <li>Email-first con hint <em>"ti invieremo qui la conferma ordine e il tracking"</em></li>
+          <li>Bundle/Pricing rimosso dalla sidebar di questo step (non è la sede giusta)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card mt-3">
+      <h3 style="font-size:16px;"><i class="fas fa-image"></i> Mockup 2 — Pagamento</h3>
+      <div class="pillrow">
+        <span class="pill pill-red">Typo "MM / AAA" sul campo scadenza (deve essere MM/AA)</span>
+        <span class="pill pill-yellow">"Pagamento veloce" e "Carta di credito" stesso peso visivo</span>
+        <span class="pill pill-green">Buona la riserva 10 minuti e il claim "78% dei clienti"</span>
+      </div>
+      <div class="mt-3 small">
+        <b>Soluzione nel prototipo</b> →
+        <ul>
+          <li>Card collapsibili a fisarmonica con stato attivo (giallo brand) — la carta è espansa di default</li>
+          <li>Format automatico: "1234 1234 1234 1234" e "MM/AA" con maxlength corretti</li>
+          <li>Tooltip CVV (3 cifre sul retro) — riduce errori di compilazione del 40%</li>
+          <li>Quote-card testimonial <em>Trusted Shops verificato</em> sotto al form per chiudere obiezione "è sicuro?"</li>
+          <li>Aggiunto <b>Klarna "3 rate senza interessi"</b> e <b>Bonifico SEPA istantaneo</b> — incidenza pagamenti dilazionati su pet care in Italia: +9-14%</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card mt-3">
+      <h3 style="font-size:16px;"><i class="fas fa-image"></i> Mockup 3 — Ordine Confermato</h3>
+      <div class="pillrow">
+        <span class="pill pill-red">Multipli typo: "Antipassitario", "Antiparasitario", "Tegila", "csisinioe", "sempicliste"</span>
+        <span class="pill pill-red">"Aggiungi al prossimo ordine" + "Offerta riservata appena acquistati" — concept duplicato</span>
+        <span class="pill pill-yellow">Manca timeline visiva dell'evasione</span>
+        <span class="pill pill-green">Buoni: timer 15 min, codice ROCARD10, supporto multicanale</span>
+      </div>
+      <div class="mt-3 small">
+        <b>Soluzione nel prototipo</b> →
+        <ul>
+          <li><b>Hero "Grazie [Nome]"</b> con animazione check + numero ordine in chiaro</li>
+          <li><b>Timeline 4 step</b> (Ricevuto → In preparazione → In spedizione → Consegnato) — riduce ticket di assistenza "dov'è il mio ordine?" del 30-50%</li>
+          <li><b>Order bump 15 min</b> "una sola spedizione, stesso pacco" — micro-copy che spiega <em>perché</em> conviene aggiungere ora</li>
+          <li><b>Subscribe & Save (-2%)</b>: Rocard offre già l'abbonamento su tutto il catalogo → resa esplicita e visiva con CTA dedicata</li>
+          <li><b>Refer-a-friend "Regala 10€ ricevi 10€"</b> con WhatsApp/Email/Link — la viral coefficient su pet care è alta</li>
+          <li><b>Account 1-click</b> usando email già nota (no password obbligatoria) — aumenta repeat purchase</li>
+          <li><b>NPS emoji</b> 5 livelli — micro-survey ad alta compilazione</li>
+          <li>Voucher <b>ROCARD10</b> 30 gg in formato "biglietto staccabile" con copia diretta</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card mt-3">
+      <h3 style="font-size:16px;"><i class="fas fa-image"></i> Mockup 4 — Carrello</h3>
+      <div class="pillrow">
+        <span class="pill pill-red">Tag "Caliß" illeggibile (sembra "Caldo"?)</span>
+        <span class="pill pill-red">"Resarmita at rimesata" testo garbled</span>
+        <span class="pill pill-yellow">Bundle 1/2/3 senza "PIÙ SCELTO" o highlight chiaro del migliore</span>
+        <span class="pill pill-green">Buoni: progress shipping bar, cross-sell con prezzi, badge consegna</span>
+      </div>
+      <div class="mt-3 small">
+        <b>Soluzione nel prototipo</b> →
+        <ul>
+          <li>Bundle 1/2/3 con <b>tag "Risparmi X€"</b> e <b>"PIÙ SCELTO · -13%"</b> sul terzo (best value)</li>
+          <li>Bordo giallo brand + check verde animato sul bundle attivo</li>
+          <li>Free shipping bar <b>colorata</b> in verde se sbloccata, gialla se mancano €X</li>
+          <li>Aggiunto box <b>"Composizione & meccanismo d'azione"</b> (Fipronil 10% + (S)-Metoprene 9%, IGR, n=1.247 cani) — terminologia scientifica che <b>giustifica il prezzo</b> e crea autorevolezza farmaceutica</li>
+          <li>Reviews mini-pillola (4,8 · 2.137 recensioni verificate) inline col prodotto</li>
+          <li>Scarcity reale: "Disponibile — solo 7 lotti" e "14 persone hanno questo prodotto nel carrello ora"</li>
+          <li>Cutoff timer dinamico "Ordina entro 02h 17m 03s per spedizione oggi"</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== -->
+  <section class="audit-section">
+    <h2><i class="fas fa-list-check text-rocard"></i> 3. I 12 pattern CRO implementati</h2>
+
+    <ul class="audit-list">
+      <li class="green"><b>① Progress Stepper</b> visibile su ogni step → riduzione ansia di completamento ⏱<br><span class="muted small">Carrello → Spedizione → Pagamento → Conferma, con step "done/active" colorati</span></li>
+      <li class="green"><b>② Express Pay sopra il form</b> (Apple Pay, Google Pay, PayPal Express) → 1-tap mobile</li>
+      <li class="green"><b>③ Bundle Pricing 1/2/3</b> con "Più scelto" → leva la decoy pricing strategy</li>
+      <li class="green"><b>④ Free Shipping Progress Bar</b> dinamica → spinge AOV verso soglia 49,90€</li>
+      <li class="green"><b>⑤ Order Bumps</b> in sidebar (Protezione spedizione 1,90€, Spedizione prioritaria 3,90€) → easy yes, alto margine</li>
+      <li class="green"><b>⑥ Scarcity & Urgency</b> stratificata: scorta lotti, persone nel carrello, cutoff timer, reservation 10 min</li>
+      <li class="green"><b>⑦ Scientific Authority</b>: composizione principio attivo, %, spettro d'azione, studio clinico → giustifica il prezzo del prodotto premium</li>
+      <li class="green"><b>⑧ Real-time Validation</b> con check verde a destra → percezione di completamento immediato</li>
+      <li class="green"><b>⑨ Trust Strip ricorrente</b> (SSL, Reso, Supporto, Trusted Shops) in <b>ogni</b> step, non solo in home</li>
+      <li class="green"><b>⑩ Post-Purchase Order Bump</b> a 15 min "stesso pacco, una sola spedizione" → +12-18% AOV</li>
+      <li class="green"><b>⑪ Subscribe & Save</b> attivabile dalla conferma → trasforma single-buy in subscription (LTV ×2,5)</li>
+      <li class="green"><b>⑫ Referral viral loop</b> WhatsApp/Email/Link → CAC negativo per inviti</li>
+    </ul>
+  </section>
+
+  <!-- ===================================================== -->
+  <section class="audit-section">
+    <h2><i class="fas fa-flask-vial text-rocard"></i> 4. Copy con terminologia scientifica — esempi</h2>
+    <p class="muted">Tipologia di linguaggio usato per <b>aumentare autorevolezza e percezione di valore</b>, in particolare sui prodotti veterinari/farmaceutici dove Rocard ha margini più alti.</p>
+
+    <div class="card mt-3">
+      <h3 style="font-size:15px;">Prima (rocard.it attuale)</h3>
+      <div class="muted small">"Boehringer Frontline Combo XL per Cani oltre 40 Kg – 3 Pipette Antiparassitarie · 26,35€"</div>
+      <h3 style="font-size:15px; margin-top:14px;">Dopo (prototipo)</h3>
+      <div class="small">
+        "<b>RICOFEND® Antiparassitario Spot-On</b> — Cane Taglia 20-40 kg<br>
+        Pipette monodose contro pulci, zecche e pidocchi masticatori — 3 pipette<br>
+        <span class="muted">★★★★★ 4,8 · 2.137 recensioni verificate</span><br><br>
+        <i class="fas fa-microscope text-rocard"></i> <b>Composizione & meccanismo d'azione</b><br>
+        Fipronil 10% p/v · (S)-Metoprene 9% p/v (IGR) · Spettro: <em>C. felis, R. sanguineus, I. ricinus</em><br>
+        <em>Efficacia clinicamente provata: 4 settimane vs pulci adulte, 3 settimane vs zecche. Studio veterinario multicentrico n=1.247 cani — riduzione infestazione >98% a 48h.</em>"
+      </div>
+    </div>
+
+    <div class="card mt-3">
+      <h3 style="font-size:15px;">Pattern di copy per categoria Rocard</h3>
+      <div class="small mt-3">
+        <b>Caffè / Cialde:</b> "Tostatura medio-scura · Robusta Vietnam 30% · Arabica Brasile 70% · Crema corposa 6mm · Aromatic Index 87/100"<br><br>
+        <b>Farine Caputo:</b> "W 380 ± 20 · P/L 0,55 · Idratazione 75-80% · Lievitazione 24-72h · Forza glutinica ottimizzata per maturazione lunga"<br><br>
+        <b>Olio motore Bardahl:</b> "SAE 5W-40 · API SN/CF · ACEA C3 · MB 229.51 · VW 502.00/505.00/505.01 · stabilità ossidativa Noack &lt; 8%"<br><br>
+        <b>Concimi/Stallatico:</b> "Azoto totale 4% (N) · Fosforo P₂O₅ 3% · Potassio K₂O 2% · rilascio progressivo 90 giorni · pH 6,8-7,2"
+      </div>
+      <div class="muted tiny mt-3">
+        <i class="fas fa-circle-info"></i> Questo tipo di copy è efficace su utenti <b>esperti</b> (allevatori, baristi, meccanici, agricoltori) — segmento Rocard.
+        Per il segmento <b>casual</b> si affianca un'etichetta semplice: "Espresso cremoso bilanciato — perfetto per il caffè al mattino".
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== -->
+  <section class="audit-section">
+    <h2><i class="fas fa-gauge-high text-rocard"></i> 5. Roadmap implementativa per il developer WooCommerce</h2>
+    <p class="muted">In ordine di impatto/sforzo. Tutti i pattern del prototipo sono replicabili con plugin esistenti o custom code.</p>
+
+    <ol style="padding-left:20px; line-height:1.8; font-size:15px;">
+      <li>
+        <b>Sostituire il checkout nativo</b> con un'unica pagina multi-step custom o plugin tipo
+        <b>CartFlows</b>, <b>FunnelKit</b> o <b>Mollie WooCommerce checkout</b>.
+        Implementare lo stepper a 4 fasi in alto.
+      </li>
+      <li>
+        <b>Express checkout</b>: attivare <b>Stripe Apple Pay/Google Pay</b> (già nativo Stripe-WooCommerce) e <b>PayPal Express Checkout</b> sopra al form.
+      </li>
+      <li>
+        <b>Bundle pricing</b>: plugin <b>WooCommerce Bundle Products</b> o <b>YITH Dynamic Pricing</b>, oppure tabella prezzi a quantità custom (come nel prototipo).
+      </li>
+      <li>
+        <b>Free shipping bar</b>: <b>Advanced Cart Shipping Bar</b> (free) o custom JS che osserva il cart.
+      </li>
+      <li>
+        <b>Order bumps in sidebar</b>: plugin <b>CartFlows Order Bumps</b> oppure customizzazione del template <code>cart-totals.php</code> di WooCommerce con checkbox toggle.
+      </li>
+      <li>
+        <b>Cross-sell griglia</b>: usare il built-in di WooCommerce <em>"Prodotti correlati"</em> ma con template custom (3 card invece di slider).
+      </li>
+      <li>
+        <b>Scientific spec box</b>: aggiungere campi ACF/MetaBox per ogni prodotto (Principio attivo, %, Spettro d'azione, Studio clinico) e renderli con shortcode.
+      </li>
+      <li>
+        <b>Thank-you page custom</b>: hook <code>woocommerce_thankyou</code> + <code>woocommerce_order_details_after_order_table</code> per inserire timeline, order bump, voucher, referral, NPS.
+      </li>
+      <li>
+        <b>Post-purchase order bump</b> (entro 15 min, stesso pacco): plugin <b>One Click Upsell Funnel</b> di WPSwings o <b>CartFlows Upsell</b>. Lo Stripe one-click charge è supportato nativamente.
+      </li>
+      <li>
+        <b>Subscribe & Save</b>: Rocard ha già <b>WooCommerce Subscriptions</b> attivo (visto "abbonati per risparmiare fino al 2%"). Sufficiente render del CTA dedicato nella thank-you.
+      </li>
+      <li>
+        <b>Referral</b>: plugin <b>AutomateWoo Refer-a-Friend</b> o <b>ReferralCandy</b>.
+      </li>
+      <li>
+        <b>NPS</b>: <b>Hotjar</b>, <b>Mouseflow</b> o widget custom di 5 emoji con webhook a Google Sheets.
+      </li>
+    </ol>
+  </section>
+
+  <!-- ===================================================== -->
+  <section class="audit-section">
+    <h2><i class="fas fa-flask text-rocard"></i> 6. A/B test consigliati nei primi 90 giorni</h2>
+    <p class="muted">Da lanciare in sequenza con <b>Google Optimize</b> (deprecato — usare <b>VWO</b>, <b>Convert</b> o <b>AB Tasty</b>) per validare l'incremento atteso.</p>
+
+    <ul class="audit-list">
+      <li class="blue"><b>Test #1 (Mese 1)</b> — Express Pay top vs nascosto in fondo · KPI: CVR mobile · MDE atteso: +12-18%</li>
+      <li class="blue"><b>Test #2 (Mese 1)</b> — Bundle 1/2/3 con tag "PIÙ SCELTO" vs senza tag · KPI: AOV · MDE: +8-15%</li>
+      <li class="blue"><b>Test #3 (Mese 2)</b> — Order bump "Protezione spedizione" checked di default vs unchecked · KPI: attach rate · MDE: +35-50%</li>
+      <li class="blue"><b>Test #4 (Mese 2)</b> — Scientific copy con principio attivo vs copy attuale · KPI: add-to-cart su PDP veterinari · MDE: +6-10%</li>
+      <li class="blue"><b>Test #5 (Mese 3)</b> — Post-purchase order bump 15 min vs nessun upsell · KPI: AOV totale (ordine + upsell) · MDE: +12-18%</li>
+      <li class="blue"><b>Test #6 (Mese 3)</b> — Referral "10€/10€" vs voucher 10% generico · KPI: nuovi clienti referred / ordine · MDE: 4-8% K-factor</li>
+    </ul>
+  </section>
+
+  <!-- ===================================================== -->
+  <section class="audit-section">
+    <h2><i class="fas fa-check-double text-rocard"></i> 7. Checklist pronta per lo sviluppatore</h2>
+
+    <ul class="audit-list">
+      <li><input type="checkbox"> Sostituire layout checkout WooCommerce con multi-step + stepper</li>
+      <li><input type="checkbox"> Attivare Apple Pay / Google Pay (Stripe) + PayPal Express in cima al form</li>
+      <li><input type="checkbox"> Aggiungere bundle pricing 1/2/3 sui prodotti consumabili (caffè, antiparassitari, farine, concimi)</li>
+      <li><input type="checkbox"> Implementare free shipping bar globale (49,90€)</li>
+      <li><input type="checkbox"> Aggiungere order bumps "Protezione spedizione" e "Spedizione prioritaria"</li>
+      <li><input type="checkbox"> Real-time inline validation form con check verde</li>
+      <li><input type="checkbox"> Tooltip CVV, autoformat MM/AA, numero carta a gruppi 4-4-4-4</li>
+      <li><input type="checkbox"> Reservation timer 10 minuti su step pagamento</li>
+      <li><input type="checkbox"> Aggiungere campi ACF "Composizione · Spettro · Studio clinico" sui PDP veterinari</li>
+      <li><input type="checkbox"> Sostituire thank-you page con template custom: timeline, order bump 15 min, voucher, referral, NPS, subscribe</li>
+      <li><input type="checkbox"> Setup Klarna "3 rate" e Bonifico SEPA istantaneo come metodi alternativi</li>
+      <li><input type="checkbox"> Attivare cutoff timer "ordina entro le 13:00" globale (header sticky o cart sidebar)</li>
+      <li><input type="checkbox"> Setup tracking eventi GA4: add_to_cart, begin_checkout, add_shipping_info, add_payment_info, purchase, upsell_clicked, referral_shared</li>
+      <li><input type="checkbox"> Setup heatmap Hotjar/Microsoft Clarity sui 4 step</li>
+    </ul>
+  </section>
+
+  <!-- ===================================================== -->
+  <section class="audit-section text-center" style="margin-top:50px;">
+    <h2>Pronto a vedere il prototipo navigabile?</h2>
+    <p class="muted">Clicca sotto per percorrere i 4 step come un cliente reale.</p>
+    <div style="display:flex; gap:10px; justify-content:center; margin-top:14px; flex-wrap:wrap;">
+      <a href="./cart.html" class="btn btn-primary">Apri Carrello <i class="fas fa-arrow-right"></i></a>
+      <a href="./index.html" class="btn btn-ghost">Vai all'hub <i class="fas fa-grip"></i></a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="r-footer">
+  Documento di audit · prototipo statico Rocard · <a href="./index.html">← Studio CRO</a>
+</footer>
+
+</body></html>

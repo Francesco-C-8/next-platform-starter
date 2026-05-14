@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Spedizione · Rocard Checkout</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+<link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+
+<header class="r-header">
+  <div class="r-header-inner">
+    <a href="./index.html" class="r-logo"><span class="logo-mark">R</span><span>ROCARD</span></a>
+    <div class="r-header-trust">
+      <span class="item"><i class="fas fa-headset"></i> Supporto 24/7</span>
+      <span class="item"><i class="fas fa-shield-halved"></i> Reso 14 giorni</span>
+      <span class="item"><i class="fas fa-lock"></i> SSL 256-bit</span>
+    </div>
+  </div>
+</header>
+
+<div class="stepper-wrap">
+  <div class="stepper-title">Completa il tuo ordine in <b>meno di 60 secondi</b></div>
+  <div class="stepper">
+    <div class="step done"><div class="dot"><i class="fas fa-check"></i></div><div class="label">Carrello</div></div>
+    <div class="step-line done"></div>
+    <div class="step active"><div class="dot">2</div><div class="label">Spedizione</div></div>
+    <div class="step-line"></div>
+    <div class="step"><div class="dot">3</div><div class="label">Pagamento</div></div>
+    <div class="step-line"></div>
+    <div class="step"><div class="dot">4</div><div class="label">Conferma</div></div>
+  </div>
+</div>
+
+<main class="container" style="padding: 24px 20px 60px;">
+  <div class="grid grid-checkout">
+
+    <!-- LEFT: form -->
+    <div>
+
+      <!-- Express pay -->
+      <section class="card">
+        <div class="card-title">
+          <span class="ico" style="background:var(--rocard-yellow-soft); color:var(--rocard-yellow-deep);"><i class="fas fa-bolt"></i></span>
+          <h2>Pagamento veloce</h2>
+          <span class="muted small" style="margin-left:auto;">salta l'inserimento manuale</span>
+        </div>
+        <div class="express-row">
+          <button class="express-btn express-apple"><i class="fab fa-apple"></i> Pay</button>
+          <button class="express-btn express-gpay">
+            <span style="background:linear-gradient(90deg,#4285F4,#34A853 33%,#FBBC05 66%,#EA4335); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:800;">G</span> Pay
+          </button>
+          <button class="express-btn express-paypal"><i class="fab fa-paypal"></i> PayPal Express</button>
+        </div>
+        <div class="divider-or">oppure compila i dati di spedizione</div>
+        <div class="trust-strip" style="margin: 0;">
+          <div class="ti"><i class="fas fa-lock"></i> Connessione cifrata</div>
+          <div class="ti"><i class="fas fa-shield-halved"></i> Dati protetti GDPR</div>
+          <div class="ti"><i class="fas fa-clock"></i> Compili una volta sola</div>
+          <div class="ti"><i class="fas fa-truck"></i> Tracking via SMS+Email</div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="card">
+        <div class="card-title">
+          <span class="ico"><i class="fas fa-envelope"></i></span>
+          <h2>Contatto</h2>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label>Email <span class="req">*</span> <span class="hint" style="margin-left:auto; color:var(--ink-500);"><i class="fas fa-circle-info"></i> ti invieremo qui la conferma ordine e il tracking</span></label>
+            <input type="email" name="email" placeholder="mario.rossi@email.it" />
+            <span class="check-ok"><i class="fas fa-check"></i></span>
+          </div>
+          <div class="field">
+            <label>Cellulare <span class="req">*</span></label>
+            <input type="tel" name="phone" placeholder="+39 333 1234567" />
+            <span class="check-ok"><i class="fas fa-check"></i></span>
+            <span class="hint">Solo per aggiornamenti corriere SMS — non riceverai spam.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Shipping address -->
+      <section class="card">
+        <div class="card-title">
+          <span class="ico"><i class="fas fa-truck"></i></span>
+          <h2>Indirizzo di spedizione</h2>
+        </div>
+        <div class="form-row cols-2">
+          <div class="field"><label>Nome <span class="req">*</span></label><input type="text" name="firstName" placeholder="Mario" /><span class="check-ok"><i class="fas fa-check"></i></span></div>
+          <div class="field"><label>Cognome <span class="req">*</span></label><input type="text" name="lastName" placeholder="Rossi" /><span class="check-ok"><i class="fas fa-check"></i></span></div>
+        </div>
+        <div class="form-row" style="margin-top:14px;">
+          <div class="field">
+            <label>Indirizzo <span class="req">*</span></label>
+            <input type="text" name="address" placeholder="Via, numero civico, eventuale interno" />
+            <span class="check-ok"><i class="fas fa-check"></i></span>
+            <span class="hint">Inizia a digitare — autocompletiamo via Google Maps.</span>
+          </div>
+        </div>
+        <div class="form-row cols-2" style="margin-top:14px;">
+          <div class="field"><label>CAP <span class="req">*</span></label><input type="text" name="cap" placeholder="20121" maxlength="5" /><span class="check-ok"><i class="fas fa-check"></i></span></div>
+          <div class="field"><label>Città <span class="req">*</span></label><input type="text" name="city" placeholder="Milano" /><span class="check-ok"><i class="fas fa-check"></i></span></div>
+        </div>
+        <div class="form-row cols-2" style="margin-top:14px;">
+          <div class="field">
+            <label>Provincia <span class="req">*</span></label>
+            <select name="province">
+              <option value="">Seleziona…</option>
+              <option>MI — Milano</option><option>RM — Roma</option><option>NA — Napoli</option>
+              <option>TO — Torino</option><option>BO — Bologna</option><option>FI — Firenze</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Paese <span class="req">*</span></label>
+            <select name="country"><option>Italia</option></select>
+          </div>
+        </div>
+
+        <div class="mt-4" style="display:flex; gap:14px; flex-wrap:wrap;">
+          <label class="muted small" style="display:flex; gap:8px; align-items:center; cursor:pointer;">
+            <input type="checkbox" />
+            <span>Indirizzo di fatturazione diverso</span>
+          </label>
+          <label class="muted small" style="display:flex; gap:8px; align-items:center; cursor:pointer;">
+            <input type="checkbox" />
+            <span>Aggiungi dati aziendali (P.IVA / CF)</span>
+          </label>
+        </div>
+      </section>
+
+      <!-- Shipping method -->
+      <section class="card">
+        <div class="card-title">
+          <span class="ico"><i class="fas fa-box"></i></span>
+          <h2>Metodo di spedizione</h2>
+        </div>
+        <label class="pm-card active" style="margin-bottom:8px;" onclick="this.parentNode.querySelectorAll('.pm-card').forEach(c=>c.classList.remove('active')); this.classList.add('active');">
+          <div class="radio"></div>
+          <div style="flex:1;">
+            <div class="pm-title">Standard — BRT/SDA</div>
+            <div class="muted tiny">Consegna stimata: <b>Mer 4 — Gio 5 Marzo</b> · tracking incluso</div>
+          </div>
+          <div class="fw-800 text-success">GRATIS</div>
+        </label>
+        <label class="pm-card" onclick="this.parentNode.querySelectorAll('.pm-card').forEach(c=>c.classList.remove('active')); this.classList.add('active');">
+          <div class="radio"></div>
+          <div style="flex:1;">
+            <div class="pm-title"><i class="fas fa-bolt" style="color:var(--warning);"></i> Express 24h</div>
+            <div class="muted tiny">Consegna domani entro le 18:00 · garantita o rimborso</div>
+          </div>
+          <div class="fw-800">+ 3,90€</div>
+        </label>
+      </section>
+
+      <a href="./payment.html" class="btn btn-primary btn-lg btn-block" style="margin-top:8px;">
+        Continua al pagamento <i class="fas fa-arrow-right"></i>
+      </a>
+      <p class="text-center muted tiny mt-3">
+        <i class="fas fa-lock"></i> I tuoi dati sono protetti con crittografia <b>SSL 256-bit</b> — non li condividiamo mai
+      </p>
+    </div>
+
+    <!-- RIGHT summary -->
+    <aside>
+      <div class="card summary">
+        <h3 style="font-size:16px; margin-bottom:14px;">Il tuo ordine</h3>
+
+        <div style="display:flex; gap:12px; padding-bottom:12px; border-bottom:1px solid var(--line);">
+          <div style="width:64px; height:64px; border-radius:10px; background:var(--bg-alt); border:1px solid var(--line); display:grid; place-items:center;">
+            <i class="fas fa-prescription-bottle-medical" style="font-size:24px; color:var(--rocard-blue);"></i>
+          </div>
+          <div style="flex:1;">
+            <div class="fw-700 small">RICOFEND Antiparassitario × 3</div>
+            <div class="muted tiny">Cane 20-40 kg · 3 pipette</div>
+            <div class="fw-800 small text-rocard mt-2">59,70€</div>
+          </div>
+        </div>
+
+        <div class="sum-row" style="margin-top:8px;"><span>Subtotale</span><span class="fw-700">59,70€</span></div>
+        <div class="sum-row"><span>Spedizione</span><span class="fw-700 text-success">Gratuita</span></div>
+        <div class="sum-row"><span>Protezione spedizione</span><span class="fw-700">1,90€</span></div>
+
+        <div class="sum-row total">
+          <span>Totale</span>
+          <span class="v">61,60€</span>
+        </div>
+
+        <div class="cutoff" style="margin-top:14px;">
+          <i class="fas fa-bolt"></i>
+          Ordina entro <b id="cutoffTimer">--h --m --s</b> per spedizione oggi
+        </div>
+
+        <div class="trust-strip" style="grid-template-columns: 1fr 1fr; margin: 16px 0 0; gap:8px;">
+          <div class="ti tiny"><i class="fas fa-lock"></i> SSL 256-bit</div>
+          <div class="ti tiny"><i class="fas fa-rotate-left"></i> Reso 14 gg</div>
+          <div class="ti tiny"><i class="fas fa-headset"></i> Supporto 24/7</div>
+          <div class="ti tiny"><i class="fas fa-star"></i> 4,8/5 · Trusted Shops</div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</main>
+
+<footer class="r-footer">
+  <a href="./cart.html">← Torna al carrello</a> · <a href="./index.html">Studio CRO</a>
+</footer>
+
+<script src="./script.js"></script>
+<script>startCutoff('cutoffTimer');</script>
+</body></html>
