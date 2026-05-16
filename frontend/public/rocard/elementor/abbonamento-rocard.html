@@ -1,0 +1,649 @@
+<!--
+============================================================================
+LANDING ABBONAMENTO ROCARD · BLOCCO HTML PER ELEMENTOR
+============================================================================
+Come usarlo:
+1. WordPress → Pagine → Aggiungi nuova → titolo "Abbonamento Rocard"
+2. Clicca "Modifica con Elementor"
+3. Trascina un widget "HTML" (Free) in una sezione vuota
+4. Copia TUTTO il contenuto sotto (dal <style> al </script>) e incolla nella HTML widget
+5. Salva e pubblica
+
+NOTE:
+- Tutte le classi sono prefissate con .rc-abb- per non interferire col tema
+- Font: usa Manrope + DM Sans via Google Fonts (caricati automaticamente)
+- Icone: inline SVG (nessuna dipendenza Font Awesome)
+- JavaScript: inline e isolato (calcolatore + FAQ accordion)
+- Permalink consigliato: /abbonamento/  oppure /programma-abbonamento/
+
+PERSONALIZZAZIONI RAPIDE:
+- Cambia colore primario: cerca --rc-blue: #1B89C0 e sostituisci
+- Cambia colore CTA: cerca --rc-yellow: #FFC629 e sostituisci
+- Cambia URL del bottone "Attiva ora": cerca href="/shop/" e sostituisci con il tuo
+- Aggiungi un prodotto WooCommerce alla pagina: dopo questo HTML widget,
+  inserisci uno "Shortcode" widget con [products limit="4" category="caffe"]
+============================================================================
+-->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap');
+
+.rc-abb-landing{
+  --rc-blue: #1B89C0;
+  --rc-blue-deep: #0F6B9B;
+  --rc-blue-ink: #0A3A55;
+  --rc-yellow: #FFC629;
+  --rc-yellow-deep: #E8A900;
+  --rc-yellow-soft: #FFF4D1;
+  --rc-bg: #F4F4FB;
+  --rc-bg-alt: #ECECF6;
+  --rc-ink-900: #0E1A2A;
+  --rc-ink-700: #29384B;
+  --rc-ink-500: #5B6A7E;
+  --rc-ink-300: #9BA6B6;
+  --rc-line: #E6E8F0;
+  --rc-line-strong: #D5D9E6;
+  --rc-success: #1FAF60;
+  --rc-success-soft: #E6F8EE;
+  --rc-danger: #E03A4A;
+
+  font-family: 'DM Sans', system-ui, -apple-system, Segoe UI, sans-serif;
+  color: var(--rc-ink-900);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+.rc-abb-landing *,.rc-abb-landing *::before,.rc-abb-landing *::after{box-sizing: border-box;}
+.rc-abb-landing h1,.rc-abb-landing h2,.rc-abb-landing h3,.rc-abb-landing h4{
+  font-family: 'Manrope', system-ui, sans-serif;
+  margin: 0; letter-spacing: -0.02em; color: var(--rc-ink-900); font-weight: 800;
+}
+.rc-abb-landing p{margin: 8px 0;}
+.rc-abb-landing svg{display: inline-block; vertical-align: middle;}
+
+/* ===== HERO ===== */
+.rc-abb-hero{
+  background:
+    radial-gradient(circle at 80% 20%, rgba(255,198,41,.18) 0%, transparent 40%),
+    radial-gradient(circle at 10% 70%, rgba(27,137,192,.15) 0%, transparent 45%),
+    linear-gradient(180deg, #FFFFFF 0%, var(--rc-bg) 100%);
+  padding: 64px 24px 44px;
+  text-align: center;
+  border-radius: 22px;
+  margin-bottom: 30px;
+}
+.rc-abb-pill{
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--rc-yellow-soft); color: var(--rc-yellow-deep);
+  padding: 7px 16px; border-radius: 999px;
+  font-weight: 700; font-size: 12px; letter-spacing: .06em; text-transform: uppercase;
+}
+.rc-abb-hero h1{
+  font-size: 52px; line-height: 1.04; max-width: 820px; margin: 22px auto 16px;
+}
+.rc-abb-hero h1 span{color: var(--rc-blue-deep);}
+.rc-abb-hero .rc-abb-sub{
+  color: var(--rc-ink-500); font-size: 17px; max-width: 620px; margin: 0 auto;
+}
+.rc-abb-hero-ctas{display: flex; gap: 12px; justify-content: center; margin-top: 28px; flex-wrap: wrap;}
+.rc-abb-hero-trust{
+  font-size: 13px; color: var(--rc-ink-500); margin-top: 16px;
+}
+.rc-abb-hero-trust b{color: var(--rc-ink-900);}
+.rc-abb-stars{color: #F5A623; letter-spacing: 1px;}
+
+/* ===== BUTTONS ===== */
+.rc-abb-btn{
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 16px 26px; border-radius: 999px;
+  font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 16px;
+  border: 1.5px solid transparent; cursor: pointer;
+  text-decoration: none !important; transition: transform .12s ease, box-shadow .2s ease;
+}
+.rc-abb-btn:hover{transform: translateY(-1px); text-decoration: none !important;}
+.rc-abb-btn-primary{
+  background: linear-gradient(180deg, #FFD24F 0%, var(--rc-yellow) 60%, var(--rc-yellow-deep) 100%);
+  color: var(--rc-ink-900) !important;
+  box-shadow: 0 6px 18px rgba(232,169,0,.35), inset 0 -2px 0 rgba(0,0,0,.06);
+}
+.rc-abb-btn-primary:hover{box-shadow: 0 10px 24px rgba(232,169,0,.45);}
+.rc-abb-btn-ghost{
+  background: transparent; color: var(--rc-ink-700) !important; border-color: var(--rc-line-strong);
+}
+.rc-abb-btn-ghost:hover{background: var(--rc-bg-alt);}
+
+/* ===== STAT BAND ===== */
+.rc-abb-stat-band{
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  background: #fff; border: 1px solid var(--rc-line); border-radius: 16px;
+  overflow: hidden; margin-bottom: 50px;
+}
+.rc-abb-stat-band > div{
+  padding: 26px 16px; text-align: center; border-right: 1px solid var(--rc-line);
+}
+.rc-abb-stat-band > div:last-child{border-right: none;}
+.rc-abb-stat-band .rc-abb-v{
+  font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 30px;
+  color: var(--rc-blue-deep);
+}
+.rc-abb-stat-band .rc-abb-l{font-size: 13px; color: var(--rc-ink-500); margin-top: 4px;}
+
+/* ===== SECTION ===== */
+.rc-abb-section{padding: 44px 0;}
+.rc-abb-section h2{font-size: 32px; text-align: center;}
+.rc-abb-section .rc-abb-section-desc{
+  font-size: 15px; color: var(--rc-ink-500); text-align: center;
+  margin-bottom: 28px; margin-top: 8px;
+}
+
+/* ===== STEPS ===== */
+.rc-abb-steps{display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;}
+.rc-abb-step{
+  background: #fff; padding: 24px 18px; border-radius: 16px;
+  border: 1px solid var(--rc-line); text-align: center;
+}
+.rc-abb-step-n{
+  width: 46px; height: 46px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--rc-yellow) 0%, var(--rc-yellow-deep) 100%);
+  color: var(--rc-ink-900); display: grid; place-items: center;
+  font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 18px;
+  margin: 0 auto 14px;
+}
+.rc-abb-step h3{font-size: 16px; margin-bottom: 6px;}
+.rc-abb-step p{font-size: 13.5px; color: var(--rc-ink-500); margin: 0;}
+
+/* ===== CALCULATOR ===== */
+.rc-abb-calc{
+  background: linear-gradient(135deg, #FFF8E1 0%, #FFFFFF 60%);
+  border: 2px solid var(--rc-yellow);
+  border-radius: 22px; padding: 32px;
+}
+.rc-abb-calc h2{text-align: left; font-size: 26px;}
+.rc-abb-calc-inputs{
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px;
+}
+.rc-abb-calc-inputs label{
+  display: block; font-size: 13px; font-weight: 700; color: var(--rc-ink-700);
+  margin-bottom: 6px;
+}
+.rc-abb-calc-inputs select,.rc-abb-calc-inputs input{
+  width: 100%; height: 52px; padding: 0 16px;
+  border: 1.5px solid var(--rc-line-strong); border-radius: 12px;
+  background: #fff; font-size: 15px;
+  font-family: 'DM Sans', sans-serif;
+}
+.rc-abb-calc-result{
+  margin-top: 22px; padding: 22px;
+  background: #fff; border-radius: 16px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+  border: 1px solid var(--rc-line);
+}
+.rc-abb-calc-result .rc-abb-r-item{padding: 14px;}
+.rc-abb-calc-result .rc-abb-r-lbl{
+  font-size: 11px; color: var(--rc-ink-500); font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+}
+.rc-abb-calc-result .rc-abb-r-val{
+  font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 32px;
+  color: var(--rc-ink-900); margin-top: 4px;
+}
+.rc-abb-calc-result .rc-abb-r-save .rc-abb-r-val{color: var(--rc-success);}
+.rc-abb-calc .rc-abb-r-note{font-size: 12px; color: var(--rc-ink-500); margin-top: 4px;}
+
+/* ===== COMPARE TABLE ===== */
+.rc-abb-table{
+  width: 100%; border-collapse: separate; border-spacing: 0;
+  background: #fff; border: 1px solid var(--rc-line); border-radius: 16px;
+  overflow: hidden;
+}
+.rc-abb-table th,.rc-abb-table td{
+  padding: 16px 18px; text-align: left; font-size: 14px;
+  border-bottom: 1px solid var(--rc-line);
+}
+.rc-abb-table tbody tr:last-child td{border-bottom: none;}
+.rc-abb-table thead th{
+  background: var(--rc-bg-alt); font-family: 'Manrope', sans-serif;
+  font-weight: 800; font-size: 14px;
+}
+.rc-abb-table .rc-abb-sub-col{
+  background: var(--rc-yellow-soft); position: relative;
+}
+.rc-abb-table thead .rc-abb-sub-col::before{
+  content: ""; position: absolute; top: 0; left: 0; right: 0;
+  height: 3px; background: var(--rc-yellow-deep);
+}
+.rc-abb-yes{color: var(--rc-success); font-weight: 800;}
+
+/* ===== CATEGORY CARDS ===== */
+.rc-abb-cats{display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;}
+.rc-abb-cat{
+  background: #fff; padding: 18px; border-radius: 16px;
+  border: 1px solid var(--rc-line);
+  display: flex; gap: 14px; align-items: center;
+  text-decoration: none !important; color: inherit;
+  transition: all .2s ease;
+}
+.rc-abb-cat:hover{
+  transform: translateY(-3px); border-color: var(--rc-blue);
+  box-shadow: 0 12px 30px rgba(15,30,55,.08);
+  text-decoration: none !important;
+}
+.rc-abb-cat-ico{
+  width: 56px; height: 56px; border-radius: 14px; flex-shrink: 0;
+  display: grid; place-items: center;
+  color: #fff;
+}
+.rc-abb-cat-ico svg{width: 26px; height: 26px;}
+.rc-abb-cat-title{font-weight: 700; font-size: 15px;}
+.rc-abb-cat-sub{font-size: 12px; color: var(--rc-ink-500); margin-top: 2px;}
+
+/* ===== TESTIMONIALS ===== */
+.rc-abb-testi-grid{display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;}
+.rc-abb-testi{
+  background: #fff; border-radius: 16px; padding: 24px;
+  border: 1px solid var(--rc-line);
+}
+.rc-abb-testi-q{font-size: 14.5px; line-height: 1.65; margin-top: 10px; color: var(--rc-ink-700);}
+.rc-abb-testi-author{
+  display: flex; align-items: center; gap: 10px;
+  margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--rc-line);
+}
+.rc-abb-testi-avatar{
+  width: 38px; height: 38px; border-radius: 50%;
+  background: var(--rc-blue); color: #fff;
+  display: grid; place-items: center; font-weight: 800; font-size: 16px;
+}
+.rc-abb-testi-name{font-weight: 700; font-size: 14px;}
+.rc-abb-testi-meta{font-size: 12px; color: var(--rc-ink-500);}
+
+/* ===== FAQ ===== */
+.rc-abb-faq details{
+  background: #fff; border: 1px solid var(--rc-line); border-radius: 12px;
+  padding: 18px 20px; margin-bottom: 10px;
+}
+.rc-abb-faq summary{
+  font-weight: 700; cursor: pointer; list-style: none;
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: 'Manrope', sans-serif; font-size: 16px;
+}
+.rc-abb-faq summary::-webkit-details-marker{display: none;}
+.rc-abb-faq summary::after{
+  content: "+"; font-weight: 800; color: var(--rc-blue-deep); font-size: 24px;
+  transition: transform .2s ease;
+}
+.rc-abb-faq details[open] summary::after{content: "−";}
+.rc-abb-faq details[open]{border-color: var(--rc-blue);}
+.rc-abb-faq details p{
+  margin-top: 14px; color: var(--rc-ink-700); font-size: 14.5px; line-height: 1.7;
+}
+
+/* ===== FINAL CTA ===== */
+.rc-abb-final-cta{
+  background: linear-gradient(135deg, #FFF8E1 0%, #FFFFFF 60%);
+  border: 2px solid var(--rc-yellow);
+  border-radius: 22px; padding: 40px 28px; text-align: center;
+}
+.rc-abb-final-cta h2{font-size: 30px;}
+.rc-abb-trust-strip{
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 30px;
+}
+.rc-abb-trust-item{
+  display: flex; align-items: center; gap: 8px;
+  background: #fff; border: 1px solid var(--rc-line); border-radius: 12px;
+  padding: 12px 14px; font-size: 13px; font-weight: 600; color: var(--rc-ink-700);
+  justify-content: center;
+}
+.rc-abb-trust-item svg{color: var(--rc-success);}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px){
+  .rc-abb-hero h1{font-size: 36px;}
+  .rc-abb-stat-band{grid-template-columns: 1fr 1fr;}
+  .rc-abb-steps{grid-template-columns: 1fr 1fr;}
+  .rc-abb-cats{grid-template-columns: 1fr 1fr;}
+  .rc-abb-testi-grid{grid-template-columns: 1fr;}
+  .rc-abb-trust-strip{grid-template-columns: 1fr 1fr;}
+  .rc-abb-section h2{font-size: 26px;}
+}
+@media (max-width: 520px){
+  .rc-abb-hero{padding: 40px 18px 28px;}
+  .rc-abb-hero h1{font-size: 28px;}
+  .rc-abb-stat-band{grid-template-columns: 1fr 1fr;}
+  .rc-abb-steps{grid-template-columns: 1fr;}
+  .rc-abb-cats{grid-template-columns: 1fr;}
+  .rc-abb-calc{padding: 22px 18px;}
+  .rc-abb-calc-inputs{grid-template-columns: 1fr;}
+  .rc-abb-calc-result{grid-template-columns: 1fr;}
+  .rc-abb-table th,.rc-abb-table td{padding: 12px 10px; font-size: 13px;}
+}
+</style>
+
+<!-- ====================================================================
+     INIZIO LANDING — copia da qui in giù (oppure tutto incluso lo <style>)
+     ==================================================================== -->
+
+<div class="rc-abb-landing">
+
+  <!-- HERO -->
+  <section class="rc-abb-hero">
+    <span class="rc-abb-pill">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+      Programma Abbonamento Rocard
+    </span>
+    <h1>Mai più scorte finite.<br/><span>Mai più prezzo pieno.</span></h1>
+    <p class="rc-abb-sub">
+      Ricevi automaticamente i tuoi prodotti preferiti, risparmi il <b>2% extra</b> a ogni consegna, salta/pausa/annulla in 1 clic. Nessun vincolo, nessun costo nascosto.
+    </p>
+    <div class="rc-abb-hero-ctas">
+      <a href="#rc-abb-calc" class="rc-abb-btn rc-abb-btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="12" y1="10" x2="14" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="12" y1="14" x2="14" y2="14"/><line x1="8" y1="18" x2="10" y2="18"/></svg>
+        Calcola il tuo risparmio
+      </a>
+      <a href="#rc-abb-categories" class="rc-abb-btn rc-abb-btn-ghost">Vedi categorie disponibili</a>
+    </div>
+    <p class="rc-abb-hero-trust">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1FAF60" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      Già attivo per <b>oltre 8.400 clienti</b> Rocard · <span class="rc-abb-stars">★★★★★</span> 4,8/5 Trusted Shops
+    </p>
+  </section>
+
+  <!-- STAT BAND -->
+  <div class="rc-abb-stat-band">
+    <div><div class="rc-abb-v">−2%</div><div class="rc-abb-l">Sconto extra a ogni consegna</div></div>
+    <div><div class="rc-abb-v">0€</div><div class="rc-abb-l">Costi di attivazione</div></div>
+    <div><div class="rc-abb-v">1 clic</div><div class="rc-abb-l">Salta, pausa o annulla</div></div>
+    <div><div class="rc-abb-v">24/7</div><div class="rc-abb-l">Supporto dedicato</div></div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section class="rc-abb-section">
+    <h2>Come funziona — in 4 passi</h2>
+    <p class="rc-abb-section-desc">Attivi una volta, ricevi per sempre. Senza pensieri.</p>
+    <div class="rc-abb-steps">
+      <div class="rc-abb-step">
+        <div class="rc-abb-step-n">1</div>
+        <h3>Scegli il prodotto</h3>
+        <p>Su qualsiasi prodotto Rocard con la spunta "Abbonati e risparmia"</p>
+      </div>
+      <div class="rc-abb-step">
+        <div class="rc-abb-step-n">2</div>
+        <h3>Decidi la frequenza</h3>
+        <p>Ogni 2, 4, 6, 8 settimane o mensile · personalizzata</p>
+      </div>
+      <div class="rc-abb-step">
+        <div class="rc-abb-step-n">3</div>
+        <h3>Ricevi automaticamente</h3>
+        <p>Spediamo il giorno scelto · email 48h prima per modifiche</p>
+      </div>
+      <div class="rc-abb-step">
+        <div class="rc-abb-step-n">4</div>
+        <h3>Modifichi in 1 clic</h3>
+        <p>Salta, pausa, anticipa, cambia quantità · dal tuo account</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCULATOR -->
+  <section class="rc-abb-section" id="rc-abb-calc">
+    <div class="rc-abb-calc">
+      <h2>
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0F6B9B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="12" y1="10" x2="14" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="12" y1="14" x2="14" y2="14"/><line x1="8" y1="18" x2="10" y2="18"/></svg>
+        Quanto risparmi in 1 anno?
+      </h2>
+      <p style="color:#5B6A7E; margin-top:6px;">Simula il tuo risparmio annuale con l'abbonamento Rocard sui tuoi acquisti ricorrenti.</p>
+
+      <div class="rc-abb-calc-inputs">
+        <div>
+          <label>Categoria prodotto</label>
+          <select id="rc-abb-cat-select" onchange="rcAbbRecalc()">
+            <option value="22">Caffè & Capsule (es. Borbone Blu 21,90€)</option>
+            <option value="26">Antiparassitari (es. Frontline Combo 26€)</option>
+            <option value="40">Crocchette pet (es. Edgard & Cooper 4kg 39€)</option>
+            <option value="9">Farine Caputo (5kg 9€)</option>
+            <option value="26">Olio motore Bardahl (1L 26€)</option>
+            <option value="8">Concimi/Giardinaggio (es. 8€)</option>
+          </select>
+        </div>
+        <div>
+          <label>Quante consegne all'anno?</label>
+          <input type="number" id="rc-abb-qty" value="12" min="1" max="52" oninput="rcAbbRecalc()" />
+        </div>
+      </div>
+
+      <div class="rc-abb-calc-result">
+        <div class="rc-abb-r-item">
+          <div class="rc-abb-r-lbl">Spesa annuale standard</div>
+          <div class="rc-abb-r-val" id="rc-abb-standard">263,40€</div>
+          <div class="rc-abb-r-note">Prezzo pieno · spedizione a ogni ordine</div>
+        </div>
+        <div class="rc-abb-r-item rc-abb-r-save">
+          <div class="rc-abb-r-lbl">Risparmio con abbonamento</div>
+          <div class="rc-abb-r-val" id="rc-abb-save">+ 76,00€</div>
+          <div class="rc-abb-r-note">2% sconto + spedizione sempre gratuita</div>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:24px;">
+        <a href="/shop/" class="rc-abb-btn rc-abb-btn-primary">
+          Attiva il tuo abbonamento adesso
+        </a>
+        <div style="color:#5B6A7E; font-size:12px; margin-top:12px;">
+          Pagamento solo a ogni spedizione · annullamento in 1 clic dal tuo account
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARE -->
+  <section class="rc-abb-section">
+    <h2>Acquisto singolo vs Abbonamento Rocard</h2>
+    <p class="rc-abb-section-desc">Stesso prodotto. Comodità e prezzo diversi.</p>
+
+    <table class="rc-abb-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Acquisto singolo</th>
+          <th class="rc-abb-sub-col">Abbonamento Rocard</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Sconto sul prezzo</td><td>Solo prezzo listino</td><td class="rc-abb-sub-col"><span class="rc-abb-yes">−2% a ogni consegna</span></td></tr>
+        <tr><td>Spedizione</td><td>Gratuita sopra 49,90€</td><td class="rc-abb-sub-col"><span class="rc-abb-yes">Sempre gratuita</span></td></tr>
+        <tr><td>Costo attivazione</td><td>—</td><td class="rc-abb-sub-col"><span class="rc-abb-yes">0€</span></td></tr>
+        <tr><td>Vincoli di durata</td><td>—</td><td class="rc-abb-sub-col"><span class="rc-abb-yes">Nessuno · annulli quando vuoi</span></td></tr>
+        <tr><td>Salta una consegna</td><td>—</td><td class="rc-abb-sub-col"><span class="rc-abb-yes">Sì · 1 clic dal tuo account</span></td></tr>
+        <tr><td>Pausa fino a 6 mesi</td><td>—</td><td class="rc-abb-sub-col"><span class="rc-abb-yes">Sì · senza penali</span></td></tr>
+        <tr><td>Modifica quantità/frequenza</td><td>—</td><td class="rc-abb-sub-col"><span class="rc-abb-yes">Sì · in qualsiasi momento</span></td></tr>
+        <tr><td>Reminder pre-spedizione</td><td>—</td><td class="rc-abb-sub-col"><span class="rc-abb-yes">Email 48h prima</span></td></tr>
+        <tr><td>Programma Fedeltà</td><td>Normale</td><td class="rc-abb-sub-col"><span class="rc-abb-yes">Doppi punti</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="rc-abb-section" id="rc-abb-categories">
+    <h2>Su quali categorie attivare l'abbonamento</h2>
+    <p class="rc-abb-section-desc">I prodotti dove ha più senso — perché li ricompri sempre.</p>
+
+    <div class="rc-abb-cats">
+      <a href="/categoria/caffe/" class="rc-abb-cat">
+        <div class="rc-abb-cat-ico" style="background:linear-gradient(135deg,#6B3F19,#3C2415);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        </div>
+        <div>
+          <div class="rc-abb-cat-title">Caffè & Capsule</div>
+          <div class="rc-abb-cat-sub">Borbone, Lavazza, Rocard, Moreno…</div>
+        </div>
+      </a>
+      <a href="/categoria/animali-domestici/" class="rc-abb-cat">
+        <div class="rc-abb-cat-ico" style="background:linear-gradient(135deg,#1FAF60,#117A3F);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="8.5" r="2.5"/><circle cx="9" cy="4.5" r="2.5"/><circle cx="15" cy="4.5" r="2.5"/><circle cx="19" cy="8.5" r="2.5"/><path d="M16 16.5c0 3.038-2.5 5.5-4 5.5s-4-2.462-4-5.5C8 13.462 9.5 11 12 11s4 2.462 4 5.5z"/></svg>
+        </div>
+        <div>
+          <div class="rc-abb-cat-title">Antiparassitari & Pet</div>
+          <div class="rc-abb-cat-sub">Frontline, crocchette, integratori</div>
+        </div>
+      </a>
+      <a href="/categoria/farine/" class="rc-abb-cat">
+        <div class="rc-abb-cat-ico" style="background:linear-gradient(135deg,#F5A623,#C77A00);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22c1.25-.987 2.27-1.975 3.9-2.2a5.56 5.56 0 0 1 3.8 1.5 4 4 0 0 0 6.187-2.353 3.5 3.5 0 0 0 3.69-5.116A3.5 3.5 0 0 0 20.95 8 3.5 3.5 0 1 0 16 3.05a3.5 3.5 0 0 0-5.831 1.373 3.5 3.5 0 0 0-5.116 3.69 4 4 0 0 0-2.348 6.155C3.499 15.42 4.409 16.712 4.2 18.1 3.926 19.743 3 20.752 2 22"/><path d="M16.5 11h.01"/><path d="M8.5 16h.01"/></svg>
+        </div>
+        <div>
+          <div class="rc-abb-cat-title">Farine & Lieviti</div>
+          <div class="rc-abb-cat-sub">Caputo, lievito di birra, semola</div>
+        </div>
+      </a>
+      <a href="/categoria/auto-moto/" class="rc-abb-cat">
+        <div class="rc-abb-cat-ico" style="background:linear-gradient(135deg,#2B7DE9,#0F4D9C);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 12h-4v-2.5a2.5 2.5 0 0 0-5 0V12H2v8h12v-8z"/><path d="M22 12h-4V8h4z"/><path d="M22 12v-2a3 3 0 0 0-3-3"/></svg>
+        </div>
+        <div>
+          <div class="rc-abb-cat-title">Olio motore & Additivi</div>
+          <div class="rc-abb-cat-sub">Bardahl, cambio olio periodico</div>
+        </div>
+      </a>
+      <a href="/categoria/casa-e-cucina/" class="rc-abb-cat">
+        <div class="rc-abb-cat-ico" style="background:linear-gradient(135deg,#1B89C0,#0A3A55);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div>
+          <div class="rc-abb-cat-title">Detergenti & Casa</div>
+          <div class="rc-abb-cat-sub">Sacchetti, ammorbidente, antimuffa</div>
+        </div>
+      </a>
+      <a href="/categoria/giardinaggio/" class="rc-abb-cat">
+        <div class="rc-abb-cat-ico" style="background:linear-gradient(135deg,#7D5BA6,#4C2F75);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22c1.25-.987 2.27-1.975 3.9-2.2"/><path d="M22 14a8.5 8.5 0 1 1-15.39-5.13"/><path d="M14 2.13a3.5 3.5 0 0 0-4.95 4.95"/></svg>
+        </div>
+        <div>
+          <div class="rc-abb-cat-title">Concimi & Giardinaggio</div>
+          <div class="rc-abb-cat-sub">Compo, stallatico, lupini macinati</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="rc-abb-section">
+    <h2>Cosa dicono i clienti abbonati</h2>
+    <p class="rc-abb-section-desc">3 storie da chi non torna più all'acquisto singolo.</p>
+    <div class="rc-abb-testi-grid">
+      <div class="rc-abb-testi">
+        <div class="rc-abb-stars">★★★★★</div>
+        <p class="rc-abb-testi-q">"Ricevo le mie capsule Borbone ogni 5 settimane senza pensarci. Il 2% extra fa la differenza, ma soprattutto non resto mai a secco la domenica mattina."</p>
+        <div class="rc-abb-testi-author">
+          <div class="rc-abb-testi-avatar">G</div>
+          <div>
+            <div class="rc-abb-testi-name">Giulia M.</div>
+            <div class="rc-abb-testi-meta">Caffè Borbone Blu · abbonata 8 mesi</div>
+          </div>
+        </div>
+      </div>
+      <div class="rc-abb-testi">
+        <div class="rc-abb-stars">★★★★★</div>
+        <p class="rc-abb-testi-q">"Per il mio cane uso Frontline ogni mese. Con l'abbonamento Rocard arriva da solo e risparmio anche la spedizione. Tempo zero, soldi risparmiati."</p>
+        <div class="rc-abb-testi-author">
+          <div class="rc-abb-testi-avatar">A</div>
+          <div>
+            <div class="rc-abb-testi-name">Antonio R.</div>
+            <div class="rc-abb-testi-meta">Frontline Combo · abbonato 1 anno</div>
+          </div>
+        </div>
+      </div>
+      <div class="rc-abb-testi">
+        <div class="rc-abb-stars">★★★★★</div>
+        <p class="rc-abb-testi-q">"Faccio pizza ogni weekend e mi serviva una soluzione che non mi facesse correre al supermercato. Caputo Nuvola in abbonamento è perfetto."</p>
+        <div class="rc-abb-testi-author">
+          <div class="rc-abb-testi-avatar">M</div>
+          <div>
+            <div class="rc-abb-testi-name">Marco V.</div>
+            <div class="rc-abb-testi-meta">Farina Caputo · abbonato 6 mesi</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="rc-abb-section">
+    <h2>Domande frequenti</h2>
+    <p class="rc-abb-section-desc">Risposte chiare sul programma abbonamento.</p>
+
+    <div class="rc-abb-faq">
+      <details>
+        <summary>Quanto costa attivare l'abbonamento?</summary>
+        <p><b>0€</b>. Nessun costo di attivazione, di mantenimento, di cancellazione. Paghi <b>solo i prodotti</b> a ogni consegna, sempre con il 2% di sconto e spedizione gratuita.</p>
+      </details>
+      <details>
+        <summary>Posso annullare quando voglio?</summary>
+        <p>Sì, in <b>1 clic dal tuo account Rocard</b>. Nessuna durata minima, nessuna penale, nessuna mail di "uscita" da scrivere. Puoi anche solo <b>mettere in pausa</b> fino a 6 mesi.</p>
+      </details>
+      <details>
+        <summary>Cosa succede se voglio saltare una consegna?</summary>
+        <p>Riceverai un'<b>email 48 ore prima di ogni spedizione</b>. In 1 clic puoi: saltare la consegna, anticiparla, cambiare quantità, cambiare frequenza, cambiare indirizzo. Tutto self-service.</p>
+      </details>
+      <details>
+        <summary>Posso modificare il prodotto in abbonamento?</summary>
+        <p>Sì. Puoi cambiare miscela del caffè, taglia del prodotto, quantità — in qualsiasi momento. Lo sconto e i benefici restano attivi sul nuovo prodotto.</p>
+      </details>
+      <details>
+        <summary>Il prezzo può aumentare in futuro?</summary>
+        <p><b>No, mai a tua insaputa.</b> Se il prezzo listino cambia, ti avviseremo via email <b>30 giorni prima</b> della prossima consegna, e potrai decidere se confermare o annullare senza costi.</p>
+      </details>
+      <details>
+        <summary>Come funziona il pagamento?</summary>
+        <p>Il pagamento viene addebitato <b>solo al momento di ogni spedizione</b>, sulla carta salvata o tramite PayPal. Non ti addebitiamo nulla in anticipo. Se la carta non è valida, ti contattiamo prima di sospendere.</p>
+      </details>
+      <details>
+        <summary>L'abbonamento si applica a tutti i prodotti Rocard?</summary>
+        <p>A <b>oltre il 90% del catalogo</b>. Sono esclusi alcuni articoli stagionali o a stock molto limitato. Trovi la spunta <b>"Abbonati e risparmia"</b> su tutti i prodotti compatibili.</p>
+      </details>
+      <details>
+        <summary>Il programma Fedeltà funziona anche con l'abbonamento?</summary>
+        <p>Sì, anzi guadagni <b>doppi punti</b> Rocard su ogni consegna in abbonamento — cumulabili con offerte e codici sconto.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="rc-abb-section">
+    <div class="rc-abb-final-cta">
+      <h2>Pronto a non pensarci più?</h2>
+      <p style="color:#5B6A7E; margin-top:10px; max-width:540px; margin-left:auto; margin-right:auto;">
+        Attiva il tuo primo abbonamento in 30 secondi. Senza impegno. Risparmi dal primo ordine.
+      </p>
+      <div style="display:flex; gap:10px; justify-content:center; margin-top:24px; flex-wrap:wrap;">
+        <a href="/shop/" class="rc-abb-btn rc-abb-btn-primary">Attiva ora · è gratis</a>
+        <a href="#rc-abb-calc" class="rc-abb-btn rc-abb-btn-ghost">Ricalcola risparmio</a>
+      </div>
+      <div class="rc-abb-trust-strip">
+        <div class="rc-abb-trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg> Sicuro SSL 256-bit</div>
+        <div class="rc-abb-trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg> Annulli in 1 clic</div>
+        <div class="rc-abb-trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1v-6h3v4zM3 19a2 2 0 002 2h1v-6H3v4z"/></svg> Supporto 24/7</div>
+        <div class="rc-abb-trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 4,8/5 Trusted Shops</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  window.rcAbbRecalc = function(){
+    var unit = parseFloat(document.getElementById('rc-abb-cat-select').value);
+    var qty = parseInt(document.getElementById('rc-abb-qty').value) || 0;
+    var standardShip = qty * 5.90 * 0.5;
+    var standardTotal = unit * qty + standardShip;
+    var subDiscount = unit * qty * 0.02;
+    var totalSave = subDiscount + standardShip;
+    document.getElementById('rc-abb-standard').textContent = standardTotal.toFixed(2).replace('.', ',') + '€';
+    document.getElementById('rc-abb-save').textContent = '+ ' + totalSave.toFixed(2).replace('.', ',') + '€';
+  };
+  rcAbbRecalc();
+})();
+</script>
+
+<!-- ====================================================================
+     FINE LANDING — fine del blocco da incollare
+     ==================================================================== -->

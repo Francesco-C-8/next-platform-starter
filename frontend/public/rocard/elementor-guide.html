@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Guida Elementor · Landing Abbonamento Rocard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+<link rel="stylesheet" href="./styles.css" />
+<style>
+  .guide-hero{
+    background: linear-gradient(135deg, #0E1A2A 0%, #1B89C0 100%);
+    color:#fff; padding: 50px 20px; text-align:center; border-radius: 22px;
+    margin: 30px 0;
+  }
+  .guide-hero h1{color:#fff; font-size:40px; max-width:760px; margin: 0 auto;}
+  .guide-hero p{color: rgba(255,255,255,.85); font-size:16px; max-width:580px; margin: 14px auto 0;}
+  .option-grid{display:grid; grid-template-columns: 1fr 1fr; gap:20px; margin:24px 0}
+  @media (max-width:780px){.option-grid{grid-template-columns: 1fr}}
+  .opt-card{
+    background:#fff; padding: 26px; border-radius: var(--r-lg); border:1px solid var(--line);
+    transition: all .2s ease;
+  }
+  .opt-card:hover{border-color: var(--rocard-blue); transform: translateY(-2px); box-shadow: var(--shadow-lg);}
+  .opt-card.featured{border-color: var(--rocard-yellow); background: var(--rocard-yellow-soft);}
+  .opt-label{
+    display:inline-block; font-size:11px; font-weight:800;
+    padding: 3px 10px; border-radius: var(--r-pill); letter-spacing:.04em; text-transform: uppercase;
+    background: var(--rocard-yellow); color: var(--ink-900);
+    margin-bottom: 14px;
+  }
+  .opt-label.adv{background: var(--success-soft); color: var(--success);}
+  .opt-card h3{font-size: 20px;}
+  .opt-card ol, .opt-card ul{padding-left: 22px; line-height: 1.75; font-size: 14px;}
+  .opt-card .code-box{
+    background:#0E1A2A; color:#E8F3FB; padding: 12px 14px; border-radius: 10px;
+    font-family: 'JetBrains Mono', monospace; font-size:12px;
+    margin: 10px 0; word-break: break-all;
+  }
+  .copy-btn{
+    background: var(--rocard-blue); color:#fff; border:none; padding: 8px 14px;
+    border-radius: var(--r-pill); cursor:pointer; font-weight:700; font-size:13px;
+    display:inline-flex; gap:6px; align-items:center;
+  }
+  .copy-btn:hover{background: var(--rocard-blue-deep);}
+
+  .section-step{
+    display:grid; grid-template-columns: 60px 1fr; gap: 18px;
+    background:#fff; border:1px solid var(--line); border-radius: var(--r-lg);
+    padding: 22px; margin-bottom: 14px;
+  }
+  .section-step-n{
+    width:46px; height:46px; border-radius:50%;
+    background: linear-gradient(135deg, var(--rocard-yellow), var(--rocard-yellow-deep));
+    color: var(--ink-900); display:grid; place-items:center;
+    font-family: var(--font-display); font-weight:800; font-size:18px;
+  }
+  .section-step h3{font-size: 17px; margin-bottom:8px}
+  .widget-row{
+    display:grid; grid-template-columns: 200px 1fr; gap:12px; margin: 6px 0;
+    font-size: 14px; padding: 10px 12px; background: var(--bg-alt); border-radius: 8px;
+  }
+  .widget-row strong{font-family: 'JetBrains Mono', monospace; font-size:13px; color: var(--rocard-blue-deep);}
+
+  .design-grid{display:grid; grid-template-columns: repeat(4,1fr); gap:14px; margin: 16px 0;}
+  @media (max-width:780px){.design-grid{grid-template-columns: 1fr 1fr;}}
+  .swatch{
+    background:#fff; border:1px solid var(--line); border-radius: 12px; padding: 14px; text-align:center;
+  }
+  .swatch-color{
+    height: 60px; border-radius: 8px; margin-bottom: 10px;
+  }
+  .swatch-name{font-weight:700; font-size:13px}
+  .swatch-hex{font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-500)}
+
+  .pillrow{display:flex; gap:8px; flex-wrap:wrap; margin: 8px 0;}
+  .pill-small{
+    background: var(--bg-alt); padding: 3px 10px; border-radius: var(--r-pill);
+    font-size:11px; font-weight:700; color: var(--ink-700);
+  }
+
+  .preview-frame{
+    margin: 14px 0; border-radius: 16px; overflow: hidden;
+    border:1px solid var(--line); background:#F4F4FB;
+  }
+  .preview-frame img{width:100%; display:block;}
+
+  .alert-tip{
+    background: var(--info-soft); border-left:4px solid var(--info);
+    padding: 14px 18px; border-radius: 10px; margin: 14px 0;
+    font-size: 14px; line-height: 1.6;
+  }
+  .alert-tip b{color: var(--info);}
+</style>
+</head>
+<body>
+
+<header class="r-header">
+  <div class="r-header-inner">
+    <a href="./index.html" class="r-logo"><span class="logo-mark">R</span><span>ROCARD</span></a>
+    <div class="r-header-trust">
+      <span class="item"><i class="fab fa-elementor" style="color:#92003B;"></i> Guida Elementor</span>
+    </div>
+  </div>
+</header>
+
+<main class="container-narrow" style="padding: 20px 20px 60px;">
+
+  <section class="guide-hero">
+    <span class="pill pill-yellow" style="background: rgba(255,198,41,.2); color: #FFC629; font-size:11px;"><i class="fas fa-file-code"></i> ELEMENTOR · 3 OPZIONI</span>
+    <h1 style="margin-top:18px;">Landing Abbonamento Rocard<br/>pronta per Elementor</h1>
+    <p>Hai 3 modi per portarla online. Scegli quello che preferisci in base al tuo livello di comfort con Elementor.</p>
+  </section>
+
+  <!-- OPZIONI -->
+  <h2 style="text-align:center; font-size: 28px;">Scegli il tuo approccio</h2>
+  <p class="muted text-center">Tutte e 3 le opzioni producono lo stesso risultato visivo.</p>
+
+  <div class="option-grid">
+    <!-- OPZIONE A -->
+    <div class="opt-card featured">
+      <span class="opt-label">⚡ FASTEST · CONSIGLIATA</span>
+      <h3>Opzione A · 1 widget HTML</h3>
+      <p class="small">Copia un singolo blocco di codice in <b>1 widget HTML</b> di Elementor. Pronta in 2 minuti.</p>
+      <ul>
+        <li>Compatibile con <b>Elementor Free</b></li>
+        <li>100% identica al prototipo</li>
+        <li>Tutto self-contained (CSS + JS inline)</li>
+        <li>Non confligge con il tuo tema</li>
+      </ul>
+      <a href="./elementor/abbonamento-rocard.html" target="_blank" class="btn btn-primary btn-block" style="margin-top:12px;">
+        <i class="fas fa-eye"></i> Apri codice da copiare
+      </a>
+      <a href="./elementor/abbonamento-rocard.html" download class="btn btn-ghost btn-block" style="margin-top:8px;">
+        <i class="fas fa-download"></i> Scarica file .html
+      </a>
+    </div>
+
+    <!-- OPZIONE B -->
+    <div class="opt-card">
+      <span class="opt-label adv">🛠 NATIVE · PIÙ EDITABILE</span>
+      <h3>Opzione B · Widget Elementor nativi</h3>
+      <p class="small">Ricostruisci la landing con i widget nativi Elementor. Più lavoro ma <b>editabile facilmente</b> dal cliente in futuro.</p>
+      <ul>
+        <li>Stesso risultato visivo</li>
+        <li>Ogni testo modificabile inline</li>
+        <li>Sezioni indipendenti riusabili</li>
+        <li>Vedi guida step-by-step sotto ↓</li>
+      </ul>
+      <a href="#guide-native" class="btn btn-primary btn-block" style="margin-top:12px;">
+        <i class="fas fa-arrow-down"></i> Vai alla guida
+      </a>
+    </div>
+  </div>
+
+  <div class="opt-card" style="margin: 0 0 30px;">
+    <span class="opt-label" style="background: var(--info-soft); color: var(--info);">📦 PRO TIP</span>
+    <h3>Opzione C · Sezione Elementor (Template Kit)</h3>
+    <p class="small">Se hai familiarità con i <b>Saved Templates Elementor</b>: copia ciascuna sezione dell'opzione A in HTML widget separati DENTRO sezioni Elementor distinte. Così ogni sezione (Hero / Calcolatore / FAQ / etc.) è un blocco riusabile. Il tuo developer potrà esportarlo come <b>Elementor Template Kit</b> per altri usi.</p>
+  </div>
+
+  <!-- ===== ISTRUZIONI OPZIONE A ===== -->
+  <h2 style="margin-top: 40px;"><i class="fas fa-bolt text-rocard"></i> Opzione A — Step by step</h2>
+  <p class="muted">In 4 passaggi pubblichi la landing sul tuo WordPress.</p>
+
+  <div class="section-step">
+    <div class="section-step-n">1</div>
+    <div>
+      <h3>Crea una nuova pagina vuota</h3>
+      <p class="small muted">WordPress → <b>Pagine → Aggiungi nuova</b> → Titolo: <code>Abbonamento Rocard</code> → Permalink: <code>/abbonamento/</code></p>
+      <p class="small">Clicca su <b>"Modifica con Elementor"</b>. Una volta dentro Elementor, scegli template <b>"Tela Elementor"</b> (Elementor Canvas) dalle impostazioni della pagina (icona ingranaggio in basso a sinistra) — questo rimuove header/footer del tema per mostrare solo la tua landing.</p>
+    </div>
+  </div>
+
+  <div class="section-step">
+    <div class="section-step-n">2</div>
+    <div>
+      <h3>Trascina un widget HTML</h3>
+      <p class="small">Dal pannello sinistro cerca <b>"HTML"</b> e trascinalo nella pagina (qualsiasi sezione vuota).</p>
+      <p class="small muted">Il widget HTML è gratuito e disponibile sia su Elementor Free che Pro.</p>
+    </div>
+  </div>
+
+  <div class="section-step">
+    <div class="section-step-n">3</div>
+    <div>
+      <h3>Copia tutto il codice e incollalo</h3>
+      <p class="small">Apri <a href="./elementor/abbonamento-rocard.html" target="_blank"><b>questo file</b></a> in una nuova scheda. Seleziona tutto il contenuto (<b>Ctrl+A</b> / <b>Cmd+A</b>) e copia (<b>Ctrl+C</b> / <b>Cmd+C</b>).</p>
+      <p class="small">Torna a Elementor → clicca dentro l'HTML widget → incolla (<b>Ctrl+V</b> / <b>Cmd+V</b>) nel campo <b>"HTML Code"</b>.</p>
+      <div class="alert-tip">
+        <b>💡 Tip</b>: il codice include <code>&lt;style&gt;</code> e <code>&lt;script&gt;</code> già al suo interno. Elementor li gestisce correttamente nel widget HTML.
+      </div>
+    </div>
+  </div>
+
+  <div class="section-step">
+    <div class="section-step-n">4</div>
+    <div>
+      <h3>Personalizza i link e pubblica</h3>
+      <p class="small">Prima di salvare, cerca nel codice questi <b>placeholder URL</b> e sostituiscili coi tuoi reali:</p>
+      <div class="widget-row"><strong>/shop/</strong><span>→ URL della pagina shop o categoria abbonabile</span></div>
+      <div class="widget-row"><strong>/categoria/caffe/</strong><span>→ URL categoria Caffè di rocard.it</span></div>
+      <div class="widget-row"><strong>/categoria/animali-domestici/</strong><span>→ URL categoria Pet</span></div>
+      <div class="widget-row"><strong>/categoria/farine/</strong><span>→ URL categoria Farine</span></div>
+      <div class="widget-row"><strong>/categoria/auto-moto/</strong><span>→ URL categoria Auto & Moto</span></div>
+      <div class="widget-row"><strong>/categoria/casa-e-cucina/</strong><span>→ URL categoria Casa</span></div>
+      <div class="widget-row"><strong>/categoria/giardinaggio/</strong><span>→ URL categoria Giardinaggio</span></div>
+      <p class="small mt-3">Salva la pagina Elementor (pulsante <b>"Aggiorna"</b> in basso a sinistra) e visualizza la pagina pubblica. Done! 🎉</p>
+    </div>
+  </div>
+
+  <!-- ===== GUIDA NATIVE WIDGETS ===== -->
+  <h2 id="guide-native" style="margin-top: 50px;"><i class="fas fa-cubes text-rocard"></i> Opzione B — Ricostruisci con widget nativi Elementor</h2>
+  <p class="muted">Sezione per sezione. Indicazioni di widget, copy e design token.</p>
+
+  <!-- Design tokens -->
+  <h3 style="margin-top:24px;">🎨 Design Tokens · Colori Rocard</h3>
+  <div class="design-grid">
+    <div class="swatch"><div class="swatch-color" style="background:#1B89C0;"></div><div class="swatch-name">Rocard Blue</div><div class="swatch-hex">#1B89C0</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#0F6B9B;"></div><div class="swatch-name">Blue Deep</div><div class="swatch-hex">#0F6B9B</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#FFC629;"></div><div class="swatch-name">Yellow CTA</div><div class="swatch-hex">#FFC629</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#E8A900;"></div><div class="swatch-name">Yellow Deep</div><div class="swatch-hex">#E8A900</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#FFF4D1;"></div><div class="swatch-name">Yellow Soft</div><div class="swatch-hex">#FFF4D1</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#1FAF60;"></div><div class="swatch-name">Success Green</div><div class="swatch-hex">#1FAF60</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#F4F4FB;"></div><div class="swatch-name">Background</div><div class="swatch-hex">#F4F4FB</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#0E1A2A;"></div><div class="swatch-name">Ink Dark</div><div class="swatch-hex">#0E1A2A</div></div>
+  </div>
+
+  <h3 style="margin-top:24px;">🔤 Tipografia</h3>
+  <div class="pillrow">
+    <span class="pill-small">Headings: <b>Manrope</b> 800/700</span>
+    <span class="pill-small">Body: <b>DM Sans</b> 400/500/700</span>
+    <span class="pill-small">Mono: <b>JetBrains Mono</b> (codice)</span>
+  </div>
+  <p class="small">In Elementor: <b>Site Settings → Typography</b> → seleziona Google Font "Manrope" come Primary Heading e "DM Sans" come Body.</p>
+
+  <!-- SEZIONE 1: HERO -->
+  <div class="section-step" style="margin-top: 24px;">
+    <div class="section-step-n">①</div>
+    <div>
+      <h3>Sezione 1 — HERO</h3>
+      <div class="pillrow">
+        <span class="pill pill-blue">Layout: 1 colonna centrato</span>
+        <span class="pill pill-blue">Padding: 80px verticale</span>
+        <span class="pill pill-blue">Background: gradient radiale</span>
+      </div>
+      <h4 style="font-size:13px; margin-top:14px;">Widget da usare (Free):</h4>
+      <div class="widget-row"><strong>Heading</strong><span>"Programma Abbonamento Rocard" (pill stilizzato) · size 12px · uppercase</span></div>
+      <div class="widget-row"><strong>Heading</strong><span>"Mai più scorte finite. Mai più prezzo pieno." · size 52px (32px mobile)</span></div>
+      <div class="widget-row"><strong>Text Editor</strong><span>Sub-headline descrittiva · size 17px · color #5B6A7E</span></div>
+      <div class="widget-row"><strong>Button × 2</strong><span>"Calcola il tuo risparmio" (primary giallo) · "Vedi categorie" (ghost)</span></div>
+      <div class="widget-row"><strong>Icon Box</strong><span>Trust line "Già attivo per 8.400+ clienti · 4,8/5 Trusted Shops"</span></div>
+      <div class="alert-tip">
+        <b>Background:</b> In <b>Section → Style → Background → Gradient</b> imposta gradiente radiale con stop a #FFFFFF e overlay leggero giallo+blu.
+      </div>
+    </div>
+  </div>
+
+  <!-- SEZIONE 2: STAT BAND -->
+  <div class="section-step">
+    <div class="section-step-n">②</div>
+    <div>
+      <h3>Sezione 2 — STAT BAND (4 numeri)</h3>
+      <div class="pillrow">
+        <span class="pill pill-blue">Layout: 4 colonne (1+1 mobile)</span>
+        <span class="pill pill-blue">Padding: 22px</span>
+        <span class="pill pill-blue">Border-radius: 16px</span>
+      </div>
+      <h4 style="font-size:13px; margin-top:14px;">Widget per ogni colonna:</h4>
+      <div class="widget-row"><strong>Heading</strong><span>Numero grande es. "−2%" · size 30px · color #0F6B9B · Manrope 800</span></div>
+      <div class="widget-row"><strong>Text Editor</strong><span>Label es. "Sconto extra a ogni consegna" · size 13px · color #5B6A7E</span></div>
+      <p class="small mt-3">I 4 valori da inserire:</p>
+      <ul style="margin-top:0; font-size: 14px;">
+        <li><b>−2%</b> · Sconto extra a ogni consegna</li>
+        <li><b>0€</b> · Costi di attivazione</li>
+        <li><b>1 clic</b> · Salta, pausa o annulla</li>
+        <li><b>24/7</b> · Supporto dedicato</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SEZIONE 3: HOW IT WORKS -->
+  <div class="section-step">
+    <div class="section-step-n">③</div>
+    <div>
+      <h3>Sezione 3 — Come funziona (4 step)</h3>
+      <div class="pillrow">
+        <span class="pill pill-blue">Layout: 4 colonne</span>
+        <span class="pill pill-blue">Card center-aligned</span>
+      </div>
+      <h4 style="font-size:13px; margin-top:14px;">Widget consigliato:</h4>
+      <div class="widget-row"><strong>Icon Box</strong> <span>per ogni step, con numero come icona testuale dentro un cerchio giallo</span></div>
+      <p class="small">Oppure usa <b>Image Box</b> con un cerchio numerato come immagine.</p>
+      <p class="small mt-3"><b>Copy dei 4 step:</b></p>
+      <ol style="font-size: 14px;">
+        <li><b>Scegli il prodotto</b> — Su qualsiasi prodotto Rocard con la spunta "Abbonati e risparmia"</li>
+        <li><b>Decidi la frequenza</b> — Ogni 2, 4, 6, 8 settimane o mensile · personalizzata</li>
+        <li><b>Ricevi automaticamente</b> — Spediamo il giorno scelto · email 48h prima per modifiche</li>
+        <li><b>Modifichi in 1 clic</b> — Salta, pausa, anticipa, cambia quantità · dal tuo account</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- SEZIONE 4: CALCULATOR -->
+  <div class="section-step">
+    <div class="section-step-n">④</div>
+    <div>
+      <h3>Sezione 4 — Calcolatore risparmio (interattivo) <span class="pill pill-yellow" style="font-size:10px;">RICHIEDE HTML WIDGET</span></h3>
+      <p class="small">Il calcolatore richiede JavaScript, quindi va inserito tramite un <b>HTML widget</b> dedicato. Usa solo questo pezzo di codice (estratto dall'opzione A):</p>
+      <div class="alert-tip">
+        <b>Tip pratico:</b> Crea un widget HTML SOLO per la sezione calcolatore. Tutto il resto della pagina puoi farlo con widget nativi.<br/>
+        Codice del calcolatore disponibile <a href="./elementor/abbonamento-rocard.html" target="_blank">qui</a> (sezione <code>&lt;!-- CALCULATOR --&gt;</code>).
+      </div>
+      <p class="small"><b>Alternativa con plugin Elementor Pro:</b> usa il widget <b>"Forms"</b> + Custom Field Calculator (richiede addon Crocoblock JetEngine o simile).</p>
+    </div>
+  </div>
+
+  <!-- SEZIONE 5: COMPARE TABLE -->
+  <div class="section-step">
+    <div class="section-step-n">⑤</div>
+    <div>
+      <h3>Sezione 5 — Tabella confronto</h3>
+      <div class="pillrow">
+        <span class="pill pill-blue">Widget: Price Table (Pro) o HTML</span>
+      </div>
+      <p class="small">Con <b>Elementor Pro</b> usa <b>Price Table</b> in 2 colonne affiancate.</p>
+      <p class="small">Con <b>Elementor Free</b> usa <b>HTML widget</b> con tabella semplificata, oppure plugin gratuito <b>"TablePress"</b>.</p>
+      <p class="small mt-2"><b>Righe della tabella:</b></p>
+      <ul style="font-size:13.5px;">
+        <li>Sconto sul prezzo · Listino · <b>−2% a ogni consegna</b></li>
+        <li>Spedizione · Gratis sopra 49,90€ · <b>Sempre gratuita</b></li>
+        <li>Costo attivazione · — · <b>0€</b></li>
+        <li>Vincoli di durata · — · <b>Nessuno · annulli quando vuoi</b></li>
+        <li>Salta una consegna · — · <b>Sì · 1 clic</b></li>
+        <li>Pausa fino 6 mesi · — · <b>Sì · senza penali</b></li>
+        <li>Modifica quantità/frequenza · — · <b>Sì · sempre</b></li>
+        <li>Reminder pre-spedizione · — · <b>Email 48h prima</b></li>
+        <li>Programma Fedeltà · Normale · <b>Doppi punti</b></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SEZIONE 6: CATEGORIES -->
+  <div class="section-step">
+    <div class="section-step-n">⑥</div>
+    <div>
+      <h3>Sezione 6 — Categorie consigliate (6 card)</h3>
+      <div class="pillrow">
+        <span class="pill pill-blue">Layout: 3 colonne × 2 righe</span>
+        <span class="pill pill-blue">Widget: Icon Box ciascuna</span>
+      </div>
+      <p class="small">6 <b>Icon Box</b>, uno per categoria. Icona quadrata 56×56 con gradiente di sfondo. Link diretto alla categoria WooCommerce.</p>
+      <p class="small mt-2"><b>Categorie + URL:</b></p>
+      <ul style="font-size:13.5px;">
+        <li>☕ <b>Caffè & Capsule</b> → <code>/categoria/caffe/</code></li>
+        <li>🐾 <b>Antiparassitari & Pet</b> → <code>/categoria/animali-domestici/</code></li>
+        <li>🌾 <b>Farine & Lieviti</b> → <code>/categoria/farine/</code></li>
+        <li>🚗 <b>Olio motore & Additivi</b> → <code>/categoria/auto-moto/</code></li>
+        <li>🏠 <b>Detergenti & Casa</b> → <code>/categoria/casa-e-cucina/</code></li>
+        <li>🌱 <b>Concimi & Giardinaggio</b> → <code>/categoria/giardinaggio/</code></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SEZIONE 7: TESTIMONIALS -->
+  <div class="section-step">
+    <div class="section-step-n">⑦</div>
+    <div>
+      <h3>Sezione 7 — Testimonial (3 storie)</h3>
+      <div class="pillrow">
+        <span class="pill pill-blue">Widget: Testimonial (Free) × 3 in colonne</span>
+        <span class="pill pill-yellow">Oppure Carousel (Pro)</span>
+      </div>
+      <p class="small"><b>Copy dei 3 testimonial:</b></p>
+      <ol style="font-size:13.5px;">
+        <li>"<i>Ricevo le mie capsule Borbone ogni 5 settimane senza pensarci. Il 2% extra fa la differenza, ma soprattutto non resto mai a secco la domenica mattina.</i>" — <b>Giulia M.</b>, Caffè Borbone Blu · 8 mesi</li>
+        <li>"<i>Per il mio cane uso Frontline ogni mese. Con l'abbonamento arriva da solo e risparmio anche la spedizione. Tempo zero, soldi risparmiati.</i>" — <b>Antonio R.</b>, Frontline Combo · 1 anno</li>
+        <li>"<i>Faccio pizza ogni weekend. Caputo Nuvola in abbonamento è perfetto.</i>" — <b>Marco V.</b>, Farina Caputo · 6 mesi</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- SEZIONE 8: FAQ -->
+  <div class="section-step">
+    <div class="section-step-n">⑧</div>
+    <div>
+      <h3>Sezione 8 — FAQ (8 domande)</h3>
+      <div class="pillrow">
+        <span class="pill pill-blue">Widget: Accordion / Toggle (Free)</span>
+      </div>
+      <p class="small">Inserisci 8 items in 1 widget <b>Accordion</b>. Domande:</p>
+      <ol style="font-size:13.5px;">
+        <li>Quanto costa attivare l'abbonamento?</li>
+        <li>Posso annullare quando voglio?</li>
+        <li>Cosa succede se voglio saltare una consegna?</li>
+        <li>Posso modificare il prodotto in abbonamento?</li>
+        <li>Il prezzo può aumentare in futuro?</li>
+        <li>Come funziona il pagamento?</li>
+        <li>L'abbonamento si applica a tutti i prodotti Rocard?</li>
+        <li>Il programma Fedeltà funziona anche con l'abbonamento?</li>
+      </ol>
+      <p class="small mt-2"><b>Risposte complete</b> nel <a href="./elementor/abbonamento-rocard.html" target="_blank">codice di Opzione A</a> (sezione FAQ).</p>
+    </div>
+  </div>
+
+  <!-- SEZIONE 9: FINAL CTA -->
+  <div class="section-step">
+    <div class="section-step-n">⑨</div>
+    <div>
+      <h3>Sezione 9 — Final CTA</h3>
+      <div class="pillrow">
+        <span class="pill pill-blue">Background giallo soft con bordo</span>
+        <span class="pill pill-blue">Heading + 2 CTA + 4 trust badge</span>
+      </div>
+      <p class="small"><b>Copy:</b></p>
+      <ul style="font-size:13.5px;">
+        <li><b>Heading:</b> "Pronto a non pensarci più?"</li>
+        <li><b>Sub:</b> "Attiva il tuo primo abbonamento in 30 secondi. Senza impegno. Risparmi dal primo ordine."</li>
+        <li><b>CTA primary:</b> "Attiva ora · è gratis" → <code>/shop/</code></li>
+        <li><b>CTA ghost:</b> "Ricalcola risparmio" → <code>#rc-abb-calc</code></li>
+        <li><b>Trust strip:</b> 4 icon-text → SSL 256-bit · Annulli 1 clic · Supporto 24/7 · 4,8/5 Trusted Shops</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- WOOCOMMERCE INTEGRATION -->
+  <h2 style="margin-top: 40px;"><i class="fas fa-shopping-bag text-rocard"></i> Bonus · Integrazione WooCommerce</h2>
+  <p>Per aggiungere prodotti reali abbonabili direttamente nella landing:</p>
+
+  <div class="opt-card">
+    <h3>Aggiungi una griglia prodotti con 1 shortcode</h3>
+    <p class="small">Dopo la sezione "Categorie", aggiungi un widget <b>"Shortcode"</b> Elementor e inserisci:</p>
+    <div class="code" style="background:#0E1A2A; color:#E8F3FB; padding:14px; border-radius:8px; font-family: 'JetBrains Mono', monospace; font-size:13px;">[products limit="4" columns="4" category="caffe" orderby="popularity"]</div>
+    <p class="small mt-3"><b>Varianti utili:</b></p>
+    <ul style="font-size:13.5px;">
+      <li><code>[products limit="6" category="caffe,animali-domestici" tag="abbonabile"]</code> — prodotti taggati "abbonabile"</li>
+      <li><code>[products ids="1234,5678,9012" columns="3"]</code> — prodotti specifici per ID</li>
+      <li><code>[products on_sale="true" limit="6"]</code> — prodotti in offerta</li>
+    </ul>
+    <div class="alert-tip">
+      <b>Tip:</b> in WooCommerce → ogni prodotto, abilita "Iscriviti e risparmia" da tab <b>Subscription</b> (WooCommerce Subscriptions). Imposta sconto -2% e frequenza default mensile.
+    </div>
+  </div>
+
+  <!-- TRACKING -->
+  <h2 style="margin-top: 40px;"><i class="fas fa-chart-line text-rocard"></i> Tracking conversioni · GA4 + Meta Pixel</h2>
+  <p>Eventi da configurare in GTM (Google Tag Manager) per misurare l'efficacia:</p>
+  <ul style="line-height:1.85;">
+    <li><b><code>view_subscription_landing</code></b> — page view della landing (auto trigger su Pageview)</li>
+    <li><b><code>rc_calc_used</code></b> — utente interagisce col calcolatore (trigger su input/change)</li>
+    <li><b><code>rc_cta_clicked</code></b> — click "Attiva ora" o "Calcola" (trigger su Click su rc-abb-btn)</li>
+    <li><b><code>begin_checkout</code></b> — utente arriva al carrello da questa landing (Source tracking via UTM)</li>
+    <li><b><code>purchase</code></b> con custom dimension <code>source: subscription_landing</code> (per attribuire i ricavi)</li>
+  </ul>
+
+  <!-- FINALE -->
+  <section style="text-align:center; margin: 50px 0;">
+    <h2>Tutto chiaro?</h2>
+    <p class="muted">Apri il codice e prova subito.</p>
+    <div style="display:flex; gap:10px; justify-content:center; margin-top: 20px; flex-wrap:wrap;">
+      <a href="./elementor/abbonamento-rocard.html" target="_blank" class="btn btn-primary btn-lg">
+        <i class="fas fa-code"></i> Apri codice da copiare
+      </a>
+      <a href="./subscription.html" target="_blank" class="btn btn-ghost btn-lg">
+        <i class="fas fa-eye"></i> Vedi anteprima landing
+      </a>
+      <a href="./index.html" class="btn btn-ghost btn-lg">
+        <i class="fas fa-grip"></i> Hub studio CRO
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="r-footer">
+  © 2026 Rocard · Guida Elementor v1.0 · <a href="./index.html">← Studio CRO</a>
+</footer>
+
+</body></html>
